@@ -1,0 +1,101 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { logoPaths } from './LogoPaths';
+
+export interface Props {
+	logo: keyof typeof logoPaths;
+	color?: string;
+	gradient?: boolean;
+	size?: string;
+	class?: string;
+	width?: string;
+	height?: string;
+	viewBox?: string;
+}
+
+const { class: className, width: logoWidth, height: logoHeight, viewBox: viewBoxSize, ...rest } = Astro.props;
+
+
+const { color = 'currentcolor', gradient, logo, size } = Astro.props;
+const logoPath = logoPaths[logo];
+
+const attrs: HTMLAttributes<'svg'> = {};
+// if (size) attrs.style = { '--size': size };
+// if (size) attrs.style = { '--logosize': size };
+
+const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString(36);
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width={logoWidth}
+	height={logoHeight}
+	viewBox={viewBoxSize}
+	aria-hidden="true"
+	class={className}
+	stroke={gradient ? `url(#${gradientId})` : color}
+	fill={gradient ? `url(#${gradientId})` : color}
+	{...attrs}
+>
+	<g set:html={logoPath} />
+	{
+		gradient && (
+			<linearGradient
+				id={gradientId}
+				x1="23"
+				x2="235"
+				y1="43"
+				y2="202"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stop-color="var(--gradient-stop-1)" />
+				<stop offset=".5" stop-color="var(--gradient-stop-2)" />
+				<stop offset="1" stop-color="var(--gradient-stop-3)" />
+			</linearGradient>
+		)
+	}
+</svg>
+
+<style>	
+	svg.logo  {
+		vertical-align: middle;
+		width: var(--logosizew, 200px);
+		height: var(--logosizeh, 60px);
+	}
+	svg.logo,
+	svg.footer_logo {	
+		transition: var(--ease);
+		transform: scale(1);
+		transform-origin: left;
+	}
+
+	svg.footer_logo  {
+		vertical-align: middle;
+		width: 75px /* var(--logosizew, 100px) */;
+		height: 45px /* var(--logosizeh, 30px) */;
+	}
+	
+
+	/* req js added class */
+	.active svg.logo { 
+		transform: scale(0.8) !important;
+		transform-origin: left;
+	}
+
+
+  /* gradient */
+  .logo stop { transition: .5s all; }
+
+  .logo:hover stop:first-child { 
+    /* offset:.5; */
+    stop-color: var(--gradient-stop-3); 
+  }
+  .logo:hover stop:nth-child(2) { 
+    /* offset:.5; */
+    stop-color: var(--gradient-stop-2); 
+  }
+  .logo:hover stop:last-child { 
+    offset:.75;
+    stop-color: var(--gradient-stop-1); 
+  }
+</style>

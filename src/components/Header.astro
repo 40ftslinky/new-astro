@@ -1,0 +1,61 @@
+---
+import Hamburger from './Hamburger.astro';
+import Navigation from './Navigation.astro';
+// import ThemeIcon from './ThemeIcon.astro';
+// import Logo, { Props as LogoProps } from './Logo.astro';
+import Logo from './Logo.astro';
+
+---
+
+<header>
+    <nav>
+        <a href="/" class="site-title">
+			<Logo class="logo" viewBox="0 0 200 60" logo="logoMain" color="var(--accent-regular)" gradient />
+            <span class="sr-only">40ft Slinky</span>
+			<!-- 40ftSlinky -->
+		</a>
+        <Hamburger />
+        <!-- <ThemeIcon /> -->
+        <Navigation />
+    </nav>
+</header>
+
+<!-- CSS -->
+
+<style is:global>
+	/*  */
+	:root{ 
+		--ease: all 300ms ease;
+		/* --nav_hght: 100px; */
+	}
+	
+	.active svg.logo { 
+		transform: scale(0.8) !important;
+        transform-origin: left;
+	}
+
+    nav a.site-title svg.logo {
+        transition: var(--ease);
+        transform: scale(1);
+        transform-origin: left;
+    }
+
+    /* req js added class */
+    nav.active svg.logo { 
+        transform: scale(0.8);
+        transform-origin: left;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+</style>

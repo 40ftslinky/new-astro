@@ -1,0 +1,131 @@
+---
+
+
+/** Main menu items */
+const textLinks: { label: string; href: string }[] = [
+	// { label: 'Home', href: '/' },
+	{ label: 'Projects', href: '/projects' },
+	{ label: 'About', href: '/about' },
+	{ label: 'Contact', href: '/contact' },
+	// { label: 'Tags', href: '/tags' },
+];
+
+---
+
+<div id="menu-content" class="nav-links">
+
+    <ul class="nav-items">
+			{
+				textLinks.map(({ label, href }) => (
+					<li>
+						<a
+							aria-current={Astro.url.pathname === href}
+							class:list={[
+								'link',
+								{
+									active:
+										Astro.url.pathname === href ||
+										(href !== '/' && Astro.url.pathname.startsWith(href)),
+								},
+							]}
+							href={href}
+						>
+							{label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+    <!-- <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/projects">Projects</a>
+    <a href="/tags">Tags</a> -->
+</div>
+
+<!-- STYLE -->
+
+<style>
+
+
+#menu-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* right: 0; */
+    width: 100%;
+    /* height: 100vh; */
+    background: var(--gradient-accent);
+    z-index: -1;
+}
+
+#menu-content.expanded {
+	display: flex;
+	top: var(--header-height);
+	height: calc(100vh - var(--header-height));
+}
+
+
+
+.nav-links {
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    background-color: #ff9776;
+    display: none;
+    margin: 0;
+  }
+  
+.nav-links a {
+	display: block;
+	text-align: center;
+	padding: 10px 0;
+	text-decoration: none;
+	/* font-size: 1.2rem; */
+	font-size: var(--text-xl);
+	font-weight: var(--font-weight-medium);
+	/* text-transform: uppercase; */
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+	
+}
+
+.nav-links a.active {
+	font-weight: var(--font-weight-bold);
+}
+
+.nav-links a.active:hover,
+.nav-links a.active:focus {
+	
+}
+
+
+@media screen and (min-width: 1000px) {
+
+
+	#menu-content {
+		display: contents;
+		height: 100vh;
+		background: var(--gradient-accent);
+		z-index: -1;
+	}
+
+    .nav-links {
+		/* margin-left: 5em; */
+		display: block;
+		position: static;
+		width: auto;
+		background: none;
+    }
+  
+    .nav-links a {
+		display: inline-block;
+		padding: 1rem 1.5rem;
+    }
+
+}
+
+
+</style>

@@ -1,11 +1,32 @@
 ---
 import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+
+const uniqueID = "home";
+const pageTitle = "40ftSlinky - Creative Agency";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+const pageHead = "Transforming your brand to reach the next level.";
+const pageDesc = "40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.";
+// a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
+const pageContent = "";
+// const ctaText = "Get in touch";
+// const ctaLink = "/contact";
+
 ---
 
-<Layout>
+<BaseLayout 
+	uniqueID={uniqueID} 
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead}
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
 	<Welcome />
-</Layout>
+</BaseLayout>

@@ -1,0 +1,97 @@
+---
+
+
+// Components
+// import Meta from '../components/Meta.astro';
+import Header from '../components/Header.astro';
+// import Footer from '../components/Footer.astro';
+
+// styles
+import '../styles/global.css';
+import '../styles/navigation.css';
+import '../styles/typography.css';
+import '../styles/colours.css';
+
+// assets
+// import background from '../assets/noise.png';
+
+
+interface Props {
+	uniqueID?: string | undefined;
+	pageTitle?: string | undefined;
+	metaTitle?: string | undefined;
+	metaDescription?: string | undefined;
+	pageHead?: string | undefined;
+	pageDesc?: string | undefined;
+	pageContent?: string | undefined;
+	ctaText?: string | undefined;
+	ctaLink?: string | undefined;
+}
+
+const { uniqueID, pageTitle, metaTitle, metaDescription, pageHead, pageDesc, pageContent, ctaText, ctaLink } = Astro.props;
+
+---
+
+
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="title" content={metaTitle} /> 
+    <meta name="description" content={metaDescription} />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>{pageTitle}</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+	</head>
+
+
+	<body id={uniqueID}>
+		<div class="noise" ></div>
+		<div class="overlay_effect"></div>
+
+		<!-- header -->
+		<Header />
+
+		<!-- slot -->
+		<slot />
+
+
+	<!-- <Footer /> -->
+    <script is:inline>
+      // This code is inlined in the head to make it instant & blocking.
+
+    </script>
+    
+    <!-- relative path to script at `src/scripts/local.js` -->
+    <!-- <script src="../scripts/scroll.js"></script> -->
+ 
+    <script >
+      import "../scripts/menu.js";
+      import "../scripts/scroll.js";
+    </script>  
+	
+	</body>
+
+
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

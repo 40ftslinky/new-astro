@@ -1,0 +1,49 @@
+---
+// import Icon, { Props as IconProps } from './Icon.astro';
+
+---
+<div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+</div>
+
+<!-- <Icon icon="list" class="hamburger"/> -->
+
+<style>
+
+
+  .hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    display: block;
+    width: 3rem;
+    height: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: .125rem;
+    background-color: var(--accent-regular);
+  }
+  
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    /* .hamburger .line {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #000;
+    } */
+    /* @media (max-width: 768px) { */
+    @media (min-width: 1000px) {
+        .hamburger {
+            display: none;
+        }
+        /* .nav {
+            display: none;
+        } */
+    }

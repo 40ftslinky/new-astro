@@ -1,0 +1,35 @@
+---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const uniqueID = "about";
+const pageTitle = "About";
+const metaTitle = "About meta Title tbc";
+const metaDescription = "About page meta description tbc";
+const pageHead = "About Heading";
+const pageDesc = "About page description tbc";
+const pageContent = "About page content tbc";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID} 
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead}
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+	<section>
+
+		<h2>{pageHead}</h2>
+
+		<p>{pageDesc}</p>
+
+		
+	</section>
+
+	
+
+</BaseLayout>

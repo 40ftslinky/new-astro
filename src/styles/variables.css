@@ -1,0 +1,92 @@
+:root {
+    --heading-color: #241c15;
+    --copy-color: #241c15;
+    --copy-color-light: rgba(36,28,21,0.65);
+    --display-text-size: 12vw;
+    --h1-size: 9.6vw;
+    --h2-size: 7.5vw;
+    --h3-size: 6vw;
+    --h4-size: 4.5vw;
+    --h5-size: 4.5vw;
+    --h6-size: 1rem;
+    --display-text-line: 1.125;
+    --h1-line: 1;
+    --h2-line: 1;
+    --h3-line: 1.25;
+    --h4-line: 1.25;
+    --h5-line: 1.33333333;
+    --h6-line: 1.5;
+    --copy-jumbo-size: 2.375rem;
+    --copy-large-size: 1.125rem;
+    --copy-medium-size: 1rem;
+    --copy-regular-size: 1em;
+    --copy-small-size: 1rem;
+    --copy-info-size: 0.8125rem;
+    --copy-legal-size: 0.6875rem;
+    --copy-jumbo-line: 1;
+    --copy-large-line: 1.33333333;
+    --copy-medium-line: 1.5;
+    --copy-regular-line: 1.5;
+    --copy-small-line: 1.5;
+    --copy-info-line: 1.25;
+    --copy-legal-line: 1.45454545;
+}
+
+@media screen and (min-width: 36em) {
+    :root {
+        --display-text-size: 8vw;
+        --h1-size: 6vw;
+        --h2-size: 5vw;
+        --h3-size: 4vw;
+        --h4-size: 4vw;
+        --h5-size: 3vw;
+        --h6-size: 1.25rem;
+        --display-text-line: 1.5;
+        --h6-line: 1.2;
+        --copy-jumbo-size: 4.375rem;
+        --copy-large-size: 1.5rem;
+        --copy-medium-size: 1.25rem;
+        --copy-jumbo-line: 1;
+        --copy-large-line: 1.33333333;
+        --copy-medium-line: 1.4;
+        --copy-small-line: 1.75;
+    }
+}
+
+@media screen and (min-width: 62em) {
+    :root {
+        --display-text-size: 4.5vw;
+        --h1-size: 3.6vw;
+        --h2-size: 3vw;
+        --h3-size: 2.75vw;
+        --h4-size: 2.75vw;
+        --h5-size: 2.25vw;
+        --copy-jumbo-size: 5rem;
+    }
+}
+
+@media screen and (min-width: 75em) {
+    :root {
+        --h1-size: 3.3vw;
+        --h2-size: 2.75vw;
+        --h3-size: 2.25vw;
+        --h4-size: 2.25vw;
+        --h5-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 88.88888889em) {
+    :root {
+        --display-text-size: 4rem;
+        --h1-size: 3rem;
+        --h2-size: 2.5rem;
+        --h3-size: 2rem;
+        --h4-size: 2rem;
+        --h5-size: 1.5rem;
+    }
+}
+
+.copy-medium, .copy-medium p:not([class]) {
+    font-size: var(--copy-medium-size);
+    line-height: var(--copy-medium-line);
+}
