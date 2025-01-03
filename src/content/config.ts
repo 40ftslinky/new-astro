@@ -41,18 +41,18 @@ const projects = defineCollection({
 // image and video are optional fields, so they are wrapped in z.object().optional().
 
 const projectImages = defineCollection({
-    schema: ({ image }) => z.object({
-      projectTitle: z.string(),
-      projectImage: z.array(
-        image: z.object({
-        url: z.string().optional(),
-        alt: z.string(),
-        width: z.string(),
-        height: z.string(),
-    }).optional()),
-      imagesAlt: z.string(),
+    loader: glob({ 
+        pattern: "**/*.{jpg,jpeg,png}",
+        base: "src/content/projects/images" 
     }),
-  });
+    schema: z.object({
+        uniqueID: z.string(),
+        title: z.string(),
+        pubDate: z.coerce.date(),
+        head: z.string(),
+        description: z.string(),
+    })
+});
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
