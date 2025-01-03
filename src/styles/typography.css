@@ -4,10 +4,12 @@
 
 :root {
   --rem-base: 62.5%;
-  --font-size-small: var(--font-text-body-sm-mobile-font-size);
-  --font-size-body: var(--font-text-body-base-mobile-font-size);
-  --font-size-large: var(--font-text-body-lg-mobile-font-size);
+  --font-size-small: var(--font-size-body-sm-mobile);
+  --font-size-body: var(--font-size-body-base-mobile);
+  --font-size-large: var(--font-size-body-lg-mobile);
+  --font-size-footer: var(--font-size-body-sm-mobile);
   --line-height-small: 1.14;
+  --line-height-regular: 1.2;
   --line-height-body: 1.4;
   --line-height-large: 1.45;
   --font-weight-regular: var(--font-weight-regular);
@@ -17,12 +19,12 @@
   --letter-spacing-body: -0.01em;
   --letter-spacing-large: -0.04em;
   --font-family: var(--font-family-body);
-  --font-size-h1: var(--font-text-heading-xxl-mobile-font-size);
-  --font-size-h2: var(--font-text-heading-xl-mobile-font-size);
-  --font-size-h3: var(--font-text-heading-lg-mobile-font-size);
-  --font-size-h4: var(--font-text-heading-md-mobile-font-size);
-  --font-size-h5: var(--font-text-heading-sm-mobile-font-size);
-  --font-size-h6: var(--font-text-heading-xs-mobile-font-size);
+  --font-size-h1: var(--font-size-heading-xxl-mobile);
+  --font-size-h2: var(--font-size-heading-xl-mobile);
+  --font-size-h3: var(--font-size-heading-lg-mobile);
+  --font-size-h4: var(--font-size-heading-md-mobile);
+  --font-size-h5: var(--font-size-heading-sm-mobile);
+  --font-size-h6: var(--font-size-heading-xs-mobile);
   --line-height-h1: 0.9;
   --line-height-h2: 1.1;
   --line-height-h3: 1.1;
@@ -44,31 +46,67 @@
 }
 @media only screen and (min-width: 480px) {
   :root {
-      --font-size-h1: var(--font-text-heading-xxl-portrait-font-size);
+      --font-size-h1: var(--font-size-heading-xxl-portrait);
   }
 }
 
 @media only screen and (min-width: 1024px) {
   :root {
-      --font-size-h1: var(--font-text-heading-xxl-desktop-font-size);
+      --font-size-h1: var(--font-size-heading-xxl-desktop);
   }
 }
 
 @media only screen and (min-width: 1280px) {
   :root {
-      --font-size-small: var(--font-text-body-sm-desktop-font-size);
-      --font-size-body: var(--font-text-body-base-desktop-font-size);
-      --font-size-large: var(--font-text-body-lg-desktop-font-size);
+      --font-size-small: var(--font-size-body-sm-desktop);
+      --font-size-body: var(--font-size-body-base-desktop);
+      --font-size-large: var(--font-size-body-lg-desktop);
   }
 }
 @media only screen and (min-width: 1280px) {
   :root {
-      --font-size-h2: var(--font-text-heading-xl-desktop-font-size);
-      --font-size-h3: var(--font-text-heading-lg-desktop-font-size);
-      --font-size-h4: var(--font-text-heading-md-desktop-font-size);
-      --font-size-h5: var(--font-text-heading-sm-desktop-font-size);
-      --font-size-h6: var(--font-text-heading-xs-desktop-font-size);
+      --font-size-h2: var(--font-size-heading-xl-desktop);
+      --font-size-h3: var(--font-size-heading-lg-desktop);
+      --font-size-h4: var(--font-size-heading-md-desktop);
+      --font-size-h5: var(--font-size-heading-sm-desktop);
+      --font-size-h6: var(--font-size-heading-xs-desktop);
   }
+}
+
+:root {
+  --font-size-xxs: 1.1rem;
+  --font-size-xs: 1.4rem;
+  --font-size-sm: 1.6rem;
+  --font-size-md: 1.8rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.2rem;
+  --font-size-xxl: 2.4rem;
+  --font-size-3xl: 2.8rem;
+  --font-size-4xl: 3.4rem;
+  --font-size-5xl: 3.8rem;
+  --font-size-6xl: 4rem;
+  --font-size-7xl: 4.2rem;
+  --font-size-8xl: 4.6rem;
+  --font-size-9xl: 6.25vw;
+  --font-size-body-sm-mobile: 1.1rem;
+  --font-size-body-sm-desktop: 1.4rem;
+  --font-size-body-base-mobile: 1.4rem;
+  --font-size-body-base-desktop: 1.8rem;
+  --font-size-body-lg-mobile: 1.8rem;
+  --font-size-body-lg-desktop: 2.2rem;
+  --font-size-heading-xs-mobile: 1.6rem;
+  --font-size-heading-xs-desktop: 2.2rem;
+  --font-size-heading-sm-mobile: 1.8rem;
+  --font-size-heading-sm-desktop: 2.2rem;
+  --font-size-heading-md-mobile: 2rem;
+  --font-size-heading-md-desktop: 2.8rem;
+  --font-size-heading-lg-mobile: 2.2rem;
+  --font-size-heading-lg-desktop: 3.8rem;
+  --font-size-heading-xl-mobile: 2.4rem;
+  --font-size-heading-xl-desktop: 4.2rem;
+  --font-size-heading-xxl-mobile: 4rem;
+  --font-size-heading-xxl-portrait: 4.6rem;
+  --font-size-heading-xxl-desktop: 6.25vw;
 }
 /*  */
 
@@ -163,6 +201,42 @@ sup {
   line-height: var(--line-height-h6)
 }
 
+.footer,footer {
+  font-size: var(--font-size-footer);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  line-height: var(--line-height-regular)
+}
+
+
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: 
+    linear-gradient(
+      45deg, 
+      rgb(var(--accent)), 
+      #da62c4 30%, 
+      white 60%);
+}
+
+.text-gradient {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+  padding-bottom: 2rem;
+}
+
+::-moz-selection.text-gradient,
+::selection.text-gradient { /* Code for Firefox */
+color: white;
+background: var(--selection-color);
+background-image: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
 
 /*  */
 @media only screen and (min-width: 1920px) {
@@ -173,142 +247,146 @@ sup {
 
 :root {
 
---layout-grid-columns-small: 6;
---layout-grid-columns-large: 12;
---layout-z-index-z-neg-3: -300;
---layout-z-index-z-neg-2: -200;
---layout-z-index-z-neg-1: -100;
---layout-z-index-z-0: 0;
---layout-z-index-z-1: 100;
---layout-z-index-z-2: 200;
---layout-z-index-z-3: 300;
---layout-z-index-z-4: 400;
---layout-z-index-z-5: 500;
---layout-z-index-z-6: 600;
---layout-z-index-z-7: 700;
---layout-z-index-z-8: 800;
---layout-z-index-z-9: 900;
---layout-z-index-z-10: 1000;
---layout-z-index-bottom-panel: 700;
---layout-z-index-header: 800;
---layout-z-index-overlay: 900;
---layout-z-index-menu: 1000;
---size-font-xxs: 1.1rem;
---size-font-xs: 1.4rem;
---size-font-sm: 1.6rem;
---size-font-md: 1.8rem;
---size-font-lg: 2rem;
---size-font-xl: 2.2rem;
---size-font-xxl: 2.4rem;
---size-font-3xl: 2.8rem;
---size-font-4xl: 3.4rem;
---size-font-5xl: 3.8rem;
---size-font-6xl: 4rem;
---size-font-7xl: 4.2rem;
---size-font-8xl: 4.6rem;
---size-font-9xl: 6.25vw;
---size-line-height-base: 1.6rem;
---size-line-height-mobile-xs: 1.2rem;
---size-line-height-mobile-small: 1.6rem;
---size-line-height-mobile-medium: 2rem;
---size-line-height-mobile-large: 2.4rem;
---size-line-height-mobile-xl: 2.6rem;
---size-line-height-mobile-2xl: 2.8rem;
---size-line-height-mobile-3xl: 3.2rem;
---size-line-height-mobile-4xl: 3.6rem;
---size-line-height-desktop-xs: 1.2rem;
---size-line-height-desktop-small: 1.4rem;
---size-line-height-desktop-medium: 2rem;
---size-line-height-desktop-large: 2.4rem;
---size-line-height-desktop-xl: 3.2rem;
---size-line-height-desktop-2xl: 3.8rem;
---size-line-height-desktop-3xl: 4rem;
---size-line-height-desktop-4xl: 4.4rem;
---size-line-height-desktop-5xl: 5.2rem;
---size-line-height-desktop-6xl: 6rem;
---size-line-height-desktop-7xl: 6.8rem;
---size-line-height-desktop-8xl: 7.6rem;
---size-grid-gutter-mobile: 1.6rem;
---size-grid-gutter-desktop: 2rem;
---size-grid-width: 100vw;
---size-grid-height: 100vh;
---size-grid-padding-mobile: 5.4vw;
---size-grid-padding-desktop: 8rem;
---size-spacing-section-fixed-sm: 6rem;
---size-spacing-section-fixed-md: 8rem;
---size-spacing-section-fixed-lg: 14rem;
---size-spacing-section-variable-xs: 4.1vw;
---size-spacing-section-variable-sm: 7.8vw;
---size-spacing-section-variable-md: 10.4vw;
---size-spacing-section-variable-lg: 12.5vw;
---size-spacing-section-variable-xl: 18.2vw;
---size-spacing-section-intro-sm-mobile: 6rem;
---size-spacing-section-intro-sm-desktop: 4.1vw;
---size-spacing-section-intro-lg-mobile: 6rem;
---size-spacing-section-intro-lg-desktop: 7.8vw;
---size-spacing-section-page-mobile: 12.5vw;
---size-spacing-section-page-desktop: 12.5vw;
---size-spacing-section-casestudy-mobile: 14rem;
---size-spacing-section-casestudy-desktop: 18.2vw;
---size-spacing-section-service-mobile: 8rem;
---size-spacing-section-service-desktop: 10.4vw;
---size-spacing-section-industry-mobile: 8rem;
---size-spacing-section-industry-desktop: 10.4vw;
---size-spacing-section-blog-mobile: 10.4vw;
---size-spacing-section-blog-desktop: 10.4vw;
---size-spacing-section-thinking-mobile: 12.5vw;
---size-spacing-section-thinking-desktop: 12.5vw;
---size-spacing-metabar-mobile: 6rem;
---size-spacing-metabar-desktop: 8.5rem;
---time-transition-100: 0.1s;
---time-transition-125: 0.13s;
---time-transition-150: 0.15s;
---time-transition-200: 0.2s;
---time-transition-250: 0.25s;
---time-transition-350: 0.35s;
---time-transition-500: 0.5s;
---time-transition-550: 0.55s;
---time-transition-650: 0.65s;
---time-transition-750: 0.75s;
---time-transition-1000: 1s;
---time-transition-none: 0s;
---time-delay-25: 0.03s;
---time-delay-100: 0.1s;
---time-delay-200: 0.2s;
---time-delay-250: 0.25s;
---time-delay-350: 0.35s;
---time-delay-375: 0.38s;
---time-delay-500: 0.5s;
---time-delay-600: 0.6s;
---time-delay-750: 0.75s;
---time-delay-1000: 1s;
---time-delay-initial: 0.5s;
---time-delay-none: 0s;
---font-family-grotesk: Schibsted Grotesk;
---font-family-body: "Schibsted Grotesk", sans-serif;
---font-weight-regular: 300;
---font-weight-medium: 400;
---font-weight-bold: 700;
---font-weight-heavy: 900;
---font-text-body-sm-mobile-font-size: 1.1rem;
---font-text-body-sm-desktop-font-size: 1.4rem;
---font-text-body-base-mobile-font-size: 1.4rem;
---font-text-body-base-desktop-font-size: 1.8rem;
---font-text-body-lg-mobile-font-size: 1.8rem;
---font-text-body-lg-desktop-font-size: 2.2rem;
---font-text-heading-xs-mobile-font-size: 1.6rem;
---font-text-heading-xs-desktop-font-size: 2.2rem;
---font-text-heading-sm-mobile-font-size: 1.8rem;
---font-text-heading-sm-desktop-font-size: 2.2rem;
---font-text-heading-md-mobile-font-size: 2rem;
---font-text-heading-md-desktop-font-size: 2.8rem;
---font-text-heading-lg-mobile-font-size: 2.2rem;
---font-text-heading-lg-desktop-font-size: 3.8rem;
---font-text-heading-xl-mobile-font-size: 2.4rem;
---font-text-heading-xl-desktop-font-size: 4.2rem;
---font-text-heading-xxl-mobile-font-size: 4rem;
---font-text-heading-xxl-portrait-font-size: 4.6rem;
---font-text-heading-xxl-desktop-font-size: 6.25vw;
+  --layout-grid-columns-small: 6;
+  --layout-grid-columns-large: 12;
+  --layout-z-index-z-neg-3: -300;
+  --layout-z-index-z-neg-2: -200;
+  --layout-z-index-z-neg-1: -100;
+  --layout-z-index-z-0: 0;
+  --layout-z-index-z-1: 100;
+  --layout-z-index-z-2: 200;
+  --layout-z-index-z-3: 300;
+  --layout-z-index-z-4: 400;
+  --layout-z-index-z-5: 500;
+  --layout-z-index-z-6: 600;
+  --layout-z-index-z-7: 700;
+  --layout-z-index-z-8: 800;
+  --layout-z-index-z-9: 900;
+  --layout-z-index-z-10: 1000;
+  --layout-z-index-bottom-panel: 700;
+  --layout-z-index-header: 800;
+  --layout-z-index-overlay: 900;
+  --layout-z-index-menu: 1000;
+  --font-size-xxs: 1.1rem;
+  --font-size-xs: 1.4rem;
+  --font-size-sm: 1.6rem;
+  --font-size-md: 1.8rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.2rem;
+  --font-size-xxl: 2.4rem;
+  --font-size-3xl: 2.8rem;
+  --font-size-4xl: 3.4rem;
+  --font-size-5xl: 3.8rem;
+  --font-size-6xl: 4rem;
+  --font-size-7xl: 4.2rem;
+  --font-size-8xl: 4.6rem;
+  --font-size-9xl: 6.25vw;
+  
+  --font-family-grotesk: Schibsted Grotesk;
+  --font-family-body: "Schibsted Grotesk", sans-serif;
+  --font-weight-regular: 300;
+  --font-weight-medium: 400;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 900;
+  --font-size-body-sm-mobile: 1.1rem;
+  --font-size-body-sm-desktop: 1.4rem;
+  --font-size-body-base-mobile: 1.4rem;
+  --font-size-body-base-desktop: 1.8rem;
+  --font-size-body-lg-mobile: 1.8rem;
+  --font-size-body-lg-desktop: 2.2rem;
+  --font-size-heading-xs-mobile: 1.6rem;
+  --font-size-heading-xs-desktop: 2.2rem;
+  --font-size-heading-sm-mobile: 1.8rem;
+  --font-size-heading-sm-desktop: 2.2rem;
+  --font-size-heading-md-mobile: 2rem;
+  --font-size-heading-md-desktop: 2.8rem;
+  --font-size-heading-lg-mobile: 2.2rem;
+  --font-size-heading-lg-desktop: 3.8rem;
+  --font-size-heading-xl-mobile: 2.4rem;
+  --font-size-heading-xl-desktop: 4.2rem;
+  --font-size-heading-xxl-mobile: 4rem;
+  --font-size-heading-xxl-portrait: 4.6rem;
+  --font-size-heading-xxl-desktop: 6.25vw;
+}
+
+:root {
+  --size-line-height-base: 1.6rem;
+  --size-line-height-mobile-xs: 1.2rem;
+  --size-line-height-mobile-small: 1.6rem;
+  --size-line-height-mobile-medium: 2rem;
+  --size-line-height-mobile-large: 2.4rem;
+  --size-line-height-mobile-xl: 2.6rem;
+  --size-line-height-mobile-2xl: 2.8rem;
+  --size-line-height-mobile-3xl: 3.2rem;
+  --size-line-height-mobile-4xl: 3.6rem;
+  --size-line-height-desktop-xs: 1.2rem;
+  --size-line-height-desktop-small: 1.4rem;
+  --size-line-height-desktop-medium: 2rem;
+  --size-line-height-desktop-large: 2.4rem;
+  --size-line-height-desktop-xl: 3.2rem;
+  --size-line-height-desktop-2xl: 3.8rem;
+  --size-line-height-desktop-3xl: 4rem;
+  --size-line-height-desktop-4xl: 4.4rem;
+  --size-line-height-desktop-5xl: 5.2rem;
+  --size-line-height-desktop-6xl: 6rem;
+  --size-line-height-desktop-7xl: 6.8rem;
+  --size-line-height-desktop-8xl: 7.6rem;
+  --size-grid-gutter-mobile: 1.6rem;
+  --size-grid-gutter-desktop: 2rem;
+  --size-grid-width: 100vw;
+  --size-grid-height: 100vh;
+  --size-grid-padding-mobile: 5.4vw;
+  --size-grid-padding-desktop: 8rem;
+  --size-spacing-section-fixed-sm: 6rem;
+  --size-spacing-section-fixed-md: 8rem;
+  --size-spacing-section-fixed-lg: 14rem;
+  --size-spacing-section-variable-xs: 4.1vw;
+  --size-spacing-section-variable-sm: 7.8vw;
+  --size-spacing-section-variable-md: 10.4vw;
+  --size-spacing-section-variable-lg: 12.5vw;
+  --size-spacing-section-variable-xl: 18.2vw;
+  --size-spacing-section-intro-sm-mobile: 6rem;
+  --size-spacing-section-intro-sm-desktop: 4.1vw;
+  --size-spacing-section-intro-lg-mobile: 6rem;
+  --size-spacing-section-intro-lg-desktop: 7.8vw;
+  --size-spacing-section-page-mobile: 12.5vw;
+  --size-spacing-section-page-desktop: 12.5vw;
+  --size-spacing-section-casestudy-mobile: 14rem;
+  --size-spacing-section-casestudy-desktop: 18.2vw;
+  --size-spacing-section-service-mobile: 8rem;
+  --size-spacing-section-service-desktop: 10.4vw;
+  --size-spacing-section-industry-mobile: 8rem;
+  --size-spacing-section-industry-desktop: 10.4vw;
+  --size-spacing-section-blog-mobile: 10.4vw;
+  --size-spacing-section-blog-desktop: 10.4vw;
+  --size-spacing-section-thinking-mobile: 12.5vw;
+  --size-spacing-section-thinking-desktop: 12.5vw;
+  --size-spacing-metabar-mobile: 6rem;
+  --size-spacing-metabar-desktop: 8.5rem;
+  --time-transition-100: 0.1s;
+  --time-transition-125: 0.13s;
+  --time-transition-150: 0.15s;
+  --time-transition-200: 0.2s;
+  --time-transition-250: 0.25s;
+  --time-transition-350: 0.35s;
+  --time-transition-500: 0.5s;
+  --time-transition-550: 0.55s;
+  --time-transition-650: 0.65s;
+  --time-transition-750: 0.75s;
+  --time-transition-1000: 1s;
+  --time-transition-none: 0s;
+  --time-delay-25: 0.03s;
+  --time-delay-100: 0.1s;
+  --time-delay-200: 0.2s;
+  --time-delay-250: 0.25s;
+  --time-delay-350: 0.35s;
+  --time-delay-375: 0.38s;
+  --time-delay-500: 0.5s;
+  --time-delay-600: 0.6s;
+  --time-delay-750: 0.75s;
+  --time-delay-1000: 1s;
+  --time-delay-initial: 0.5s;
+  --time-delay-none: 0s;
 }
 
 :root {

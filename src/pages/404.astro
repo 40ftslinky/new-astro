@@ -1,0 +1,39 @@
+---
+// layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// components
+import { Image } from "astro:assets";
+import img404 from '../content/404/404.jpg';
+
+// content
+const uniqueID = "404";
+const pageTitle = "404";
+const metaTitle = "404 meta Title tbc";
+const metaDescription = "404 page meta description tbc";
+const pageHead = "404 - Oops";
+const pageDesc = "";
+const pageContent = "404 content tbc";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID} 
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead}
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+	<section>
+
+
+        <h2>{pageHead}</h2>
+		<p>{pageDesc}</p>
+
+        <p>Go back <a class="internal_link" href="/" >home</a>.</p>
+
+    </section>
+
+</BaseLayout>

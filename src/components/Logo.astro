@@ -11,12 +11,13 @@ export interface Props {
 	width?: string;
 	height?: string;
 	viewBox?: string;
+	title?: string;
 }
 
 const { class: className, width: logoWidth, height: logoHeight, viewBox: viewBoxSize, ...rest } = Astro.props;
 
 
-const { color = 'currentcolor', gradient, logo, size } = Astro.props;
+const { color = 'currentcolor', gradient, logo, size, title } = Astro.props;
 const logoPath = logoPaths[logo];
 
 const attrs: HTMLAttributes<'svg'> = {};
@@ -37,6 +38,7 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 	fill={gradient ? `url(#${gradientId})` : color}
 	{...attrs}
 >
+	<title>{rest.title}</title>
 	<g set:html={logoPath} />
 	{
 		gradient && (
@@ -59,8 +61,8 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 <style>	
 	svg.logo  {
 		vertical-align: middle;
-		width: var(--logosizew, 200px);
-		height: var(--logosizeh, 60px);
+		width: var(--logosizew, 75px);
+		height: var(--logosizeh, 45px);
 	}
 	svg.logo,
 	svg.footer_logo {	
@@ -71,8 +73,8 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 
 	svg.footer_logo  {
 		vertical-align: middle;
-		width: 75px /* var(--logosizew, 100px) */;
-		height: 45px /* var(--logosizeh, 30px) */;
+		width: 100px /* var(--logosizew, 100px) */;
+		height: 30px /* var(--logosizeh, 30px) */;
 	}
 	
 

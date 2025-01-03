@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+// import ProjectPost from "../../components/ProjectPost.astro";
+
+import Grid from '../../components/Grid.astro';
+import PortfolioPreview from '../../components/PortfolioPreview.astro';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection("projects");
+  const uniqueTags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredProjects = allProjects.filter((project) =>
+      // project.data.tags.includes(tag)
+      project.data.tags && typeof tag === 'string' && project.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { projects: filteredProjects },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { projects } = Astro.props;
+
+
+const uniqueID = "tag-index";
+const pageTitle = "Tag Index";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+const pageHead = "Tags Index";
+const pageDesc = "A list of tagged projects";
+const pageContent = "Select a tag to view all projects with that tag.";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID}
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead} 
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+<section>
+    <p>Projects tagged with {tag}</p>
+    <!-- <ul>
+        { projects.map((project) => 
+          <ProjectPost url={`/projects/${project.id}/`} title={project.data.title} />) 
+        }
+    </ul> -->
+
+    <div class="gallery">
+      <Grid variant="offset">
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </Grid>
+    </div>
+</section>
+
+</BaseLayout>

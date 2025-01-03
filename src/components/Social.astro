@@ -1,0 +1,79 @@
+---
+import Icon, { Props as IconProps } from './Icon.astro';
+
+//receive values as props
+const { platform, username } = Astro.props;
+
+---
+<a class="socials" href={`https://www.${platform}.com/${username}`}>
+  <Icon 
+    class="social" 
+    icon={platform} 
+    color="var(--accent-regular)" 
+    size="2.5rem" 
+    gradient
+    title={platform}
+  />
+</a>
+
+<style>
+    a {
+      padding: 0.5rem 1rem;
+      color: white;
+      /* background-color: #4c1d95; */
+      text-decoration: none;
+    }
+
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      font-size: var(--icon-size);
+    }
+  
+    svg.social  {
+      vertical-align: middle;
+      width: var(--socialsizew, 30px);
+      height: var(--socialsizeh, 30px);
+    }
+    svg.social {	
+      transition: var(--ease);
+      transform: scale(1);
+      transform-origin: left;
+    }
+
+    /* req js added class */
+    .active svg.social { 
+      transform: scale(0.8) !important;
+      transform-origin: left;
+    }
+
+
+    .social {
+      display: flex;
+      padding: var(--icon-padding);
+      text-decoration: none;
+      color: var(--accent-dark);
+      transition: color var(--theme-transition);
+    }
+  
+    .social:hover,
+    .social:focus {
+      /* color: var(--accent-text-over); */
+      fill: red;
+    }  
+    svg.social {	
+      transition: var(--ease);
+      transform: scale(1);
+      transform-origin: left;
+    }
+
+    /* req js added class */
+    .active svg.social { 
+      transform: scale(0.8) !important;
+      transform-origin: left;
+    }
+    
+  
+</style>

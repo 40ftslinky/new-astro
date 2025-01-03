@@ -1,0 +1,228 @@
+---
+const platform = "Astro";
+const username = "40ftSlinky";
+
+// import components 
+import Social from './Social.astro';
+import Logo from './Logo.astro';
+---
+
+<footer>
+  <div class="footer_wrap footer_top">
+    <div class="footer_left">
+      
+      <a href="/" class="site-title">
+        
+        <Logo 
+          class="footer_logo" 
+          viewBox="0 0 100 30" 
+          logo="logoSmall" 
+          color="var(--accent-regular)" 
+          gradient 
+          title="40ftSlinky"
+        />
+
+      </a>
+
+      
+    </div>
+    <div class="footer_right">
+      <div class="menu_wrap">
+        <h5>Links</h5>
+        <ul class="footer_menu">
+          <!-- <li><a href="/">Home</a></li> -->
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="menu_wrap">
+        <h5>Offices</h5>
+        <ul class="footer_menu">
+          <!-- <li><a href="/">Home</a></li> -->
+          <li><a href="/contact">Sydney</a></li>
+          <li><a href="/contact">Melbourne</a></li>
+          <li><a href="/contact">Singapore</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer_wrap footer_bottom" >
+
+    <div class="footer_left">
+      <div class="left_wrap" >
+        <p><a href={`https://${username}.com`}>{username}</a> © 2025. Built with <a href={`https://${platform}.build/`}>{platform}</a>!</p>
+      </div>
+    </div>
+
+    <div class="footer_right">
+      
+      <div class="links_wrap">
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div class="social_wrap" >
+        <!-- use component  -->
+        <!-- // pass values as props to component // -->
+        <Social platform="twitter" username="40ftSlinky" title="twitter"/>
+        <Social platform="github" username="40ftSlinky" title="github"/>
+        <Social platform="youtube" username="40ftSlinky" title="youtube"/>
+      </div>
+      
+    </div>
+
+  </div>
+
+</footer>
+
+<style>
+  :root {
+    --footer-height: 180px;
+  }
+
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    /* margin-top: 2rem; */
+    /* padding-top: 2rem; */
+    font-size: var(--font-size-footer);
+  }
+  footer h5 {
+    font-size: var(--font-size-xxs);
+    font-weight: var(--font-weight-bold);
+    margin-top: 0;
+    text-transform: uppercase;
+
+  }
+
+  .footer_wrap, .footer_top, .footer_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--sm-padding) var(--bodypadding);
+  }
+  .footer_bottom {
+    padding: var(--xs-padding) var(--bodypadding);
+  }
+  @media (max-width: 40em) {
+    .footer_wrap {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+  }
+
+  .footer_top {
+    align-items: flex-start;
+    background-color: var(--gray-800);
+  }
+  .footer_bottom {
+    align-items: flex-end;
+    background-color: var(--gray-700);
+  }
+  @media (max-width: 40em) {
+    .footer_top, .footer_bottom {
+      align-items: flex-start;
+    }
+  }
+  
+  .footer_right, .footer_left {
+    display: flex;
+  }
+
+  .footer_top .footer_right {
+    flex-direction: row;
+    gap: 2rem
+  }
+  .footer_bottom .footer_right {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+  @media (max-width: 40em) {
+    .footer_top .footer_right,
+    .footer_bottom .footer_right {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .footer_bottom,
+    .footer_bottom .footer_right {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .links_wrap
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .links_wrap ul
+  {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 1rem;
+    font-size: var(--font-size-footer);
+    margin: 0;
+    padding: 0;
+  } 
+
+  .footer_left {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-end;
+  }
+  .footer_left * { 
+    margin-bottom: 0;
+  }
+  .left_wrap {
+    font-size: var(--font-size-footer);
+  }
+
+
+  .social_wrap {
+    display: flex;
+    flex-direction: row;
+    margin-right: -1rem;
+  }
+  @media (max-width: 40em) {
+    .social_wrap {
+      margin-left: -2rem;
+      margin-right: 0;
+    }
+  }
+
+  .footer_menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* align-items: flex-end; */
+    font-size: var(--font-size-footer);
+  }
+
+  footer a,
+  .footer_menu li a {
+    /* margin-bottom: 0.5rem; */
+    text-decoration: none;
+    color: var(--gray-100);
+  }
+  footer a:hover,
+  .footer_menu li a:hover {
+    text-decoration: underline;
+    color: var(--black);
+
+  }
+
+
+</style>

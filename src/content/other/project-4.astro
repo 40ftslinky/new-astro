@@ -1,0 +1,50 @@
+---
+
+
+// layout
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
+const uniqueID = "test project";
+const pageTitle = "test project  |  40ftSlinky - Creative Agency";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+// a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
+const pageHead = "";
+const pageDesc = "";
+const pageContent = "";
+
+
+import { Image } from "astro:assets";
+
+const images = await Astro.glob(
+ "../assets/**/*.{jpg,JPG,jpeg,png,PNG,webp}"
+).then((files) => {
+ return files.map((file) => file.default); // Map each file to its default export (the src).
+});
+
+---
+
+
+<BaseLayout
+    uniqueID={uniqueID} 
+    pageTitle={pageTitle} 
+    metaTitle={metaTitle} 
+    metaDescription={metaDescription}
+    pageHead={pageHead}
+    pageDesc={pageDesc}
+    pageContent={pageContent}
+>
+
+
+{
+    images.map((img) => (
+    <Image
+    src={img}
+    width="1200"
+    height="750"
+    />
+    ))
+}
+
+</BaseLayout>   

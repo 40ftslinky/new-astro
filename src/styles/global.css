@@ -1,6 +1,5 @@
 
 :root {
-  --nav-height: 5rem;    
 
   --spacing: 0.25rem;
   --radius: 1.25rem;
@@ -44,13 +43,20 @@
   --modal-border-color: #ff9776;
 
   /* sizes */
-
+/* 
   --logosizew: 200px;
-  --logosizeh: 60px;
+  --logosizeh: 60px; */
+  --logosizew: 75px;
+  --logosizeh: 45px;
   --socialsizew: 30px;
   --socialsizeh: 30px;
+  /* --nav-height: 8rem; */
+  --footer-height: 146px;
+  --body-height: calc(100vh - var(--nav-height) - var(--footer-height));
 
   /* mobile spacing */
+  --xs-padding:0.5rem;
+  --sm-padding:1rem;
   --bodypadding:2rem;
   --sectionpadding:5.4vw;
 }
@@ -58,6 +64,8 @@
 @media only screen and (min-width: 1280px) {
   :root {
     /* spacing */
+    --xs-padding:1rem;
+    --sm-padding:2rem;
     --bodypadding:2rem;
     --sectionpadding:4rem;
   }
@@ -139,6 +147,7 @@ img {
 
 section {
   /* padding: 2rem 0; */
+  width: 100%;
 }
 
 /* Utilities */
@@ -199,10 +208,12 @@ body {
     margin-top: 0;
 }
 
-.card img,
-p img {
-    /* max-width: calc(100vw - 4rem); */
-    max-width: calc(100vw - 2*var(--sectionpadding));
+@media (min-width: 50em) {
+  .card img,
+  p img {
+      /* max-width: calc(100vw - 4rem); */
+      max-width: calc(100vw - (var(--sectionpadding)*2));
+  }
 }
   
 * {
@@ -212,9 +223,26 @@ p img {
 
 /* STRUCTURE */
 
+main {
+    /* min-height: calc(100vh - (var(--nav_hght) + var(--footer_hght))); */
+    min-height: var(--body-height);
+    /* display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer"; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+} 
+
 .main-content {
     /*  */
-    min-height: calc(100vh - (var(--nav_hght) + var(--footer_hght)));
+    /* min-height: calc(100vh - (var(--nav_hght) + var(--footer_hght))); */
+    min-height: var(--body-height);
+    
 }
 
 .main-content {
@@ -226,7 +254,7 @@ p img {
 section {
     /* padding: 2rem; */
     /* padding: var(--sectionpadding) var(--bodypadding)  */
-    padding: var(--sectionpadding);
+    padding: var(--sectionpadding) var(--bodypadding);
 }
 section.hero {
     min-height: 60vh;
@@ -246,7 +274,9 @@ section.hero {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none
+  pointer-events: none;
+  z-index: -1;
+
 }
 
 .noise:after {
@@ -259,7 +289,7 @@ section.hero {
   background-image: url(../assets/noise.png);
   background-position: 50%;
   content: "";
-  will-change: transform
+  will-change: transform;
 }
 
 @keyframes noise {

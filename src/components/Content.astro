@@ -1,0 +1,61 @@
+---
+
+interface Props {
+    pageHead: string;
+    pageDesc: string;
+    pageContent: string;
+	image: {
+		url: string;
+	}
+}
+
+const { pageHead, pageDesc, pageContent, image } = Astro.props;
+
+---
+
+<div id="container">
+	<!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
+	<!-- <PostHero pageHead={pageHead} background={image.url} fetchpriority="high" /> -->
+	<main>
+		<section id="hero">
+		
+			<h1 style="font-size: 2.5rem;">{pageHead}</h1>
+            <h2 style="font-size: 2.5rem;">{pageDesc}</h2>
+            <p style="font-size: 1.2rem;">{pageContent}</p>
+
+		</section>
+	</main>
+
+</div>
+
+<style>
+	#container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: var(--body-height);
+	}
+
+	#hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	#hero h1 {
+		font-size: 2.5rem;
+	}
+
+	#hero p {
+		font-size: 1.5rem;
+	}
+
+	#hero img {
+		width: 100%;
+		height: auto;
+	}
+	
+</style>

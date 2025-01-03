@@ -1,6 +1,7 @@
 ---
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { fade } from "astro:transitions";
 
 const uniqueID = "contact";
 const pageTitle = "Contact";
@@ -23,7 +24,7 @@ const pageContent = "Contact page content tbc";
 >
 	<section>
 
-		<h2>{pageHead}</h2>
+		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
 
 		<p>{pageDesc}</p>
 

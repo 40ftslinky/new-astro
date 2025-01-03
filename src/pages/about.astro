@@ -1,7 +1,13 @@
 ---
-
+// layout
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// components
+import { Image } from "astro:assets";
+import { fade } from "astro:transitions";
+import imgPortrait from '../content/about/40ftslinky_Jez.jpg';
+
+// content
 const uniqueID = "about";
 const pageTitle = "About";
 const metaTitle = "About meta Title tbc";
@@ -23,9 +29,131 @@ const pageContent = "About page content tbc";
 >
 	<section>
 
-		<h2>{pageHead}</h2>
+		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
 
 		<p>{pageDesc}</p>
+
+		<h3>... About stuff</h3>		
+			
+
+			<p>40ftSlinky is a multi-disciplinary agency dedicated to partnering with individuals and organisations to help develop progressive brands and create multi-channel experiences that deliver results.</p> 
+
+			<p>We assemble unique teams from a diverse pool of expert collaborators, and respond flexibly to each brief without the hassle of a large agency.</p> 
+
+			<p>Led by Jeremy Nicholson founder and primary creative 40ftSlinky <strong>blah blah blah..</strong>.</p>
+				
+			<div class="img_wrap">
+				<Image 
+					class="portrait" 
+					src={imgPortrait} 
+					alt="40ftSlinky" 
+					width={400}
+				/>
+			</div>
+
+			<p>Jeremy has worked in Sydney, Melbourne and Canberra for more than 20 years across brand, digital product and print. He has experience in both private (agency land) and public (Australian Government departments and statutory bodies) sectors and serviced local and international clients developing brands, corporate identity, digital presence, applications, marketing materials and publications through his businesses and nom-de-plume (40ftSlinky, Blandmine and Bland Design).</p> 
+
+			<p>After spending the late '90s and early naughties in the publishing industry producing educational materials, marketing collateral and national advertising campaigns, Jeremy spent the next decade creating award-winning covers and layout for books as diverse as dictionaries, true-crime biographies, military histories, literary fiction and mass market fiction (including International Bestseller Matthew Reilly). The last decade has seen Jeremy branch into "ad-land," producing traditional advertising, marketing and brand design, art directing and designing campaigns and products for the education, energy, financial and healthcare sectors. His interest in all things digital has led to a pivot into digital product development, digital strategy and marketing. An experienced CX and UX designer and frontend developer with broad knowledge of industry standard CMS and CRM platforms, social marketing and digital platforms as well as the latest development trends – Jeremy is a true unicorn creative – comfortable in the print world and the digital realm.</p> 
+
+			<p>While able to troubleshoot almost anything, he also brings to the table:
+
+				<ul>
+					<li>creative and art direction</li>
+
+					<li>identity design</li>
+
+					<li>illustration and photography</li>
+
+					<li>graphic design</li>
+
+					<li>typography</li>
+
+					<li>packaging</li>
+
+					<li>finished art</li>
+
+					<li>web design</li>
+
+					<li>interface design</li>
+
+					<li>communication solutions</li>
+
+					<li>digital media</li>
+
+					<li>production</li>
+
+					<li>animation</li>
+
+					<li>motion design</li>
+
+					<li>print production and prepress…</li>
+
+
+				</ul>
+
+			<p>and the ability to understand a clients needs to develop the appropriate solution.</p>
+
+			<p>Anyway, enough about him - what about you? If you need a fulltime or contract creative able to produce a digital solution, develop a brand, marketing strategy, advertising campaign or design and produce an annual report - contact him:</p>
+
+		</div>
+
+		<div class="content">
+			<p>40ftSlinky is a design and development creative practice, led by Jeremy Nicholson. We make things, from beginning to end. We welcome any project to work with good people on interesting ideas, whether it be building brands or building digital ideas.</p>
+
+			<ul>
+				<li>Digital Services</li>
+				<li>Technology Strategy</li>
+				<li>E-Commerce</li>
+				<li>UX / UI Design</li>
+				<li>Product Design</li>
+				<li>Prototyping</li>
+				<li>Interaction & Motion</li>
+				<li>Web Applications</li>
+				<li>Systems Building</li>
+				<li>Creative Services</li>
+				<li>Brand Identity</li>
+				<li>Creative Direction</li>
+				<li>Strategy and Positioning</li>
+				<li>Narrative</li>
+				<li>Art Direction</li>
+				<li>Publication Design</li>
+				<li></li>
+				<li>(MorebyMore)</li>
+			</ul>
+		</div>
+
+		<div class="content">
+			<h2>... more stuff</h2>		
+			<h3>Who we are:</h3>
+			<ul>
+				<li class="checkmark">An accelerator to propel you from idea inception to long-term execution</li>
+				<li class="checkmark">An honest, thorough, and efficient partner</li>
+				<li class="checkmark">A change agent that can evolve how you create, deploy, and expand products</li>
+				<li class="checkmark">A force to ensure your bold visions are fueled by repeatable success</li>
+				<li class="checkmark">A stable, continuous team to see efforts through from start to finish</li>
+			</ul>
+			<h3>Who we’re not:</h3>
+			
+			<ul>
+				<li class="cross">A low-cost body shop full of order takers</li>
+				<li class="cross">A strategy firm pushing big ideas that can’t be built</li>
+				<li class="cross">A creative agency that’s only focused on margins and billable hours</li>
+				<li class="cross">A faceless firm primarily concerned with staffing</li>
+				<li class="cross">A consultancy that throws things “over the wall” to a revolving team of resources</li>
+			</ul>
+		</div>
+
+
+		<div class="content">
+			<h2>... example</h2>		
+			<p>
+				wkshps.com/
+			</p>
+		</div>
+
+		<div class="contact">
+			<!-- <Form /> -->
+		</div>
 
 		
 	</section>
@@ -33,3 +161,36 @@ const pageContent = "About page content tbc";
 	
 
 </BaseLayout>
+
+<style>
+	.img_wrap {
+		/* display: flex;
+		justify-content: center;
+		align-items: center; */
+	}
+
+	.portrait {
+		border-radius: 0;
+	}
+
+	.content {
+		margin: 2rem 0;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	ul li {
+		margin: 0.5rem 0;
+	}
+
+	ul li.checkmark::before {
+		content: "✔️ ";
+	}
+
+	ul li.cross::before {
+		content: "❌ ";
+	}
+
+	</style>

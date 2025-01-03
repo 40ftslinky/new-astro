@@ -7,7 +7,7 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'Projects', href: '/projects' },
 	{ label: 'About', href: '/about' },
 	{ label: 'Contact', href: '/contact' },
-	// { label: 'Tags', href: '/tags' },
+	{ label: 'Tags', href: '/tags' },
 ];
 
 ---
@@ -82,9 +82,14 @@ const textLinks: { label: string; href: string }[] = [
 	padding: 10px 0;
 	text-decoration: none;
 	/* font-size: 1.2rem; */
-	font-size: var(--text-xl);
+	font-size: var(--text-3xl);
 	font-weight: var(--font-weight-medium);
 	/* text-transform: uppercase; */
+}
+@media screen and (min-width: 67.5em) {
+	.nav-links a {
+		font-size: var(--text-xl);
+	}
 }
 
 .nav-links a:hover,
@@ -102,7 +107,7 @@ const textLinks: { label: string; href: string }[] = [
 }
 
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 67.5em) {
 
 
 	#menu-content {

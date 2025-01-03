@@ -1,14 +1,37 @@
 ---
-
-import BaseLayout from '../layouts/BaseLayout.astro';
-
+// content
 const uniqueID = "projects";
 const pageTitle = "Projects";
 const metaTitle = "Projects meta Title tbc";
 const metaDescription = "Projects page meta description tbc";
-const pageHead = "Projects Heading";
+const pageHead = "Projects";
 const pageDesc = "Projects page description tbc";
 const pageContent = "Projects page content tbc";
+
+// layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fade } from "astro:transitions";
+
+// components
+import Grid from '../components/Grid.astro';
+// import Image from '../components/ImageCard.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+
+// import content
+import { getCollection } from 'astro:content';
+
+// replace import.meta.glob() with getCollection() as the way to fetch content and metadata from Markdown files.
+// const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
+// const projects = await getCollection('projects');
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection('projects'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 10);
+
 
 ---
 
@@ -21,11 +44,46 @@ const pageContent = "Projects page content tbc";
 	pageDesc={pageDesc}
 	pageContent={pageContent}
 >
+
 	<section>
 
-		<h2>{pageHead}</h2>
+		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
 
 		<p>{pageDesc}</p>
+
+		
+	</section>
+
+	<section>
+
+		<h3>Recent Projects</h3>
+
+
+		<div class="gallery">
+			<Grid variant="offset">
+				{
+					projects.map((project) => (
+						<li>
+							<PortfolioPreview project={project} />
+						</li>
+					))
+				}
+			</Grid>
+		</div>
+
+		<!-- <Image
+			imagePath="/src/assets/dynamic/Editorial-Mockup_00.jpg"
+			altText="An image alt text"
+			name="Editorial-Mockup_00"
+			desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		/> -->
+		
+		<!-- {
+				allProjects.map((project: any) => (
+					<li><a href={project.url}>{project.frontmatter.title}</a></li>
+				))
+			}  -->
+		
 
 		
 	</section>

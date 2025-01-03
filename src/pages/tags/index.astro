@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from '../../layouts/BaseLayout.astro';
+// import ProjectPost from '../../components/ProjectPost.astro';
+
+// import Form from '../../components/Form.astro';
+// import FeedbackForm from "../../components/FeedbackForm"
+
+
+
+// const allProjects = await Astro.glob('../projects/*.md');
+const allProjects = await getCollection("projects");
+// const tags = ['astro', 'blogging', 'learning in public', 'successes', 'setbacks', 'community']
+// const tags = [...new Set(allProjects.map((project) => project.frontmatter.tags).flat())];
+const tags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
+
+const uniqueID = "tag-index";
+const pageTitle = "Tag Index";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+const pageHead = "Tags Index";
+const pageDesc = "A list of tagged projects";
+const pageContent = "Select a tag to view all projects with that tag.";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID}
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead} 
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+
+    <section>
+		<div class="content">
+
+            <div class="tags">
+                {tags.map((tag) => (
+                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+                ))}
+            </div>
+
+        </div>
+
+		<div class="contact">
+            <!-- <FeedbackForm client:load /> -->
+			<!-- <ContactCTA /> -->
+		</div>
+
+	</section>
+
+</BaseLayout>
+
+<style>
+    a {
+        color: #00539F;
+    }
+  
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+  
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: .5em;
+        padding: .5em 1em;
+        font-size: 1.15em;
+        background-color: #F8FCFD;
+    }
+</style>
