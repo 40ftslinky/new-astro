@@ -10,7 +10,7 @@ author: 'Jez'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
     url: '/src/assets/color-gray.jpg'
-    alt: 'Purple.'
+    alt: 'Gray.'
     width: '100%'
     height: '100%'
 

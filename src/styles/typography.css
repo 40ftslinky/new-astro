@@ -32,6 +32,7 @@
   --line-height-regular: 1.2;
   --line-height-body: 1.4;
   --line-height-large: 1.45;
+  
   --font-weight-regular: var(--font-weight-regular);
   --font-weight-medium: var(--font-weight-medium);
   --font-weight-bold: var(--font-weight-bold);
@@ -47,6 +48,7 @@
   --font-size-h6: var(--font-size-heading-xs-mobile);
 
   --line-height-h1: 0.9;
+  --line-height-h1: var(--leading-flat);
   --line-height-h2: 1.1;
   --line-height-h3: 1.1;
   --line-height-h4: 1.2;
@@ -202,6 +204,7 @@
 }
 
 :root {
+  --leading-flat: 1;
   --size-line-height-base: 1.6rem;
   --size-line-height-mobile-xs: 1.2rem;
   --size-line-height-mobile-small: 1.6rem;
@@ -318,7 +321,8 @@ html {
   font-size: var(--rem-base);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: normal;
-  font-variant-ligatures: normal
+  font-variant-ligatures: normal;
+  
 }
 
 
@@ -391,6 +395,7 @@ sup {
   letter-spacing: var(--letter-spacing-h1);
   line-height: var(--line-height-h1);
   max-width: 15ch;
+  /* leading-trim:unset; */
 }
 
 .h2,h2 {

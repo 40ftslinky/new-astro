@@ -10,7 +10,7 @@ author: 'Jez'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
     url: '/src/assets/color-orange.png'
-    alt: 'Purple.'
+    alt: 'orange.'
     width: '100%'
     height: '100%'
 
@@ -45,13 +45,6 @@ import editorial from '/src/assets/imgs/Editorial-Mockup_00.jpg';
 
 ## Images
 
-Local Picture stored in src/assets/
-
-<div class="image_wrap"><Picture src={editorial} alt="Editorial Mockup"/></div>
-
-<p>Local image stored in the the same folder</p>
-
-<div class="image_wrap">![Houston in the wild](./imgs/Editorial-Mockup_00.jpg)</div>
 
 Local image stored in src/assets/ (carousel)
 
@@ -59,13 +52,22 @@ Local image stored in src/assets/ (carousel)
   <div class="carousel_stage">
     <div class="carousel_wrap">
       <div class="image_wrap"><Image src={editorial} alt="Editorial Mockup"/></div>
-      <div class="image_wrap"><img src={editorial.src} alt="Editorial Mockup"/></div>
-      <div class="image_wrap">![Editorial Mockup](/src/assets/imgs/Editorial-Mockup_00.jpg)</div>
+      <div class="image_wrap"><Picture src={editorial} alt="Editorial Mockup"/></div>
+      <div class="image_wrap">![Editorial Mockup](../../assets/imgs/Editorial-Mockup_00.jpg)</div>
     </div>
   </div>
   <div class="cursor"></div>
 
 </div>
+
+Local Picture stored in src/assets/
+
+<div class="image_wrap"><Picture src={editorial} alt="Editorial Mockup"/></div>
+
+<p>Local image stored in the the same folder</p>
+
+<div class="image_wrap">![Local image](./imgs/Editorial-Mockup_00.jpg)</div>
+
 
 Image stored in public/images/
 <Image src="/images/Editorial-Mockup_00.jpg" alt="Editorial Mockup" width="600" height="300"/>

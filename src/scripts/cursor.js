@@ -36,10 +36,8 @@ canvas.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
 
     // Mouse position
-    mouseX = event.clientX - rect.left ;
+    mouseX = event.clientX - rect.left;
     mouseY = event.clientY - rect.top;
-
-    
     
     if (mouseX < 0 || mouseY < 0 || mouseX > canvas.width || mouseY > canvas.height) {
         // cursor.style.display = 'none';
