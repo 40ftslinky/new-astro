@@ -30,6 +30,8 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
 </li>    
 
 <style>
+
+    
     .client_list_item {
         display: flex;
         align-items: center;
@@ -41,8 +43,15 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
         /* max-height: 12rem; */
         max-height: 7vw;
         max-width: 140px;
-        mix-blend-mode:luminosity;
-        transition: var(--transition);
+        /* mix-blend-mode:luminosity; */
+        transition: var(--transition-fast);
+        filter: grayscale(100%) opacity(0.8);
+    }
+
+    @media screen and (max-width: 32.5em) {
+        .client_list_item img {
+            max-width: 40vw;
+        }
     }
 
     @media screen and (min-width: 67.5em) {
@@ -50,6 +59,7 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
             max-height: 5vw;
         }
     }
+    
 
     .faux_link {
         display: flex;
@@ -67,6 +77,8 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
     }
     .client_list_item .faux_link:hover img {
         /* mix-blend-mode: normal; */
+        filter: grayscale(0) opacity(1);
+
     }  
     
     /* img[class*="epworth"], 

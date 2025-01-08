@@ -3,11 +3,31 @@
 /* NEW */
 
 :root {
+
+    /* Fonts */
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    --font-brand: 'Poppins', sans-serif;
+    --font-body: 'Work Sans', sans-serif;
+    --font-grotesk: "Schibsted Grotesk", sans-serif;
+    
+    --ff_primary: 'Roboto', sans-serif;
+    --ff_secondary: 'Open Sans', sans-serif;
+    --ff_tertiary: 'Lora', serif;
+    --ff_quaternary: 'Merriweather', serif;
+    --ff_code: 'Fira Code', monospace;
+    --ff_mono: 'Space Mono', monospace;
+}
+
+:root {
   --rem-base: 62.5%;
+
   --font-size-small: var(--font-size-body-sm-mobile);
   --font-size-body: var(--font-size-body-base-mobile);
   --font-size-large: var(--font-size-body-lg-mobile);
   --font-size-footer: var(--font-size-body-sm-mobile);
+
   --line-height-small: 1.14;
   --line-height-regular: 1.2;
   --line-height-body: 1.4;
@@ -18,21 +38,22 @@
   --letter-spacing-small: -0.02em;
   --letter-spacing-body: -0.01em;
   --letter-spacing-large: -0.04em;
-  --font-family: var(--font-family-body);
+
   --font-size-h1: var(--font-size-heading-xxl-mobile);
   --font-size-h2: var(--font-size-heading-xl-mobile);
   --font-size-h3: var(--font-size-heading-lg-mobile);
   --font-size-h4: var(--font-size-heading-md-mobile);
   --font-size-h5: var(--font-size-heading-sm-mobile);
   --font-size-h6: var(--font-size-heading-xs-mobile);
+
   --line-height-h1: 0.9;
   --line-height-h2: 1.1;
   --line-height-h3: 1.1;
   --line-height-h4: 1.2;
   --line-height-h5: 1.1;
   --line-height-h6: 1.1;
-  --font-weight-h1: var(--font-weight-heavy);
-  --font-weight-h2: var(--font-weight-medium);
+  --font-weight-h1: var(--font-weight-bold);
+  --font-weight-h2: var(--font-weight-bold);
   --font-weight-h3: var(--font-weight-medium);
   --font-weight-h4: var(--font-weight-bold);
   --font-weight-h5: var(--font-weight-bold);
@@ -111,133 +132,6 @@
 /*  */
 
 
-html {
-  font-size: var(--rem-base);
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: normal;
-  font-variant-ligatures: normal
-}
-
-
-
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-body);
-  line-height: var(--line-height-body)
-}
-
-.body-small {
-  font-size: var(--font-size-small);
-  letter-spacing: var(--letter-spacing-small);
-  line-height: var(--line-height-small)
-}
-
-.body-large {
-  font-size: var(--font-size-large);
-  letter-spacing: var(--letter-spacing-large);
-  line-height: var(--line-height-large)
-}
-
-b,strong {
-  font-weight: var(--font-weight-bold)
-}
-
-i {
-  font-style: italic
-}
-
-sup {
-  margin-left: .1rem;
-  font-size: 50%;
-  vertical-align: super
-}
-
-.h1,h1 {
-  /* font-size: var(--font-size-h1); */
-  font-size: var(--text-huge);
-  font-weight: var(--font-weight-h1);
-  letter-spacing: var(--letter-spacing-h1);
-  line-height: var(--line-height-h1);
-  /* max-width: 65vw ; */
-  max-width: 15ch;
-}
-
-.h2,h2 {
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-h2);
-  letter-spacing: var(--letter-spacing-h2);
-  line-height: var(--line-height-h2);
-  /* max-width: 65vw ; */
-  max-width: 35ch;
-}
-
-.h3,h3 {
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight-h3);
-  letter-spacing: var(--letter-spacing-h3);
-  line-height: var(--line-height-h3)
-}
-
-.h4,h4 {
-  font-size: var(--font-size-h4);
-  font-weight: var(--font-weight-h4);
-  letter-spacing: var(--letter-spacing-h4);
-  line-height: var(--line-height-h4)
-}
-
-.h5,h5 {
-  font-size: var(--font-size-h5);
-  font-weight: var(--font-weight-h5);
-  letter-spacing: var(--letter-spacing-h5);
-  line-height: var(--line-height-h5)
-}
-
-.h6,h6 {
-  font-size: var(--font-size-h6);
-  font-weight: var(--font-weight-h6);
-  letter-spacing: var(--letter-spacing-h6);
-  line-height: var(--line-height-h6)
-}
-
-.footer,footer {
-  font-size: var(--font-size-footer);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: var(--letter-spacing-regular);
-  line-height: var(--line-height-regular)
-}
-
-
-:root {
-  --accent: 124, 58, 237;
-  --accent-gradient: 
-    linear-gradient(
-      45deg, 
-      rgb(var(--accent)), 
-      #da62c4 30%, 
-      white 60%);
-}
-
-.text-gradient {
-  background-image: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400%;
-  background-position: 0%;
-  padding-bottom: 2rem;
-}
-
-::-moz-selection.text-gradient,
-::selection.text-gradient { /* Code for Firefox */
-color: white;
-background: var(--selection-color);
-background-image: unset;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-}
-
-
 /*  */
 @media only screen and (min-width: 1920px) {
   :root {
@@ -281,9 +175,7 @@ background-image: unset;
   --font-size-7xl: 4.2rem;
   --font-size-8xl: 4.6rem;
   --font-size-9xl: 6.25vw;
-  
-  --font-family-grotesk: Schibsted Grotesk;
-  --font-family-body: "Schibsted Grotesk", sans-serif;
+
   --font-weight-regular: 300;
   --font-weight-medium: 400;
   --font-weight-bold: 700;
@@ -408,23 +300,171 @@ background-image: unset;
     --text-4xl: 3.5rem;
     --text-5xl: 4.5rem;
 
-    --text-huge: 8.3333333333vw;
+    --text-huge: 12vw;
 
-    /* Fonts */
-    --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* --font-body: 'Raleway', var(--font-system);
-    --font-brand: 'Playfair Display', serif; */
-    --font-body: 'Schibsted Grotesk', var(--font-system);
-    --font-brand: 'Schibsted Grotesk', serif;
-    
-    --ff_primary: 'Roboto', sans-serif;
-    --ff_secondary: 'Open Sans', sans-serif;
-    --ff_tertiary: 'Lora', serif;
-    --ff_quaternary: 'Merriweather', serif;
-    --ff_code: 'Fira Code', monospace;
-    --ff_mono: 'Space Mono', monospace;
 }
+
+@media screen and (min-width: 880px) {
+    :root {
+        --text-huge: 8.3333333333vw;
+    }
+}
+
+
+/* STYLES */
+
+
+html {
+  font-size: var(--rem-base);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  font-variant-ligatures: normal
+}
+
+
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body)
+}
+
+.body-small {
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-small);
+  line-height: var(--line-height-small)
+}
+
+.body-large {
+  font-size: var(--font-size-large);
+  letter-spacing: var(--letter-spacing-large);
+  line-height: var(--line-height-large)
+}
+
+
+h1,
+h2,
+h3,
+h4,
+[id*="heading"] {
+    font-family: var(--font-brand);
+    font-weight: var(--font-weight-bold)
+  }
+h5,
+h6 {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold)
+}  
+  
+.subtitle {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-xxl);
+} 
+
+@media screen and (min-width: 1280px) {
+  .subtitle {
+    font-size: var(--font-size-3xl);
+  }
+  
+}
+
+b,strong {
+  font-weight: var(--font-weight-bold)
+}
+
+i {
+  font-style: italic
+}
+
+sup {
+  margin-left: .1rem;
+  font-size: 50%;
+  vertical-align: super
+}
+
+.h1,h1 {
+  font-size: var(--text-huge);
+  font-weight: var(--font-weight-h1);
+  letter-spacing: var(--letter-spacing-h1);
+  line-height: var(--line-height-h1);
+  max-width: 15ch;
+}
+
+.h2,h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  letter-spacing: var(--letter-spacing-h2);
+  line-height: var(--line-height-h2);
+  max-width: 35ch;
+}
+
+.h3,h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  line-height: var(--line-height-h3)
+}
+
+.h4,h4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  letter-spacing: var(--letter-spacing-h4);
+  line-height: var(--line-height-h4)
+}
+
+.h5,h5 {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-h5);
+  letter-spacing: var(--letter-spacing-h5);
+  line-height: var(--line-height-h5)
+}
+
+.h6,h6 {
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-h6);
+  letter-spacing: var(--letter-spacing-h6);
+  line-height: var(--line-height-h6)
+}
+
+.footer,footer {
+  font-size: var(--font-size-footer);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  line-height: var(--line-height-regular)
+}
+
+
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: 
+    linear-gradient(
+      45deg, 
+      rgb(var(--accent)), 
+      #da62c4 30%, 
+      white 60%);
+}
+
+.text-gradient {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+  padding-bottom: 2rem;
+}
+
+::-moz-selection.text-gradient,
+::selection.text-gradient { /* Code for Firefox */
+color: white;
+background: var(--selection-color);
+background-image: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
 
 /* category */
 .text-block_text-block__label {
@@ -474,19 +514,7 @@ h6,
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
-h1,
-h2,
-h3,
-h4,
-[id*="heading"] {
-    /* font-family: var(--font-brand); */
-    /* font-weight: 900; */
-}
-h5,
-h6 {
-    font-family: var(--font-body);
-    /* font-weight: 700; */
-}   
+
 /* 
 h1 {
     font-size: var(--text-5xl);

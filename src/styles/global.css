@@ -10,6 +10,7 @@
   --max-width: 1170px;
   --fixed-width: 620px;
   --transition: all 0.3s linear;
+  --transition-fast: all 0.125s linear;
   --link: #ff9776;
   --link-hover: #ff9776;
 
@@ -57,8 +58,11 @@
   /* mobile spacing */
   --xs-padding:0.5rem;
   --sm-padding:1rem;
-  --bodypadding:2rem;
-  --sectionpadding:5.4vw;
+  --bodypadding: 2.5vw;
+  --sectionpadding:6.5vw;
+  --col-gap: 1rem;
+
+  --max-col-width: calc(100vw - (var(--bodypadding)*2));
 }
 
 @media only screen and (min-width: 1280px) {
@@ -66,8 +70,9 @@
     /* spacing */
     --xs-padding:1rem;
     --sm-padding:2rem;
-    --bodypadding:2rem;
-    --sectionpadding:4rem;
+    --bodypadding: 5vw;
+    --sectionpadding:6.5vw;
+    --col-gap: 2rem;
   }
 }
 
@@ -191,22 +196,6 @@ body {
     line-height: 1.5;
 }
 
-.services .card {
-    background: var(--gray-800);
-    border-radius: var(--radius);
-    box-shadow: var(--light-shadow);
-    transition: var(--theme-transition);
-    padding: 2rem;
-}
-@media (min-width: 50em) {
-  .services .grid.small >* {
-    flex-basis: 23%;
-  }
-}
-
-.services .card h4 {
-    margin-top: 0;
-}
 
 @media (min-width: 50em) {
   .card img,
@@ -222,6 +211,16 @@ body {
   
 
 /* STRUCTURE */
+
+main>section {
+  position: relative;
+  overflow: hidden;
+  /* padding-right: var(--grid-padding);
+  padding-left: var(--grid-padding);
+  animation: fade-in var(--bd-time-transition-650) var(--ease-out) forwards;
+  opacity: 0;
+  will-change: transform, visibility; */
+}
 
 main {
     /* min-height: calc(100vh - (var(--nav_hght) + var(--footer_hght))); */
@@ -320,4 +319,171 @@ section.hero {
   left: calc(var(--grid-padding)* -1);
   width: calc(100% + var(--grid-padding)* 2);
   cursor: none;
+}
+
+/* structure */
+
+.row {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  gap: var(--col-gap);
+  width: var(--max-col-width);
+}
+
+@media screen and (min-width: 1280px) {
+  .row {
+    flex-direction: row;
+  }
+  
+}
+
+.column, .internal  {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  /* flex: 1 1 100%; */
+  width: 100%;
+}
+
+.internal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: calc((var(--max-col-width)/3) - var(--col-gap));
+}
+
+.column.col_title {
+  width: 100%;  
+  max-width: calc((var(--max-col-width)/3) - var(--col-gap));
+  /* max-width: calc(30vw - var(--col-gap) - (var(--bodypadding)*2)); */
+  /* text-align: center; */
+  padding-right: var(--col-gap);
+}
+.column.col_content {
+  max-width: calc((var(--max-col-width)*2/3) - var(--col-gap));
+}
+.flex-wrap {    
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--col-gap);
+}
+
+@media screen and (max-width: 1280px) {
+  .column, [class*="column"],
+  .column[class*="col_"],
+  .column.col_title,
+  .column.col_content {
+    max-width: var(--max-col-width);
+  }
+}
+
+/* carousel */
+
+.carousel_container {
+  position: relative;
+  left: calc(var(--bodypadding)* -1);
+  width: calc(100vw - (var(--bodypadding)* 1));
+  overflow: hidden;
+  cursor: none;
+  margin: 0 var(--bodypadding);
+  box-sizing: content-box;
+}
+
+.carousel_stage {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  gap: var(--col-gap);
+  /*  */
+  position: relative;
+  /* overflow: scroll visible; */
+  overflow-x: scroll;
+  padding-left: var(--grid-padding);
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel_wrap {
+  display: flex;
+  gap: var(--col-gap);
+}
+.carousel_wrap .image_wrap {
+  flex: 0 0 var(--max-col-width);
+}
+
+/* 
+.carousel_stage {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    content:"";
+    cursor: w-resize;
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    content:"";
+    cursor: e-resize;
+  }
+} */
+
+/* cursor */
+
+.cursor {
+  width: 7.5rem;
+  height: 7.5rem;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 111;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%) translateY(-50%) scale(0);
+  transform-origin: center;
+  transition: var(--transition-fast);
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+.cursor::after {
+  position:absolute;
+  color:black;
+  content: "SCROLL";
+  font-size:10px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+}
+.cursor.drag::after {
+  content: "DRAG";
+}
+
+.cursor.resize {
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  opacity: 1;
+}
+.cursor.resize.drag {
+  transform: translateX(-50%) translateY(-50%) scale(0.9);
+  opacity: 1;
+}
+
+.carousel_wrap.grabbed {
+  /* background: rgba(255,255,255,0.3);
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1); */
 }

@@ -1,16 +1,14 @@
 ---
 interface Props {
-	variant?: 'offset' | 'even' | 'small' | 'medium';
+	variant?: 'offset' | 'even' | 'small' | 'medium' | 'large';
 }
 
 const { variant } = Astro.props;
 ---
 
-<ul class:list={['grid', { offset: variant === 'even', small: variant === 'small', medium: variant === 'medium' }]}>
+<ul class:list={['grid', { offset: variant === 'even', small: variant === 'small', medium: variant === 'medium', large: variant === 'large'  }]}>
 	<slot />
 </ul>
-
-<!-- styles -->
 
 <style>
 	.grid {
@@ -101,5 +99,24 @@ const { variant } = Astro.props;
 			flex-basis: 20%;
 			max-width: 90vw;
 		}
+
+		.grid.large {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 2rem;
+			/* gap: 2vw; */
+		}
+
+		 > :global(*) {
+			/* flex-basis: 20rem; */
+			flex-basis: 100%;
+			max-width: 90vw;
+		}
+	}
+
+	@media screen and (max-width: 32.5em) {
+		.grid.small {
+			grid-template-columns: 1fr 1fr
 	}
 </style>
