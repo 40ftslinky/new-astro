@@ -9,7 +9,7 @@ description: 'This is the Lorem Ipsum description.'
 author: 'Jez'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-    url: '/src/assets/color-gray.jpg'
+    url: '/src/content/projects/imgs/color-gray.jpg'
     alt: 'Gray.'
     width: '100%'
     height: '100%'
@@ -20,7 +20,7 @@ video:
     # url: ''
     width: '100%'
     height: '100%'
-    poster: '/src/assets/color-orange.png'
+    poster: '/src/content/projects/imgs/color-orange.png'
     
 
 tags: ["pixels", "puppies", "pizza"]

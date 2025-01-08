@@ -17,7 +17,9 @@ const { data, id } = Astro.props.project;
 		&& 
 			(
 			<div class="image_wrap">
+				{/* <Image src={data.image.url} width={data.image.width} height={data.image.height} alt={data.image.alt} /> */}
 				<Image src={data.image.url} width={data.image.width} height={data.image.height} alt={data.image.alt} />
+
 			</div>
 			)		
 	} 

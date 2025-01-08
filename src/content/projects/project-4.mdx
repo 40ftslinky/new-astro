@@ -9,7 +9,7 @@ description: 'This is the Lorem Ipsum description.'
 author: 'Jez'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-    url: '/src/assets/color-orange.png'
+    url: '/src/content/projects/imgs/color-orange.png'
     alt: 'orange.'
     width: '100%'
     height: '100%'
@@ -20,17 +20,17 @@ video:
     # url: ''
     width: '100%'
     height: '100%'
-    poster: '/src/assets/color-orange.png'
+    poster: '/src/content/projects/imgs/color-orange.png'
     
 
 tags: ["oranges", "orhcids", "oranguatans"]
 
 contentImgs:
-  - url: '/src/assets/imgs/Editorial-Mockup_00.jpg'
+  - url: '/src/content/projects/imgs/Editorial-Mockup_00.jpg'
     alt: "Image description 1"
     width: 600
     height: 400
-  - url: '/src/assets/imgs/Editorial-Mockup_01.jpg'
+  - url: '/src/content/projects/imgs/Editorial-Mockup_01.jpg'
     alt: "Image description 2"
     width: 600
     height: 400
@@ -40,7 +40,7 @@ contentImgs:
 
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import editorial from '/src/assets/imgs/Editorial-Mockup_00.jpg';
+import editorial from '/src/content/projects/imgs/Editorial-Mockup_00.jpg';
 
 
 ## Images
@@ -53,7 +53,7 @@ Local image stored in src/assets/ (carousel)
     <div class="carousel_wrap">
       <div class="image_wrap"><Image src={editorial} alt="Editorial Mockup"/></div>
       <div class="image_wrap"><Picture src={editorial} alt="Editorial Mockup"/></div>
-      <div class="image_wrap">![Editorial Mockup](../../assets/imgs/Editorial-Mockup_00.jpg)</div>
+      <div class="image_wrap">![Editorial Mockup](/src/content/projects/imgs//Editorial-Mockup_00.jpg)</div>
     </div>
   </div>
   <div class="cursor"></div>

@@ -45,12 +45,10 @@ const projectImages = defineCollection({
         pattern: "**/*.{jpg,jpeg,png}",
         base: "src/content/projects/images" 
     }),
-    schema: z.object({
-        uniqueID: z.string(),
+    schema: ({ image }) => z.object({
         title: z.string(),
-        pubDate: z.coerce.date(),
-        head: z.string(),
-        description: z.string(),
+        cover: image(),
+        coverAlt: z.string(),
     })
 });
 
