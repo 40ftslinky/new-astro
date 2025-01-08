@@ -454,6 +454,7 @@ sup {
 
 .text-gradient {
   background-image: var(--accent-gradient);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400%;
@@ -466,8 +467,9 @@ sup {
 color: white;
 background: var(--selection-color);
 background-image: unset;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
+background-clip: unset;
+-webkit-background-clip: unset;
+-webkit-text-fill-color: unset;
 }
 
 

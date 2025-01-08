@@ -45,49 +45,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et nisi elit. Ut 
 
 ### Images
 
-
 Local image stored in the the same folder
 
-![Houston in the wild](./imgs/Editorial-Mockup_00.jpg)
-
-Local image stored in src/assets/
-<Image src={editorial} alt="Editorial Mockup"/>
-<img src={editorial.src} alt="Editorial Mockup"/>
-![Editorial Mockup](/src/assets/project-1/Editorial-Mockup_00.jpg)
-
-
-// Image stored in public/images/
-<Image src="/images/Editorial-Mockup_00.jpg" alt="Editorial Mockup" width="600" height="300"/>
-<img src="/images/Editorial-Mockup_00.jpg" alt="Editorial Mockup" width="600" height="300"/>
-![Editorial Mockup](/images/Editorial-Mockup_00.jpg)
-
-// Remote image on another server
-
-<Image src="https://placebear.com/g/600/300"  alt="alt" width="600" height="300"/>
-<img src="https://placebear.com/g/600/300"  alt="alt" width="600" height="300"/>
-
-![Astro](https://placebear.com/g/600/300)
-
-<!-- A remote image -->
-A remote image
-![A random remote image](https://picsum.photos/1024/768)
-
-<!-- A local image relative to the markdown file -->
-local image relative to the markdown file
-![A local image](/src/assets/imgs/landscape.jpg)
-
-<!-- A local image relative to the project root -->
-A local image relative to the project root
-![Another local image](/src/assets/imgs/landscape-02.avif)
-
-<!-- An example of using query params -->
-An example of using query params
-![A remote image with query params](https://picsum.photos/1024/768?grayscale)
-
-<!-- An example of the `<Image />` component inside MD pages -->
-`<Image />` component
-
-<Image
-  src={frontmatter.contentImgs.url}
-  alt={frontmatter.contentImgs.alt}
-/>
+![Houston in the wild](./imgs/Editorial-Mockup_00.jpg

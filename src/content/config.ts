@@ -10,7 +10,7 @@ import { defineCollection, z } from 'astro:content';
 const projects = defineCollection({
     loader: glob({ 
         pattern: "**/*.{md,mdx}",
-        base: "src/content/projects" 
+        base: "./src/content/projects" 
     }),
     // type: 'content',
     schema: z.object({
