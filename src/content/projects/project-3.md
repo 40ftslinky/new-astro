@@ -22,8 +22,9 @@ video:
     height: '100%'
     poster: '/src/content/projects/imgs/color-orange.png'
     
-
 tags: ["pixels", "puppies", "pizza"]
+
+industry: ["undefined"]
 
 contentImgs:
   - url: 'src/assets/imgs/Editorial-Mockup_00.jpg'

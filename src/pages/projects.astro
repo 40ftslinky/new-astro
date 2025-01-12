@@ -4,7 +4,7 @@ const uniqueID = "projects";
 const pageTitle = "Projects";
 const metaTitle = "Projects meta Title tbc";
 const metaDescription = "Projects page meta description tbc";
-const pageHead = "Projects";
+const pageHead = "We solve problems for your brands.";
 const pageDesc = "Projects page description tbc";
 const pageContent = "Projects page content tbc";
 
@@ -32,6 +32,10 @@ const projects = (await getCollection('projects'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 10);
 
+const allProjects = await getCollection("projects");
+const tags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
+const industry = [...new Set(allProjects.map((project) => project.data.industry).flat())];
+
 
 ---
 
@@ -58,6 +62,17 @@ const projects = (await getCollection('projects'))
 
 		<h3>Recent Projects</h3>
 
+		<div class="tags">
+			{tags.map((tag) => (
+				<a class="tag" href={`/tags/${tag}`}>{tag}</a>
+			))}
+		</div>
+
+		<div class="industry-tags">
+			{industry.map((industry) => (
+				<a class="industry-tag"href={`/industry/${industry}`}>{industry}</a>
+			))}
+		</div>
 
 		<div class="gallery">
 			<Grid variant="offset">

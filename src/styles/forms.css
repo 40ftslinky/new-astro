@@ -24,14 +24,33 @@
     margin: 8px 0 12px;
   }
   
-   label:last-of-type {
+  label:last-of-type {
     margin-bottom: 2rem;
   }
   
    label {
-    font-size: 0.8rem;
+    font-size: var(--font-size-label);
     color: var(--light-grey);
-    margin-bottom: 5px;
+    margin-bottom: 0.33rem;
+  }
+
+  .textarea label {
+    margin-bottom: 0;
+  }
+
+/* form-group */
+  .select-group {
+    margin-top: 0.5rem;
+  }
+  .select-group, .textarea {
+    margin-bottom: 2rem;  
+  }
+  .textarea {
+    margin-bottom: 3rem;  
+  }
+
+  .select-group label {
+    margin-bottom: 0.33rem;
   }
 
   
@@ -39,12 +58,13 @@
   /* SELECT */
   /* ------------------------------------ */
 
-  .form_group {
+  .form_group, .form-group {
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: space-evenly;
-    margin: 8px 0 12px;
+    /* justify-content: space-evenly; */
+    align-content: flex-start;
+    /* margin: 8px 0 12px; */
   }
 
   .form_group label {
@@ -60,7 +80,7 @@
     padding: 0 1em 0 0;
     margin: 0;
     width: 100%;
-    font-family: inherit;
+    /* font-family: inherit; */
     font-size: inherit;
     cursor: inherit;
     line-height: inherit;
@@ -85,16 +105,16 @@
     width: 100%;
     min-width: 15ch;
     /* max-width: 30ch; */
-    border: 0.5px solid var(--select-border);
+    /* border: 0.5px solid var(--select-border); */
     /* border-radius: 0.25em; */
-    padding: 0.25em 0.5em;
-    font-size: 1rem;
+    padding: 0.25em 0.75em;
+    font-size: var(--font-size-label);
     cursor: pointer;
     line-height: 1.1;
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
     align-items: center;
-    min-height: 2rem;
+    min-height: 3rem;
     position: relative;
     display: grid;
     grid-template-areas: "select";
@@ -130,7 +150,7 @@
     /* color: var(--dark-grey); */
     width: 100%;
     max-width: 360px;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0.5rem;
     text-decoration: none;
     border: 0;
     border-radius: 0;
@@ -139,10 +159,18 @@
     /* background: rgba(0, 0, 0, 0); */
     transition: all 0.2s ease-in-out;
     overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+    height: 3rem;
   }
   
   textarea {
-    min-height: 2rem;
+    padding: 0.75rem 0.5rem;
+    min-height: 6rem;
+  }
+
+  textarea::placeholder {
+    color: var(--gray-600);
+    font-family: var(--font-body);
+    /* padding: 0.75rem 0.5rem; */
   }
   
   input[type='text'],
@@ -153,13 +181,13 @@
   input[type='date'],
   textarea,
   select {
-    border: 0;
+    /* border: 0;
     border-radius: 0;
-    border-bottom: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color); */
   }
   
   textarea {
-    padding: 0;
+    /* padding: 0; */
   }
   input[type='text']:focus,
   input[type='email']:focus,
@@ -188,58 +216,6 @@
   }
 
   
-  
-  /* submit button */
-  /* ------------------------------------ */
-  
-   button {
-    position: relative;
-    display: flex;
-    place-content: center;
-    text-align: center;
-    padding: 0.56em 2em;
-    gap: 0.8em;
-    color: var(--accent-text-over);
-    text-decoration: none;
-    line-height: 1.1;
-    border-radius: 999rem;
-    overflow: hidden;
-    background: var(--gradient-accent-orange);
-    box-shadow: var(--shadow-md);
-    white-space: nowrap;
-    border: none;
-    max-width: fit-content;
-    font-family: var(--font-body);
-    font-size: var(--text-lg);
-    transition: all var(--theme-transition);
-  }
-  
-   button:hover {
-    background: transparent;
-    /* transition: all 0.5; */
-  }
-  
-   button::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    background: var(--gradient-accent);
-    padding: 0;
-    margin: 0;
-    /* transition: all var(--theme-transition); */
-    transition: all 0.4s;
-    opacity: 0;
-  }
-  
-   button:hover::before {
-    opacity: 1;
-  }
-  
   /* checkbox */
   /* ------------------------------------ */
   
@@ -252,7 +228,7 @@
     vertical-align: baseline;
     font-style: normal;
     min-height: 17px;
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     line-height: 17px;
     min-width: 17px;
   }
@@ -277,7 +253,7 @@
     display: block;
     padding-left: 1.85714em;
     outline: 0;
-    font-size: 0.8em;
+    /* font-size: 0.8em; */
   }
   
   .checkbox .box:before,
@@ -298,7 +274,7 @@
   .checkbox .box:after,
   .checkbox label:after {
     position: absolute;
-    font-size: 14px;
+    font-size: var(--font-size-label);
     top: 0;
     left: 0;
     width: 17px;
@@ -505,7 +481,8 @@
   /* ------------------------------------ */
   
   label span {
-  }
+ 
+   }
   textarea label span {
   }
   
@@ -556,4 +533,6 @@
       opacity: 1;
     }
   }
+
+  #result {margin-top: 1rem;}
   

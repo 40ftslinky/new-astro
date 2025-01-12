@@ -9,7 +9,9 @@ interface Props {
 }
 
 const { imagePath, altText='', name='' } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/clients/*.{jpeg,jpg,png,gif,svg}');
+
+// imports all files that end with `jpeg,jpg,png,gif,svg,webp` in `/src/assets/clients/`
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/clients/*.{jpeg,jpg,png,gif,svg,webp}');
 if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/clients/*.{jpeg,jpg,png,gif,svg}"`);
 
 
@@ -23,7 +25,7 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
 
 
 <li class="client_list_item">
-    <div class="faux_link">
+    <div class="faux_link uhuh">
         <h6 hidden>{name}</h6>
         <Image class={name} src={images[imagePath]()} alt={altText} />
     </div>

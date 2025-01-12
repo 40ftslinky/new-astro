@@ -86,17 +86,18 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 
 
   /* gradient */
-  .logo stop { transition: .5s all; }
+  /* .logo stop { transition: .5s all; } */
+  [class*="logo"] stop { transition: .5s all; }
 
-  .logo:hover stop:first-child { 
+  [class*="logo"]:hover stop:first-child { 
     /* offset:.5; */
     stop-color: var(--gradient-stop-3); 
   }
-  .logo:hover stop:nth-child(2) { 
+  [class*="logo"]:hover stop:nth-child(2) { 
     /* offset:.5; */
     stop-color: var(--gradient-stop-2); 
   }
-  .logo:hover stop:last-child { 
+  [class*="logo"]:hover stop:last-child { 
     offset:.75;
     stop-color: var(--gradient-stop-1); 
   }

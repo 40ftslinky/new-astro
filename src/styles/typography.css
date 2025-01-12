@@ -8,8 +8,8 @@
     --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
-    --font-brand: 'Poppins', sans-serif;
-    --font-body: 'Work Sans', sans-serif;
+    --font-brand: 'Inter', sans-serif;
+    --font-body: 'Inter Tight', sans-serif;
     --font-grotesk: "Schibsted Grotesk", sans-serif;
     
     --ff_primary: 'Roboto', sans-serif;
@@ -25,6 +25,7 @@
 
   --font-size-small: var(--font-size-body-sm-mobile);
   --font-size-body: var(--font-size-body-base-mobile);
+  --font-size-label: 0.8em;
   --font-size-large: var(--font-size-body-lg-mobile);
   --font-size-footer: var(--font-size-body-sm-mobile);
 
@@ -33,11 +34,17 @@
   --line-height-body: 1.4;
   --line-height-large: 1.45;
   
-  --font-weight-regular: var(--font-weight-regular);
+  --font-weight-regular: var(--font-weight-light);
   --font-weight-medium: var(--font-weight-medium);
   --font-weight-bold: var(--font-weight-bold);
+
+  --font-weight-body: var(--font-weight-regular);
+  --font-weight-heading: var(--font-weight-heavy);
+
+
   --letter-spacing-small: -0.02em;
   --letter-spacing-body: -0.01em;
+  --letter-spacing-sub: -0.0em;
   --letter-spacing-large: -0.04em;
 
   --font-size-h1: var(--font-size-heading-xxl-mobile);
@@ -47,19 +54,21 @@
   --font-size-h5: var(--font-size-heading-sm-mobile);
   --font-size-h6: var(--font-size-heading-xs-mobile);
 
-  --line-height-h1: 0.9;
+  --leading-flat: 0.9;
   --line-height-h1: var(--leading-flat);
   --line-height-h2: 1.1;
   --line-height-h3: 1.1;
   --line-height-h4: 1.2;
   --line-height-h5: 1.1;
   --line-height-h6: 1.1;
-  --font-weight-h1: var(--font-weight-bold);
-  --font-weight-h2: var(--font-weight-bold);
-  --font-weight-h3: var(--font-weight-medium);
-  --font-weight-h4: var(--font-weight-bold);
+
+  --font-weight-h1: var(--font-weight-heavy);
+  --font-weight-h2: var(--font-weight-heavy);
+  --font-weight-h3: var(--font-weight-heavy);
+  --font-weight-h4: var(--font-weight-heavy);
   --font-weight-h5: var(--font-weight-bold);
   --font-weight-h6: var(--font-weight-medium);
+
   --letter-spacing-h1: -0.055em;
   --letter-spacing-h2: -0.025em;
   --letter-spacing-h3: -0.035em;
@@ -96,41 +105,6 @@
   }
 }
 
-:root {
-  --font-size-xxs: 1.1rem;
-  --font-size-xs: 1.4rem;
-  --font-size-sm: 1.6rem;
-  --font-size-md: 1.8rem;
-  --font-size-lg: 2rem;
-  --font-size-xl: 2.2rem;
-  --font-size-xxl: 2.4rem;
-  --font-size-3xl: 2.8rem;
-  --font-size-4xl: 3.4rem;
-  --font-size-5xl: 3.8rem;
-  --font-size-6xl: 4rem;
-  --font-size-7xl: 4.2rem;
-  --font-size-8xl: 4.6rem;
-  --font-size-9xl: 6.25vw;
-  --font-size-body-sm-mobile: 1.1rem;
-  --font-size-body-sm-desktop: 1.4rem;
-  --font-size-body-base-mobile: 1.4rem;
-  --font-size-body-base-desktop: 1.8rem;
-  --font-size-body-lg-mobile: 1.8rem;
-  --font-size-body-lg-desktop: 2.2rem;
-  --font-size-heading-xs-mobile: 1.6rem;
-  --font-size-heading-xs-desktop: 2.2rem;
-  --font-size-heading-sm-mobile: 1.8rem;
-  --font-size-heading-sm-desktop: 2.2rem;
-  --font-size-heading-md-mobile: 2rem;
-  --font-size-heading-md-desktop: 2.8rem;
-  --font-size-heading-lg-mobile: 2.2rem;
-  --font-size-heading-lg-desktop: 3.8rem;
-  --font-size-heading-xl-mobile: 2.4rem;
-  --font-size-heading-xl-desktop: 4.2rem;
-  --font-size-heading-xxl-mobile: 4rem;
-  --font-size-heading-xxl-portrait: 4.6rem;
-  --font-size-heading-xxl-desktop: 6.25vw;
-}
 /*  */
 
 
@@ -163,6 +137,7 @@
   --layout-z-index-header: 800;
   --layout-z-index-overlay: 900;
   --layout-z-index-menu: 1000;
+
   --font-size-xxs: 1.1rem;
   --font-size-xs: 1.4rem;
   --font-size-sm: 1.6rem;
@@ -178,18 +153,23 @@
   --font-size-8xl: 4.6rem;
   --font-size-9xl: 6.25vw;
 
-  --font-weight-regular: 300;
-  --font-weight-medium: 400;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
   --font-weight-heavy: 900;
+
   --font-size-body-sm-mobile: 1.1rem;
   --font-size-body-sm-desktop: 1.4rem;
   --font-size-body-base-mobile: 1.4rem;
   --font-size-body-base-desktop: 1.8rem;
   --font-size-body-lg-mobile: 1.8rem;
   --font-size-body-lg-desktop: 2.2rem;
-  --font-size-heading-xs-mobile: 1.6rem;
-  --font-size-heading-xs-desktop: 2.2rem;
+  --font-size-heading-xs-mobile: 1.2rem;
+  --font-size-heading-xs-desktop: 1.4rem;
   --font-size-heading-sm-mobile: 1.8rem;
   --font-size-heading-sm-desktop: 2.2rem;
   --font-size-heading-md-mobile: 2rem;
@@ -204,7 +184,7 @@
 }
 
 :root {
-  --leading-flat: 1;
+  --leading-flat: 0.9;
   --size-line-height-base: 1.6rem;
   --size-line-height-mobile-xs: 1.2rem;
   --size-line-height-mobile-small: 1.6rem;
@@ -330,7 +310,7 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-body);
   letter-spacing: var(--letter-spacing-body);
   line-height: var(--line-height-body)
 }
@@ -354,7 +334,7 @@ h3,
 h4,
 [id*="heading"] {
     font-family: var(--font-brand);
-    font-weight: var(--font-weight-bold)
+    font-weight: var(--font-weight-heading)
   }
 h5,
 h6 {
@@ -364,8 +344,10 @@ h6 {
   
 .subtitle {
     font-family: var(--font-body);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-body);
     font-size: var(--font-size-xxl);
+    line-height: var(--line-height-regular);
+    letter-spacing: var(--letter-spacing-sub);
 } 
 
 @media screen and (min-width: 1280px) {
@@ -394,7 +376,7 @@ sup {
   font-weight: var(--font-weight-h1);
   letter-spacing: var(--letter-spacing-h1);
   line-height: var(--line-height-h1);
-  max-width: 15ch;
+  max-width: 14ch;
   /* leading-trim:unset; */
 }
 
@@ -442,17 +424,13 @@ sup {
 }
 
 
-:root {
-  --accent: 124, 58, 237;
-  --accent-gradient: 
-    linear-gradient(
-      45deg, 
-      rgb(var(--accent)), 
-      #da62c4 30%, 
-      white 60%);
-}
 
-.text-gradient {
+
+.text-gradient,
+h1,
+h2:not(.subtitle),
+h3,
+h4 {
   background-image: var(--accent-gradient);
   background-clip: text;
   -webkit-background-clip: text;
@@ -464,12 +442,12 @@ sup {
 
 ::-moz-selection.text-gradient,
 ::selection.text-gradient { /* Code for Firefox */
-color: white;
+/* color: white !important;
 background: var(--selection-color);
-background-image: unset;
-background-clip: unset;
+background-image: unset !important;
+background-clip: unset !important;
 -webkit-background-clip: unset;
--webkit-text-fill-color: unset;
+-webkit-text-fill-color: unset; */
 }
 
 

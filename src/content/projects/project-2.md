@@ -21,8 +21,9 @@ video:
     height: '100%'
     poster: '/src/assets/color-orange.png'
     
-
 tags: ["astro", "blogging", "learning in public"]
+
+industry: ["undefined"]
 
 contentImgs:
   - url: 'src/assets/project-1/Editorial-Mockup_00.jpg'

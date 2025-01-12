@@ -114,12 +114,10 @@ const projects = (await getCollection('projects'))
         max-width: 30ch;
     }
 	/* override grid styles */
-	.grid.large .card {
-			height: var(--body-height);
-			width: var(--max-col-width);
-			/* border-radius: 1.5rem; */
+	.grid.large .card  {
+		height: var(--max-body-height);
+		width: var(--max-col-width);
+		max-width: unset;
 	}
-	.grid.large .card img {
-		/* min-height: var(--body-height); */
-	}
+	
 </style>

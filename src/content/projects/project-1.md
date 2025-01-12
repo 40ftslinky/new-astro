@@ -20,8 +20,10 @@ video:
     height: '100%'
     poster: '/src/assets/color-orange.png'
     
-
 tags: ["astro", "blogging", "pickles"]
+
+industry: ["undefined"]
+
 
 contentImgs:
   - url: 'src/assets/dynamic/Editorial-Mockup_00.jpg'

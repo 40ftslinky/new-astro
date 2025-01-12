@@ -39,7 +39,13 @@ const { variant } = Astro.props;
 		width: var(--max-col-width);
 	}
 
+	.grid.large .card  {
+			height: var(--max-body-height);
+			width: var(--max-col-width);
+			max-width: unset;
+		}
 
+/* 800px */
 	@media (min-width: 50em) {
 		.grid {
 			grid-template-columns: 1fr 1fr;

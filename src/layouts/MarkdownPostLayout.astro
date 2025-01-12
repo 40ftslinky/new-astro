@@ -25,14 +25,23 @@ const { frontmatter } = Astro.props;
         
         <h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{frontmatter.title}</h1>
         
+
+        <p transition:animate={fade({ duration: '2s' })} ><em>{frontmatter.description}</em></p>
+        <div class="tags">
+            {
+                frontmatter.tags.map((tag: string) => (
+                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+                ))
+            }
+        </div>
         <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
         <div class="video_wrap">
             <video 
                 width={frontmatter.video.width} 
                 height={frontmatter.video.height} 
                 transition:persist
-                autoplay
-                loop={true}
+                autoplay={false}
+                loop={false}
                 controls={false}
                 poster={frontmatter.video.poster}
             > 
@@ -54,37 +63,12 @@ const { frontmatter } = Astro.props;
     <section class="endmatter">
 
         <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-        <p transition:animate={fade({ duration: '2s' })} ><em>{frontmatter.description}</em></p>
         <p>Written by: {frontmatter.author}</p>
     
-    
-        <div class="tags">
-            {
-                frontmatter.tags.map((tag: string) => (
-                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-                ))
-            }
-        </div>
     </section>
 
 </BaseLayout>
 
 <style>
-    a {
-        color: #00539F;
-    }
-  
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-    }
-  
-    .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.15em;
-        background-color: #F8FCFD;
-    }
+    
 </style>
