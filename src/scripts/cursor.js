@@ -1,76 +1,88 @@
 // cursor
-const cursor = document.querySelector('.cursor');
 
-let x = 0;
-let y = 0;
+const carousels = document.querySelectorAll('.carousel_container');
 
-let mouseX = 0;
-let mouseY = 0;
+carousels.forEach(carousel => {
 
-let cursorX = 0;
-let cursorY = 0;
+    // Create a cursor element for each carousel
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    carousel.appendChild(cursor);
 
-let speed = 0.25; // change to increase the ease
+    let x = 0;
+    let y = 0;
 
-function animate() {
-    let distX = mouseX - cursorX;
-    let distY = mouseY - cursorY;
+    let mouseX = 0;
+    let mouseY = 0;
 
-    cursorX = cursorX + (distX * speed);
-    cursorY = cursorY + (distY * speed);
+    let cursorX = 0;
+    let cursorY = 0;
 
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
+    let speed = 0.25; // change to increase the ease
 
-    requestAnimationFrame(animate);
-}
+    function animate() {
 
+        let distX = mouseX - cursorX;
+        let distY = mouseY - cursorY;
 
-animate();
+        cursorX = cursorX + (distX * speed);
+        cursorY = cursorY + (distY * speed);
 
-const canvas = document.getElementById("canvas");
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
 
-canvas.addEventListener('mousemove', (event) => {
-
-    // Get the bounding rectangle of target
-    const rect = canvas.getBoundingClientRect();
-
-    // Mouse position
-    mouseX = event.clientX - rect.left;
-    mouseY = event.clientY - rect.top;
-    
-    if (mouseX < 0 || mouseY < 0 || mouseX > canvas.width || mouseY > canvas.height) {
-        // cursor.style.display = 'none';
-        cursor.classList.remove('resize');
-       
-    } else {
-        // cursor.style.display = 'block';
-        cursor.classList.add('resize');
+        requestAnimationFrame(animate);
     }
-    
-    
-});
 
-let isDragging = false;
+    animate();
 
-// Add the event listeners for mousedown, mousemove, and mouseup
-canvas.addEventListener("mousedown", (event) => {
-    // x = event.offsetX;
-    // y = event.offsetY;
-    isDragging = true;
+    let mouseDown = false;
+    let startX, scrollLeft;
+
+    let startDragging = function (event) {
+        mouseDown = true;
+        startX = event.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
         cursor.classList.add('drag');
-});
+    };
+    let stopDragging = function (event) {
+        mouseDown = false;
+        cursor.classList.remove('drag');
+    };
 
-canvas.addEventListener("mouseleave", (event) => {
-// x = event.offsetX;
-// y = event.offsetY;
-isDragging = false;
-    cursor.classList.remove('drag');
-});
+    carousel.addEventListener('mousemove', (event) => {
+        const stage = document.querySelector('.carousel_wrap');
+        // Get the bounding rectangle of target
+        const rect = carousel.getBoundingClientRect();
 
-canvas.addEventListener("mouseup", (event) => {
-// x = event.offsetX;
-// y = event.offsetY;
-isDragging = false;
-    cursor.classList.remove('drag');
+        // Mouse position
+        mouseX = event.clientX - rect.left;
+        mouseY = event.clientY - rect.top;
+
+        cursor.classList.remove('resize');
+        
+        if (mouseX < 10 || mouseY < 10 || mouseX > rect.width - 10 || mouseY > rect.height - 10) {
+            cursor.classList.remove('resize');
+        } else {
+            cursor.classList.add('resize');
+        }
+
+        if (mouseDown) {
+            event.preventDefault();
+            const x = event.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            carousel.scrollLeft = scrollLeft - walk;
+        }
+    });
+
+    // Add the event listeners
+    carousel.addEventListener('mousedown', startDragging, false);
+    carousel.addEventListener('mouseup', stopDragging, false);
+    carousel.addEventListener('mouseleave', stopDragging, false);
+
+    // Add scroll event listener
+    carousel.addEventListener('walk', () => {
+        slider.classList.add('dragged');
+    });
+
 });

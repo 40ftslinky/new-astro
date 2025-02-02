@@ -419,13 +419,13 @@ video {
   overflow: hidden;
   cursor: none;
   margin: 0 var(--bodypadding);
+  margin-bottom: var(--bodypadding) ;
   box-sizing: content-box;
 }
 
 .carousel_stage {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  display: inline;
+  /* flex-wrap: nowrap; */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   width: 100%;
@@ -434,6 +434,7 @@ video {
   position: relative;
   /* overflow: scroll visible; */
   overflow-x: scroll;
+  overflow-y: hidden;
   padding-left: var(--grid-padding);
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
@@ -446,6 +447,15 @@ video {
 }
 .carousel_wrap .image_wrap {
   flex: 0 0 var(--max-col-width);
+}
+.image_wrap[data-type="last"] {
+  margin-right: var(--bodypadding);
+}
+
+.image_wrap picture img {
+  width: 100%;
+  min-width: var(--max-width-col);
+  height: auto;
 }
 
 /* 
@@ -521,6 +531,7 @@ a {
 .tags, .industry-tags {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .tag, .industry-tag {

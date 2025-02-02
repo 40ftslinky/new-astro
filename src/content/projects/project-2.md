@@ -16,7 +16,7 @@ image:
 
 video: 
     # url: './../../../public/video/Lug_casestudy.mp4'
-    url: '/video/Lug_casestudy.mp4'
+    url: '/public/video/studio-dumbar-demo-typography.mp4'
     width: '100%'
     height: '100%'
     poster: '/src/assets/color-orange.png'

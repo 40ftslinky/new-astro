@@ -36,11 +36,11 @@ const { frontmatter } = Astro.props;
         </div>
         <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
         <div class="video_wrap">
-            <video 
+            <video class="video"
                 width={frontmatter.video.width} 
                 height={frontmatter.video.height} 
                 transition:persist
-                autoplay={false}
+                autoplay={true}
                 loop={false}
                 controls={false}
                 poster={frontmatter.video.poster}
@@ -62,13 +62,21 @@ const { frontmatter } = Astro.props;
 
     <section class="endmatter">
 
-        <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-        <p>Written by: {frontmatter.author}</p>
-    
+        <div class="hidden" hidden>  
+            <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+            <p>Written by: {frontmatter.author}</p>
+        </div>
+
     </section>
 
 </BaseLayout>
 
-<style>
-    
-</style>
+
+<style type="text/css">
+    .image_wrap picture img {
+      width: 100%;
+      min-width: var(--max-width-col);
+      height: auto;
+    }
+  </style>
+  

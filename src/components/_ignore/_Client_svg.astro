@@ -1,0 +1,37 @@
+---
+// list svg from folder
+
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const imageFiles =Object.values(import.meta.glob('/src/assets/clients/*.{jpeg,jpg,png,gif,svg,webp}', { eager: true }));
+
+interface Props {
+   imagePath?: string | undefined;
+   altText?: string | undefined;
+   name?: string | undefined;
+}
+
+const { imagePath, altText, name} = Astro.props;
+
+// imports all files that end with `jpeg,jpg,png,gif,svg,webp` in `/src/assets/clients/`
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/clients/*.{jpeg,jpg,png,gif,svg,webp}');
+// if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/clients/*.{jpeg,jpg,png,gif}"`);
+
+
+---
+
+
+<ul class="client_list">
+    {
+      imageFiles.map((img) => (
+        
+        <li class="client_list_item">
+            <div class="faux_link test">
+                <h6 hidden>{name}</h6>
+                <Image class={name} src={images[imagePath]()} alt={altText} />
+            </div>
+        </li>    
+      ))
+    }
+  </ul>
