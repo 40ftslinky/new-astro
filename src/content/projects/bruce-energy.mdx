@@ -8,7 +8,7 @@ description: 'A new brand for a new beginning.'
 author: ''
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-    url: '/src/assets/color-green.jpg'
+    url: '/src/content/projects/imgs/color-green.jpg'
     alt: 'The full Astro logo.'
     width: '100%'
     height: '100%'
@@ -18,7 +18,7 @@ video:
     url: '/video/bruce/Bruce_casestudy_01.mp4'
     width: '100%'
     height: '100%'
-    poster: '/images/bruce_hero.jpg'
+    poster: '/src/content/projects/imgs/bruce_hero.jpg'
     
 tags: ["Brand", "Web", "Production"]
 
@@ -40,7 +40,7 @@ contentImgs:
 
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '/src/content/projects/imgs/color-gray.jpg';
+import image01 from '/src/content/projects/imgs/Editorial-Mockup_00.jpg';
 import image02 from '/src/content/projects/imgs/color-orange.png';
 import image03 from '/src/content/projects/imgs/color-green.jpg';
 
@@ -73,4 +73,4 @@ Local image stored in src/assets/ (carousel)
 
 Image stored in public/images/
 
-<Image src="/images/Editorial-Mockup_00.jpg" alt="Editorial Mockup" width="600" height="300"/>
+<Image src="/images/Editorial-Mockup_00.webp" alt="Editorial Mockup" width="600" height="300"/>

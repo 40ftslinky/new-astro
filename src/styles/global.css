@@ -424,38 +424,52 @@ video {
 }
 
 .carousel_stage {
-  display: inline;
-  /* flex-wrap: nowrap; */
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  width: 100%;
-  gap: var(--col-gap);
-  /*  */
-  position: relative;
-  /* overflow: scroll visible; */
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-left: var(--grid-padding);
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  
 }
 
 .carousel_wrap {
   display: flex;
   gap: var(--col-gap);
+  position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    transition: var(--transition);
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
 }
 .carousel_wrap .image_wrap {
   flex: 0 0 var(--max-col-width);
 }
+
+.carousel_wrap.dragged {
+  background: rgba(255,255,255,0.3);
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}
+
+.carousel_wrap .image_wrap {
+  /* height: 80vh; */
+  height: var(--body-height);
+  object-fit: cover;
+  width: auto;
+}
+
 .image_wrap[data-type="last"] {
   margin-right: var(--bodypadding);
 }
 
 .image_wrap picture img {
   width: 100%;
-  min-width: var(--max-width-col);
-  height: auto;
+  /* min-width: var(--max-width-col); */
+  /* height: auto; */
+  height: var(--body-height);
+
 }
 
 /* 

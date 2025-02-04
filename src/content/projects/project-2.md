@@ -9,17 +9,17 @@ description: 'This is the Lorem Ipsum.'
 author: 'Astro Learner'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-    url: '/src/assets/color-purple.jpg'
+    url: '/src/content/projects/imgs/color-purple.jpg'
     alt: 'Purple.'
     width: '100%'
     height: '100%'
 
 video: 
     # url: './../../../public/video/Lug_casestudy.mp4'
-    url: '/public/video/studio-dumbar-demo-typography.mp4'
+    url: '/video/studio-dumbar-demo-typography.mp4'
     width: '100%'
     height: '100%'
-    poster: '/src/assets/color-orange.png'
+    poster: '/src/content/projects/imgs/color-orange.png'
     
 tags: ["astro", "blogging", "learning in public"]
 
@@ -39,7 +39,8 @@ contentImgs:
 
 import { Image } from 'astro:assets';
 
-import rocket from '../assets/color-purple.jpg';
+![Editorial Mockup](/images/Editorial-Mockup_00.jpg)
+
 
 Lorem ipsum dolor sit amet.
 

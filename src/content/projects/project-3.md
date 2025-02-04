@@ -15,8 +15,8 @@ image:
     height: '100%'
 
 video: 
-    # url: './../../../public/video/Lug_casestudy.mp4'
-    url: '/video/Lug_casestudy.mp4'
+    # url: './../../../public/video/flaus_styleguide_colour_palette.mp4'
+    url: '/video/flaus_styleguide_colour_palette.mp4'
     # url: ''
     width: '100%'
     height: '100%'
