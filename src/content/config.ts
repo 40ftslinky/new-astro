@@ -53,28 +53,28 @@ const projectImages = defineCollection({
     })
 });
 
-// const clients = defineCollection({
-//     loader: glob({ 
-//         pattern: "**/*.{svg,png,jpg,jpeg}",
-//         base: "./src/assets/clients" 
-//     }),
-//     schema: z.object({
-//         uniqueID: z.string(),
-//         title: z.string(),
-//         image: z.object({
-//             url: z.string().optional(),
-//             alt: z.string(),
-//             width: z.string(),
-//             height: z.string(),
-//         }).optional(),
+const clients = defineCollection({
+    loader: glob({ 
+        pattern: "**/*.{svg,png,jpg,jpeg}",
+        base: "./src/assets/clients" 
+    }),
+    schema: z.object({
+        uniqueID: z.string(),
+        title: z.string(),
+        image: z.object({
+            url: z.string().optional(),
+            alt: z.string(),
+            width: z.string(),
+            height: z.string(),
+        }).optional(),
         
-//     })
-// });
+    })
+});
 
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-    // clients,
+    clients,
     projects,
     projectImages,
 };
