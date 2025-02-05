@@ -431,11 +431,13 @@ video {
   display: flex;
   gap: var(--col-gap);
   position: relative;
-    width: 100%;
+    /* width: 100%; */
+    width: auto;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     transition: all 0.2s;
+    transform: scale(1);
     transform: scale(0.98);
     transition: var(--transition);
     will-change: transform;
@@ -450,26 +452,26 @@ video {
   background: rgba(255,255,255,0.3);
   cursor: grabbing;
   cursor: -webkit-grabbing;
-  transform: scale(1);
+  /* transform: scale(1); */
+  transform: scale(0.98);
 }
 
 .carousel_wrap .image_wrap {
-  /* height: 80vh; */
   height: var(--body-height);
   object-fit: cover;
   width: auto;
+  aspect-ratio: unset;
 }
 
 .image_wrap[data-type="last"] {
   margin-right: var(--bodypadding);
 }
-
+.image_wrap picture {
+  width: auto;
+}
 .image_wrap picture img {
-  width: 100%;
-  /* min-width: var(--max-width-col); */
-  /* height: auto; */
+  width: auto;
   height: var(--body-height);
-
 }
 
 /* 

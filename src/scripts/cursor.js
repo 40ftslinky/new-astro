@@ -1,8 +1,9 @@
 const carousels = document.querySelectorAll('.carousel_container');
+const slider = document.querySelector('.carousel_wrap');
 
 carousels.forEach(slider => {
 
-    const slider = document.querySelector('.carousel_wrap');
+    // const slider = document.querySelector('.carousel_wrap');
     let isDown = false;
     let startX;
     let scrollLeft;
