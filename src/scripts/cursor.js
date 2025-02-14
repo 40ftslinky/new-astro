@@ -1,34 +1,33 @@
 const carousels = document.querySelectorAll('.carousel_container');
-const slider = document.querySelector('.carousel_wrap');
+// const slider = document.querySelector('.carousel_wrap');
 
-carousels.forEach(slider => {
+const innerSlider = document.querySelector('.carousel_wrap');
 
-    // const slider = document.querySelector('.carousel_wrap');
+carousels.forEach(carousel => {
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    slider.addEventListener('mousedown', (e) => {
+    innerSlider.addEventListener('mousedown', (e) => {
         isDown = true;
-        slider.classList.add('dragged');
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
+        innerSlider.classList.add('dragged');
+        startX = e.pageX - innerSlider.offsetLeft;
+        scrollLeft = innerSlider.scrollLeft;
     });
-    slider.addEventListener('mouseleave', () => {
+    innerSlider.addEventListener('mouseleave', () => {
         isDown = false;
-        slider.classList.remove('dragged');
+        innerSlider.classList.remove('dragged');
     });
-    slider.addEventListener('mouseup', () => {
+    innerSlider.addEventListener('mouseup', () => {
         isDown = false;
-        slider.classList.remove('dragged');
+        innerSlider.classList.remove('dragged');
     });
-    slider.addEventListener('mousemove', (e) => {
+    innerSlider.addEventListener('mousemove', (e) => {
         if(!isDown) return;
         e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
+        const x = e.pageX - innerSlider.offsetLeft;
         const walk = (x - startX) * 3; //scroll-fast
-        slider.scrollLeft = scrollLeft - walk;
-        console.log(walk);
+        innerSlider.scrollLeft = scrollLeft - walk;
     });
 
 });

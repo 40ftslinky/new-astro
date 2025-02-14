@@ -438,7 +438,7 @@ video {
     white-space: nowrap;
     transition: all 0.2s;
     transform: scale(1);
-    transform: scale(0.98);
+    /* transform: scale(0.98); */
     transition: var(--transition);
     will-change: transform;
     user-select: none;
@@ -456,22 +456,42 @@ video {
   transform: scale(0.98);
 }
 
+:root {
+  --carousel-height: 80vh;
+}
+
 .carousel_wrap .image_wrap {
-  height: var(--body-height);
+  height: var(--carousel-height);
   object-fit: cover;
   width: auto;
+  max-width: max-content;
   aspect-ratio: unset;
+}
+
+@media screen and (max-width: 880px) {
+  .carousel_wrap .image_wrap {
+    height: calc(var(--carousel-height)*2/3);
+  }
+  
 }
 
 .image_wrap[data-type="last"] {
   margin-right: var(--bodypadding);
 }
 .image_wrap picture {
+  display: flex;
   width: auto;
 }
 .image_wrap picture img {
   width: auto;
-  height: var(--body-height);
+  height: var(--carousel-height);
+}
+
+@media screen and (max-width: 880px) {
+  .image_wrap picture img {
+    height: calc(var(--carousel-height)*2/3);
+  }
+  
 }
 
 /* 
