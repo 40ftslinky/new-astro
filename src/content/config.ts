@@ -40,19 +40,7 @@ const projects = defineCollection({
 
 
 // image and video are optional fields, so they are wrapped in z.object().optional().
-
-const projectImages = defineCollection({
-    loader: glob({ 
-        pattern: "**/*.{jpg,jpeg,png}",
-        base: "src/content/assets" 
-    }),
-    schema: ({ image }) => z.object({
-        heroImage: image.optional(),
-        title: z.string(),
-        cover: image(),
-        coverAlt: z.string(),
-    })
-});
+// The `url` field is required, while the `alt`, `width`, and `height` fields are optional.
 
 const clients = defineCollection({
     loader: glob({ 
