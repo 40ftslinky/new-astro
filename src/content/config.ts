@@ -65,5 +65,4 @@ const clients = defineCollection({
 export const collections = {
     clients,
     projects,
-    projectImages,
 };
