@@ -1,7 +1,7 @@
 // collections
 
 // Import the glob loader
-import { glob} from 'astro/loaders'; // Not available with legacy API
+import { glob } from 'astro/loaders'; // Not available with legacy API
 
 // Import utilities from `astro:content`
 import { defineCollection, z } from 'astro:content';
@@ -10,9 +10,10 @@ import { defineCollection, z } from 'astro:content';
 const projects = defineCollection({
     loader: glob({ 
         pattern: "**/*.{md,mdx}",
-        base: "./src/content/projects" 
+        base: "./src/content/projects/" 
     }),
     // type: 'content',
+	// Type-check frontmatter using a schema
     schema: ({ image }) => z.object({
         uniqueID: z.string(),
         title: z.string(),
@@ -45,9 +46,9 @@ const projects = defineCollection({
 const clients = defineCollection({
     loader: glob({ 
         pattern: "**/*.{svg,png,jpg,jpeg}",
-        base: "./src/assets/clients" 
+        base: "src/assets/clients/" 
     }),
-    schema: z.object({
+    schema: ({ image }) => z.object({
         uniqueID: z.string(),
         title: z.string(),
         image: z.object({

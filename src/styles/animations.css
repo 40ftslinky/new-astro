@@ -15,11 +15,11 @@
   }
   
   nav {
-    /* transition: background-color 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87); */
+    transition: background-color 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
   }
   
   nav.active {
-    /* background-color: var(--dark); */
+    background-color: var(--dark);
   }
   
   .activated {
