@@ -13,7 +13,7 @@ const projects = defineCollection({
         base: "./src/content/projects" 
     }),
     // type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         uniqueID: z.string(),
         title: z.string(),
         pubDate: z.coerce.date(),
@@ -44,9 +44,10 @@ const projects = defineCollection({
 const projectImages = defineCollection({
     loader: glob({ 
         pattern: "**/*.{jpg,jpeg,png}",
-        base: "src/content/projects/images" 
+        base: "src/content/assets" 
     }),
     schema: ({ image }) => z.object({
+        heroImage: image.optional(),
         title: z.string(),
         cover: image(),
         coverAlt: z.string(),

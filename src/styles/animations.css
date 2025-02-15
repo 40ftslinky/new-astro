@@ -135,3 +135,11 @@
     transition-delay: 600ms;
   }
   
+  /*  */
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(.4,0,1,1);
+}
