@@ -43,27 +43,27 @@ const projects = defineCollection({
 // image and video are optional fields, so they are wrapped in z.object().optional().
 // The `url` field is required, while the `alt`, `width`, and `height` fields are optional.
 
-const clients = defineCollection({
-    loader: glob({ 
-        pattern: "**/*.{svg,png,jpg,jpeg}",
-        base: "src/assets/clients/" 
-    }),
-    schema: ({ image }) => z.object({
-        uniqueID: z.string(),
-        title: z.string(),
-        image: z.object({
-            url: z.string().optional(),
-            alt: z.string(),
-            width: z.string(),
-            height: z.string(),
-        }).optional(),
+// const clients = defineCollection({
+//     loader: glob({ 
+//         pattern: "**/*.{svg,png,jpg,jpeg}",
+//         base: "./src/assets/clients/" 
+//     }),
+//     schema: ({ image }) => z.object({
+//         uniqueID: z.string(),
+//         title: z.string(),
+//         image: z.object({
+//             url: z.string().optional(),
+//             alt: z.string(),
+//             width: z.string(),
+//             height: z.string(),
+//         }).optional(),
         
-    })
-});
+//     })
+// });
 
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-    clients,
+    // clients,
     projects,
 };
