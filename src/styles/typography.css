@@ -34,9 +34,13 @@
   --line-height-body: 1.4;
   --line-height-large: 1.45;
   
-  --font-weight-regular: var(--font-weight-light);
-  --font-weight-medium: var(--font-weight-medium);
-  --font-weight-bold: var(--font-weight-bold);
+  /* --font-weight-thin: 100;
+  --font-weight-xlight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700; */
 
   --font-weight-body: var(--font-weight-regular);
   --font-weight-heading: var(--font-weight-heavy);
@@ -62,14 +66,15 @@
   --line-height-h5: 1.1;
   --line-height-h6: 1.1;
 
-  --font-weight-h1: var(--font-weight-heavy);
+  --font-weight-h1: var(--font-weight-extralight);
   --font-weight-h2: var(--font-weight-heavy);
   --font-weight-h3: var(--font-weight-heavy);
   --font-weight-h4: var(--font-weight-heavy);
   --font-weight-h5: var(--font-weight-bold);
   --font-weight-h6: var(--font-weight-medium);
 
-  --letter-spacing-h1: -0.055em;
+  --letter-spacing-h1: -0.55vw;
+  /* --letter-spacing-h1: -0.055em; */
   --letter-spacing-h2: -0.025em;
   --letter-spacing-h3: -0.035em;
   --letter-spacing-h4: -0.02em;
@@ -153,6 +158,7 @@
   --font-size-8xl: 4.6rem;
   --font-size-9xl: 6.25vw;
 
+  --font-weight-thin: 100;
   --font-weight-extralight: 200;
   --font-weight-light: 300;
   --font-weight-regular: 400;

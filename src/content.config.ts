@@ -1,18 +1,19 @@
 // collections
 
-// Import the glob loader
-import { glob } from 'astro/loaders'; // Not available with legacy API
-
 // Import utilities from `astro:content`
 import { defineCollection, z } from 'astro:content';
+
+// Import the glob loader
+import { glob } from 'astro/loaders';
+
 
 // Define a `loader` and `schema` for each collection
 const projects = defineCollection({
     loader: glob({ 
-        pattern: "**/*.{md,mdx}",
-        base: "./src/content/projects/" 
+        pattern: "**/*.{md,mdx}", 
+        base: "./src/content/projects/"
     }),
-    // type: 'content',
+    
 	// Type-check frontmatter using a schema
     schema: ({ image }) => z.object({
         uniqueID: z.string(),
@@ -21,11 +22,15 @@ const projects = defineCollection({
         head: z.string(),
         description: z.string(),
         author: z.string(),
+        cover: image().optional(),
+        coverAlt: z.string().optional(),
+        coverWidth: z.string().optional(),
+        coverHeight: z.string().optional(),
         image: z.object({
-            url: z.string().optional(),
-            alt: z.string(),
-            width: z.string(),
-            height: z.string(),
+            // url: z.string().optional(),
+            alt: z.string().optional(),
+            width: z.string().optional(),
+            height: z.string().optional(),
         }).optional(),
         video: z.object({
             url: z.string().optional(),
@@ -66,4 +71,5 @@ const projects = defineCollection({
 export const collections = {
     // clients,
     projects,
+    // project: projects,
 };

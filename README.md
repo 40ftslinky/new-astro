@@ -84,3 +84,20 @@ yarn upgrade astro --latest
 GSAP integration
 
 ** [https://www.launchfa.st/blog/gsap-astro-view-transitions]
+
+<!-- note -->
+<!-- --- -->
+import myImage from "../my_image.png";
+<!-- --- -->
+
+<!-- GOOD: `src` is the full imported image. -->
+<Image src={myImage} alt="Cool image" />
+
+<!-- GOOD: `src` is a URL. -->
+<Image src="https://example.com/my_image.png" alt="Cool image" />
+
+<!-- BAD: `src` is an image's `src` path instead of the full image object. -->
+<Image src={myImage.src} alt="Cool image" />
+
+<!-- BAD: `src` is a string filepath. -->
+<Image src="../my_image.png" alt="Cool image" />

@@ -27,9 +27,11 @@ const pageDesc = "40ftSlinky is a boutique creative agency delivering imaginativ
 // a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
 const pageContent = "";
 
+import { Image } from "astro:assets";
 
 // import content
 import { getCollection } from 'astro:content';
+
 
 // Content Fetching: List four most recent work projects
 const projects = (await getCollection('projects'))

@@ -4,6 +4,15 @@ import { Image } from "astro:assets";
 
 const { data, id } = Astro.props.project;
 
+// import type { CollectionEntry } from "astro:content";
+
+// type Props = {
+//   project: CollectionEntry<"projects">;
+// };
+
+// const { project } = Astro.props;
+
+
 ---
 
 
@@ -16,15 +25,15 @@ const { data, id } = Astro.props.project;
 
 	<!--If image.url -->
 	{
-		data.image.url 
+		data.cover
 		&& 
 			(
 			<div class="image_wrap">
 				<Image 
-					src={data.image.url} 
-					width={data.image.width} 
-					height={data.image.height} 
-					alt={data.image.alt} 
+					src={data.cover} 
+					width={data.coverWidth} 
+					height={data.coverHeight} 
+					alt={data.coverAlt} 
 				/>
 
 			</div>
@@ -32,7 +41,7 @@ const { data, id } = Astro.props.project;
 	} 
 	<!--If no image.url -->
 	{
-		!data.image.url 
+		!data.cover 
 		&& 
 			(
 				<div>missing asset</div>

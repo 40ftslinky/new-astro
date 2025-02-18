@@ -1,28 +1,22 @@
 ---
 #  frontmatter
 uniqueID: 'project'
-title: 'Bruce Energy'
-pubDate: 2025-01-13
-head: 'Bruce Energy'
-description: 'A new brand for a new beginning.'
+title: 'Post Title'
+pubDate: 2025-02-18
+head: 'Post Title'
+description: 'Post Description -  Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
 author: ''
-cover: '../../assets/imgs/bruce_hero.jpg'
+cover: '../../assets/imgs/color-purple.jpg'
 coverAlt: 'The full Astro logo.'
 coverWidth: '1920'
 coverHeight: '1080'
-# image:
-#     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-#     url: '../../assets/imgs/bruce_hero.jpg'
-    # alt: 'The full Astro logo.'
-    # width: '100%'
-    # height: '100%'
 
 video: 
-    # url: './../../../public/video/studio-dumbar-demo-typography.mp4'
-    url: '/video/bruce/Bruce_casestudy_01.mp4'
+    url: '/video/flaus_styleguide_colour_palette.mp4'
+    # url: './video/flaus_styleguide_colour_palette.mp4'
     width: '100%'
     height: '100%'
-    poster: '/images/bruce_hero.jpg'
+    poster: '/images/color-purple.jpg'
     
 tags: ["Brand", "Web", "Production"]
 
@@ -50,7 +44,7 @@ import image03 from '/src/content/projects/imgs/color-green.jpg';
 import heroImage from '/src/content/projects/imgs/bruce_hero.jpg';
 
 ## Content
-
+<p>Post content</p>
 Local image stored in src/assets/ (carousel)
 
 <div id="carousel" class="carousel_container">
@@ -63,19 +57,3 @@ Local image stored in src/assets/ (carousel)
   </div>
   <div class="cursor"></div>
 </div>
-
-<div id="carousel-02" class="carousel_container">
-  <div class="carousel_stage">
-    <div class="carousel_wrap">
-      <div class="image_wrap"><Picture src={image02} alt="Image 02"/></div>
-      <div class="image_wrap"><Picture src={image03} alt="Image 03"/></div>
-      <div class="image_wrap" data-type="last"><Picture src={image01} alt="Image 01"/></div>
-    </div>
-  </div>
-  {/* <div class="cursor"></div> */}
-</div>
-
-Image stored in public/images/
-
-<Image src="/images/Editorial-Mockup_00.webp" alt="Editorial Mockup" width="600" height="300"/>
-
