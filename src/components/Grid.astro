@@ -28,6 +28,9 @@ const { variant } = Astro.props;
 		flex-wrap: wrap;
 		justify-content: center; */
 	}
+	.clients .grid.small {
+		gap: 10vw
+	}
 
 	/* If last row contains only one item, make it span both columns. */
 	.grid.small > :global(:last-child:nth-child(odd)) {
@@ -40,10 +43,11 @@ const { variant } = Astro.props;
 	}
 
 	.grid.large .card  {
-			height: var(--max-body-height);
-			width: var(--max-col-width);
-			max-width: unset;
-		}
+		height: var(--max-body-height);
+		width: var(--max-col-width);
+		max-width: unset;
+	}
+	
 
 /* 800px */
 	@media (min-width: 50em) {

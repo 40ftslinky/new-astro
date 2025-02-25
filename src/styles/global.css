@@ -65,6 +65,9 @@
   --col-gap: 1rem;
 
   --max-col-width: calc(100vw - (var(--bodypadding)*2));
+
+  /*  */
+  --divider-color: var(--gradient);
 }
 
 @media only screen and (min-width: 1280px) {
@@ -102,6 +105,16 @@
   --theme-transition: 0.2s ease-in-out;
 }
 
+
+html {
+  /* scroll bar shift solutions */
+  scrollbar-gutter: stable;
+  width: 100vw;
+  /* elements inside won't be affected by scrollbars */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 html,
 body {
@@ -359,6 +372,7 @@ video {
   justify-content: space-between;
   gap: var(--col-gap);
   width: var(--max-col-width);
+  position: relative;
 }
 
 @media screen and (min-width: 1280px) {
@@ -366,6 +380,32 @@ video {
     flex-direction: row;
   }
   
+}
+
+/* DIVIDER */
+
+.has-divider {
+  position: relative;
+  padding-top: 0rem;
+}
+
+.has-divider::before {
+  content: "";
+  display: block;
+  /* width: 100%; */
+  width: 0;
+  height: 1px;
+  /* background-color: var(--gray-700); */
+  background: var(--divider-color);
+  /* padding-top: 1rem; */
+  position: absolute;
+  top:0;
+  transition: var(--transition-eioq);
+
+}
+
+.in-view .has-divider::before {
+  width: var(--max-col-width);
 }
 
 .column, .internal  {
@@ -393,6 +433,11 @@ video {
 .column.col_content {
   max-width: calc((var(--max-col-width)*2/3) - var(--col-gap));
 }
+
+.content {
+  margin: 2rem 0;
+}
+
 .flex-wrap {    
   display: flex;
   flex-direction: row;

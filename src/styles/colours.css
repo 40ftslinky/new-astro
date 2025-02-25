@@ -64,6 +64,10 @@
 
     --link-color: var(--accent-regular);
 
+    /*  */
+    --gradient: linear-gradient(81.62deg, var(--accent-light) -21.44%, var(--accent-regular) 50.54%, var(--accent-dark) 122.9%);
+
+
     /* Gradients */
     --gradient-stop-1: rgba(var(--accent), 0.9);
     --gradient-stop-2: var(--accent-light);

@@ -20,34 +20,47 @@ const { frontmatter } = Astro.props;
     video={frontmatter.video}
 >
 
-
-    <section class="content frontmatter">
-        
+    <section class="hero content frontmatter">
         <h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{frontmatter.title}</h1>
-        
-
-        <p transition:animate={fade({ duration: '2s' })} ><em>{frontmatter.description}</em></p>
-        <div class="tags">
-            {
-                frontmatter.tags.map((tag: string) => (
-                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-                ))
-            }
+        <div class="hero-content">
+            <!-- <h2 class="subtitle">{pageDesc}</h2> -->
+            <p >{frontmatter.description}</p> 
+            <!-- conditionally render CTA -->
+            
         </div>
-        <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
-        <div class="video_wrap">
-            <video class="video"
-                width={frontmatter.video.width} 
-                height={frontmatter.video.height} 
-                transition:persist
-                autoplay={true}
-                loop={false}
-                controls={false}
-                poster={frontmatter.video.poster}
-            > 
-                <source src={frontmatter.video.url} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+    </section>
+
+    <section class="portfolio animate">
+        <div class="row has-divider">
+            <div class="column ">
+                <!-- <h2>Projects</h2> -->
+            
+    
+                <div class="tags">
+                    {
+                        frontmatter.tags.map((tag: string) => (
+                            <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+                        ))
+                    }
+                </div>
+                <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
+                <div class="video_wrap">
+                    <video class="video"
+                        width={frontmatter.video.width} 
+                        height={frontmatter.video.height} 
+                        transition:persist
+                        autoplay={true}
+                        loop={false}
+                        controls={false}
+                        poster={frontmatter.video.poster}
+                    > 
+                        <source src={frontmatter.video.url} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+
         </div>
 
 

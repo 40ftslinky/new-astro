@@ -1,4 +1,8 @@
 ---
+// transitions
+import { ClientRouter } from 'astro:transitions';
+
+
 
 interface Props {
 	uniqueID?: string | undefined;
@@ -38,5 +42,8 @@ const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
 		<!-- <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet"> -->
 		<!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet"> -->
 		<!-- <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+
+		<!-- client router required for astro transitions -->
+		<ClientRouter />
 
 	</head>

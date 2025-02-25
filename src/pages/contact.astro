@@ -7,8 +7,8 @@ const uniqueID = "contact";
 const pageTitle = "Contact";
 const metaTitle = "Contact meta Title tbc";
 const metaDescription = "Contact page meta description tbc";
-const pageHead = "Contact";
-const pageDesc = "Let's stay in touch. Fill in the form below and we'll get back to you as soon as possible.";
+const pageHead = "Let’s stay in touch.";
+const pageDesc = "Contact us. Fill in the form below and we'll get back to you as soon as possible.";
 const pageContent = "Contact page content tbc";
 
 // component imports
@@ -26,14 +26,33 @@ import Form from '../components/Form.astro';
 	pageDesc={pageDesc}
 	pageContent={pageContent}
 >
-	<section>
+	
 
+	<section class="hero">
 		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
+		<div class="hero-content">
+			<h2 class="subtitle">{pageDesc}</h2>
+			<p >{pageContent}</p>
+			<!-- conditionally render CTA -->
+			
+		</div>
+	</section>
 
-		<p>{pageDesc}</p>
-
-		
-		<Form ></Form>
+	<section class="portfolio animate">
+		<div class="row has-divider">
+			<div class="column col_title">
+				<h2>Projects</h2>
+			</div>
+			
+			<div class="column col_content">
+				<div class="content">
+	
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit tenetur placeat maiores neque eum repellendus eaque facilis facere ullam. Facere id commodi quaerat dignissimos ut voluptate doloribus magnam libero temporibus.</p>
+	
+					<Form ></Form>
+				</div>
+			</div>
+		</div>
 
 
 	</section>

@@ -25,7 +25,7 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
 
 
 <li class="client_list_item">
-    <div class="faux_link uhuh">
+    <div class="faux_link">
         <h6 hidden>{name}</h6>
         <Image class={name} src={images[imagePath]()} alt={altText} />
     </div>
@@ -48,6 +48,11 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
         /* mix-blend-mode:luminosity; */
         transition: var(--transition-fast);
         filter: grayscale(100%) opacity(0.8);
+    }
+    @media screen and (max-width: 50em) {
+        .client_list_item img {
+            max-width: 25vw;
+        }
     }
 
     @media screen and (max-width: 32.5em) {

@@ -12,8 +12,11 @@
     --ease-out-quart: cubic-bezier(0.175, 0.79, 0.38, 0.905);
     --ease-in-out-quart: cubic-bezier(0.645, 0.045, 0.355, 1);
     /*  */
+    --transition-eioq: all 1s var(--ease-in-out-quart);
   }
   
+
+
   nav {
     transition: background-color 800ms cubic-bezier(0.64, 0.04, 0.26, 0.87);
   }

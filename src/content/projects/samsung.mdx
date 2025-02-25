@@ -1,0 +1,58 @@
+---
+#  frontmatter
+uniqueID: 'project'
+title: 'Samsung'
+pubDate: 2025-02-18
+head: 'Samsung'
+description: 'Web Design and Development'
+author: ''
+cover: '../../assets/imgs/samsung/samsung_hero.jpeg'
+coverAlt: 'The full Astro logo.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video: 
+    url: '/video/Puppiness.mp4'
+    width: '100%'
+    height: '100%'
+    poster: '/images/color-gray.jpg'
+    
+tags: ["Test 01", "Tag", "Category"]
+
+industry: ["Industry"]
+
+
+contentImgs:
+  - url: 'src/assets/dynamic/Editorial-Mockup_00.jpg'
+    alt: "Image description 1"
+    width: 600
+    height: 400
+  - url: 'src/assets/dynamic/Editorial-Mockup_01.jpg'
+    alt: "Image description 2"
+    width: 600
+    height: 400
+
+
+---
+
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import image01 from '/src/content/projects/imgs/Editorial-Mockup_00.jpg';
+import image02 from '/src/content/projects/imgs/color-orange.png';
+import image03 from '/src/content/projects/imgs/color-green.jpg';
+import heroImage from '/src/content/projects/imgs/bruce_hero.jpg';
+
+## Content
+<p>Post content</p>
+Local image stored in src/assets/ (carousel)
+
+<div id="carousel" class="carousel_container">
+  <div class="carousel_stage">
+    <div class="carousel_wrap">
+      <div class="image_wrap"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+    </div>
+  </div>
+  <div class="cursor"></div>
+</div>

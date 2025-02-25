@@ -64,7 +64,13 @@ const projects = (await getCollection('projects'))
 		</div>
 	</section>
 
-	<section class="portfolio">
+	<section class="portfolio animate">
+		<div class="row has-divider">
+			<div class="column col_title">
+				<h2>Projects</h2>
+			</div>
+			
+		</div>
 		<div class="gallery">
 			<Grid variant="large">
 				{
@@ -115,11 +121,20 @@ const projects = (await getCollection('projects'))
         line-height: 1.5;
         max-width: 30ch;
     }
-	/* override grid styles */
-	.grid.large .card  {
-		height: var(--max-body-height);
+
+	.portfolio .grid.large .card  {
+		height: auto;
 		width: var(--max-col-width);
 		max-width: unset;
+	}
+	
+	@media (min-width: 50em) {
+		/* override grid styles */
+		.portfolio .grid.large .card  {
+			height: var(--max-body-height);
+			width: var(--max-col-width);
+			max-width: unset;
+		}
 	}
 	
 </style>

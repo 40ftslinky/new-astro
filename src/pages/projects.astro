@@ -5,7 +5,7 @@ const pageTitle = "Projects";
 const metaTitle = "Projects meta Title tbc";
 const metaDescription = "Projects page meta description tbc";
 const pageHead = "We solve problems for your brands.";
-const pageDesc = "Projects page description tbc";
+const pageDesc = "We are a team of creatives who are excited about unique ideas and creating amazing identity by crafting top-notch brand experiences.";
 const pageContent = "Projects page content tbc";
 
 // layout
@@ -52,53 +52,61 @@ const industry = [...new Set(allProjects.map((project) => project.data.industry)
 	<section>
 
 		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
-
-		<p>{pageDesc}</p>
+		<h2 class="subtitle">{pageDesc}</h2>
+		<!-- <p>{pageContent}</p> -->
 
 		
 	</section>
 
-	<section>
-
-		<h3>Recent Projects</h3>
-
-		<div class="tags">
-			{tags.map((tag) => (
-				<a class="tag" href={`/tags/${tag}`}>{tag}</a>
-			))}
+	<section class="animate">
+		<div class="row has-divider">
+			<div class="column col_title">
+				<h2>Recent Projects</h2>
+			</div>
 		</div>
 
-		<div class="industry-tags">
-			{industry.map((industry) => (
-				<a class="industry-tag"href={`/industry/${industry}`}>{industry}</a>
-			))}
-		</div>
+		<div class="row ">
+			<div class="column ">
 
-		<div class="gallery">
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
-		</div>
+				<div class="tags">
+					{tags.map((tag) => (
+						<a class="tag" href={`/tags/${tag}`}>{tag}</a>
+					))}
+				</div>
 
-		<!-- <Image
-			imagePath="/src/assets/dynamic/Editorial-Mockup_00.jpg"
-			altText="An image alt text"
-			name="Editorial-Mockup_00"
-			desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-		/> -->
-		
-		<!-- {
-				allProjects.map((project: any) => (
-					<li><a href={project.url}>{project.frontmatter.title}</a></li>
-				))
-			}  -->
-		
+				<div class="industry-tags">
+					{industry.map((industry) => (
+						<a class="industry-tag"href={`/industry/${industry}`}>{industry}</a>
+					))}
+				</div>
+
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							projects.map((project) => (
+								<li>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+
+				<!-- <Image
+					imagePath="/src/assets/dynamic/Editorial-Mockup_00.jpg"
+					altText="An image alt text"
+					name="Editorial-Mockup_00"
+					desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+				/> -->
+				
+				<!-- {
+						allProjects.map((project: any) => (
+							<li><a href={project.url}>{project.frontmatter.title}</a></li>
+						))
+					}  -->
+
+			</div>
+		</div>	
 
 		
 	</section>

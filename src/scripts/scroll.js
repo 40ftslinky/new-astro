@@ -36,7 +36,7 @@ document.addEventListener('astro:page-load', () => {
     { navOptions }
   );
   // 
-  navObs.observe(document.querySelector('.target'));
+  navObs.observe(document.querySelector('section'));
 
   // fade-in / slide-in
 
@@ -60,10 +60,36 @@ document.addEventListener('astro:page-load', () => {
     });
   };
 
-  const observer = new IntersectionObserver(callback);
+  // const observer = new IntersectionObserver(callback);
 
   // observe boxes
   faders.forEach((fader) => observer.observe(fader));
   sliders.forEach((slider) => observer.observe(slider));
 
+
+
+
+  // use intersection observer to add a class and animate elements when their parent is in view
+  // Select all elements with the class 'animate'
+  const animateElements = document.querySelectorAll('.animate');
+  // Loop through the elements
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              // observer.unobserve(entry.target);
+          }
+          if (!entry.isIntersecting) {
+              entry.target.classList.remove('in-view');
+          }
+      });
+  }, {
+      threshold: 0.1
+  });
+  // Observe each element
+  animateElements.forEach(animateElement => {
+      observer.observe(animateElement);
+  });
+
+  // end of astro:page-load event listener
 });

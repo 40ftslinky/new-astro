@@ -8,10 +8,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 // styles
-import '../styles/global.css';
-import '../styles/navigation.css';
-import '../styles/typography.css';
-import '../styles/colours.css';
+import '../styles/styles.css';
+// import '../styles/global.css';
+// import '../styles/navigation.css';
+// import '../styles/typography.css';
+// import '../styles/colours.css';
+// import '../styles/animations.css';
 
 
 // props
@@ -58,14 +60,14 @@ const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
 		<!-- relative path to script at `src/scripts/local.js` -->
 		<!-- <script src="../scripts/scroll.js"></script> -->
 	
-		<script>
+		<script  >
 			// document.querySelector('.hamburger')?.addEventListener('click', () => {
 			//   document.querySelector('.nav-links')?.classList.toggle('expanded');
 			// });
-		import "../scripts/menu.js";
-		import "../scripts/scroll.js";
-		import "../scripts/cursor.js";
-		import "../scripts/video-pause.js";
+			import "../scripts/menu.js";
+			import "../scripts/scroll.js";
+			import "../scripts/cursor.js";
+			import "../scripts/video-pause.js";
 		</script>  
 	
 	</body>
