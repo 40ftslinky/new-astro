@@ -305,6 +305,19 @@ video {
   object-fit: cover;
 }
 
+video.paused {
+  opacity: 0.5; /* Make the paused video slightly transparent */
+}
+
+video.playing {
+  opacity: 1;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}
+
+
 /*  */
 
 

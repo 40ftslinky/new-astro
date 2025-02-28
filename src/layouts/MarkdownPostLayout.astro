@@ -45,13 +45,12 @@ const { frontmatter } = Astro.props;
                 </div>
                 <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
                 <div class="video_wrap">
-                    <video class="video"
+                    <video class="video paused"
                         width={frontmatter.video.width} 
                         height={frontmatter.video.height} 
                         transition:persist
-                        autoplay={true}
+                        autoplay={false}
                         loop={false}
-                        controls={false}
                         poster={frontmatter.video.poster}
                     > 
                         <source src={frontmatter.video.url} type="video/mp4" />

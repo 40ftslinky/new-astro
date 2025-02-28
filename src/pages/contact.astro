@@ -5,11 +5,11 @@ import { fade } from "astro:transitions";
 
 const uniqueID = "contact";
 const pageTitle = "Contact";
-const metaTitle = "Contact meta Title tbc";
+const metaTitle = "Contact us. meta Title tbc";
 const metaDescription = "Contact page meta description tbc";
 const pageHead = "Let’s stay in touch.";
-const pageDesc = "Contact us. Fill in the form below and we'll get back to you as soon as possible.";
-const pageContent = "Contact page content tbc";
+const pageDesc = "We’ve worked with clients in government and businesses across Australia and around the world. We’d love to work with you. Let’s start something special.";
+const pageContent = "Fill in the form below and we'll get back to you as soon as possible.";
 
 // component imports
 import Form from '../components/Form.astro';
@@ -32,7 +32,6 @@ import Form from '../components/Form.astro';
 		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
 		<div class="hero-content">
 			<h2 class="subtitle">{pageDesc}</h2>
-			<p >{pageContent}</p>
 			<!-- conditionally render CTA -->
 			
 		</div>
@@ -41,13 +40,13 @@ import Form from '../components/Form.astro';
 	<section class="portfolio animate">
 		<div class="row has-divider">
 			<div class="column col_title">
-				<h2>Projects</h2>
+				<h2>Touch base</h2>
 			</div>
 			
 			<div class="column col_content">
 				<div class="content">
 	
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit tenetur placeat maiores neque eum repellendus eaque facilis facere ullam. Facere id commodi quaerat dignissimos ut voluptate doloribus magnam libero temporibus.</p>
+					<p >{pageContent}</p>
 	
 					<Form ></Form>
 				</div>
