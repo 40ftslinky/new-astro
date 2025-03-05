@@ -14,11 +14,13 @@ function initializeVideoHandling() {
 
     const win = window;
     let viewportTop, viewportBottom;
+    let scrollTimeout;
 
     function updateViewport() {
         // Calculate viewport boundaries dynamically
         viewportTop = win.scrollY + win.innerHeight / 3;
         viewportBottom = win.scrollY + (win.innerHeight * 2 / 3);
+        resetScrollTimeout();
     }
 
     function isScrolledIntoView(elem) {
@@ -27,6 +29,23 @@ function initializeVideoHandling() {
         const elementTop = rect.top + win.scrollY;
         const elementBottom = elementTop + rect.height;
         return (elementBottom >= viewportTop && elementTop <= viewportBottom);
+    }
+
+    function resetScrollTimeout() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(pauseAllVideos, 180000); // 180000ms = 180s
+    }
+
+    function pauseAllVideos() {
+        const videos = document.querySelectorAll('video.playing');
+        videos.forEach(video => {
+            video.pause();
+            video.classList.add('paused');
+            video.classList.remove('playing');
+        });
+        console.log("Paused all videos due to inactivity.");
     }
 
     updateViewport();
@@ -76,8 +95,9 @@ function initializeVideoHandling() {
             observer.observe(video);
         });
         console.log("Video handling initialized.");
-    }else{
+    } else {
         console.log("No videos found.");
     }
     
+    resetScrollTimeout(); // Initialize the scroll timeout
 }

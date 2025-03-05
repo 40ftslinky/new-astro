@@ -11,7 +11,8 @@
   --max-width: 1170px;
   --fixed-width: 620px;
   --transition: all 0.3s linear;
-  --transition-fast: all 0.125s linear;
+  --transition-fast: all 0.125s ease;
+  --transition-fast-delay: all 0.125s ease 0.1s;
   --link: #ff9776;
   --link-hover: #ff9776;
 
@@ -395,6 +396,16 @@ video::-webkit-media-controls {
   
 }
 
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+
+/* ------------------------------------- */
 /* DIVIDER */
 
 .has-divider {
@@ -468,6 +479,7 @@ video::-webkit-media-controls {
   }
 }
 
+/* --------------------------------------- */
 /* carousel */
 
 .carousel_container {
@@ -475,81 +487,39 @@ video::-webkit-media-controls {
   left: calc(var(--bodypadding)* -1);
   width: calc(100vw - (var(--bodypadding)* 1));
   overflow: hidden;
-  cursor: none;
-  margin: 0 var(--bodypadding);
-  margin-bottom: var(--bodypadding) ;
+  /* cursor: none; */
+  margin: var(--bodypadding);
+  /* margin-bottom: var(--bodypadding) ; */
   box-sizing: content-box;
 }
 
 .carousel_stage {
-  
-}
-
-.carousel_wrap {
   display: flex;
   gap: var(--col-gap);
   position: relative;
     /* width: 100%; */
     width: auto;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    /* overflow-x: scroll; */
+    /* overflow-y: hidden; */
     white-space: nowrap;
-    transition: all 0.2s;
     transform: scale(1);
     /* transform: scale(0.98); */
     transition: var(--transition);
     will-change: transform;
     user-select: none;
-    cursor: pointer;
+    /* cursor: pointer; */
+    cursor: grab;
 }
-.carousel_wrap .image_wrap {
+.carousel_stage .image_wrap {
   flex: 0 0 var(--max-col-width);
 }
 
-.carousel_wrap.dragged {
+.carousel_stage.grabbed {
   background: rgba(255,255,255,0.3);
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
+  /* cursor: grabbing;
+  cursor: -webkit-grabbing; */
   /* transform: scale(1); */
   transform: scale(0.98);
-}
-
-:root {
-  --carousel-height: 80vh;
-}
-
-.carousel_wrap .image_wrap {
-  height: var(--carousel-height);
-  object-fit: cover;
-  width: auto;
-  max-width: max-content;
-  aspect-ratio: unset;
-}
-
-@media screen and (max-width: 880px) {
-  .carousel_wrap .image_wrap {
-    height: calc(var(--carousel-height)*2/3);
-  }
-  
-}
-
-.image_wrap[data-type="last"] {
-  margin-right: var(--bodypadding);
-}
-.image_wrap picture {
-  display: flex;
-  width: auto;
-}
-.image_wrap picture img {
-  width: auto;
-  height: var(--carousel-height);
-}
-
-@media screen and (max-width: 880px) {
-  .image_wrap picture img {
-    height: calc(var(--carousel-height)*2/3);
-  }
-  
 }
 
 /* 
@@ -574,23 +544,143 @@ video::-webkit-media-controls {
   }
 } */
 
-/* cursor */
+/* carousel navigation */
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  width: 50px;
+  height: 50px;
+}
+
+.carousel-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+/* --------------------------------------- */
+/* carousel images */
+
+
+:root {
+  --carousel-height: 80vh;
+}
+
+.carousel_stage .image_wrap {
+  height: var(--carousel-height);
+  object-fit: cover;
+  width: auto;
+  max-width: max-content;
+  aspect-ratio: unset;
+}
+
+@media screen and (max-width: 880px) {
+  .carousel_stage .image_wrap {
+    height: calc(var(--carousel-height)*2/3);
+  }
+  
+}
+
+.image_wrap[data-type="last"] {
+  margin-right: var(--bodypadding);
+}
+.image_wrap picture {
+  display: flex;
+  width: auto;
+}
+.image_wrap picture img,
+.image_wrap img {
+  width: auto;
+  height: var(--carousel-height);
+}
+
+@media screen and (max-width: 880px) {
+  .image_wrap picture img {
+    height: calc(var(--carousel-height)*2/3);
+  }
+  
+}
+
+/* Prevent dragging and user selection on images */
+/* .carousel_container, */
+.carousel_stage > *,
+.carousel_stage .image_wrap img {
+  -webkit-user-drag: none; /* For Safari */
+  -khtml-user-drag: none; /* For Konqueror */
+  -moz-user-drag: none; /* For Firefox */
+  -o-user-drag: none; /* For Opera */
+  user-drag: none; /* Standard */
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.carousel_stage .image_wrap {
+    -webkit-user-drag: none; /* For Safari */
+    -khtml-user-drag: none; /* For Konqueror */
+    -moz-user-drag: none; /* For Firefox */
+    -o-user-drag: none; /* For Opera */
+    user-drag: none; /* Standard */
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+ 
+/* --------------------------------------- */
+/* additional carousel styling */
+
+.grabbing {
+  cursor: grabbing;
+  transition: none;
+}
+
+
+/* --------------------------------------- */
+/* carousel cursor */
 
 .cursor {
   width: 7.5rem;
   height: 7.5rem;
   background: #fff;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   z-index: 111;
   top: 0;
   left: 0;
-  transform: translateX(-50%) translateY(-50%) scale(0);
+  transform: translateX(-100%) translateY(-50%) scale(0);
+  /* transform: scale(0); */
   transform-origin: center;
-  transition: var(--transition-fast);
-  opacity: 0;
+  /* transition: var(--transition-fast-delay); */
+  transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease; /* Add transition for smooth movement */
+  /* opacity: 0; */
   mix-blend-mode: difference;
 }
+.cursor.cursor-on,
+.cursor-over .cursor {
+  opacity: 1;
+  /* transform: scale(1); */
+  transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
 .cursor::after {
   position:absolute;
   color:black;
@@ -601,19 +691,29 @@ video::-webkit-media-controls {
   transform: translateX(-50%) translateY(-50%);
   box-sizing: content-box;
 }
-.cursor.drag::after {
-  content: "NO DRAG";
+.cursor.cursor-on::after,
+.cursor-over .cursor::after  {
+  content: "DRAG";
 }
 
-.cursor.resize {
-  transform: translateX(-50%) translateY(-50%) scale(1);
-  opacity: 1;
-}
-.cursor.resize.drag {
-  transform: translateX(-50%) translateY(-50%) scale(0.9);
+.cursor.cursor-grabbing {
+  /* transform: translateX(-50%) translateY(-50%) scale(1); */
   opacity: 1;
 }
 
+.cursor.cursor-grabbing.cursor-on,
+.cursor.cursor-grabbing.cursor-over {
+  /* transform: translateX(-50%) translateY(-50%) scale(0.9); */
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+.cursor.carousel-active {
+  /* opacity: 0;  */
+  /* Hide the cursor completely when carousel is active */
+  transform: scale(0.9);
+  mix-blend-mode: normal;
+}
 
 /* tags */
 

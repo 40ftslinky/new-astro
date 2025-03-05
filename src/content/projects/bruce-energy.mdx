@@ -19,7 +19,7 @@ coverHeight: '1080'
 
 video: 
     # url: './../../../public/video/studio-dumbar-demo-typography.mp4'
-    url: '/video/bruce/Bruce_casestudy_01.mp4'
+    # url: '/video/bruce/Bruce_casestudy_01.mp4'
     width: '100%'
     height: '100%'
     poster: '/images/bruce_poster.jpg'
@@ -50,33 +50,37 @@ import image03 from '/src/content/projects/imgs/color-green.jpg';
 
 import heroImage from '/src/content/projects/imgs/bruce_hero.jpg';
 
+
 ## Content
 
 Local image stored in src/assets/ (carousel)
 
-<div id="carousel" class="carousel_container">
+<div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-    <div class="carousel_wrap">
-
-      <div class="image_wrap"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-    </div>
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
   </div>
-  <div class="cursor"></div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  {/* <div class="cursor"></div> */}
 </div>
 
 <div id="carousel-02" class="carousel_container">
   <div class="carousel_stage">
-    <div class="carousel_wrap">
-      <div class="image_wrap"><Picture src={image02} alt="Image 02"/></div>
-      <div class="image_wrap"><Picture src={image03} alt="Image 03"/></div>
-      <div class="image_wrap" data-type="last"><Picture src={image01} alt="Image 01"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Image 01"/></div>
     </div>
-  </div>
+    <button class="carousel-button prev">❮</button>
+    <button class="carousel-button next">❯</button>
   {/* <div class="cursor"></div> */}
 </div>
 
 Image stored in public/images/
 
 <Image src="/images/Editorial-Mockup_00.webp" alt="Editorial Mockup" width="600" height="300"/>
+
+
+
+```
