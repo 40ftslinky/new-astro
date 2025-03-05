@@ -25,7 +25,6 @@ document.addEventListener('astro:page-load', () => {
         this.currentTranslate = -this.currentSlide * 100;
         this.prevTranslate = this.currentTranslate;
         this.animationID = 0;
-        this.autoAdvanceInterval = 0;
         this.isWindowFocused = true;
         this.isResetting = false;
         this.customCursor = document.querySelector('.cursor');
@@ -54,35 +53,24 @@ document.addEventListener('astro:page-load', () => {
   
         this.prevButton.addEventListener('click', () => {
           if (!this.isResetting) {
-            this.clearAutoAdvance();
             this.moveSlide(-1);
-            if (this.isWindowFocused) this.startAutoAdvance();
           }
         });
   
         this.nextButton.addEventListener('click', () => {
           if (!this.isResetting) {
-            this.clearAutoAdvance();
             this.moveSlide(1);
-            if (this.isWindowFocused) this.startAutoAdvance();
           }
         });
   
         // Window focus events
         window.addEventListener('focus', () => {
           this.isWindowFocused = true;
-          this.startAutoAdvance();
         });
   
         window.addEventListener('blur', () => {
           this.isWindowFocused = false;
-          this.clearAutoAdvance();
         });
-  
-        // Start auto-advance if window is focused
-        if (this.isWindowFocused) {
-          this.startAutoAdvance();
-        }
       }
   
       moveSlide(direction) {
@@ -131,7 +119,6 @@ document.addEventListener('astro:page-load', () => {
   
       startDragging(event) {
         if (this.isResetting) return;
-          this.clearAutoAdvance();
           this.isDragging = true;
           this.startPos = event instanceof TouchEvent ?
               event.touches[0].clientX :
@@ -152,6 +139,7 @@ document.addEventListener('astro:page-load', () => {
   
         this.container.classList.remove('grabbing');
         this.customCursor.classList.remove('carousel-active');
+        
   
         this.container.style.transition = 'transform 0.5s ease-in-out';
   
@@ -164,10 +152,6 @@ document.addEventListener('astro:page-load', () => {
           }
         } else {
           this.updateSlidePosition(true);
-        }
-  
-        if (this.isWindowFocused) {
-          this.startAutoAdvance();
         }
       }
   
@@ -191,17 +175,6 @@ document.addEventListener('astro:page-load', () => {
               this.currentTranslate = this.prevTranslate + diff;
           }
       }
-  
-      startAutoAdvance() {
-        this.clearAutoAdvance();
-        if (this.isWindowFocused && !this.isResetting) {
-          this.autoAdvanceInterval = window.setInterval(() => this.moveSlide(1), 5000);
-        }
-      }
-  
-      clearAutoAdvance() {
-        clearInterval(this.autoAdvanceInterval);
-      }
     }
   
     // Initialize all carousels on the page
@@ -209,4 +182,3 @@ document.addEventListener('astro:page-load', () => {
       new Carousel(carousel);
     });
   });
-  

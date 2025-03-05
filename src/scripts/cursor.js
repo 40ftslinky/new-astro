@@ -1,68 +1,36 @@
 document.addEventListener('astro:page-load', () => {
     const carousels = document.querySelectorAll('.carousel_container');
 
-    // for each carousel container create custom cursor
+    // For each carousel container, create a custom cursor
     carousels.forEach(carousel => {
         const cursor = document.createElement('div');
         cursor.classList.add('cursor');
         carousel.appendChild(cursor);
 
-        let mouseX = 0;
-        let mouseY = 0;
+        let isMouseInside = false;
 
-        let cursorX = 0;
-        let cursorY = 0;
-
-        let speed = 0.25;
-
-        function animate() {
-            let distX = mouseX - cursorX;
-            let distY = mouseY - cursorY;
-
-            cursorX = cursorX + (distX * speed);
-            cursorY = cursorY + (distY * speed);
-
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        let mouseDown = false;
-        let startX, scrollLeft;
-
-        let startDragging = function (event) {
-            mouseDown = true;
-            // startX = event.pageX - carousel.offsetLeft;
-            // scrollLeft = carousel.scrollLeft;
-            cursor.classList.add('drag');
-        };
-        let stopDragging = function (event) {
-            mouseDown = false;
-            cursor.classList.remove('drag');
-        };
-
+        // Update the cursor position immediately based on the mouse coordinates
         carousel.addEventListener('mousemove', (event) => {
-            const rect = carousel.getBoundingClientRect();
-            mouseX = event.clientX - rect.left;
-            mouseY = event.clientY - rect.top;
+            if (isMouseInside) {
+                const rect = carousel.getBoundingClientRect();
+                const mouseX = event.clientX - rect.left;
+                const mouseY = event.clientY - rect.top;
+
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+            }
         });
 
-        carousel.addEventListener('mousedown', startDragging);
-        carousel.addEventListener('mouseup', stopDragging);
-        carousel.addEventListener('mouseleave', stopDragging, () => {
-            mouseX = 0;
-            mouseY = 0;
-        });
-
+        // Add class to cursor and start tracking when mouse enters the carousel container
         carousel.addEventListener('mouseenter', () => {
             cursor.classList.add('cursor-on');
+            isMouseInside = true;
         });
 
+        // Remove class from cursor and stop tracking when mouse leaves the carousel container
         carousel.addEventListener('mouseleave', () => {
             cursor.classList.remove('cursor-on');
+            isMouseInside = false;
         });
     });
 });

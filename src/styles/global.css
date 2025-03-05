@@ -508,7 +508,7 @@ video::-webkit-media-controls {
     will-change: transform;
     user-select: none;
     /* cursor: pointer; */
-    cursor: grab;
+    /* cursor: grab; */
 }
 .carousel_stage .image_wrap {
   flex: 0 0 var(--max-col-width);
@@ -649,7 +649,7 @@ video::-webkit-media-controls {
 /* additional carousel styling */
 
 .grabbing {
-  cursor: grabbing;
+  /* cursor: grabbing; */
   transition: none;
 }
 
@@ -662,17 +662,18 @@ video::-webkit-media-controls {
   height: 7.5rem;
   background: #fff;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   z-index: 111;
   top: 0;
   left: 0;
-  transform: translateX(-100%) translateY(-50%) scale(0);
+  transform:  scale(0);
   /* transform: scale(0); */
   transform-origin: center;
   /* transition: var(--transition-fast-delay); */
   transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease; /* Add transition for smooth movement */
   /* opacity: 0; */
   mix-blend-mode: difference;
+  pointer-events: none; /* Allow mouse events to pass through the cursor */
 }
 .cursor.cursor-on,
 .cursor-over .cursor {
@@ -709,7 +710,8 @@ video::-webkit-media-controls {
 }
 
 .cursor.carousel-active {
-  /* opacity: 0;  */
+  opacity: 1; 
+  
   /* Hide the cursor completely when carousel is active */
   transform: scale(0.9);
   mix-blend-mode: normal;
