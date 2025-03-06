@@ -30,6 +30,13 @@
     --copy-small-line: 1.5;
     --copy-info-line: 1.25;
     --copy-legal-line: 1.45454545;
+    /* transition easing */
+    --ease-out: cubic-bezier(0.28,0.44,0.49,1);
+    --bounce: cubic-bezier(0.6,0,0.1,1.4);
+    --ease-out-soft: cubic-bezier(0.28,0,0.49,1);
+    /* var(--ease-out-soft) */
+    --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
+    --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
 }
 
 @media screen and (min-width: 36em) {

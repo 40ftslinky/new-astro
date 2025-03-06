@@ -125,8 +125,8 @@ document.addEventListener('astro:page-load', () => {
               event.clientX;
   
           this.container.style.transition = 'none';
-          this.container.classList.add('grabbing');
-          this.customCursor.classList.add('carousel-active');
+        //   this.container.classList.add('grabbed');
+        //   this.customCursor.classList.add('grabbing');
   
           this.animationID = requestAnimationFrame(this.animation.bind(this));
       }
@@ -137,8 +137,8 @@ document.addEventListener('astro:page-load', () => {
         this.isDragging = false;
         cancelAnimationFrame(this.animationID);
   
-        this.container.classList.remove('grabbing');
-        this.customCursor.classList.remove('carousel-active');
+        // this.container.classList.remove('grabbed');
+        // this.customCursor.classList.remove('grabbing');
         
   
         this.container.style.transition = 'transform 0.5s ease-in-out';

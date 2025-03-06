@@ -32,5 +32,19 @@ document.addEventListener('astro:page-load', () => {
             cursor.classList.remove('cursor-on');
             isMouseInside = false;
         });
+
+        // on mousedown
+        carousel.addEventListener('mousedown', () => {
+            carousel.classList.add('grabbed');
+            cursor.classList.add('grabbing');
+
+        });
+
+        // on mouseup
+        carousel.addEventListener('mouseup', () => {
+            carousel.classList.remove('grabbed');
+            cursor.classList.remove('grabbing');
+
+        });
     });
 });

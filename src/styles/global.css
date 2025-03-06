@@ -69,6 +69,14 @@
 
   /*  */
   --divider-color: var(--gradient);
+
+  /* transition easing */
+  --ease-out: cubic-bezier(0.28,0.44,0.49,1);
+  --bounce: cubic-bezier(0.6,0,0.1,1.4);
+  --ease-out-soft: cubic-bezier(0.28,0,0.49,1);
+  /* var(--ease-out-soft) */
+  --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
+  --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
 }
 
 @media only screen and (min-width: 1280px) {
@@ -522,27 +530,6 @@ video::-webkit-media-controls {
   transform: scale(0.98);
 }
 
-/* 
-.carousel_stage {
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    content:"";
-    cursor: w-resize;
-  }
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
-    content:"";
-    cursor: e-resize;
-  }
-} */
 
 /* carousel navigation */
 
@@ -663,20 +650,21 @@ video::-webkit-media-controls {
   background: #fff;
   border-radius: 50%;
   position: absolute;
+  color: #fff;
   z-index: 111;
   top: 0;
   left: 0;
   transform:  scale(0);
   /* transform: scale(0); */
-  transform-origin: center;
+  transform-origin: center center;
   /* transition: var(--transition-fast-delay); */
-  transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease; /* Add transition for smooth movement */
+  transition: all 0.2s ease; /* Add transition for smooth movement */
   /* opacity: 0; */
   mix-blend-mode: difference;
   pointer-events: none; /* Allow mouse events to pass through the cursor */
 }
-.cursor.cursor-on,
-.cursor-over .cursor {
+
+.cursor.cursor-on {
   opacity: 1;
   /* transform: scale(1); */
   transform: translateX(-50%) translateY(-50%) scale(1);
@@ -685,7 +673,7 @@ video::-webkit-media-controls {
 .cursor::after {
   position:absolute;
   color:black;
-  content: "SCROLL";
+  content: "GRAB";
   font-size:10px;
   top: 50%;
   left: 50%;
@@ -694,7 +682,7 @@ video::-webkit-media-controls {
 }
 .cursor.cursor-on::after,
 .cursor-over .cursor::after  {
-  content: "DRAG";
+  /* content: "DRAG"; */
 }
 
 .cursor.cursor-grabbing {
@@ -709,12 +697,27 @@ video::-webkit-media-controls {
   opacity: 1;
 }
 
-.cursor.carousel-active {
+.cursor.grabbing {
   opacity: 1; 
-  
+  transform-origin: center center;
   /* Hide the cursor completely when carousel is active */
-  transform: scale(0.9);
+  transform: translateX(-50%) translateY(-50%) scale(0.9);
   mix-blend-mode: normal;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.25));
+}
+.cursor.grabbing::after {
+  content: "DRAG";
+}
+.cursor.grabbing::before {
+  content: '<'; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8rem;
+  height: 8rem;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 /* tags */

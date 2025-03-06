@@ -4,6 +4,7 @@
 @import url('reset.css');
 
 @import url('../styles/global.css');
+/* @import url('../styles/variables.css'); */
 @import url('../styles/navigation.css');
 @import url('../styles/typography.css');
 @import url('../styles/colours.css');
