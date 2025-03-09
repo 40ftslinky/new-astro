@@ -1,0 +1,203 @@
+---
+
+// components
+import { Image } from "astro:assets";
+
+// source images
+import imgPortrait_Jeremy from '../assets/imgs/other/jez-southcoast-sq.jpg';
+import imgPortrait_Bridget from '../assets/imgs/other/bridget_comm_park.jpg';
+import imgPortrait_Gareth from '../assets/imgs/other/gareth_delicatessen.jpg';
+import imgPortrait_Jeremy_02 from '../assets/imgs/other/jez_oddculture.jpg';
+import imgPortrait_Bridget_02 from '../assets/imgs/other/bridget_yellow.jpg';
+import imgPortrait_Gareth_02 from '../assets/imgs/other/gareth_raybans.jpg';
+import imgPortrait_placeholder from '../assets/imgs/other/placeholder.jpg';
+
+
+// ---
+
+
+---
+
+<section class="animate biography">
+    <div class="row has-divider">
+        <div class="column col_title">
+
+				<h2>Biography</h2>
+
+			</div>
+		
+			<div class="biography_column column col_content">
+
+                <div class="card">                    
+													
+                    <div class="portrait_wrap">
+                        <Image 
+                            class="portrait hover-swap" 
+                            src={imgPortrait_Jeremy} 
+                            data-srcset={imgPortrait_Jeremy_02.src}
+                            alt="40ftSlinky" 
+                            width={2000}
+                        />
+                    </div>
+
+                    
+                    <div class="biography content">
+                        <h4 class="h4">Jeremy Nicholson</h4>
+                        <h6 class="h6">Creative Director</h6>
+
+                        <p>Jeremy is a seasoned creative professional with over 20 years of experience spanning brand development, digital product design, and print.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="card">                    
+													
+                    <div class="portrait_wrap">
+                        <Image 
+                            class="portrait hover-swap" 
+                            src={imgPortrait_Bridget} 
+                            data-srcset={imgPortrait_Bridget_02.src}
+                            alt="Bridget" 
+                            width={2000}
+                        />
+                    </div>
+
+                    
+                    <div class="biography content">
+
+                        <h4 class="h4">Bridget Howard</h4>
+                        <h6 class="h6">Production Manager</h6>
+
+                        <p>With over 20 years project managing and refining campaigns Bridget is able to plan and execute almost any project.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="card">                    
+													
+                    <div class="portrait_wrap">
+                        <Image 
+                            class="portrait hover-swap" 
+                            src={imgPortrait_Gareth}
+                            data-srcset={imgPortrait_Gareth_02.src} 
+                            alt="Gareth" 
+                            width={2000}
+                        />
+                    </div>
+
+                    
+                    <div class="biography content">
+                        <h4 class="h4">Gareth Davies</h4>
+                        <h6 class="h6">Producer</h6>
+
+                        <p>Gareth likes puppies and Long Island Iced Teas. If there's moving images to be captured or stories to be told he's already storyboarded it.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="card">                    
+													
+                    <div class="portrait_wrap">
+                        <Image 
+                            class="portrait hover-swap" 
+                            src={imgPortrait_placeholder} 
+                            data-srcset={imgPortrait_placeholder.src} 
+                            alt="placeholder" 
+                            width={2000}
+                        />
+                    </div>
+
+                    
+                    <div class="biography content">
+
+                        <h4 class="h4">Name</h4>
+                        <h6 class="h6">Role</h6>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt blanditiis, temporibus quibusdam autem enim sapiente, quo amet voluptate pariatur non fugiat adipisci ex dolor debitis, eius quam? Dignissimos, iusto suscipit.</p>
+
+                    </div>
+
+                </div>
+																
+
+			</div>
+			<!-- / col -->
+		</div>
+		<!-- / row -->
+	</section>
+
+
+<style>
+    .biography {
+        
+    }
+
+    .biography_column {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    .content {
+		margin: 2rem 0;
+	}
+    .portrait_wrap {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        /* object-fit: cover;
+        object-position: center center; */
+    }
+    
+    .portrait_wrap img {
+        width: calc((var(--max-content-width) / 2) - 2rem );
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;  
+        filter: grayscale(100%);   
+        transition: var(--transition-fast);   
+    }
+    @media screen and (max-width: 1280px) {
+        .portrait_wrap img {
+            width: var(--max-col-width);
+        }
+    }
+    .portrait_wrap:hover img{
+        filter: grayscale(0%);
+        opacity: 0;
+    }
+    .portrait_wrap {
+        background-size: cover;
+    }
+
+    .biography .card {        
+        flex-direction: column;
+        align-items: flex-start;
+        /* width: calc(30vw - var(--col-gap) - (var(--bodypadding)*2)); */
+        width: calc(50% - var(--col-gap));
+    }
+
+    .biography .card:hover {
+        /* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-0.5rem); */
+    }
+
+    .biography h4 {
+        /* font-size: 1.5rem; */
+        margin-bottom: 1rem;
+    }
+
+    .biography h6 {
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+    }
+
+    .biography p {
+        /* font-size: 1rem; */
+        /* line-height: 1.5; */
+        /* max-width: 40ch; */
+    }

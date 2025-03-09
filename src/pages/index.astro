@@ -131,7 +131,7 @@ const projects = (await getCollection('projects'))
 	@media (min-width: 50em) {
 		/* override grid styles */
 		.portfolio .grid.large .card  {
-			height: var(--max-body-height);
+			max-height: var(--max-body-height);
 			width: var(--max-col-width);
 			max-width: unset;
 		}

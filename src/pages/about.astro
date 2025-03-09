@@ -5,6 +5,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // components
 import { Image } from "astro:assets";
 import { fade } from "astro:transitions";
+import Bio from '../components/bio.astro';
+import Services from '../components/Services.astro';
 import imgPortrait from '../content/about/40ftslinky_Jez.jpg';
 
 // content
@@ -48,58 +50,23 @@ const pageContent = "About page content tbc";
 				
 				<div class="content">
 
-					<p>40ftSlinky is a design and development creative practice, led by Jeremy Nicholson. We make things, from beginning to end. We welcome any project to work with good people on interesting ideas, whether it be building brands or building digital ideas.</p>
+					<p>40ftSlinky is a design and development creative practice, working for corporate and public sectors, with local and international clients.</p> 
+					
+					<p>We make things, from beginning to end and welcome any project to work with good people on interesting ideas, building brands and digital ideas.</p>
 
-					<p>Design, development, production, strategy and everything in between. We solve problems for your brands.</p>
+					<p>We work with design, development, production, strategy and everything in between. We solve problems for your brands.</p>
 
 					<p>We assemble unique teams from a diverse pool of expert collaborators working across disciplines to respond flexibly to each brief without the hassle of a large agency.</p> 
 					
-					<p>We are specialists working collaboratively across disciplines to find adaptive, creative solutions that turns ordinary it into something special. </p>
+					<p>We are specialists working collaboratively across disciplines to find adaptive, creative solutions turning ordinary into something special. </p>
 
 				</div>	
 					
-				<div class="portrait_wrap">
-					<Image 
-						class="portrait" 
-						src={imgPortrait} 
-						alt="40ftSlinky" 
-						width={400}
-					/>
-				</div>
-
 				
-				<div class="column col_content">
-
-					<p>Led by Jeremy Nicholson founder and primary creative 40ftSlinky <strong>blah blah blah..</strong>.</p>
-
-					<p>Jeremy has worked in Sydney, Melbourne and Canberra for more than 20 years across brand, digital product and print. He has experience in both private (agency land) and public (Australian Government departments and statutory bodies) sectors and serviced local and international clients developing brands, corporate identity, digital presence, applications, marketing materials and publications through his businesses and nom-de-plume (40ftSlinky, Blandmine and Bland Design).</p> 
-
-					<p>After spending the late '90s and early naughties in the publishing industry producing educational materials, marketing collateral and national advertising campaigns, Jeremy spent the next decade creating award-winning covers and layout for books as diverse as dictionaries, true-crime biographies, military histories, literary fiction and mass market fiction (including International Bestseller Matthew Reilly). The last decade has seen Jeremy branch into "ad-land," producing traditional advertising, marketing and brand design, art directing and designing campaigns and products for the education, energy, financial and healthcare sectors. His interest in all things digital has led to a pivot into digital product development, digital strategy and marketing. An experienced CX and UX designer and frontend developer with broad knowledge of industry standard CMS and CRM platforms, social marketing and digital platforms as well as the latest development trends – Jeremy is a true unicorn creative – comfortable in the print world and the digital realm.</p> 
-
-				</div>
 
 				<div class="content">
 					
-					<ul>
-						<li>Digital Services</li>
-						<li>Technology Strategy</li>
-						<li>E-Commerce</li>
-						<li>UX / UI Design</li>
-						<li>Product Design</li>
-						<li>Prototyping</li>
-						<li>Interaction & Motion</li>
-						<li>Web Applications</li>
-						<li>Systems Building</li>
-						<li>Creative Services</li>
-						<li>Brand Identity</li>
-						<li>Creative Direction</li>
-						<li>Strategy and Positioning</li>
-						<li>Narrative</li>
-						<li>Art Direction</li>
-						<li>Publication Design</li>
-						<li></li>
-						<li>(MorebyMore)</li>
-					</ul>
+
 				</div>				
 
 			</div>
@@ -108,62 +75,9 @@ const pageContent = "About page content tbc";
 		<!-- / row -->
 	</section>
 
-	<section class="services animate">
-		<div class="row has-divider">
-			<div class="column col_title">
-				<div class="title">
-					<h2>Services</h2>
-					<p>Strategy. Brand Experience. Digital Experience. Content. Technology. We build brands and deliver products that perform.</p>
-				</div>
-			</div>
-			<div class="column col_content">
-				<div class="flex-wrap">                
-					<div class="card">
-						<h4>Brand strategy</h4>
-						<p>Lorem - brand strategy represents the core of your brand</p>
-					</div>
-					<div class="card">
-						<h4>Brand Identity</h4>
-						<p>Lorem - much more than just a logo and a font.</p>
-					</div>
-					<div class="card">
-						<h4>Strategy</h4>
-						<p>We help you identify, plan, and achieve your short, medium, and long term goals and company objectives.</p>
-					</div>
-					<div class="card">
-						<h4>Motion</h4>
-						<p>Using motion to enhance your brands and digital experiences and ensure you stand out in the crowded digital world of today.</p>
-					</div>
-					<div class="card">
-						<h4>Production</h4>
-						<p>From creative to production, post-production, and distribution, our team of experienced writers, directors, and producers work to ensure the best projects are executed and delivered. We collaborate with you to create (personalized) video messages for all sorts of platforms, including websites, social media, and YouTube.</p>
-					</div>
-					<div class="card">
-						<h4>Development</h4>
-						<p>We help you bring your ideas to life through immersive experiences and beautifully-designed interfaces. We empower your business with the latest technologies and tools to help you grow and succeed.</p>
-							<p>Multi-disciplinary development team of designers, engineers, project managers, and strategists. We work with you to create a strategy that will help you reach your target audience and grow your business.</p>
-						</p>
-					</div>
-					<div class="card">
-						<h4>Consultancy</h4>
-						<p>We help you identify, plan, and achieve your short, medium, and long term goals and company objectives.</p>
-					</div>
-					<div class="card">
-						<h4>Content</h4>
-						<p>We turn your low-fi designs into hi-fi prototypes that feel like the real thing, perfect for grasping demand.</p>
-					</div>
-					<div class="card">
-						<h4>Marketing</h4>
-						<p>We help you bring your ideas to life through immersive experiences and beautifully-designed interfaces.</p>
-					</div>
-					<div class="card">
-						<h4>AV</h4>
-						<p>Storytelling through motion, sound, and film. Motion, sound design, editing, and 3D intrigue, inform, and entertain.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<Bio></Bio>
+
+	<Services></Services>
 
 </BaseLayout>
 
