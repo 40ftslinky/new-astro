@@ -370,20 +370,11 @@ video::-webkit-media-controls {
   to { transform: translate3d(-7rem,0,0) }
 }
 
-/* grabient */
+/* gradient */
 
 .gradient {
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
-
-/* carousel */
-
-.carousel_container {
-  position: relative;
-  left: calc(var(--grid-padding)* -1);
-  width: calc(100% + var(--grid-padding)* 2);
-  cursor: none;
 }
 
 /* structure */
@@ -403,14 +394,6 @@ video::-webkit-media-controls {
     flex-direction: row;
   }
   
-}
-
-.cursor-grab {
-  cursor: grab;
-}
-
-.cursor-grabbing {
-  cursor: grabbing;
 }
 
 
@@ -491,6 +474,24 @@ video::-webkit-media-controls {
 /* --------------------------------------- */
 /* carousel */
 
+/* carousel */
+
+.carousel_container {
+  /* position: relative;
+  left: calc(var(--grid-padding)* -1);
+  width: calc(100% + var(--grid-padding)* 2); */
+  cursor: none;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+
 .carousel_container {
   position: relative;
   left: calc(var(--bodypadding)* -1);
@@ -507,7 +508,7 @@ video::-webkit-media-controls {
   gap: var(--col-gap);
   position: relative;
     /* width: 100%; */
-    width: auto;
+    width: max-content;
     /* overflow-x: scroll; */
     /* overflow-y: hidden; */
     white-space: nowrap;
@@ -518,6 +519,7 @@ video::-webkit-media-controls {
     user-select: none;
     /* cursor: pointer; */
     /* cursor: grab; */
+    background-color: #4158D0;
 }
 .carousel_stage .image_wrap {
   flex: 0 0 var(--max-col-width);
