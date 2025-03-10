@@ -519,7 +519,6 @@ video::-webkit-media-controls {
     user-select: none;
     /* cursor: pointer; */
     /* cursor: grab; */
-    background-color: #4158D0;
 }
 .carousel_stage .image_wrap {
   flex: 0 0 var(--max-col-width);
