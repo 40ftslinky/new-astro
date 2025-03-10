@@ -523,6 +523,11 @@ video::-webkit-media-controls {
   flex: 0 0 var(--max-col-width);
 }
 
+/*add a margin right to all but the last slide */
+.carousel_stage .image_wrap:not(:last-child) {
+  margin-right: var(--col-gap);
+}
+
 .carousel_stage.grabbed {
   background: rgba(255,255,255,0.3);
   /* cursor: grabbing;
@@ -560,6 +565,29 @@ video::-webkit-media-controls {
 .next {
   right: 10px;
 }
+
+
+/* carousel indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicator.active {
+  background-color: #333;
+}
+
 
 
 /* --------------------------------------- */
