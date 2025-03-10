@@ -9,7 +9,7 @@ description: 'This is the Lorem Ipsum.'
 author: 'Astro Learner'
 image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-    url: '/src/assets/color-purple.jpg'
+    url: '../../assets/imgs/other/color-purple.jpg'
     alt: 'Purple.'
     width: '100%'
     height: '100%'

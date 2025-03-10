@@ -572,8 +572,14 @@ video::-webkit-media-controls {
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   gap: 0.5rem;
+  position: absolute;
+  z-index: 11111;
+  width: 100px;
+  height: 1rem;
+  bottom: 1rem;
+  padding: 2rem;
 }
 
 .carousel-indicator {
@@ -757,12 +763,18 @@ video::-webkit-media-controls {
 a {
   color: var(--primary);
   text-decoration: none;
+  transition: var(--theme-transition);
 }
 
 .tags, .industry-tags {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+}
+#projects .tags, #projects .industry-tags {
+  margin-top: 0;
+  /* margin-bottom: 1rem; */
 }
 
 .tag, .industry-tag {
@@ -777,5 +789,8 @@ a {
 
 .tag:hover, .industry-tag:hover {
   background-color: var(--primary);
+  color: var(--white);
+}
+.tag:hover a, .industry-tag:hover a {
   color: var(--white);
 }

@@ -37,22 +37,24 @@ contentImgs:
 
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '/src/content/projects/imgs/Editorial-Mockup_00.jpg';
-import image02 from '/src/content/projects/imgs/color-orange.png';
-import image03 from '/src/content/projects/imgs/color-green.jpg';
-import heroImage from '/src/content/projects/imgs/bruce_hero.jpg';
+import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+import image02 from '../../assets/imgs/other/color-orange.png';
+import image03 from '../../assets/imgs/other/color-green.jpg';
+import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 
 ## Content
 <p>Post content</p>
 Local image stored in src/assets/ (carousel)
 
-<div id="carousel" class="carousel_container">
+<div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-    <div class="carousel_wrap">
-      <div class="image_wrap"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-    </div>
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
   </div>
-  <div class="cursor"></div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> {/* Add the indicators here */}
+  {/* <div class="cursor"></div> */}
 </div>

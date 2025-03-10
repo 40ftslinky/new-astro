@@ -47,7 +47,7 @@
   --font-weight-huge: var(--font-weight-xlight);
 
   --letter-spacing-small: -0.02em;
-  --letter-spacing-body: -0.01em;
+  --letter-spacing-body: -0.01rem;
   --letter-spacing-sub: -0.0em;
   --letter-spacing-large: -0.04em;
 

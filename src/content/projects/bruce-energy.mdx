@@ -12,7 +12,7 @@ coverWidth: '1920'
 coverHeight: '1080'
 # image:
 #     # url: 'https://docs.astro.build/assets/full-logo-light.png'
-#     url: '../../assets/imgs/bruce_hero.jpg'
+#     url: '../../assets/imgs/bruce_hero.png'
     # alt: 'The full Astro logo.'
     # width: '100%'
     # height: '100%'
@@ -29,26 +29,16 @@ tags: ["Brand", "Web", "Production"]
 industry: ["Energy Sector"]
 
 
-contentImgs:
-  - url: 'src/assets/dynamic/Editorial-Mockup_00.jpg'
-    alt: "Image description 1"
-    width: 600
-    height: 400
-  - url: 'src/assets/dynamic/Editorial-Mockup_01.jpg'
-    alt: "Image description 2"
-    width: 600
-    height: 400
-
 
 ---
 
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '/src/content/projects/imgs/Editorial-Mockup_00.jpg';
-import image02 from '/src/content/projects/imgs/color-orange.png';
-import image03 from '/src/content/projects/imgs/color-green.jpg';
+import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+import image02 from '../../assets/imgs/other/color-orange.png';
+import image03 from '../../assets/imgs/other/color-green.jpg';
 
-import heroImage from '/src/content/projects/imgs/bruce_hero.jpg';
+import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 
 
 ## Content
