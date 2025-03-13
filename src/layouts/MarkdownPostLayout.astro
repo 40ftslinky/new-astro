@@ -21,10 +21,11 @@ const { frontmatter } = Astro.props;
 >
 
     <section class="hero content frontmatter">
+        <div class="category-title">{frontmatter.uniqueID}</div>
         <h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{frontmatter.title}</h1>
         <div class="hero-content">
             <!-- <h2 class="subtitle">{pageDesc}</h2> -->
-            <p >{frontmatter.description}</p> 
+            <p class="subtitle">{frontmatter.description}</p> 
             <!-- conditionally render CTA -->
             
         </div>
@@ -89,6 +90,15 @@ const { frontmatter } = Astro.props;
       width: 100%;
       min-width: var(--max-width-col);
       height: auto;
+    }
+
+    .category-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgba(var(--black-rgb), 0.8);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
     }
   </style>
   

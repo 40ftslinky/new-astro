@@ -46,9 +46,10 @@
   --font-weight-heading: var(--font-weight-light);
   --font-weight-huge: var(--font-weight-xlight);
 
-  --letter-spacing-small: -0.02em;
+  --letter-spacing-small: 0.02em;
   --letter-spacing-body: -0.01rem;
   --letter-spacing-sub: -0.0em;
+  --letter-spacing-medium: -0.03em;
   --letter-spacing-large: -0.04em;
 
   /* --font-size-h1: var(--font-size-heading-xxl-mobile);
@@ -74,6 +75,7 @@
   --font-weight-h6: var(--font-weight-medium);
 
   --letter-spacing-h1: -0.55vw;
+  --letter-spacing-h1-sm: -0.075em;
   /* --letter-spacing-h1: -0.055em; */
   --letter-spacing-h2: -0.025em;
   --letter-spacing-h3: -0.035em;
@@ -218,6 +220,7 @@
     --text-3xl: 2.625rem;
     --text-4xl: 3.5rem;
     --text-5xl: 4.5rem;
+    --text-6xl: 7.5vw;
 
     --text-huge: 12vw;
 
@@ -251,13 +254,13 @@ body {
   line-height: var(--line-height-body)
 }
 
-.body-small {
+.body-small, .small {
   font-size: var(--font-size-small);
   letter-spacing: var(--letter-spacing-small);
   line-height: var(--line-height-small)
 }
 
-.body-large {
+.body-large, .large {
   font-size: var(--font-size-large);
   letter-spacing: var(--letter-spacing-large);
   line-height: var(--line-height-large)
@@ -268,6 +271,7 @@ h1 {
   font-family: var(--font-brand);
   font-weight: var(--font-weight-huge)
 }
+
 h2,
 h3,
 h4,
@@ -287,12 +291,19 @@ h6 {
     font-size: var(--font-size-xxl);
     line-height: var(--line-height-regular);
     letter-spacing: var(--letter-spacing-sub);
-      max-width: 45ch;
+    max-width: 40ch;
+} 
+
+
+#project .subtitle {
+  font-size: var(--font-size-lg);
+  letter-spacing: var(--letter-spacing-body);
 } 
 
 @media screen and (min-width: 1280px) {
   .subtitle {
     font-size: var(--font-size-3xl);
+    letter-spacing: var(--letter-spacing-body);
   }
   
 }
@@ -318,6 +329,11 @@ sup {
   line-height: var(--line-height-h1);
   max-width: 14ch;
   /* leading-trim:unset; */
+}
+
+#project h1 {
+  font-size: var(--font-size-9xl);
+  letter-spacing: var(--letter-spacing-h1-sm);
 }
 
 .h2,h2 {
@@ -476,6 +492,10 @@ h6 {
   p {
     margin-bottom: 1.5rem;
     max-width: 75ch;
+  }
+
+  .light {
+    font-weight: var(--font-weight-light);
   }
 
   /* OTHER */

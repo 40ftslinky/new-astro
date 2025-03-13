@@ -3,17 +3,12 @@
 // wrap everything in astro:page-load event listener
 document.addEventListener('astro:page-load', () => {
 
-  const navBtn = document.querySelector('.menu-button');
-  const header = document.querySelector('header');
-  const nav = document.querySelector('nav');
-  const navLinks = document.querySelector('.link');
-  const hero = document.querySelector('.hero');
-  const main = document.querySelector('.main-content');
+  
   const body = document.querySelector('body');
 
   const navOptions = {
     root: null,
-    rootMargin: '0px 0px 0px 0px',
+    rootMargin: '0px 0px 100px 0px',
     threshold: 0,
   };
 

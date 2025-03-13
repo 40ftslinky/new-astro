@@ -37,7 +37,7 @@ const pageContent = "About page content tbc";
 		</div>
 	</section>
 
-	<section class="animate">
+	<section class="animate fade-up">
 		<div class="row has-divider">
 			<div class="column col_title">
 
@@ -45,7 +45,7 @@ const pageContent = "About page content tbc";
 
 			</div>
 		
-			<div class="column col_content">
+			<div class="column col_content  fade-up">
 				
 				<div class="content">
 
@@ -63,9 +63,12 @@ const pageContent = "About page content tbc";
 					
 				
 
-				<div class="content">
+				<div class="content fade-up">
 					
-
+					<blockquote>
+						<p>“It may well be that creativity is the last unfair advantage we're legally allowed to take over our competitors.”</p>
+						<credit>Bill Bernbach</credit>
+					</blockquote>
 				</div>				
 
 			</div>
@@ -121,6 +124,14 @@ const pageContent = "About page content tbc";
 
 	ul li.cross::before {
 		content: "❌ ";
+	}
+
+	blockquote {
+		font-style: italic;
+		font-size: 2.25vw;
+		line-height: 1.5;
+		margin: 2rem 0;
+		max-width: 30ch;
 	}
 
 	</style>

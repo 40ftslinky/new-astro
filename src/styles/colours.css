@@ -21,7 +21,8 @@
     --secondary-light: rgba(var(--brand-green-rgb), 0.3); /* var(--selection-color) */
 
     --black: #111111;
-
+    --black-rgb: 17, 17, 17;
+    
     --mono-1: #1f1f1f;
     --mono-2: #2D3748;
     --mono-3: #4A5568;
