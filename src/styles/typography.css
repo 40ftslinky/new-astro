@@ -47,8 +47,13 @@
   --font-weight-huge: var(--font-weight-xlight);
 
   --letter-spacing-small: 0.02em;
-  --letter-spacing-body: -0.01rem;
-  --letter-spacing-sub: -0.0em;
+  --letter-spacing--3: 0.03rem;
+  --letter-spacing--2: 0.02rem;
+  --letter-spacing--1: 0.01rem;
+  --letter-spacing--0: 0;
+  --letter-spacing-regular: 0.01rem;
+  --letter-spacing-body: var(--letter-spacing--1);
+  --letter-spacing-sub: var(--letter-spacing--0);
   --letter-spacing-medium: -0.03em;
   --letter-spacing-large: -0.04em;
 
