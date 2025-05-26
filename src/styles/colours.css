@@ -14,7 +14,9 @@
     --brand-purple-hsl: hsl(266, 100%, 64%);
     --accent-purple: #7C3AED;
     --accent-rgb: 124, 58, 237;
-    --accent-purple-hsl: hsl(262, 83%, 58%);
+    --accent-purple-hsl: hsl(262, 83%, 58%);    
+    --accent-warm-purple: #da62c4;
+    --accent-warm-purple-hsl: hsl(311, 62%, 62%);
 
     --secondary: #50E3C2;
     --secondary-rgb: 80, 227, 194;
@@ -66,7 +68,12 @@
     --link-color: var(--accent-regular);
 
     /*  */
-    --gradient: linear-gradient(81.62deg, var(--accent-light) -21.44%, var(--accent-regular) 50.54%, var(--accent-dark) 122.9%);
+    --gradient: linear-gradient(
+            81.62deg, 
+            var(--accent-light) -21.44%, 
+            var(--accent-regular) 50.54%, 
+            var(--accent-dark) 122.9%
+        );
 
 
     /* Gradients */
@@ -101,12 +108,19 @@
     --accent: 124, 58, 237;
     --accent-gradient: 
         linear-gradient(
-        45deg, 
-        rgb(var(--accent)), 
-        #da62c4 30%, 
-        white 60%);
+            45deg, 
+            /* rgb(var(--accent)),  */
+            var(--accent-purple),
+            var(--accent-warm-purple) 30%, 
+            white 60%
+        );
+
+
+    --data-color-primary: rgb(16, 207, 201) 0%;
+    --data-color-secondary: rgb(1, 67, 112) 100%;
     
     --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+    --radial-gradient: radial-gradient(circle at 97.9% 5.17%, rgb(16, 207, 201) 0%, rgb(1, 67, 112) 100%);
 
     /* Shadows */
     --shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01),
@@ -127,3 +141,4 @@
 .grey_900_bg {
     background-color: var(--gray-900);
 }
+

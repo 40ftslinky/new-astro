@@ -85,8 +85,8 @@
   --letter-spacing-h2: -0.025em;
   --letter-spacing-h3: -0.035em;
   --letter-spacing-h4: -0.02em;
-  --letter-spacing-h5: -0.02em;
-  --letter-spacing-h6: -0.02em;
+  --letter-spacing-h5: -0.01em;
+  --letter-spacing-h6: -0.005em;
 }
 @media only screen and (min-width: 480px) {
   :root {

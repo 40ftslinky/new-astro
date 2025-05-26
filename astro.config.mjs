@@ -10,7 +10,7 @@ export default defineConfig({
   // base: 'new-astro',
   // trailingSlash: 'always',
   experimental: {
-      svg: true,
+      // svg: true,
   },
 
   integrations: [mdx()],

@@ -49,7 +49,7 @@ const industry = [...new Set(allProjects.map((project) => project.data.industry)
 	pageContent={pageContent}
 >
 
-	<section>
+	<section class="text-animate" data-color-primary="var(--accent-purple)" data-color-secondary="var(--accent-warm-purple)">
 
 		<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
 		<h2 class="subtitle">{pageDesc}</h2>
@@ -114,3 +114,40 @@ const industry = [...new Set(allProjects.map((project) => project.data.industry)
 	
 
 </BaseLayout>
+
+<script is:inline>
+	// 
+	document.addEventListener('DOMContentLoaded', () => {
+        // Select elements
+        const mainElement = document.querySelector("main");
+        const textAnimateSection = document.querySelector("section.text-animate");
+        const textGradientElement = document.querySelector("h1.text-gradient");
+
+        // Ensure elements exist before proceeding
+        if (!mainElement || !textAnimateSection || !textGradientElement) {
+            console.error("Required elements not found in the DOM.");
+            return;
+        }
+
+        // Add mousemove event listener to the main element
+        mainElement.addEventListener("mousemove", (event) => {
+            const rect = mainElement.getBoundingClientRect(); // Use the main element's bounding box
+            const mouseX = event.clientX - rect.left; // X-coordinate relative to the main element
+            const mouseY = event.clientY - rect.top; // Y-coordinate relative to the main element
+            const percentageX = (mouseX / rect.width) * 100; // Percentage X
+            const percentageY = (mouseY / rect.height) * 100; // Percentage Y
+
+            // Create the radial gradient
+            const gradient = `radial-gradient(circle at ${percentageX.toFixed(2)}% ${percentageY.toFixed(2)}%, ${textAnimateSection.dataset.colorPrimary}, ${textAnimateSection.dataset.colorSecondary})`;
+
+            // Apply the gradient to the h1 element
+            textGradientElement.style.backgroundImage = gradient;
+        });
+
+        // Add mouseleave event listener to reset the gradient
+        // mainElement.addEventListener("mouseleave", () => {
+        //     textGradientElement.style.backgroundImage = "none";
+        // });
+    });
+
+</script>

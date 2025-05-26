@@ -36,6 +36,7 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 	class={className}
 	stroke={gradient ? `url(#${gradientId})` : color}
 	fill={gradient ? `url(#${gradientId})` : color}
+	aria-label={rest.title}
 	{...attrs}
 >
 	<title>{rest.title}</title>

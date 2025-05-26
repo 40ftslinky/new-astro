@@ -1,0 +1,187 @@
+---
+// layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// components
+import { Image } from "astro:assets";
+
+
+const uniqueID = "test map";
+const pageTitle = "test map";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+// a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
+const pageContent = "map";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID} 
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+>
+
+	<section class="map_section">
+
+        <div class="map">
+            <h1>Map</h1>
+
+            <div id="map" class="map-gallery">
+
+                
+            </div>
+            
+        </div>
+		  
+	</section>
+
+	
+
+</BaseLayout>
+
+<!-- Import Leaflet CSS -->
+<link 
+    rel="stylesheet" 
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+/>
+
+<!-- Import Leaflet JS -->
+<script is:inline
+    src="https://unpkg.com/leaflet@latest/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+></script>
+<!-- <script src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script> -->
+
+<!-- 
+<script is:inline
+    src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script> -->
+
+<!-- // Import MapTiler SDK -->
+<!-- <script is:inline src="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.css" rel="stylesheet" /> -->
+
+<!-- Import Map SDK -->
+<!-- <script is:inline
+    src="">
+</script> -->
+
+
+
+
+
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Check if L is defined
+        if (typeof L === 'undefined') {
+            console.error('Leaflet not loaded properly.');
+            return;
+        }
+        // Check if MapTiler SDK is loaded
+        // if (typeof MapTilerSDK === 'undefined') {
+        //     console.error('MapTiler SDK not loaded properly.');
+        //     return;
+        // }
+
+        // Initialize the map
+        // const map = L.map('map').setView([-36.36217096505764, 145.4061584667334], 16); //starting position - SMC
+        // const map = L.map('map').setView([-37.801672401957134, 144.9655171436031], 16); //starting position - UoMPC
+        // const map = L.map('map').setView([-37.803843247136754, 144.96367062465737], 16); //starting position - MHCC
+        // const map = L.map('map').setView([-37.80087727435291, 144.9637345795467], 16); //starting position - MSPC
+        // const map = L.map('map').setView([-37.8009024,144.95885], 16); //starting position - MEC
+        // const map = L.map('map').setView([-37.8009137,144.9634701], 16); //starting position - MDC
+        const map = L.map('map').setView([-37.800922, 144.963843], 16); //starting position - MTHC
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+
+        // change the icon
+        const blueIcon = L.icon({
+            iconUrl: 'https://mthc.com.au/wp-content/themes/mthc-theme/library/svg/marker.svg',
+            // shadowUrl: 'https://cdn.maptiler.com/maptiler-sdk-js/v3.0.1/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [0, -41],
+
+            // shadowSize: [41, 41]
+        });
+
+        // Add a marker
+        // L.marker([-36.36217096505764, 145.4061584667334],{icon: blueIcon}) // SMC
+        // L.marker([-37.801672401957134, 144.9655171436031],{icon: blueIcon}) // UoMPC
+        // L.marker([-37.803843247136754, 144.96367062465737],{icon: blueIcon}) // MHCC
+        // L.marker([-37.80087727435291, 144.9637345795467],{icon: blueIcon}) // MSPC
+        // L.marker([-37.8009024,144.95885],{icon: blueIcon}) // MEC
+        // L.marker([-37.8009137,144.9634701],{icon: blueIcon}) // MDC
+        L.marker([-37.800922, 144.963843],{icon: blueIcon}) // MTHC
+
+        .addTo(map)
+        // .openPopup();
+        // .bindPopup('<h6>Shepparton Medical Centre</h6><p>49 Graham St<br />Shepparton VIC 3630<br /> Australia.</p><p><a href="https://maps.app.goo.gl/G4G3684WQN3Q2zV47" target="_blank">Get Directions</a> </p>')
+        // .bindPopup('<h6>The University of Melbourne Psychology Clinic</h6><p>138-146 Cardigan St<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://maps.app.goo.gl/1dRyxtM8ZoRUn16U8" target="_blank">Get Directions</a> </p>')
+        // .bindPopup('<h6>Melbourne Hearing Care Clinic</h6><p>Ground Floor, 550 Swanston St<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://maps.app.goo.gl/we3jxDJZbR94ZJQY8" target="_blank">Get Directions</a> </p>')
+        // .bindPopup('<h6>Melbourne Speech Pathology Clinic</h6><p>Level 1, 723 Swanston Street<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://maps.app.goo.gl/o9eadf5P7q6XUqCp6" target="_blank">Get Directions</a> </p>')
+        // .bindPopup('<h6>Melbourne Eyecare Clinic</h6><p>200 Berkeley St<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://maps.app.goo.gl/674aNjPSsGtMcc9S8" target="_blank">Get Directions</a> </p>')
+        // .bindPopup('<h6>Melbourne Dental Clinic</h6><p>Level 1, 723 Swanston Street<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://maps.app.goo.gl/adghWTrGGWvUwzhd9" target="_blank">Get Directions</a> </p>')
+        .bindPopup('<h6>Melbourne Teaching Health Clinics</h6><p>Level 2, 723 Swanston Street<br />Carlton Victoria 3053<br /> Australia.</p><p><a href="https://www.google.com.au/maps/dir/723+Swanston+St,+Carlton+VIC+3053/Melbourne+Teaching+Health+Clinics,+723+Swanston+St,+Carlton+VIC+3010/@-37.8016745,144.9605263,16.88z/data=!4m13!4m12!1m5!1m1!1s0x6ad642d303020221:0xdcfd9aa2bc84d5da!2m2!1d144.9631626!2d-37.8008556!1m5!1m1!1s0x6ad642ca46c013ad:0x4ccc33b892337ed0!2m2!1d144.9636745!2d-37.8010295?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D" target="_blank">Get Directions</a> </p>')
+
+        // Add a click event to the map
+        const popup = L.popup();
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+    });
+</script>
+
+<style>
+/* Add your custom styles here */
+.map_section {
+    width: 100%;
+    height: 100vh;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    min-height: 45vh;
+}
+/* #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;} */
+
+.leaflet-control-attribution.leaflet-control,
+.leaflet-attribution-flag, 
+svg.leaflet-attribution-flag {
+    display: none !important;
+}
+.leaflet-control-attribution {
+    /* display: none !important; */
+}
+	
+:root {
+	--col_number: 4;
+	--gap_number: calc(var(--col_number) - 1);
+	--col_width: calc(100% - (var(--gap_number)*1rem));
+	--max-width: calc(var(--col_width) / var(--col_number));
+
+}
+.map_section {}
+
+
+
+
+</style>
