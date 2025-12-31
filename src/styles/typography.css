@@ -80,7 +80,7 @@
   --font-weight-h6: var(--font-weight-medium);
 
   --letter-spacing-h1: -0.55vw;
-  --letter-spacing-h1-sm: -0.075em;
+  --letter-spacing-h1-sm: -0.065em;
   /* --letter-spacing-h1: -0.055em; */
   --letter-spacing-h2: -0.025em;
   --letter-spacing-h3: -0.035em;
@@ -123,7 +123,8 @@
 /*  */
 @media only screen and (min-width: 1920px) {
   :root {
-      --rem-base: 0.5vw;
+      /* --rem-base: 0.5vw; */
+      --rem-base: 62.5%;
   }
 }
 
@@ -228,6 +229,7 @@
     --text-6xl: 7.5vw;
 
     --text-huge: 12vw;
+    --text-huge: 4rem
 
 }
 
@@ -337,8 +339,10 @@ sup {
 }
 
 #project h1 {
-  font-size: var(--font-size-9xl);
+  /* font-size: var(--font-size-9xl); */
+  font-size: var(--text-huge);
   letter-spacing: var(--letter-spacing-h1-sm);
+  text-indent: -1rem;
 }
 
 .h2,h2 {

@@ -608,7 +608,7 @@ video::-webkit-media-controls {
   gap: 0.5rem;
   position: absolute;
   z-index: 11111;
-  width: 100px;
+  /* width: 100px; */
   height: 1rem;
   bottom: 1rem;
   padding: 2rem;
@@ -723,7 +723,10 @@ video::-webkit-media-controls {
 .cursor {
   width: 7rem;
   height: 7rem;
-  background: #fff;
+  /* background: #fff; */
+  background: rgba(0, 0, 0, 0.125);
+  backdrop-filter: blur(5px);
+  /* border: 0.5px solid #fff; */
   border-radius: 50%;
   position: absolute;
   color: #fff;
@@ -738,6 +741,7 @@ video::-webkit-media-controls {
   /* opacity: 0; */
   mix-blend-mode: difference;
   pointer-events: none; /* Allow mouse events to pass through the cursor */
+  filter: drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.5));
 }
 
 .cursor.cursor-on {
@@ -748,13 +752,16 @@ video::-webkit-media-controls {
 
 .cursor::after {
   position:absolute;
-  color:black;
+  color:white;
   content: "GRAB";
   font-size:10px;
+  line-height: 1;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   box-sizing: content-box;
+  transition: var(--transition-fast-delay);
 }
 .cursor.cursor-on::after,
 .cursor-over .cursor::after  {
@@ -785,17 +792,20 @@ video::-webkit-media-controls {
   content: "DRAG";
 }
 .cursor::before {
-  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="88" height="89" fill="none"><path fill="%23fff" d="M3.242 50.464.206 45.232 3.23 40h2.388L2.51 45.232l3.108 5.232H3.242ZM82.206 50.464l3.108-5.232L82.206 40h2.388l3.024 5.232-3.036 5.232h-2.376Z"/></svg>'); 
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="88" height="89" fill="none"><path fill="rgb(0, 0, 0, 0.5)" d="M3.242 50.464.206 45.232 3.23 40h2.388L2.51 45.232l3.108 5.232H3.242ZM82.206 50.464l3.108-5.232L82.206 40h2.388l3.024 5.232-3.036 5.232h-2.376Z"/></svg>'); 
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(0.9);
   transition: var(--transition-fast-delay);
   opacity: 0;
+  /* mix-blend-mode: difference; */
 }
 .cursor.grabbing::before {
   opacity: 1;
   transform: translateX(-50%) translateY(-50%) scale(1);
+    mix-blend-mode: difference;
+
 }
 
 /* tags */

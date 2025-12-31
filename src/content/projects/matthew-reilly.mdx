@@ -1,0 +1,95 @@
+---
+
+#  frontmatter
+uniqueID: 'project'
+title: 'Matthew Reilly'
+pubDate: 2025-12-30
+head: 'Matthew Reilly - Publishing'
+description: '25 years of designing book covers for bestselling author Matthew Reilly.'
+author: ''
+cover: '../../assets/imgs/matthew-reilly/PMA_MR__series__1920x1080_01.jpg'
+# cover: '.imgs/color-gray.jpg'
+# cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
+coverAlt: 'Matthew Reilly cover design.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ["Book Covers", "Design", "Matthew Reilly"]
+
+industries: ["Publishing"]
+
+
+---
+
+
+{/* import assets  */}
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+
+import image01 from '../../assets/imgs/matthew-reilly/jack-west-new/7AW_bformat_2021_fc.jpg';
+import image02 from '../../assets/imgs/matthew-reilly/jack-west-new/6SS_bformat_2021_fc.jpg';
+import image03 from '../../assets/imgs/matthew-reilly/jack-west-new/5GW_bformat_2021_fc.jpg';
+import image04 from '../../assets/imgs/matthew-reilly/jack-west-new/4LK_bformat_2021_fc.jpg';
+import image05 from '../../assets/imgs/matthew-reilly/jack-west-new/3SC_bformat_2021_fc.jpg';
+import image06 from '../../assets/imgs/matthew-reilly/jack-west-new/2LM_bformat_2021_fc.jpg';
+import image07 from '../../assets/imgs/matthew-reilly/jack-west-new/1IL_bformat_2022_fc.jpg';
+
+import scarecrow01 from '../../assets/imgs/matthew-reilly/scarecrow/AREA7_Bformat_final.jpg';
+import scarecrow02 from '../../assets/imgs/matthew-reilly/scarecrow/IceStation_Bformat_final.jpg';
+import scarecrow03 from '../../assets/imgs/matthew-reilly/scarecrow/Scarecrow_Bformat_final-1.jpg';
+import scarecrow04 from '../../assets/imgs/matthew-reilly/scarecrow/SATAOT_Bformat_final.jpg';
+import scarecrow05 from '../../assets/imgs/matthew-reilly/scarecrow/HI_Bformat_final-1.jpg';
+
+import standalone01 from '../../assets/imgs/matthew-reilly/stand-alone/MR_Einsteins_Secretary_Bformat.jpg';
+import standalone02 from '../../assets/imgs/matthew-reilly/stand-alone/Contest_Bformat.jpg';
+import standalone03 from '../../assets/imgs/matthew-reilly/stand-alone/ChinaZoo_Bformat.jpg';
+import standalone04 from '../../assets/imgs/matthew-reilly/stand-alone/Temple_Bformat.jpg'
+import standalone05 from '../../assets/imgs/matthew-reilly/stand-alone/Cobalt_Blue_Bformat.jpg';
+import standalone06 from '../../assets/imgs/matthew-reilly/stand-alone/TOURNAMENT_Bformat.jpg';
+
+## Content
+<p>Post content</p>
+Local image stored in src/assets/ (carousel)
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Seven Ancient Wonders" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Six Sacred Stones" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Five Greatest Warriors" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image04} alt="Four Legendary Kingdoms" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image05} alt="Three Sacred Cities" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image06} alt="Two Lost Mountains" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image07} alt="One Impossible Labyrinth" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={scarecrow01} alt="Area 7" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={scarecrow02} alt="Ice Station" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={scarecrow03} alt="Scarecrow" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={scarecrow04} alt="Scarecrow and the Army of Thieves" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={scarecrow05} alt="Hell Island" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={standalone01} alt="Mr Einstein's Secretary" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={standalone02} alt="Contest" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={standalone03} alt="The Great Zoo of China" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={standalone04} alt="Temple" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={standalone05} alt="Cobalt Blue" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={standalone06} alt="Tournament" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+

@@ -11,6 +11,7 @@ export default defineConfig({
   // trailingSlash: 'always',
   experimental: {
       // svg: true,
+      // responsiveImages: true,
   },
 
   integrations: [mdx()],

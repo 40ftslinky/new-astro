@@ -20,7 +20,8 @@ const { data, id } = Astro.props.project;
 	<div class="overlay"></div>
 	<div class="info_wrap">
 		<div class="title"><h5>{data.title}</h5></div>
-		<div class="industry"><h6>{data.industry}</h6></div>
+		<!-- separate industries by joining items with commas -->
+		<div class="industry"><h6>{Array.isArray(data.industries) ? data.industries.join(', ') : data.industries}</h6></div>
 	</div>
 
 	<!--If image.url -->
@@ -159,6 +160,9 @@ const { data, id } = Astro.props.project;
 	}
 	.card:hover title h5 { }
 
+	.card .industry {
+		/* background-color: transparent; */
+	}
 	.industry h6 {
 		font-weight: 400;
 		color: var(--gray-800);

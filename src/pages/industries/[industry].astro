@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+// import ProjectPost from "../../components/ProjectPost.astro";
+
+import Grid from '../../components/Grid.astro';
+import PortfolioPreview from '../../components/PortfolioPreview.astro';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection("projects");
+  const uniqueIndustries = [...new Set(allProjects.map((project) => project.data.industries).flat())];
+
+  return uniqueIndustries.map((industry) => {
+    const filteredProjects = allProjects.filter((project) =>
+      // project.data.tags.includes(tag)
+      project.data.industries && typeof industry === 'string' && project.data.industries.includes(industry)
+    );
+    return {
+      params: { industry },
+      props: { projects: filteredProjects },
+    };
+  });
+}
+
+const { industry } = Astro.params;
+const { projects } = Astro.props;
+
+
+const uniqueID = "industry-index";
+const pageTitle = "Industry Tag Index";
+const metaTitle = "meta title tbc";
+const metaDescription = "meta description tbc";
+const pageHead = "Tags Index";
+const pageDesc = "A list of tagged projects";
+const pageContent = "Select a tag to view all projects with that tag.";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID}
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	pageHead={pageHead} 
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+<section>
+    <p>Projects tagged with {industry}</p>
+    <!-- <ul>
+        { projects.map((project) => 
+          <ProjectPost url={`/projects/${project.id}/`} title={project.data.title} />) 
+        }
+    </ul> -->
+
+    <div class="gallery">
+      <Grid variant="offset">
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </Grid>
+    </div>
+</section>
+
+</BaseLayout>

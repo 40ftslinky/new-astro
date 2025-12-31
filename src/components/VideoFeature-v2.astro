@@ -1,0 +1,36 @@
+---
+import type { ImageMetadata } from 'astro';
+
+const { frontmatter } = Astro.props;
+// const { videoPath, videoWidth, videoHeight, poster } = Astro.props;
+
+interface Props {
+	// url: url;
+	// width: width;
+	// height: height;
+    // poster: poster;
+	videoURL: string;
+	videoWidth: string;
+	videoHeight: string;
+	poster: string;
+}
+
+const { videoURL, videoWidth, videoHeight, poster } = Astro.props;
+const videos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{mp4}');
+if (!videos[videoURL]) throw new Error(`"${videoURL}" does not exist in glob: "src/assets/*.{mp4}"`);
+
+---
+
+<div class="video_wrap">
+	<video class="video "
+		width={videoWidth} 
+		height={videoHeight} 
+		transition:persist
+		autoplay={false}
+		loop={false}
+		poster={poster}
+	> 
+		<source src={frontmatter.video.videoURL} type="video/mp4" />
+		Your browser does not support the video tag.
+	</video>
+</div>

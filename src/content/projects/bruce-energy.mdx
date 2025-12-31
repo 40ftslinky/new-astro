@@ -27,7 +27,7 @@ video:
     
 tags: ["Brand", "Web", "Production"]
 
-industry: ["Energy Sector"]
+industries: ["Energy Sector"]
 
 # layout: ../../layouts/ProjectLayout.astro
 
@@ -35,6 +35,11 @@ industry: ["Energy Sector"]
 
 ---
 
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
@@ -43,6 +48,9 @@ import image03 from '../../assets/imgs/other/color-green.jpg';
 
 import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 
+
+## VideoFeature
+<VideoFeature frontmatter={frontmatter} />
 
 ## Content
 

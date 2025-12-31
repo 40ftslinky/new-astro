@@ -1,4 +1,5 @@
 ---
+
 #  frontmatter
 uniqueID: 'project'
 title: 'Title'
@@ -7,19 +8,21 @@ head: 'Post Title'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
 author: ''
 cover: '../../assets/imgs/other/color-gray.jpg'
+# cover: '.imgs/color-gray.jpg'
+# cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
 coverAlt: 'The full Astro logo.'
 coverWidth: '1920'
 coverHeight: '1080'
 
 video: 
-    url: '/video/Puppiness.mp4'
+    url: '/src/assets/omg_projects/Puppiness.mp4'
     width: '100%'
     height: '100%'
-    poster: '/images/color-gray.jpg'
+    poster: '/src/assets/imgs/other/color-gray.jpg'
     
 tags: ["Test 01", "Tag", "Category"]
 
-industry: ["Industry"]
+industries: ["Industry"]
 
 
 contentImgs:
@@ -35,12 +38,21 @@ contentImgs:
 
 ---
 
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
 import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+
+
+## VideoFeature
+<VideoFeature frontmatter={frontmatter} />
 
 ## Content
 <p>Post content</p>
@@ -56,4 +68,20 @@ Local image stored in src/assets/ (carousel)
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
   <div class="carousel-indicators"></div> 
+</div>
+
+
+## Video Embed - alternative method
+<div class="video_wrap">
+    <video class="video "
+        width="100%"
+        height="100%" 
+        transition:persist
+        autoplay="false"
+        loop="true"
+        poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
+    > 
+        <source src="/src/assets/positivegood/PG_web_pages.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
 </div>

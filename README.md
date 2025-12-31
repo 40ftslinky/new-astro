@@ -33,9 +33,9 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 zsh: command not found: npm ****
 
     export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
+    npm 
 
-# switch between zsh abd bash
+# switch between zsh and bash
 
 you can use chsh
     -s /bin/bash

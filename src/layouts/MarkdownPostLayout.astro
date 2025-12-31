@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { fade } from "astro:transitions";
+// import VideoFeature from '../components/VideoFeature.astro';
 
 // import { Image } from "astro:assets";
 
@@ -45,19 +46,7 @@ const { frontmatter } = Astro.props;
                     }
                 </div>
                 <!-- <Image src={frontmatter.image.url} width={frontmatter.image.width} height={frontmatter.image.height} alt={frontmatter.image.alt} /> -->
-                <div class="video_wrap">
-                    <video class="video "
-                        width={frontmatter.video.width} 
-                        height={frontmatter.video.height} 
-                        transition:persist
-                        autoplay={false}
-                        loop={false}
-                        poster={frontmatter.video.poster}
-                    > 
-                        <source src={frontmatter.video.url} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <!-- <VideoFeature frontmatter={frontmatter} /> -->
 
             </div>
 
@@ -93,7 +82,7 @@ const { frontmatter } = Astro.props;
     }
 
     .category-title {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: rgba(var(--black-rgb), 0.8);
         margin-bottom: 1rem;

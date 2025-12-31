@@ -1,0 +1,59 @@
+---
+#  frontmatter
+uniqueID: 'project'
+title: 'Praemium'
+pubDate: 2025-02-18
+head: 'Post Title'
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+author: ''
+cover: '../../assets/imgs/other/color-gray.jpg'
+coverAlt: 'The full Astro logo.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video: 
+    url: '/video/test/Puppiness.mp4'
+    width: '100%'
+    height: '100%'
+    poster: '/src/assets/imgs/other/color-gray.jpg'
+    
+tags: ["Test 01", "Tag", "Category"]
+
+industries: ["FinTech"]
+
+
+contentImgs:
+  - url: 'src/assets/imgs/other/Editorial-Mockup_00.jpg'
+    alt: "Image description 1"
+    width: 600
+    height: 400
+  - url: 'src/assets/imgs/other/Editorial-Mockup_01.jpg'
+    alt: "Image description 2"
+    width: 600
+    height: 400
+
+
+---
+
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+import image02 from '../../assets/imgs/other/color-orange.png';
+import image03 from '../../assets/imgs/other/color-green.jpg';
+import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+
+## Content
+<p>Post content</p>
+Local image stored in src/assets/ (carousel)
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>

@@ -39,7 +39,7 @@ const projects = defineCollection({
             poster: z.string().optional(),
         }).optional(),
         tags: z.array(z.string()).optional(),
-        industry: z.array(z.string()).optional(),
+        industries: z.array(z.string()).optional(),
         // Add other fields as necessary
     })
 });

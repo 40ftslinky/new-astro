@@ -12,20 +12,24 @@ coverWidth: '1920'
 coverHeight: '1080'
 
 video: 
-    url: '/video/positivegood/PG_WEBSITE.mp4'
+    url: '/src/assets/imgs/positivegood/video/PG_WEBSITE.mp4'
     width: '100%'
     height: '100%'
     poster: '/src/assets/imgs/positivegood/Feature-Image-01.jpg'
-    # poster: '/images/positivegood/Feature-Image-01.jpg'
+    
     
 tags: ["Brand", "Identity", "Web Design", "Production"]
 
-industry: ["Cleantech", "Renewables"]
+industries: ["Cleantech", "Renewables"]
 
 
 
 ---
 
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
 import image01 from '../../assets/imgs/positivegood/PositiveGood_businesscards_01.jpg';
@@ -33,13 +37,19 @@ import image02 from '../../assets/imgs/positivegood/PositiveGood_businesscards_0
 import image03 from '../../assets/imgs/positivegood/PositiveGood_businesscards_03.jpg';
 import image04 from '../../assets/imgs/positivegood/PositiveGood_businesscards_03.jpg';
 
-import video02 from '/video/positivegood/PG_WEBSITE.mp4';
+import video02 from '../../assets/imgs/positivegood/video/PG_WEBSITE.mp4';
 import video02_poster from '../../assets/imgs/positivegood/PositiveGood_web_poster.jpg';
+
 
 ## Brand Refresh
 <p>Positive Good Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 <h3>A fully formed brand delivery</h3>
 <p>As with all our branding projects we create a bespoke brand guide covering all rules and application guidance for all brand assets. This allows the client to pass their brand to other third party creative agencies confident that they have the tools at hand to build up consistent creative.</p>
+
+
+## Web Design & Development
+<p>Positive Good Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<VideoFeature frontmatter={frontmatter} />
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
@@ -60,6 +70,7 @@ Text regarding to content
 </div> 
 */}
 
+## Video Embed - alternative method
 <div class="video_wrap">
     <video class="video "
         width="100%"
@@ -69,7 +80,7 @@ Text regarding to content
         loop="true"
         poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
     > 
-        <source src="/video/positivegood/PG_web_pages.mp4" type="video/mp4" />
+        <source src="/src/assets/imgs/positivegood/video/PG_web_pages.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
 </div>

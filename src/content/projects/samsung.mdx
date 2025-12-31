@@ -12,14 +12,14 @@ coverWidth: '1920'
 coverHeight: '1080'
 
 video: 
-    url: '/video/Puppiness.mp4'
+    url: '/video/samsung/Samsung_Switching.mp4'
     width: '100%'
     height: '100%'
-    poster: '/images/color-gray.jpg'
+    poster: '/src/assets/imgs/samsung/samsung_switching.png'
     
-tags: ["Test 01", "Tag", "Category"]
+tags: ["Web", "UX", "Design", "Digital", "Conference"]
 
-industry: ["Industry"]
+industries: ["Technology"]
 
 
 contentImgs:
@@ -35,12 +35,21 @@ contentImgs:
 
 ---
 
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+## VideoFeature
+<VideoFeature frontmatter={frontmatter} />
+
+
+{/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
-import image02 from '../../assets/imgs/other/color-orange.png';
-import image03 from '../../assets/imgs/other/color-green.jpg';
-import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+import image01 from '../../assets/imgs/samsung/SAM0130_RFSA_firefighter.jpg';
+import image02 from '../../assets/imgs/samsung/samsung_rfsa_2025_01.png';
+import image03 from '../../assets/imgs/samsung/samsung_rfsa_2025_02.png';
+import heroImage from '../../assets/imgs/samsung/samsung_hero.jpeg';
 
 ## Content
 <p>Post content</p>
@@ -50,11 +59,27 @@ Local image stored in src/assets/ (carousel)
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      {/* <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div> */}
       <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
   <div class="carousel-indicators"></div> {/* Add the indicators here */}
   {/* <div class="cursor"></div> */}
+</div>
+
+
+## Video Embed - alternative method
+<div class="video_wrap">
+    <video class="video "
+        width="100%"
+        height="100%" 
+        transition:persist
+        autoplay="false"
+        loop="true"
+        poster="/src/assets/imgs/samsung/Samsung_OnePhone_new.jpg"
+    > 
+        <source src="/src/assets/imgs/samsung/Samsung_OnePhone_new.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
 </div>
