@@ -7,14 +7,14 @@ pubDate: 2025-02-18
 head: 'Post Title'
 description: 'Design, typesetting and production of annual reports, prospectuses, and other corporate communications.'
 author: ''
-cover: '../../assets/imgs/other/color-gray.jpg'
+cover: '../../assets/imgs/annual-reports/annual-reports-hero.jpg'
 # cover: '.imgs/color-gray.jpg'
 # cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
 coverAlt: 'Annual Reports cover image.'
 coverWidth: '1920'
 coverHeight: '1080'
 
-tags: ["Annual Reports", "Design", "Typesetting", "Production"]
+tags: ["Annual Reports", "Design", "Typesetting", "Production", "Print"]
 
 industries: ["Education", "Finance", "Governement", "Non-Profit"]
 
@@ -26,31 +26,136 @@ industries: ["Education", "Finance", "Governement", "Non-Profit"]
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
 
-import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
-import image02 from '../../assets/imgs/other/color-orange.png';
-import image03 from '../../assets/imgs/other/color-green.jpg';
-import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+import nfsa01 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_a.jpg';
+import nfsa02 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_b.jpg';
+import nfsa03 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_c.jpg';
+
+import uc01 from '../../assets/imgs/uc/UC_AR_14_1.jpg';
+import uc02 from '../../assets/imgs/uc/UC_AR_14_2.jpg';
+import uc03 from '../../assets/imgs/uc/UC_AR_14_3.jpg';
+
+import polbank01 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_01.jpg';
+import polbank02 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_02.jpg';
+import polbank03 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_03.jpg';
+
+import addiroad01 from '../../assets/imgs/addi-road/Addi_Road_AR_2020_01.jpg';
+import addiroad02 from '../../assets/imgs/addi-road/Addi_Road_AR_2020_02.jpg';
+import addiroad03 from '../../assets/imgs/addi-road/Addi_Road_AR_2020_03.jpg';
+
+import vicuni01 from '../../assets/imgs/vicuni/VicUni_PG_2021_01.jpg';
+import vicuni02 from '../../assets/imgs/vicuni/VicUni_PG_2021_02.jpg';
+import vicuni03 from '../../assets/imgs/vicuni/VicUni_PG_2021_03.jpg';
+
+import centpark01 from '../../assets/imgs/central-park/CentralPark_1920x1080_01.jpg';
+import centpark02 from '../../assets/imgs/central-park/CentralPark_1920x1080_02.jpg';
+import centpark03 from '../../assets/imgs/central-park/CentralPark_1920x1080_03.jpg';
+
+import hollowtree01 from '../../assets/imgs/addi-road/Addi_Road_HollowTree_01.jpg';
+import hollowtree02 from '../../assets/imgs/addi-road/Addi_Road_HollowTree_02.jpg';
+import hollowtree03 from '../../assets/imgs/addi-road/Addi_Road_HollowTree_03.jpg';
+import hollowtree04 from '../../assets/imgs/addi-road/Addi_Road_HollowTree_04.jpg';
+import hollowtree05 from '../../assets/imgs/addi-road/Addi_Road_HollowTree_05.jpg';
+
+import tenmen01 from '../../assets/imgs/addi-road/Addi_Road_10_Men_01.jpg';
+import tenmen02 from '../../assets/imgs/addi-road/Addi_Road_10_Men_02.jpg';
+import tenmen03 from '../../assets/imgs/addi-road/Addi_Road_10_Men_03.jpg';
 
 
-
-## Content
-<p>Addi Road</p>
-<p>Police Bank</p>
-<p>NFSA</p>
-<p>UC</p>
-<p>VicUni</p>
-<p>Central Park</p>
-<p>Central Park</p>
-
-
-
+## NFSA
+<p>National Film and Sound Archive Annual Report 2013</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={nfsa01} alt="National Film and Sound Archive Annual Report 2012-13: Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={nfsa02} alt="National Film and Sound Archive Annual Report 2012-13: Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={nfsa03} alt="National Film and Sound Archive Annual Report 2012-13: Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>University of Canberra Annual Report 2014</p>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={uc01} alt="University of Canberra Annual Report 2014 - Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={uc02} alt="University of Canberra Annual Report 2014 - Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={uc03} alt="University of Canberra Annual Report 2014 - Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>Police Bank Annual Report 2019</p>
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={polbank01} alt="Police Bank Annual Report 2019 - Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={polbank02} alt="Police Bank Annual Report 2019 - Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={polbank03} alt="Police Bank Annual Report 2019 - Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>Addi Road Annual Report 2020</p>
+<div id="carousel-04" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={addiroad01} alt="Addi Road Annual Report 2020 - Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={addiroad02} alt="Addi Road Annual Report 2020 - Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={addiroad03} alt="Addi Road Annual Report 2020 - Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>Victoria University Course Guide 2021</p>
+<div id="carousel-05" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={vicuni01} alt="Victoria University Annual Report 2021 - Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={vicuni02} alt="Victoria University Annual Report 2021 - Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={vicuni03} alt="Victoria University Annual Report 2021 - Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>Central Park Sales Brochure</p>
+<div id="carousel-06" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={centpark01} alt="Central Park - Cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={centpark02} alt="Central Park - Inside Spread" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={centpark03} alt="Central Park - Alternate Spread" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>The Hollow Tree, Addison Road Community Centre</p>
+<div id="carousel-07" class="carousel_container">
+  <div class="carousel_stage">
+        <div class="image_wrap carousel_slide"><Picture src={hollowtree01} alt="The Hollow Tree - Cover" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide"><Picture src={hollowtree02} alt="The Hollow Tree - Inside Spread" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide"><Picture src={hollowtree03} alt="The Hollow Tree - Inside Spread" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide"><Picture src={hollowtree04} alt="The Hollow Tree - Inside Spread" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide" data-type="last"><Picture src={hollowtree05} alt="The Hollow Tree - Alternate Spreads" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p>Ten Ordinary Men, Addison Road Community Centre</p>
+<div id="carousel-08" class="carousel_container">
+  <div class="carousel_stage">
+        <div class="image_wrap carousel_slide"><Picture src={tenmen01} alt="The Hollow Tree - Cover" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide"><Picture src={tenmen02} alt="The Hollow Tree - Inside Spread" layout="constrained"/></div>
+        <div class="image_wrap carousel_slide" data-type="last"><Picture src={tenmen03} alt="The Hollow Tree - Alternate Spreads" layout="constrained"/></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
@@ -58,17 +163,15 @@ import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 </div>
 
 
-## Video Embed - alternative method
-<div class="video_wrap">
-    <video class="video "
-        width="100%"
-        height="100%" 
-        transition:persist
-        autoplay="false"
-        loop="true"
-        poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
-    > 
-        <source src="/src/assets/positivegood/PG_web_pages.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-</div>
+## Content
+<p><s>Addi Road</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>Police Bank</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>NFSA</s>&nbsp;<input type='checkbox' checked /></p>
+<p>NFSA_0230_Timor Leste Report_PB_JKT_FA</p>
+<p><s>UC</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>VicUni</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>Central Park</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>The Hollow Tree</s>&nbsp;<input type='checkbox' checked /></p>
+<p><s>Ten Ordinary Men: Addi Road Cyclists</s>&nbsp;<input type='checkbox' checked /></p>
+   
+<p>----</p>
