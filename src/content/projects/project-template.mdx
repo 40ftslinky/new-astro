@@ -45,6 +45,7 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
+import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
@@ -79,9 +80,9 @@ Local image stored in src/assets/ (carousel)
         transition:persist
         autoplay="false"
         loop="true"
-        poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
+    poster={resolveMediaPath('/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg')}
     > 
-        <source src="/src/assets/positivegood/PG_web_pages.mp4" type="video/mp4" />
+    <source src={resolveMediaPath('/src/assets/imgs/positivegood/video/PG_web_pages.mp4')} type="video/mp4" />
         Your browser does not support the video tag.
     </video>
 </div>

@@ -37,6 +37,7 @@ contentImgs:
 
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
+import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
@@ -51,7 +52,7 @@ import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
         transition:persist
         autoplay="false"
         loop="true"
-        poster="/src/assets/imgs/other/color-gray.jpg"
+    poster={resolveMediaPath('/src/assets/imgs/other/color-gray.jpg')}
     > 
         {/* <source src="/src/assets/imgs/switchdin/SwitchDin_90sec_Master_pickups_3_1.mp4" type="video/mp4" /> */}
         <source src="https://player.vimeo.com/progressive_redirect/download/1153115348/rendition/source/praemium_website_new.mp4?loc=external&signature=344cce9549b6ff5abf738381135392223314646fd57f67256759267d78f6bfed

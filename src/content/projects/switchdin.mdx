@@ -34,6 +34,7 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
+import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
@@ -68,7 +69,7 @@ Local image stored in src/assets/ (carousel)
         transition:persist
         autoplay="false"
         loop="true"
-        poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
+        poster={resolveMediaPath('/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg')}
     > 
         {/* <source src="/src/assets/imgs/switchdin/SwitchDin_90sec_Master_pickups_3_1.mp4" type="video/mp4" /> */}
         <source src="https://new.express.adobe.com/publishedV2/urn:aaid:sc:AP:2f853052-7e14-4c81-90c7-35859b6d2dd6" type="video/mp4" />

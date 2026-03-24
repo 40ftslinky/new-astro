@@ -32,6 +32,7 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
+import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/positivegood/PositiveGood_businesscards_01.jpg';
 import image02 from '../../assets/imgs/positivegood/PositiveGood_businesscards_02.jpg';
 import image03 from '../../assets/imgs/positivegood/PositiveGood_businesscards_03.jpg';
@@ -78,9 +79,9 @@ Text regarding to content
         transition:persist
         autoplay="false"
         loop="true"
-        poster="/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg"
+        poster={resolveMediaPath('/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg')}
     > 
-        <source src="/src/assets/imgs/positivegood/video/PG_web_pages.mp4" type="video/mp4" />
+        <source src={resolveMediaPath('/src/assets/imgs/positivegood/video/PG_web_pages.mp4')} type="video/mp4" />
         Your browser does not support the video tag.
     </video>
 </div>

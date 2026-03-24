@@ -1,21 +1,26 @@
 ---
 
+import { resolveMediaPath } from '../utils/resolveMediaPath';
+
 
 const { frontmatter } = Astro.props;
+const video = frontmatter.video;
+const videoPoster = resolveMediaPath(video?.poster);
+const videoUrl = resolveMediaPath(video?.url);
 
 
 ---
 
 <div class="video_wrap">
 	<video class="video" controls
-		width={frontmatter.video.width} 
-		height={frontmatter.video.height} 
+		width={video.width} 
+		height={video.height} 
 		transition:persist
 		autoplay={false}
 		loop={false}		
-		poster={frontmatter.video.poster}
+		poster={videoPoster}
 	> 
-		<source src={frontmatter.video.url} type="video/mp4" />
+		<source src={videoUrl} type="video/mp4" />
 		Your browser does not support the video tag.
 	</video>
 </div>
