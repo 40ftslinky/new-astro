@@ -4,7 +4,7 @@ const assetUrls = import.meta.glob('/src/assets/**/*', {
 	query: '?url',
 }) as Record<string, string>;
 
-const CONTENT_ASSET_PATH = /^(?:\.\.\/)+assets\//;
+const CONTENT_ASSET_PATH = /^(?:\.\.\/\.\.\/)+assets\//;
 
 function normalizeMediaPath(path: string) {
 	if (path.startsWith('/src/assets/')) {
