@@ -1,6 +1,7 @@
 ---
 // transitions
 import { ClientRouter } from 'astro:transitions';
+import PostHog from '../components/Posthog.astro';
 
 
 
@@ -45,5 +46,8 @@ const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
 
 		<!-- client router required for astro transitions -->
 		<ClientRouter />
+
+		<PostHog>
+
 
 	</head>
