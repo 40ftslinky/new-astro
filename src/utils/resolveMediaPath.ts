@@ -1,4 +1,4 @@
-const assetUrls = import.meta.glob('/src/assets/**/*', {
+const assetUrls = import.meta.glob('/src/assets/**/*.{jpg,jpeg,png,gif,webp,avif,svg,ico,woff,woff2}', {
 	eager: true,
 	import: 'default',
 	query: '?url',
