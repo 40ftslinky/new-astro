@@ -1,0 +1,37 @@
+---
+uniqueID: 'project'
+title: 'Uc'
+pubDate: 2026-04-03
+head: 'Uc'
+description: 'Uc project showcase.'
+author: ''
+cover: '../../assets/imgs/uc/OMG_UC_AR_bg.jpg'
+coverAlt: 'Uc cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ['Uc']
+industries: ['General']
+---
+
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/uc/OMG_UC_AR_bg.jpg';
+import image02 from '../../assets/imgs/uc/UC_AR_14_1.jpg';
+import image03 from '../../assets/imgs/uc/UC_AR_14_2.jpg';
+import image04 from '../../assets/imgs/uc/UC_AR_14_3.jpg';
+
+## Overview
+<p>Uc project content.</p>
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Uc image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Uc image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Uc image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Uc image 4" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

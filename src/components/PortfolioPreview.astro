@@ -117,7 +117,7 @@ const { data, id } = Astro.props.project;
 	}
 
 	.card > * {
-		grid-area: card;
+		/* grid-area: card; */
 		/* max-width: 1000px; */
 		transition: all var(--theme-transition);
 	}
@@ -198,7 +198,7 @@ const { data, id } = Astro.props.project;
 		.card {
 			/* height: 45vh; */
 			/* width: 50vw; */
-			max-width: calc(var(--max-col-width) /2);
+			/* max-width: calc(var(--max-col-width) /2); */
 			/* border-radius: 1.5rem; */
 		}
 		.card img {
@@ -206,6 +206,16 @@ const { data, id } = Astro.props.project;
 		}
 		.title {
 			border-radius: 0.9375rem;
+		}
+		/* #projects .flex li  */
+		#projects .flex li,
+		#projects .flex .card {
+			width: 100%;
+			max-width: calc(var(--max-col-width)/2 - var(--col-gap)/2);
+			border: solid 1px red;
+		}
+		#projects .flex .card img {
+			width: calc(var(--max-col-width)/2 - var(--col-gap)/2);
 		}
 	}
 	

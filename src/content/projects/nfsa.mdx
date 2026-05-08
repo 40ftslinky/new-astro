@@ -1,0 +1,37 @@
+---
+uniqueID: 'project'
+title: 'Nfsa'
+pubDate: 2026-04-03
+head: 'Nfsa'
+description: 'Nfsa project showcase.'
+author: ''
+cover: '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_a.jpg'
+coverAlt: 'Nfsa cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ['Nfsa']
+industries: ['General']
+---
+
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_a.jpg';
+import image02 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_b.jpg';
+import image03 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_c.jpg';
+import image04 from '../../assets/imgs/nfsa/40ftSlinky_NFSA_AR_2012_hero.jpg';
+
+## Overview
+<p>Nfsa project content.</p>
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Nfsa image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Nfsa image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Nfsa image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Nfsa image 4" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

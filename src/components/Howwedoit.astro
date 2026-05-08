@@ -1,0 +1,175 @@
+---
+import { Image } from 'astro:assets';
+// import { fade } from "astro:transitions";
+
+// assets
+import wordpressLogo from '../assets/imgs/partners/wordpress.svg';
+import squarespaceLogo from '../assets/imgs/partners/squarespace.svg';
+import mailchimpLogo from '../assets/imgs/partners/mailchimp.svg';
+import campaignMonitorLogo from '../assets/imgs/partners/campaignmonitor.svg';
+import salesforceLogo from '../assets/imgs/partners/salesforce.svg';
+import shopifyLogo from '../assets/imgs/partners/shopify.svg';
+// import magentoLogo from '../assets/imgs/partners/magento.svg';
+import paypalLogo from '../assets/imgs/partners/paypal.svg';
+import stripeLogo from '../assets/imgs/partners/stripe.svg';
+import googleCloudLogo from '../assets/imgs/partners/googlecloud.svg';
+import amazonAwsLogo from '../assets/imgs/partners/amazonaws.svg';
+import vercelLogo from '../assets/imgs/partners/vercel.svg';
+import cloudflareLogo from '../assets/imgs/partners/cloudflare.svg';
+import woocommerceLogo from '../assets/imgs/partners/woocommerce.svg';
+import astroLogo from '../assets/imgs/partners/astro.svg';
+import githubLogo from '../assets/imgs/partners/github.svg';
+
+const platformGroups = [
+	{
+		title: 'Content and marketing platforms',
+		logos: [
+			{ src: wordpressLogo, alt: 'WordPress' },
+			{ src: squarespaceLogo, alt: 'Squarespace' },
+			{ src: mailchimpLogo, alt: 'Mailchimp' },
+			{ src: campaignMonitorLogo, alt: 'Campaign Monitor' },
+			{ src: salesforceLogo, alt: 'Salesforce' },
+		],
+	},
+	{
+		title: 'Commerce and payments',
+		logos: [
+			{ src: shopifyLogo, alt: 'Shopify' },
+			{ src: woocommerceLogo, alt: 'WooCommerce' },
+			{ src: paypalLogo, alt: 'PayPal' },
+			{ src: stripeLogo, alt: 'Stripe' },
+		],
+	},
+	{
+		title: 'Hosting, infrastructure and workflow',
+		logos: [
+			{ src: googleCloudLogo, alt: 'Google Cloud' },
+			{ src: amazonAwsLogo, alt: 'Amazon Web Services' },
+			{ src: cloudflareLogo, alt: 'Cloudflare' },
+			{ src: vercelLogo, alt: 'Vercel' },
+			{ src: astroLogo, alt: 'Astro' },
+			{ src: githubLogo, alt: 'GitHub' },
+		],
+	},
+];
+---
+
+<section class="howweddoit animate">
+    <div class="row has-divider">
+        <div class="column col_title">
+            <div class="title">
+                <h2>How We Do It</h2>
+                <p>We match the process, team and platform to the job. The aim is simple: fewer moving parts, clearer decisions and work that is easier to manage after launch.</p>
+            </div>
+        </div>
+        <div class="column col_content top-space">
+            <div class="">                                                            
+				
+				<h4 class=" fade-up" style={{}}>Platform Experience</h4>
+
+			
+				<p>
+					We are platform agnostic by design. We recommend tools based on the brief, the team who will manage them and the outcomes they need to support. When a familiar platform is the right answer, we use it. When a more tailored build is required, we design and engineer it properly.
+				</p>
+			
+				{platformGroups.map((group) => (
+					<div class="platform-group fade-up">
+						<h4>{group.title}</h4>
+						<div class="partners">
+							{group.logos.map((logo) => (
+								<Image
+									decoding="async"
+									src={logo.src}
+									alt={logo.alt}
+									width="50"
+									height="50"
+								/>
+							))}
+						</div>
+					</div>
+				))}
+
+				<h4 class=" fade-up">Support</h4>
+				<p>
+					We support projects after launch through retainers, maintenance plans and ad hoc technical help. Some clients need a long-term partner in the background; others need a reliable team available when the work changes. Either way, the focus is stability, performance and useful improvement over time.
+				</p>
+					
+			</div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .howweddoit {
+        
+    }
+
+    .howweddoit h2 {
+        /* max-width: 10ch; */
+    }
+
+    .howweddoit .card {
+        /* background-color: var(--white);
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        transition: var(--transition-fast); */
+        flex-direction: column;
+        align-items: flex-start;
+        /* width: calc(30vw - var(--col-gap) - (var(--bodypadding)*2)); */
+        width: calc(50% - var(--col-gap));
+    }
+
+    .howweddoit .card:hover {
+        /* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-0.5rem); */
+    }
+
+    .howweddoit h4 {
+        /* font-size: 1.5rem; */
+        /* margin-bottom: 1rem; */
+    }
+
+    .howweddoit h6 {
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+    }
+
+    .howweddoit p {
+        /* font-size: 1rem; */
+        line-height: 1.5;
+        /* max-width: 40ch; */
+    }
+
+    /*  */
+
+	.platform-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		margin-top: 4rem;
+	}
+	h4 {
+		
+		padding-bottom: 0;
+	}
+
+	/*  */
+
+	.partners {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3rem;
+		margin: 2rem 0;
+	}
+
+	.partners img {
+		filter: grayscale(100%) opacity(0.66);
+		transition: var(--transition);
+	}
+	.partners img:hover {
+		filter: grayscale(0) opacity(1);
+		transition: var(--transition);
+	}

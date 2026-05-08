@@ -3,10 +3,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // components
-import { Image } from "astro:assets";
 import { fade } from "astro:transitions";
 import Bio from '../components/Bio.astro';
 import Services from '../components/Services.astro';
+import Howwedoit from '../components/Howwedoit.astro';
 
 // content
 const uniqueID = "about";
@@ -14,15 +14,15 @@ const pageTitle = "About";
 const metaTitle = "About meta Title tbc";
 const metaDescription = "About page meta description tbc";
 const pageHead = "Small footprint, big steps.";
-const pageDesc = "40ftSlinky is a multi-disciplinary agency dedicated to partnering with individuals and organisations to help develop progressive brands and create multi-channel experiences that deliver results.";
+const pageDesc = "40ftSlinky is a multidisciplinary agency for brand, digital and content work. We build clear strategies, distinctive identities and practical digital systems for organisations that need their communications to perform.";
 const pageContent = "About page content tbc";
 
 ---
 
 <BaseLayout
-	uniqueID={uniqueID} 
-	pageTitle={pageTitle} 
-	metaTitle={metaTitle} 
+	uniqueID={uniqueID}
+	pageTitle={pageTitle}
+	metaTitle={metaTitle}
 	metaDescription={metaDescription}
 	pageHead={pageHead}
 	pageDesc={pageDesc}
@@ -44,44 +44,35 @@ const pageContent = "About page content tbc";
 				<h2>Who we are</h2>
 
 			</div>
-		
+
 			<div class="column col_content  fade-up">
-				
+
 				<div class="content">
 
-					<p>40ftSlinky is a design and development creative practice, working in corporate and public sectors, with local and international clients.</p> 
-					
-					<p>We make things, from beginning to end and welcome any project to work with good people on interesting ideas, building brands and digital ideas.</p>
+					<p>40ftSlinky works with commercial, government and cultural organisations across Australia and overseas. We bring strategy, design, development and production together so ideas can move cleanly from direction to delivery.</p>
 
-					<p>We work with design, development, production, strategy and everything in between. We solve problems for your brands.</p>
+					<p>Our model is deliberately lean. We assemble senior teams around each brief, drawing on trusted specialists across brand, product, content, motion and technology. Clients get the thinking and craft they need without the weight of a large agency structure.</p>
 
-					<p>We assemble unique teams from a diverse pool of expert collaborators working across disciplines to respond flexibly to each brief without the hassle of a large agency.</p> 
-					
-					<p>We are specialists working collaboratively across disciplines to find adaptive, creative solutions turning ordinary into something special. </p>
+					<p>We are useful when a project needs clear positioning, sharper identity, a better digital experience, or the content and systems to support growth. The work is practical, considered and built to last beyond launch.</p>
 
-					<p>Our comprehensive offering of services, capabilities and tools includes creative, strategy, media, brand, social, production and more.</p>
+				</div>
 
-					<p>... removing friction from storytelling unlocks creativity at scale.</p>
-
-				</div>	
-					
-				
 
 				<div class="content fade-up">
-					
+
 					<blockquote>
 						<p>“It may well be that creativity is the last unfair advantage we're legally allowed to take over our competitors.”</p>
 						<credit>Bill Bernbach</credit>
 					</blockquote>
-				</div>	
-				
-				<div class="content fade-up">
-					
+				</div>
+
+				<!-- <div class="content fade-up">
+
 					<blockquote>
 						<p>“Using the absurd to illustrate the absurdity.”</p>
 						<credit>Unknown</credit>
 					</blockquote>
-				</div>
+				</div> -->
 
 			</div>
 			<!-- / col -->
@@ -92,6 +83,8 @@ const pageContent = "About page content tbc";
 	<Bio></Bio>
 
 	<Services></Services>
+
+	<Howwedoit></Howwedoit>
 
 </BaseLayout>
 
@@ -145,5 +138,18 @@ const pageContent = "About page content tbc";
 		margin: 2rem 0;
 		max-width: 30ch;
 	}
+	blockquote p {
+		text-indent: -1rem;
+	}
+
+	.platform-group {
+		gap: 2rem;
+	}
+	/* h4 {
+		margin-top: 6rem;
+		padding-bottom: 0;
+	}
+	.partners {
+	} */
 
 	</style>

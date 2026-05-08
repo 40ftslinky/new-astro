@@ -6,7 +6,7 @@ interface Props {
 const { variant } = Astro.props;
 ---
 
-<ul class:list={['grid', { offset: variant === 'even', small: variant === 'small', medium: variant === 'medium', large: variant === 'large'  }]}>
+<ul class:list={['flex', { offset: variant === 'even', small: variant === 'small', medium: variant === 'medium', large: variant === 'large'  }]}>
 	<slot />
 </ul>
 
@@ -21,19 +21,24 @@ const { variant } = Astro.props;
 		margin-top: 4rem;
 	}
 
-	.grid.small {
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
-		/* display: flex;
+	.flex {
+		display: flex;
 		flex-wrap: wrap;
-		justify-content: center; */
+		gap: 2rem;
+		list-style: none;
+		padding: 0;
+		margin-top: 4rem;
 	}
-	.clients .grid.small {
+
+	.flex.small {
+		
+	}
+	.clients .flex.small {
 		gap: 10vw
 	}
 
 	/* If last row contains only one item, make it span both columns. */
-	.grid.small > :global(:last-child:nth-child(odd)) {
+	.flex.small > :global(:last-child:nth-child(odd)) {
 		grid-column: 1 / 3;
 	}
 	
@@ -42,53 +47,23 @@ const { variant } = Astro.props;
 		width: var(--max-col-width);
 	}
 
-	.grid.large .card  {
+	.flex.large .card  {
 		height: var(--max-body-height);
 		width: var(--max-col-width);
 		max-width: unset;
 	}
 	
+	#projects .flex li .card {
+		width: calc(var(--max-col-width)/2 - var(--col-gap)/2);
+	}
 
 /* 800px */
 	@media (min-width: 50em) {
-		.grid {
-			grid-template-columns: 1fr 1fr;
+		.flex {
 			gap: 2rem;
-		}
+		}		
 
-		.grid.offset {
-			--row-offset: 7.5rem;
-			padding-bottom: var(--row-offset);
-		}
-
-		/* Shift first item in each row vertically to create staggered effect. */
-		.grid.offset > :global(:nth-child(odd)) {
-			transform: translateY(var(--row-offset));
-		}
-
-		/* If last row contains only one item, display it in the second column. */
-		.grid.offset > :global(:last-child:nth-child(odd)) {
-			grid-column: 2 / 3;
-			transform: none;
-		}
-
-		.grid.even {
-			--row-offset: 0rem;
-			padding-bottom: var(--row-offset);
-		}
-
-		/* Shift first item in each row vertically to create staggered effect. */
-		.grid.even > :global(:nth-child(odd)) {
-			transform: translateY(var(--row-offset));
-		}
-
-		/* If last row contains only one item, display it in the second column. */
-		.grid.even > :global(:last-child:nth-child(odd)) {
-			grid-column: 2 / 3;
-			transform: none;
-		}
-
-		.grid.small {
+		.flex.small {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
@@ -96,13 +71,13 @@ const { variant } = Astro.props;
 			gap: 4vw;
 		}
 
-		.grid.small > :global(*) {
+		.flex.small > :global(*) {
 			/* flex-basis: 20rem; */
 			flex-basis: 10rem;
 			max-width: 90vw;
 		}
 
-		.grid.medium {
+		.flex.medium {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
@@ -110,17 +85,18 @@ const { variant } = Astro.props;
 			/* gap: 2vw; */
 		}
 
-		.grid.medium > :global(*) {
+		.flex.medium > :global(*) {
 			/* flex-basis: 20rem; */
 			flex-basis: 20%;
 			max-width: 90vw;
 			/* min-width: 90vw; */
 		}
 
-		.grid.large {
+		.flex.large {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
+			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
 			/* gap: 2vw; */
 		}
@@ -133,7 +109,7 @@ const { variant } = Astro.props;
 	}
 
 	@media screen and (max-width: 32.5em) {
-		.grid.small {
+		.flex.small {
 			grid-template-columns: 1fr 1fr
 	}
 

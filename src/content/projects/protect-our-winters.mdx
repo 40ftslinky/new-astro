@@ -1,0 +1,65 @@
+---
+uniqueID: 'project'
+title: 'Protect Our Winters'
+pubDate: 2026-04-13
+head: 'Protect Our Winters'
+description: 'Project page scaffold for Protect Our Winters. Assets and detailed case study content can be added into the dedicated project media folder.'
+author: ''
+cover: '../../assets/imgs/protect-our-winters/POW_hero.png'
+coverAlt: 'Protect Our Winters placeholder cover'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video: 
+    url: '/video/protect-our-winters/POW_Digital_base.mp4'
+    width: '100%'
+    height: '100%'
+    poster: '/src/assets/imgs/protect-our-winters/POW_Digital_base_poster.jpg'
+ 
+tags: ['Campaign', 'Web Design', 'Content Strategy']
+industries: ['Environment', 'Advocacy']
+---
+
+## Overview
+
+Protect Our Winters project page scaffold.
+
+Use this entry for the full case study, campaign notes, launch details, and media callouts once the final assets are available.
+
+## Assets
+
+Project-specific media should be added under `src/assets/imgs/protect-our-winters/`.
+
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+import video_poster from '../../assets/imgs/protect-our-winters/POW_Digital_base_poster.jpg';
+
+<VideoFeature frontmatter={frontmatter} />
+
+
+{/* import assets  */}
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import { resolveMediaPath } from '../../utils/resolveMediaPath';
+import image01 from '../../assets/imgs/protect-our-winters/POW_Billboard_mockups.png';
+import image02 from '../../assets/imgs/protect-our-winters/POW_AO_posters.png';
+// import image03 from '../../assets/imgs/protect-our-winters/POW_businesscards_03.jpg';
+// import image04 from '../../assets/imgs/protect-our-winters/POW_businesscards_03.jpg';
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Protect Our Winters - billboard mockups" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Protect Our Winters - campaign posters" layout="constrained"/></div>
+      {/* <div class="image_wrap carousel_slide"><Picture src={image03} alt="Protect Our Winters - business cards" layout="constrained"/></div> */}
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+## Next Steps
+
+- Add the approved hero image and supporting project media.
+- Replace this placeholder copy with the final case study content.
+- Add any video or carousel sections once media files are ready.

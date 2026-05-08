@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.2",
-    "astro": "^6.0.8"
+    "@astrojs/mdx": "^5.0.3",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/inter-tight": "^5.2.7",
+    "astro": "^6.1.9"
   }
 }

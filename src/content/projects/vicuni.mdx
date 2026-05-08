@@ -1,0 +1,35 @@
+---
+uniqueID: 'project'
+title: 'Vicuni'
+pubDate: 2026-04-03
+head: 'Vicuni'
+description: 'Vicuni project showcase.'
+author: ''
+cover: '../../assets/imgs/vicuni/VicUni_PG_2021_01.jpg'
+coverAlt: 'Vicuni cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ['Vicuni']
+industries: ['General']
+---
+
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/vicuni/VicUni_PG_2021_01.jpg';
+import image02 from '../../assets/imgs/vicuni/VicUni_PG_2021_02.jpg';
+import image03 from '../../assets/imgs/vicuni/VicUni_PG_2021_03.jpg';
+
+## Overview
+<p>Vicuni project content.</p>
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Vicuni image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Vicuni image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Vicuni image 3" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

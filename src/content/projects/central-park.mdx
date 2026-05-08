@@ -1,0 +1,47 @@
+---
+uniqueID: 'project'
+title: 'Central Park'
+pubDate: 2026-04-03
+head: 'Central Park'
+description: 'Central Park project showcase.'
+author: ''
+cover: '../../assets/imgs/central-park/CentralPark_1920x1080_01.jpg'
+coverAlt: 'Central Park cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video:
+  url: '/video/central-park/CentralPark_1920x1080_01.mp4'
+  width: '100%'
+  height: '100%'
+  poster: '/src/assets/imgs/central-park/CentralPark_1920x1080_01.jpg'
+
+tags: ['Central Park']
+industries: ['General']
+---
+
+import VideoFeature from '../../components/VideoFeature.astro';
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/central-park/CentralPark_1920x1080_01.jpg';
+import image02 from '../../assets/imgs/central-park/CentralPark_1920x1080_02.jpg';
+import image03 from '../../assets/imgs/central-park/CentralPark_1920x1080_03.jpg';
+import image04 from '../../assets/imgs/central-park/CentralPark_hero.jpg';
+
+## Overview
+<p>Central Park project content.</p>
+
+## VideoFeature
+<VideoFeature frontmatter={frontmatter} />
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Central Park image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Central Park image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Central Park image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Central Park image 4" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

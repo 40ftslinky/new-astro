@@ -1,0 +1,37 @@
+---
+uniqueID: 'project'
+title: 'Polbank'
+pubDate: 2026-04-03
+head: 'Polbank'
+description: 'Polbank project showcase.'
+author: ''
+cover: '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_01.jpg'
+coverAlt: 'Polbank cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ['Polbank']
+industries: ['General']
+---
+
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_01.jpg';
+import image02 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_02.jpg';
+import image03 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_03.jpg';
+import image04 from '../../assets/imgs/polbank/POLBANK_Annual_Report_2019_hero.jpg';
+
+## Overview
+<p>Polbank project content.</p>
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Polbank image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Polbank image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Polbank image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Polbank image 4" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

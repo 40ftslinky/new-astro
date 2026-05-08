@@ -121,7 +121,7 @@ const projects = (await getCollection('projects'))
         max-width: 30ch;
     }
 
-	.portfolio .grid.large .card  {
+	.portfolio .flex.large .card  {
 		height: auto;
 		width: var(--max-col-width);
 		max-width: unset;
@@ -129,7 +129,7 @@ const projects = (await getCollection('projects'))
 	
 	@media (min-width: 50em) {
 		/* override grid styles */
-		.portfolio .grid.large .card  {
+		.portfolio .flex.large .card  {
 			max-height: var(--max-body-height);
 			width: var(--max-col-width);
 			max-width: unset;

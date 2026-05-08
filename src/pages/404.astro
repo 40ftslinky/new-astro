@@ -2,17 +2,12 @@
 // layout
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// components
-// import { Image } from "astro:assets";
-import { Picture } from 'astro:assets';
-import img404 from '/src/assets/imgs/404/40ftSlinky_404.svg';
-
 // content
 const uniqueID = "404";
 const pageTitle = "404";
 const metaTitle = "404 meta Title tbc";
 const metaDescription = "404 page meta description tbc";
-const pageHead = "404 - Oops";
+const pageHead = "Oops";
 const pageDesc = "";
 const pageContent = "404 content tbc";
 
@@ -30,12 +25,36 @@ const pageContent = "404 content tbc";
 	<section>
 
 
-        <h2>{pageHead}</h2>
+        <h1 class="text-gradient" style="font-size:3rem;letter-spacing:0em">{pageHead}</h1>
 		<p>{pageDesc}</p>
+		<p>Go back <a class="internal_link" href="/" >home</a>.</p>
+		<div class="image_wrap">
+			<svg class="gradient-rollover" width="1170" height="496" viewBox="0 0 1170 496" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<linearGradient
+						id="gradient-rollover-404"
+						x1="0%"
+						y1="0%"
+						x2="100%"
+						y2="100%"
+						gradientUnits="objectBoundingBox"
+						data-gradient-rollover-gradient
+					>
+						<stop offset="0%" style="stop-color: var(--accent-purple)" />
+						<stop offset="48%" style="stop-color: var(--primary-2)" />
+						<stop offset="100%" style="stop-color: var(--accent-warm-purple-light)" />
+					</linearGradient>
+				</defs>
+				
+				<path 
+					d="M1114.16 282.86V7.02H947.05L796.87 256.95C796.95 253.68 796.99 250.39 796.99 247.06C797.22 177.81 778.94 119.32 742.15 71.59C705.36 23.86 653.05 0 585.22 0C517.39 0 465 23.75 428.07 71.24C391.37 118.97 373.02 177.57 373.02 247.06C372.96 259.41 373.44 271.33 374.44 282.86H341.91V7.02H174.8L0 297.9V409.19H196.94V486.4H341.89V409.19H397.7V375.29C413.38 409.25 436.5 437.4 467.11 459.72C499.76 483.58 539.06 495.39 585 495.16C630.94 495.16 670.24 483.23 702.89 459.36C733.48 437.23 756.59 409.04 772.26 374.84V409.17H969.2V486.38H1114.15V409.17H1169.96V282.83H1114.15L1114.16 282.86Z" 
+					fill="url(#gradient-rollover-404)"				
+				/>
 
-		<Picture src={img404} alt="404 image" />
+			</svg>
+		</div>
 
-        <p>Go back <a class="internal_link" href="/" >home</a>.</p>
+
 
     </section>
 

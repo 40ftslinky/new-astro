@@ -53,7 +53,7 @@
   --letter-spacing--0: 0;
   --letter-spacing-regular: 0.01rem;
   --letter-spacing-body: var(--letter-spacing--1);
-  --letter-spacing-sub: var(--letter-spacing--0);
+  --letter-spacing-sub: 0.01rem;
   --letter-spacing-medium: -0.03em;
   --letter-spacing-large: -0.04em;
 
@@ -279,6 +279,28 @@ h1 {
   font-weight: var(--font-weight-huge)
 }
 
+/* eg mobile only br */
+.hero {
+    & .hero__heading {
+        & h1 {
+            br.mobile {
+                display: none;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 700px) {
+    .hero {
+        & .hero__heading {
+            & h1 {
+                br.mobile {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
 h2,
 h3,
 h4,
@@ -310,7 +332,7 @@ h6 {
 @media screen and (min-width: 1280px) {
   .subtitle {
     font-size: var(--font-size-3xl);
-    letter-spacing: var(--letter-spacing-body);
+    /* letter-spacing: var(--letter-spacing-body); */
   }
   
 }
@@ -342,7 +364,7 @@ sup {
   /* font-size: var(--font-size-9xl); */
   font-size: var(--text-huge);
   letter-spacing: var(--letter-spacing-h1-sm);
-  text-indent: -1rem;
+  /* text-indent: -1rem; */
 }
 
 .h2,h2 {
@@ -406,6 +428,21 @@ h4 {
   background-size: 400%;
   background-position: 0%;
   padding-bottom: 2rem;
+  transition: 
+ 
+  background-size 2.5s ease-out
+}
+.text-gradient:hover {
+  background-size: 200%;
+  /* background-position: 100%; */
+  /* background-image: var(--radial-gradient); */
+}
+
+.text-gradient_mono {
+    background-image: linear-gradient(0deg, rgb(97, 109, 120) 0%, rgb(15, 17, 18) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 ::-moz-selection.text-gradient,

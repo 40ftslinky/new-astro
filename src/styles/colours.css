@@ -17,6 +17,7 @@
     --accent-purple-hsl: hsl(262, 83%, 58%);    
     --accent-warm-purple: #da62c4;
     --accent-warm-purple-hsl: hsl(311, 62%, 62%);
+    --accent-warm-purple-light: hsl(277, 89%, 71%);
 
     --secondary: #50E3C2;
     --secondary-rgb: 80, 227, 194;
@@ -140,5 +141,36 @@
 }
 .grey_900_bg {
     background-color: var(--gray-900);
+}
+
+.gradient-rollover {
+    --rollover-angle: 45deg;
+    display: block;
+    width: min(100%, 73.125rem);
+    height: auto;
+    cursor: pointer;
+    /* background-image:
+        var(--accent-gradient),
+        linear-gradient(
+            var(--rollover-angle),
+            var(--accent-purple) 0%,
+            var(--accent-warm-purple) 48%,
+            white 100%
+        );
+    background-size: 180% 180%, 160% 160%;
+    background-position:
+        var(--rollover-x) var(--rollover-y),
+        calc(100% - var(--rollover-x)) calc(100% - var(--rollover-y)); */
+    transition:
+        transform 180ms var(--ease-out-soft),
+        filter 180ms var(--ease-out-soft),
+        opacity 180ms var(--ease-out-soft);
+    /* filter:
+        drop-shadow(0 0 0 rgba(var(--accent-rgb), 0))
+        drop-shadow(0 0 0 rgba(var(--brand-purple-rgb), 0)); */
+}
+
+.gradient-rollover path {
+    transition: opacity 180ms var(--ease-out-soft);
 }
 

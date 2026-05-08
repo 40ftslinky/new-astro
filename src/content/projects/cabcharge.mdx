@@ -1,0 +1,41 @@
+---
+uniqueID: 'project'
+title: 'Cabcharge'
+pubDate: 2026-04-03
+head: 'Cabcharge'
+description: 'Cabcharge project showcase.'
+author: ''
+cover: '../../assets/imgs/cabcharge/Cabcharge_1920x1080_01.jpg'
+coverAlt: 'Cabcharge cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video:
+  url: '/video/cabcharge/Cabcharge_1920x1080_01.mp4'
+  width: '100%'
+  height: '100%'
+  poster: '/src/assets/imgs/cabcharge/Cabcharge_1920x1080_01.jpg'
+
+tags: ['Cabcharge']
+industries: ['General']
+---
+
+import VideoFeature from '../../components/VideoFeature.astro';
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/cabcharge/Cabcharge_1920x1080_01.jpg';
+
+## Overview
+<p>Cabcharge project content.</p>
+
+## VideoFeature
+<VideoFeature frontmatter={frontmatter} />
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Cabcharge image 1" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>

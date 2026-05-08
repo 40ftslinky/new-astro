@@ -1,0 +1,37 @@
+---
+uniqueID: 'project'
+title: 'Addi Road'
+pubDate: 2026-04-03
+head: 'Addi Road'
+description: 'Addi Road project showcase.'
+author: ''
+cover: '../../assets/imgs/addi-road/Addi_Road_10_Men_01.jpg'
+coverAlt: 'Addi Road cover image'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ['Addi Road']
+industries: ['General']
+---
+
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/addi-road/Addi_Road_10_Men_01.jpg';
+import image02 from '../../assets/imgs/addi-road/Addi_Road_10_Men_02.jpg';
+import image03 from '../../assets/imgs/addi-road/Addi_Road_10_Men_03.jpg';
+import image04 from '../../assets/imgs/addi-road/Addi_Road_AR_2020_01.jpg';
+
+## Overview
+<p>Addi Road project content.</p>
+
+## Gallery
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Addi Road image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Addi Road image 2" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Addi Road image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Addi Road image 4" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>
