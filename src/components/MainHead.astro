@@ -10,9 +10,18 @@ interface Props {
 	pageTitle?: string | undefined;
 	metaTitle?: string | undefined;
 	metaDescription?: string | undefined;
+	metaImage?: string | undefined;
 }
 
-const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
+const {
+	uniqueID,
+	pageTitle,
+	metaTitle,
+	metaDescription,
+	metaImage = '/preview/40ftslinky_preview.png',
+} = Astro.props;
+
+const metaImageUrl = new URL(metaImage, Astro.site ?? Astro.url).toString();
 
 ---
 
@@ -23,6 +32,16 @@ const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="title" content={metaTitle} /> 
 		<meta name="description" content={metaDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={metaTitle ?? pageTitle} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:image" content={metaImageUrl} />
+		<meta property="og:image:width" content="1920" />
+		<meta property="og:image:height" content="1079" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={metaTitle ?? pageTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:image" content={metaImageUrl} />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 

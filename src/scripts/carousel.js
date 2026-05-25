@@ -26,24 +26,38 @@ document.addEventListener('astro:page-load', () => {
             this.currentSlide = 0;
             this.containerWidth = this.container.offsetWidth;
             this.carouselWidth = this.element.offsetWidth;
+            this.activePointerId = null;
+            this.hasPointerEvents = 'PointerEvent' in window;
 
             this.init();
         }
 
         init() {
+            if (this.element.dataset.carouselInitialized === 'true') return;
+            this.element.dataset.carouselInitialized = 'true';
+
             this.updateSlidePosition(false);
 
             this.container.querySelectorAll('img').forEach(img => {
                 img.addEventListener('dragstart', event => event.preventDefault());
             });
 
-            this.container.addEventListener('touchstart', this.startDragging.bind(this), { passive: false });
-            this.container.addEventListener('touchend', this.endDragging.bind(this));
-            this.container.addEventListener('touchmove', this.drag.bind(this), { passive: false });
-            this.container.addEventListener('mousedown', this.startDragging.bind(this));
-            this.container.addEventListener('mouseup', this.endDragging.bind(this));
-            this.container.addEventListener('mouseleave', this.endDragging.bind(this));
-            this.container.addEventListener('mousemove', this.drag.bind(this));
+            if (this.hasPointerEvents) {
+                this.container.addEventListener('pointerdown', this.startDragging.bind(this));
+                this.container.addEventListener('pointerup', this.endDragging.bind(this));
+                this.container.addEventListener('pointercancel', this.endDragging.bind(this));
+                this.container.addEventListener('lostpointercapture', this.endDragging.bind(this));
+                this.container.addEventListener('pointermove', this.drag.bind(this));
+            } else {
+                this.container.addEventListener('touchstart', this.startDragging.bind(this), { passive: false });
+                this.container.addEventListener('touchend', this.endDragging.bind(this));
+                this.container.addEventListener('touchcancel', this.endDragging.bind(this));
+                this.container.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+                this.container.addEventListener('mousedown', this.startDragging.bind(this));
+                this.container.addEventListener('mouseup', this.endDragging.bind(this));
+                this.container.addEventListener('mouseleave', this.endDragging.bind(this));
+                this.container.addEventListener('mousemove', this.drag.bind(this));
+            }
 
             this.prevButton.addEventListener('click', () => {
                 if (!this.isResetting) this.moveSlide(-1);
@@ -81,7 +95,7 @@ document.addEventListener('astro:page-load', () => {
             }
 
             // Calculate the minimum translateX to prevent the carousel stage from going out of bounds to the left
-            const minTranslateX = -(this.container.offsetWidth - this.carouselWidth);
+            const minTranslateX = this.getMinTranslateX();
 
             //handle last slide
              if (this.currentSlide === this.totalSlides - 1) {
@@ -105,22 +119,44 @@ document.addEventListener('astro:page-load', () => {
         }
 
         startDragging(event) {
-            if (this.isResetting) return;
+            if (this.isResetting || this.isInteractiveControl(event.target)) return;
+
+            if (event.cancelable) event.preventDefault();
+
             this.isDragging = true;
-            this.startPos = event instanceof TouchEvent ? event.touches[0].clientX : event.clientX;
+            this.activePointerId = event.pointerId ?? null;
+            this.startPos = this.getClientX(event);
             this.container.style.transition = 'none';
             this.container.classList.add('grabbing');
-            this.customCursor.classList.add('carousel-active');
+            this.customCursor?.classList.add('carousel-active');
+
+            if (this.hasPointerEvents && this.activePointerId !== null && this.container.setPointerCapture) {
+                this.container.setPointerCapture(this.activePointerId);
+            }
+
             this.animationID = requestAnimationFrame(this.animation.bind(this));
         }
 
-        endDragging() {
+        endDragging(event) {
             if (!this.isDragging) return;
+            if (event?.pointerId !== undefined && this.activePointerId !== event.pointerId) return;
+
             this.isDragging = false;
             cancelAnimationFrame(this.animationID);
             this.container.classList.remove('grabbing');
-            this.customCursor.classList.remove('carousel-active');
+            this.customCursor?.classList.remove('carousel-active');
             this.container.style.transition = 'transform 0.5s ease-in-out';
+
+            if (
+                this.hasPointerEvents &&
+                this.activePointerId !== null &&
+                this.container.hasPointerCapture &&
+                this.container.releasePointerCapture &&
+                this.container.hasPointerCapture(this.activePointerId)
+            ) {
+                this.container.releasePointerCapture(this.activePointerId);
+            }
+            this.activePointerId = null;
 
             const movedBy = this.currentTranslate - this.prevTranslate;
             if (Math.abs(movedBy) > 20) {
@@ -140,20 +176,23 @@ document.addEventListener('astro:page-load', () => {
         setSliderPosition() {
             // Prevent dragging past the right edge (empty space on the right)
             const maxTranslateX = 0;
-            const minTranslateX = -(this.container.offsetWidth - this.carouselWidth);
+            const minTranslateX = this.getMinTranslateX();
             this.currentTranslate = Math.max(minTranslateX, Math.min(maxTranslateX, this.currentTranslate));
             this.container.style.transform = `translateX(${this.currentTranslate}px)`;
         }
 
         drag(event) {
              if (this.isDragging && !this.isResetting) {
-                const currentPosition = event instanceof TouchEvent ? event.touches[0].clientX : event.clientX;
+                if (event.pointerId !== undefined && this.activePointerId !== event.pointerId) return;
+                if (event.cancelable) event.preventDefault();
+
+                const currentPosition = this.getClientX(event);
                 const diff = currentPosition - this.startPos;
                 this.currentTranslate += diff;
 
                  // Prevent dragging past the edges
                 const maxTranslateX = 0;
-                const minTranslateX = -(this.container.offsetWidth - this.carouselWidth);
+                const minTranslateX = this.getMinTranslateX();
                 this.currentTranslate = Math.max(minTranslateX, Math.min(maxTranslateX, this.currentTranslate));
 
                 this.startPos = currentPosition;
@@ -190,6 +229,22 @@ document.addEventListener('astro:page-load', () => {
             this.containerWidth = this.container.offsetWidth;
             this.carouselWidth = this.element.offsetWidth;
             this.updateSlidePosition(false);
+        }
+
+        getClientX(event) {
+            if (event.touches?.length) return event.touches[0].clientX;
+            if (event.changedTouches?.length) return event.changedTouches[0].clientX;
+            return event.clientX;
+        }
+
+        getMinTranslateX() {
+            const scrollableWidth = Math.max(0, this.container.scrollWidth - this.carouselWidth);
+            return -scrollableWidth;
+        }
+
+        isInteractiveControl(target) {
+            if (!(target instanceof Element)) return false;
+            return target.closest('button, a, input, textarea, select, label');
         }
 
         getSlideMarginRight(slideIndex) {

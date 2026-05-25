@@ -52,6 +52,10 @@ const { variant } = Astro.props;
 		width: var(--max-col-width);
 		max-width: unset;
 	}
+
+	.card .title h5 {
+		text-transform: uppercase;
+	}
 	
 
 /* 800px */
@@ -93,7 +97,6 @@ const { variant } = Astro.props;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
 			/* gap: 2vw; */
 		}

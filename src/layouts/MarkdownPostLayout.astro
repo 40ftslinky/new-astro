@@ -6,14 +6,18 @@ import { fade } from "astro:transitions";
 // import { Image } from "astro:assets";
 
 const { frontmatter } = Astro.props;
+const metaTitle = frontmatter.metaTitle ?? `${frontmatter.title} | 40ftSlinky Project`;
+const metaDescription = frontmatter.metaDescription ?? frontmatter.description;
+const metaImage = frontmatter.cover?.src;
 
 ---
 
 <BaseLayout 
     uniqueID={frontmatter.uniqueID}
     pageTitle={frontmatter.title} 
-    metaTitle={frontmatter.metaTitle} 
-    metaDescription={frontmatter.metaDescription}
+    metaTitle={metaTitle} 
+    metaDescription={metaDescription}
+    metaImage={metaImage}
     pageHead={frontmatter.head}
     pageDesc={frontmatter.description}
 	pageContent={frontmatter.content}

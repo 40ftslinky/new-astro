@@ -17,7 +17,7 @@ import '../styles/styles.css';
 
 
 // props
-const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
+const { uniqueID, pageTitle, metaTitle, metaDescription, metaImage } = Astro.props;
 
 
 ---
@@ -33,6 +33,7 @@ const { uniqueID, pageTitle, metaTitle, metaDescription } = Astro.props;
 		pageTitle={pageTitle} 
 		metaTitle={metaTitle} 
 		metaDescription={metaDescription} 
+		metaImage={metaImage}
 		
 	/>
 

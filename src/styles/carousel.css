@@ -53,6 +53,8 @@
     transition: var(--transition);
     will-change: transform;
     user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
     /* cursor: pointer; */
     /* cursor: grab; */
 }
@@ -71,7 +73,8 @@
   margin-right: var(--col-gap);
 }
 
-.carousel_stage.grabbed {
+.carousel_stage.grabbed,
+.carousel_stage.grabbing {
   background: rgba(255,255,255,0.3);
   /* cursor: grabbing;
   cursor: -webkit-grabbing; */

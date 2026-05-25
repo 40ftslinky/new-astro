@@ -18,6 +18,8 @@ const projects = defineCollection({
     schema: ({ image }) => z.object({
         uniqueID: z.string(),
         title: z.string(),
+        metaTitle: z.string().optional(),
+        metaDescription: z.string().optional(),
         pubDate: z.coerce.date(),
         head: z.string(),
         description: z.string(),

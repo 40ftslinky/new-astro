@@ -6,7 +6,7 @@ interface Props {
 const { variant } = Astro.props;
 ---
 
-<ul class:list={['flex', { offset: variant === 'even', small: variant === 'small', medium: variant === 'medium', large: variant === 'large'  }]}>
+<ul class:list={['flex', { offset: variant === 'offset', even: variant === 'even', small: variant === 'small', medium: variant === 'medium', large: variant === 'large'  }]}>
 	<slot />
 </ul>
 
@@ -28,6 +28,15 @@ const { variant } = Astro.props;
 		list-style: none;
 		padding: 0;
 		margin-top: 4rem;
+		width: 100%;
+	}
+
+	.flex > :global(*) {
+		min-width: 0;
+		width: 100%;
+		max-width: 49%;
+		flex-shrink: 0;
+		flex-basis: auto;
 	}
 
 	.flex.small {
@@ -53,8 +62,21 @@ const { variant } = Astro.props;
 		max-width: unset;
 	}
 	
-	#projects .flex li .card {
-		width: calc(var(--max-col-width)/2 - var(--col-gap)/2);
+	#projects .flex.offset {
+		justify-content: flex-start;
+		gap: var(--col-gap);
+	}
+
+	#projects .flex.offset li,
+	#projects .flex.offset > :global(li) {
+		flex: 1 1 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	#projects .flex.offset :global(.card) {
+		width: 100%;
+		max-width: 100%;
 	}
 
 /* 800px */
@@ -101,10 +123,20 @@ const { variant } = Astro.props;
 			/* gap: 2vw; */
 		}
 
-		 > :global(*) {
-			/* flex-basis: 20rem; */
+		.flex.large > :global(*) {
 			flex-basis: 100%;
 			max-width: 90vw;
+		}
+
+		#projects .flex.offset li,
+		#projects .flex.offset > :global(li) {
+			flex: 0 1 calc((100% - var(--col-gap)) / 2);
+			max-width: calc((100% - var(--col-gap)) / 2);
+			width: calc((100% - var(--col-gap)) / 2);
+		}
+
+		#projects .flex.offset > :global(li:nth-child(odd)) {
+			transform: translateY(4rem);
 		}
 	}
 

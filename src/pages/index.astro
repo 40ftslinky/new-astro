@@ -19,8 +19,9 @@ import { fade } from "astro:transitions";
 // content
 const uniqueID = "home";
 const pageTitle = "40ftSlinky - Creative Agency";
-const metaTitle = "meta title tbc";
-const metaDescription = "meta description tbc";
+const metaTitle = "40ftSlinky - Creative Agency";
+const metaDescription = "40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.";
+const metaImage = "/preview/40ftslinky_preview.png";
 const pageHead = "Transforming your brand to reach the next level.";
 const pageDesc = "40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.";
 // a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
@@ -45,6 +46,7 @@ const projects = (await getCollection('projects'))
 	pageTitle={pageTitle} 
 	metaTitle={metaTitle} 
 	metaDescription={metaDescription}
+	metaImage={metaImage}
 >
 
 	<!-- <Content 
@@ -124,7 +126,7 @@ const projects = (await getCollection('projects'))
 	.portfolio .flex.large .card  {
 		height: auto;
 		width: var(--max-col-width);
-		max-width: unset;
+		/* max-width: unset; */
 	}
 	
 	@media (min-width: 50em) {
@@ -132,7 +134,7 @@ const projects = (await getCollection('projects'))
 		.portfolio .flex.large .card  {
 			max-height: var(--max-body-height);
 			width: var(--max-col-width);
-			max-width: unset;
+			max-width: 90vw;
 		}
 	}
 	
