@@ -3,11 +3,11 @@ uniqueID: 'project'
 title: 'Protect Our Winters'
 pubDate: 2026-04-13
 head: 'Protect Our Winters'
-description: 'Project page scaffold for Protect Our Winters. Assets and detailed case study content can be added into the dedicated project media folder.'
-metaTitle: 'meta title for Protect Our Winters project page.'
-metaDescription: 'meta description for Protect Our Winters project page.'
+description: 'Custom digital assets for election campaigns for Protect Our Winters, an environmental advocacy organization focused on combating climate change.'
+metaTitle: 'Election campaign for Protect Our Winters project page.'
+metaDescription: 'Election campaign for Protect Our Winters project page.'
 author: ''
-cover: '../../assets/imgs/protect-our-winters/POW_hero.png'
+cover: '../../assets/imgs/protect-our-winters/POW_hero.jpg'
 coverAlt: 'Protect Our Winters placeholder cover'
 coverWidth: '1920'
 coverHeight: '1080'
@@ -24,26 +24,34 @@ industries: ['Environment', 'Advocacy']
 
 ## Overview
 
-Protect Our Winters project page scaffold.
+<p>Custom digital and print assets for electoral education campaigns for Protect Our Winters, an environmental advocacy organization focused on combating climate change. </p>
 
-Use this entry for the full case study, campaign notes, launch details, and media callouts once the final assets are available.
+## Brief
 
-## Assets
+<p>We were tasked with creating a suite of digital and print assets to support Protect Our Winters for issue specific election campaign education to reflect the broader message of protecting the places we love. The goal was to develop engaging and informative content that would resonate with voters and encourage them to support candidates who prioritize climate action.</p>
 
-Project-specific media should be added under `src/assets/imgs/protect-our-winters/`.
 
 
 {/* import Component */}
 import VideoFeature from '../../components/VideoFeature.astro';
-import video_poster from '../../assets/imgs/protect-our-winters/POW_Digital_base_poster.jpg';
 
-<VideoFeature frontmatter={frontmatter} />
+export const videoBase = '/video/protect-our-winters/';
+export const videos = {
+  main: {
+    url: `${videoBase}POW_Digital_base.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/protect-our-winters/POW_Digital_base_poster.jpg',
+  },
+};
 
+<VideoFeature video={videos.main} />
+
+<p class="small">Social media assets.</p>
 
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/protect-our-winters/POW_Billboard_mockups.png';
 import image02 from '../../assets/imgs/protect-our-winters/POW_AO_posters.png';
 // import image03 from '../../assets/imgs/protect-our-winters/POW_businesscards_03.jpg';
@@ -53,15 +61,11 @@ import image02 from '../../assets/imgs/protect-our-winters/POW_AO_posters.png';
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Protect Our Winters - billboard mockups" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image02} alt="Protect Our Winters - campaign posters" layout="constrained"/></div>
-      {/* <div class="image_wrap carousel_slide"><Picture src={image03} alt="Protect Our Winters - business cards" layout="constrained"/></div> */}
+      
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
   <div class="carousel-indicators"></div> 
 </div>
 
-## Next Steps
-
-- Add the approved hero image and supporting project media.
-- Replace this placeholder copy with the final case study content.
-- Add any video or carousel sections once media files are ready.
+<p class="small">Billboard & Poster assets.</p>

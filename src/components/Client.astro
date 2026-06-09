@@ -40,7 +40,7 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
         justify-content: center;
         margin: 0 auto;
     }
-
+    
     .client_list_item img {
         /* max-height: 12rem; */
         max-height: 7vw;
@@ -64,6 +64,11 @@ if (!imagePath || !images[imagePath]) throw new Error(`"${imagePath}" does not e
     @media screen and (min-width: 67.5em) {
         .client_list_item img {
             max-height: 5vw;
+        }
+    }
+    @media screen and (max-width: 70em) {
+        .client_list_item img {
+            max-width: 100px;
         }
     }
     

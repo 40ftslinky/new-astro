@@ -2,7 +2,7 @@
 
 uniqueID: 'project'
 title: 'EG: Case Study'
-pubDate: 2026-05-55
+pubDate: 
 head: 'Case Study Outline'
 description: 'A Case Study Outline lorem ispsum.'
 metaTitle: 'meta title for X project page.'

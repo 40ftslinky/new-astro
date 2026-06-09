@@ -1,14 +1,14 @@
 ---
 uniqueID: 'project'
-title: 'Lug Carrie'
+title: 'Lug+Carrie'
 pubDate: 2026-04-03
-head: 'Lug Carrie'
-description: 'Lug Carrie project showcase.'
-metaTitle: 'meta title for Lug Carrie project page.'
-metaDescription: 'meta description for Lug Carrie project page.'
+head: 'Lug+Carrie'
+description: 'Taking eBike subscription service Australia wide with a custom bike builder and Salesforce integration.'
+metaTitle: 'meta title for Lug+Carrie project page.'
+metaDescription: 'meta description for Lug+Carrie project page.'
 author: ''
-cover: '../../assets/imgs/lug-carrie/lug+Carrie_webmock.jpg'
-coverAlt: 'Lug Carrie cover image'
+cover: '../../assets/imgs/lug-carrie/HSD_loop_sup.gif'
+coverAlt: 'Lug+Carrie cover image'
 coverWidth: '1920'
 coverHeight: '1080'
 
@@ -18,8 +18,8 @@ video:
   height: '100%'
   poster: '/src/assets/imgs/lug-carrie/lug+Carrie_webmock.jpg'
 
-tags: ['Lug Carrie']
-industries: ['General']
+tags: ['Lug+Carrie']
+industries: ['Transportation', 'Cleantech', 'Renewables', 'Subscription', 'eBike', 'Brand', 'Identity', 'Web Design', 'Production']
 ---
 
 import VideoFeature from '../../components/VideoFeature.astro';
@@ -27,13 +27,42 @@ import { Picture } from 'astro:assets';
 import image01 from '../../assets/imgs/lug-carrie/lug+Carrie_webmock.jpg';
 import image02 from '../../assets/imgs/lug-carrie/LugCarrie_configurator.png';
 
-## Overview
-<p>Lug Carrie project content.</p>
+export const videoBase = '/video/lug-carrie/';
+export const videos = {
+  main: {
+    url: `${videoBase}l+c_website.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/lug-carrie/lug+Carrie_webmock.jpg',
+  },
+  casestudy01: {
+    url: `${videoBase}Lug_casestudy.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/lug-carrie/LC_casestudy_8.jpg',
+  },
+  casestudy02: {
+    url: `${videoBase}Lug_passing_screens.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/lug-carrie/LC_casestudy_12.jpg',
+  },
+};
+
+<h2>Brief:</h2>
+
+<p>In support of a refreshed brand identity, we were tasked with creating a modern and engaging online presence for Lug + Carrie. Integrating Salesforce solutions, we streamlined their customer interactions and enhanced their digital experience.</p>
+
+<h2>Solution:</h2>
+
+<p>We developed a custom Salesforce-integrated bike builder, allowing users to configure their eBikes according to their preferences. This solution streamlined the subscription process and enhanced the overall user experience.</p>
+
 
 ## VideoFeature
-<VideoFeature frontmatter={frontmatter} />
+<VideoFeature video={videos.main} />
 
-## Gallery
+<p class="small">Custom salesforce integrated bike builder</p>
+
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Lug Carrie image 1" layout="constrained" /></div>
@@ -43,3 +72,17 @@ import image02 from '../../assets/imgs/lug-carrie/LugCarrie_configurator.png';
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
+
+<p class="small">Custom salesforce integrated bike builder</p>
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+    <div class="image_wrap carousel_slide"><VideoFeature video={videos.casestudy01} /></div>
+    <div class="image_wrap carousel_slide"><VideoFeature video={videos.casestudy02} /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>
+
+<p class="small">Video assets and social execution</p>

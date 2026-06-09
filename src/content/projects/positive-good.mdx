@@ -2,7 +2,7 @@
 #  frontmatter
 uniqueID: 'project'
 title: 'Positive Good'
-pubDate: 2025-10-03
+pubDate: 2026-06-01
 head: 'Post Title'
 description: 'An award winning marketing and communications agency finding, supporting and accelerating brands involved in the cleantech and renewables industry.'
 metaTitle: 'meta title for Positive Good project page.'
@@ -25,7 +25,6 @@ tags: ["Brand", "Identity", "Web Design", "Production"]
 industries: ["Cleantech", "Renewables"]
 
 
-
 ---
 
 {/* import Component */}
@@ -34,28 +33,51 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/positivegood/PositiveGood_businesscards_01.jpg';
 import image02 from '../../assets/imgs/positivegood/PositiveGood_businesscards_02.jpg';
 import image03 from '../../assets/imgs/positivegood/PositiveGood_businesscards_03.jpg';
 import image04 from '../../assets/imgs/positivegood/PositiveGood_businesscards_03.jpg';
 
-import video02_poster from '../../assets/imgs/positivegood/PositiveGood_web_poster.jpg';
+export const videoBase = '/video/positivegood/';
+export const videos = {
+  main: {
+    url: `${videoBase}PG_WEBSITE.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/positivegood/Feature-Image-01.jpg',
+  },
+  webPages: {
+    url: `${videoBase}PG_web_pages.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg',
+    loop: true,
+  },
+  brandGuide: {
+    url: `${videoBase}PG_brandguide_anim.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/positivegood/PositiveGood_brandguide_poster.jpg',
+    loop: true,
+  },
+};
+
+<h2>Brief:</h2>
+
+<p>After establishing a long term relationship with Positive Good, we were tasked to update the brand and design and develop a refreshed online presence.</p>
+
+<h2>Solution:</h2>
+
+<p>The brand update reinforces the agency's direct, human-first approach to new business. The overall aesthetic signals that Positive Good is not a conventional agency — it's a purpose-driven partner fluent in both strategy and storytelling. Large type and bold visuals create a strong, memorable presence that communicates the brand's values effectively.</p>
 
 
-## Brand Refresh
-<p>Positive Good Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<h3>A fully formed brand delivery</h3>
-<p>As with all our branding projects we create a bespoke brand guide covering all rules and application guidance for all brand assets. This allows the client to pass their brand to other third party creative agencies confident that they have the tools at hand to build up consistent creative.</p>
+## Brand Identity & Collateral
+<p class="small">Brand update and style guide, Business cards, </p>
 
-
-## Web Design & Development
-<p>Positive Good Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-<VideoFeature frontmatter={frontmatter} />
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
+    <div class="image_wrap carousel_slide"><VideoFeature video={videos.brandGuide} /></div>
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Positive Good - business cards" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image02} alt="Positive Good - business cards" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image03} alt="Positive Good - business cards" layout="constrained"/></div>
@@ -65,25 +87,17 @@ import video02_poster from '../../assets/imgs/positivegood/PositiveGood_web_post
   <div class="carousel-indicators"></div> 
 </div>
 
-## Web
-Text regarding to content
-{/* 
-<div class="image_wrap">
-    <Image src="/src/assets/imgs/positivegood/PositiveGood_web.jpg" alt="Positive Good - Web" width="1920" height="1080"/>
-</div> 
-*/}
+## Web Design & Development
+<p class="small">Design & Development, UI/UX Design, Prototyping, Wordpress</p>
 
-## Video Embed - alternative method
-<div class="video_wrap">
-    <video class="video "
-        width="100%"
-        height="100%" 
-        transition:persist
-        autoplay="false"
-        loop="true"
-        poster={resolveMediaPath('/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg')}
-    > 
-        <source src="/video/positivegood/PG_web_pages.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+    <div class="image_wrap carousel_slide"><VideoFeature video={videos.main} /></div>
+    <div class="image_wrap carousel_slide"><VideoFeature video={videos.webPages} /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
 </div>
+
+

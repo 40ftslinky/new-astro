@@ -42,17 +42,33 @@ contentImgs:
 import VideoFeature from '../../components/VideoFeature.astro';
 
 ## VideoFeature
-<VideoFeature frontmatter={frontmatter} />
+<VideoFeature video={videos.switching} />
 
 
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/samsung/SAM0130_RFSA_firefighter.jpg';
 import image02 from '../../assets/imgs/samsung/samsung_rfsa_2025_01.png';
 import image03 from '../../assets/imgs/samsung/samsung_rfsa_2025_02.png';
 import heroImage from '../../assets/imgs/samsung/samsung_hero.jpeg';
+
+export const videoBase = '/video/samsung/';
+export const videos = {
+  switching: {
+    url: `${videoBase}Samsung_Switching.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/samsung/samsung_switching.png',
+  },
+  onePhone: {
+    url: `${videoBase}Samsung_OnePhone_new.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/samsung/Samsung_OnePhone_new.jpg',
+    loop: true,
+  },
+};
 
 ## Content
 <p>Post content</p>
@@ -73,16 +89,4 @@ Local image stored in src/assets/ (carousel)
 
 
 ## Video Embed - alternative method
-<div class="video_wrap">
-    <video class="video "
-        width="100%"
-        height="100%" 
-        transition:persist
-        autoplay="false"
-        loop="true"
-    poster={resolveMediaPath('/src/assets/imgs/samsung/Samsung_OnePhone_new.jpg')}
-    > 
-    <source src="/video/samsung/Samsung_OnePhone_new.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-</div>
+<VideoFeature video={videos.onePhone} />

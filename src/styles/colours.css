@@ -174,3 +174,59 @@
     transition: opacity 180ms var(--ease-out-soft);
 }
 
+/* /////////////////////// */
+
+/* limes */
+
+/* mocha */
+:root {
+    --mc-accent-lime: 90 100% 71%;
+    --mc-accent-lime-50: 90 85% 55%;
+    --mc-base-off-white: 48 45% 96%;
+    --mc-base-pure-white: 0 0% 100%;
+    --mc-base-cream: 42 42% 83%;
+    --mc-base-dark-cream: 40 3% 55%;
+    --mc-base-light-cream: 42 41% 92%;
+    --mc-base-medium-cream: 41 48% 86%;
+    --mc-accent-pure-black: 0 0% 0%;
+    --mc-accent-pure-black-50: 48 9% 21%;
+    /* eg: 
+        color: hsl(var(--mc-accent-lime)); 
+    */
+    
+}
+
+.font-gosh {
+    font-family: Gosh, ui-sans-serif, system-ui, sans-serif;
+}
+.font-instrument {
+    font-family: Instrument Sans, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+.mocha-theme {
+    --background: var(--mc-base-off-white);
+    --primary: var(--mc-accent-pure-black);
+    --muted-active: var(--mc-base-cream);
+    --muted-foreground: var(--mc-base-dark-cream);
+}
+/* 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+*/
+
+/* 
+// <weight>: Use a value from 200 to 800
+// <uniquifier>: Use a unique and descriptive class name 
+*/
+
+/* .bricolage-grotesque-<uniquifier> */
+
+.bricolage-grotesque-800 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}

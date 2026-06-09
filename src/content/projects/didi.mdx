@@ -1,13 +1,13 @@
 ---
-uniqueID: 'project'
-title: 'Didi'
+uniqueID: 'Rideshare'
+title: 'Didi Rideshare'
 pubDate: 2026-04-03
-head: 'Didi'
-description: 'Didi project showcase.'
+head: 'Didi Rideshare'
+description: 'Launching Didi Rideshare in Australia with the most successful launch outside of China.'
 metaTitle: 'meta title for Didi project page.'
 metaDescription: 'meta description for Didi project page.'
 author: ''
-cover: '../../assets/imgs/didi/OMG001_DIDI_hero.jpg'
+cover: '../../assets/imgs/didi/DiDi-Case-Study-1920x1080.jpg'
 coverAlt: 'Didi cover image'
 coverWidth: '1920'
 coverHeight: '1080'
@@ -16,28 +16,78 @@ video:
   url: '/video/didi/DiDi_Rail-WOW-Wall_Flinders_St.mp4'
   width: '100%'
   height: '100%'
-  poster: '/src/assets/imgs/didi/OMG001_DIDI_hero.jpg'
+  poster: '/src/assets/imgs/didi/DiDi-Case-Study-1920x1080.jpg'
 
-tags: ['Didi']
+tags: ['Didi', 'Motion Graphics', 'Video Production', 'Digital Advertising']
 industries: ['General']
 ---
 
 import VideoFeature from '../../components/VideoFeature.astro';
+
 import { Picture } from 'astro:assets';
-import image01 from '../../assets/imgs/didi/OMG001_DIDI_hero.jpg';
+import image01 from '../../assets/imgs/didi/DiDi-Case-Study-1920x1080.jpg';
+
+export const videoBase = '/video/didi/';
+export const videos = {
+  social: {
+    url: `${videoBase}DiDi_Social_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi_Social_1920x1080_poster.jpg',
+  },
+  flindersSt: {
+    url: `${videoBase}DiDi_Rail-WOW-Wall_Flinders_St.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi_Rail-WOW-Wall_Flinders_St.jpg',
+  },
+  flindersMock: {
+    url: `${videoBase}DiDi Flinders St_Station Domination Wall_MOCK.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi Flinders St__Wall.jpg',
+  },
+  reels: {
+    url: `${videoBase}Didi_passing_screens.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi_reels_poster.jpg',
+  },
+  socialLandscape: {
+    url: `${videoBase}DiDi_1920x1080_50pc_FA.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi_1920x1080_storyboard.jpg',
+  },
+};
 
 ## Overview
-<p>Didi project content.</p>
+<p>Digital and OOH advertising campaign for Didi Rideshare launch in Australia. As a result of the campaign, Didi doubled its market awareness to over 90% of all rideshare users in the first 2 months.</p>
 
-## VideoFeature
-<VideoFeature frontmatter={frontmatter} />
 
-## Gallery
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.flindersSt} /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.flindersMock} /></div>
+
+      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
+<p class="small">Flinders Street Station WOW Wall takeover</p>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.social} /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.reels} /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.socialLandscape} /></div>
+
+      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>
+<p class="small">Social media assets.</p>

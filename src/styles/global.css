@@ -3,8 +3,8 @@
 
   --spacing: 0.25rem;
   --radius: 1.25rem;
-  --radius-sm: 0.75rem;
-  --radius-xsm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.5rem;
   --radius-xsm: 0.25rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -320,9 +320,20 @@ section.hero {
   object-fit: cover;
   aspect-ratio: 16/9;
 }
+.image_wrap, 
+.video_wrap, 
+.info_wrap, 
+.overlay, 
+.portfolio .flex.large .card {
+  border-radius: var(--border-radius);
+}
 .video_wrap {
   margin-bottom: calc(var(--bodypadding));
   margin-top: calc(var(--bodypadding) / 2) ;
+}
+.carousel_slide .video_wrap {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .image_wrap_vert {
@@ -351,6 +362,11 @@ video.controls::-webkit-media-controls {
   display: unset;
 }
 
+
+.carousel_slide .video_wrap {
+    /* max-width: 95vw; */
+    max-height: 80vh;
+}
 
 
 /*  */

@@ -36,15 +36,30 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import { resolveMediaPath } from '../../utils/resolveMediaPath';
 import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
 import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 
+export const videoBase = '/video/switchdin/';
+export const videos = {
+  main: {
+    url: 'https://new.express.adobe.com/publishedV2/urn:aaid:sc:AP:2f853052-7e14-4c81-90c7-35859b6d2dd6',
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+  },
+  pickups: {
+    url: `${videoBase}SwitchDin_90sec_Master_pickups_3_1.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg',
+    loop: true,
+  },
+};
 
 ## VideoFeature
-<VideoFeature frontmatter={frontmatter} />
+<VideoFeature video={videos.main} />
 
 ## Content
 <p>Post content</p>
@@ -64,17 +79,4 @@ Local image stored in src/assets/ (carousel)
 
 
 ## Video Embed - alternative method
-<div class="video_wrap">
-    <video class="video "
-        width="100%"
-        height="100%" 
-        transition:persist
-        autoplay="false"
-        loop="true"
-        poster={resolveMediaPath('/src/assets/imgs/positivegood/PositiveGood_web_poster.jpg')}
-    > 
-        {/* <source src="/video/switchdin/SwitchDin_90sec_Master_pickups_3_1.mp4" type="video/mp4" /> */}
-        <source src="https://new.express.adobe.com/publishedV2/urn:aaid:sc:AP:2f853052-7e14-4c81-90c7-35859b6d2dd6" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-</div>
+<VideoFeature video={videos.pickups} />
