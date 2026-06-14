@@ -2,9 +2,9 @@
 #  frontmatter
 uniqueID: 'project'
 title: 'Publishing'
-pubDate: 2025-12-30
+pubDate: 2026-04-05
 head: 'Post Title'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+description: '25 years of servicing the trade publishing industry with award-winning book covers.'
 metaTitle: 'meta title for Publishing project page.'
 metaDescription: 'meta description for Publishing project page.'
 author: ''
@@ -15,7 +15,7 @@ coverAlt: 'Publishing - covers over the years.'
 coverWidth: '1920'
 coverHeight: '1080'
   
-tags: ["Book Covers", "Design", "Matthew Reilly"]
+tags: ["Book Covers", "Design", "Matthew Reilly", "Pan Macmillan Australia", "Mass-market Fiction", "Macquarie Dictionary", "Non-Fiction", ]
 
 industries: ["Publishing"]
 
@@ -32,19 +32,40 @@ import image04 from '../../assets/imgs/publishing/PMA_cformat_non-fiction_1920x1
 import image05 from '../../assets/imgs/publishing/PMA_cformat_non-fiction_1920x1080_03.jpg';
 import image06 from '../../assets/imgs/publishing/Macq_Dict_series__1920x1080_01_comp.jpg';
 import image07 from '../../assets/imgs/publishing/Macq_Dict_series__1920x1080_01.jpg';
-import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
 
-## Content
-<p>Post content</p>
-Local image stored in src/assets/ (carousel)
+## Overview
+
+<p>For over 25 years, we've been crafting award-winning book covers for the trade publishing industry. Our work spans a wide range of genres and styles, showcasing our versatility and commitment to excellence in design.</p>
+
+<p class="small"><a href="./matthew-reilly">Matthew Reilly</a>, Trade Paperback, B Format.</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Matthew Reilly Scarecrow & Jack West series" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Matthew Reilly stand alone novels" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p class="small">Non-Fiction various.</p>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image04} alt="Image 04" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image05} alt="Image 05" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p class="small">Macquarie Dictionary series.</p>
+
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image06} alt="Image 06" layout="constrained"/></div>
       <div class="image_wrap carousel_slide" data-type="last"><Picture src={image07} alt="Image 07" layout="constrained"/></div>
   </div>

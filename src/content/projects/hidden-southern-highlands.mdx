@@ -1,0 +1,119 @@
+---
+
+#  frontmatter
+uniqueID: 'project'
+title: 'Hidden Southern Highlands'
+pubDate: 2026-06-18
+head: 'Hidden Southern Highlands'
+description: 'Interactive Explorer’s Map, Treasure hunt and immersive audio app.'
+metaTitle: 'Hidden Southern Highlands - Explorer’s Map, Treasure Hunt  & Audio App'
+metaDescription: 'Discover the Hidden Southern Highlands through an interactive explorer’s map, engaging treasure hunts, and an immersive audio app.'
+author: ''
+cover: '../../assets/imgs/sohi/SOHI_MAP_hero.webp'
+# cover: '.imgs/color-gray.jpg'
+# cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
+coverAlt: 'Hidden Southern Highlands - Explorer’s Map, Treasure Hunt  & Audio App.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+video: 
+    url: '/video/test/Puppiness.mp4'
+    width: '100%'
+    height: '100%'
+    poster: '/src/assets/imgs/sohi/'
+    
+tags: ["Test 01", "Tag", "Category"]
+
+industries: ["Tourism", "App Development"]
+
+
+contentImgs:
+  - url: 'src/assets/imgs/sohi/Editorial-Mockup_00.jpg'
+    alt: "Image description 1"
+    width: 600
+    height: 400
+  - url: 'src/assets/imgs/sohi/Editorial-Mockup_01.jpg'
+    alt: "Image description 2"
+    width: 600
+    height: 400
+
+
+---
+
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/sohi/SoHi_screens.jpg';
+import image02 from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1.png';
+import image02a from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_1.png';
+import image02b from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_2.png';
+import image02c from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_3.png';
+import image03 from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_2.png';
+// import heroImage from '../../assets/imgs/sohi/sohi_hero.png';
+
+export const videoBase = '/video/sohi/';
+export const videos = {
+  main: {
+    url: `${videoBase}SoHiAppDemo.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sohi/SoHiAppDemo.png',
+  },
+  webPages: {
+    // url: `${videoBase}studio-dumbar-demo-typography.mp4`,
+    width: '100%',
+    height: '100%',
+    // poster: '/src/assets/imgs/sohi/sohi_web_poster.jpg',
+    loop: true,
+  },
+};
+
+## VideoFeature
+<VideoFeature video={videos.main} />
+
+<p class="small">Post content</p>
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p class="small">Post content</p>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02a} alt="Image 02a" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02b} alt="Image 02b" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02c} alt="Image 02c" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+
+<p class="small">Post content</p>
+
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div> */}
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+
+
+## Video Embed - alternative method
+<VideoFeature video={videos.webPages} />

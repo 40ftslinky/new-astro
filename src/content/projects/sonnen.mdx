@@ -1,0 +1,121 @@
+---
+
+#  frontmatter
+uniqueID: 'project'
+title: 'Sonnen'
+pubDate: 2026-04-18
+head: 'Sonnen'
+description: 'Web and video assets for Sonnen product and brand introductions to the Australian market.'
+metaTitle: 'meta title for Sonnen project page.'
+metaDescription: 'meta description for Sonnen project page.'
+author: ''
+cover: '../../assets/imgs/sonnen/sonnen_hero.gif'
+# cover: '.imgs/color-gray.jpg'
+# cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
+coverAlt: 'Sonnen cover image.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ["Brand Launch", "DigitalAdvertising", "Motion Graphics", "Video Production", "Web Design"]
+
+industries: ["Green Energy", "Technology", "Sustainability"]
+
+
+contentImgs:
+  - url: 'src/assets/imgs/other/Editorial-Mockup_00.jpg'
+    alt: "Image description 1"
+    width: 600
+    height: 400
+  - url: 'src/assets/imgs/other/Editorial-Mockup_01.jpg'
+    alt: "Image description 2"
+    width: 600
+    height: 400
+
+
+
+---
+
+
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+import image02 from '../../assets/imgs/other/color-orange.png';
+import image03 from '../../assets/imgs/other/color-green.jpg';
+
+import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+
+export const videoBase = '/video/sonnen/';
+export const videos = {
+  main: {
+    url: `${videoBase}Sonnen_batterie_evo.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+  },
+  digitalLandscape: {
+    url: `${videoBase}SB_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0004_sb_1920x1080_poster.jpg',
+    loop: true,
+  },
+  digitalPortrait: {
+    url: `${videoBase}SB_1080x1920.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0004_sb_1080x1920_poster.jpg',
+    loop: true,
+  },
+  digitalSquare: {
+    url: `${videoBase}SB_1080x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0004_sb_1080x1080_poster.jpg',
+    loop: true,
+  },
+};
+
+## VideoFeature
+<VideoFeature video={videos.main} />
+
+## Content
+<p>Post content</p>
+Local image stored in src/assets/ (carousel)
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalLandscape} /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalPortrait} /></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalSquare} /></div>
+
+      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>
+<p class="small">Flinders Street Station WOW Wall takeover</p>
+
+<style>{`
+  video#loadvideo {
+    height: 100%;    
+    object-fit: contain;
+  }
+`}</style>

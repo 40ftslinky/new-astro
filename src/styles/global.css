@@ -570,8 +570,13 @@ a {
   border-radius: .25em;
   padding: .5em 1em;
   font-size: var(--font-size-xs);
-  background-color: #F8FCFD;
   transition: var(--theme-transition);
+}
+.industry-tag {
+  background-color: #dcc1ff;
+}
+.tag {
+  background-color: #F8FCFD;
 }
 
 .tag:hover, .industry-tag:hover {
