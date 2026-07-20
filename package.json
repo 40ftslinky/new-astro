@@ -12,7 +12,8 @@
     "@astrojs/mdx": "^7.0.0",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/inter-tight": "^5.2.7",
-    "astro": "^7.0.3"
+    "astro": "^7.0.3",
+    "maplibre-gl": "^5.4.0"
   },
   "allowScripts": {
     "fsevents@2.3.3": true,

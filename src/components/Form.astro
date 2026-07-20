@@ -65,8 +65,8 @@ const { id = 'form' } = Astro.props;
 
 </form>
 
-<script is:inline>
-document.querySelectorAll('[data-contact-form]').forEach((form) => {
+<script>
+const initializeContactForms = () => document.querySelectorAll('[data-contact-form]').forEach((form) => {
     if (!(form instanceof HTMLFormElement) || form.dataset.initialized === 'true') return;
 
     form.dataset.initialized = 'true';
@@ -108,6 +108,8 @@ document.querySelectorAll('[data-contact-form]').forEach((form) => {
     });
     });
 });
+
+document.addEventListener('astro:page-load', initializeContactForms);
 </script>
 
 
