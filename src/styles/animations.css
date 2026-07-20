@@ -13,8 +13,64 @@
     --ease-in-out-quart: cubic-bezier(0.645, 0.045, 0.355, 1);
     /*  */
     --transition-eioq: all 1s var(--ease-in-out-quart);
-  }
+
+    /* transition easing */
+    --ease-out: cubic-bezier(0.28,0.44,0.49,1);
+    --bounce: cubic-bezier(0.6,0,0.1,1.4);
+    --ease-out-soft: cubic-bezier(0.28,0,0.49,1);
+    /* var(--ease-out-soft) */
+    --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
+    --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
+    
+    /* Transitions */
+
+    --theme-transition: 0.5s var(--ease-in-out-quart);
+    --transition: all 0.3s linear;
+    --transition-fast: all 0.125s ease;
+    --transition-fast-delay: all 0.125s ease 0.1s;
+
+    --transition-ease: cubic-bezier(.85, .09, .15, .91);
+    --transition-duration: 0.7s;
+    /* --theme-transition: all var(--transition-duration) var(--transition-ease); */
+    
+    /* transition easing */
+    --ease-out: cubic-bezier(0.28,0.44,0.49,1);
+    --bounce: cubic-bezier(0.6,0,0.1,1.4);
+    --ease-out-soft: cubic-bezier(0.28,0,0.49,1);
+    /* var(--ease-out-soft) */
+    --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
+    --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
+
+}
   
+:root {
+
+  --time-transition-100: 0.1s;
+  --time-transition-125: 0.13s;
+  --time-transition-150: 0.15s;
+  --time-transition-200: 0.2s;
+  --time-transition-250: 0.25s;
+  --time-transition-350: 0.35s;
+  --time-transition-500: 0.5s;
+  --time-transition-550: 0.55s;
+  --time-transition-650: 0.65s;
+  --time-transition-750: 0.75s;
+  --time-transition-1000: 1s;
+  --time-transition-none: 0s;
+  --time-delay-25: 0.03s;
+  --time-delay-100: 0.1s;
+  --time-delay-200: 0.2s;
+  --time-delay-250: 0.25s;
+  --time-delay-350: 0.35s;
+  --time-delay-375: 0.38s;
+  --time-delay-500: 0.5s;
+  --time-delay-600: 0.6s;
+  --time-delay-750: 0.75s;
+  --time-delay-1000: 1s;
+  --time-delay-initial: 0.5s;
+  --time-delay-none: 0s;
+
+}
 
 
   nav {
@@ -22,7 +78,7 @@
   }
   
   nav.active {
-    background-color: var(--dark);
+    /* background-color: var(--dark); */
   }
   
   .activated {

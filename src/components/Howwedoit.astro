@@ -63,7 +63,48 @@ const platformGroups = [
             </div>
         </div>
         <div class="column col_content top-space">
-            <div class="">                                                            
+            <div class="">
+				
+				<h4 class=" fade-up" >Our Process</h4>
+
+				<div class="process fade-up flex-wrap" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: '2rem', marginBottom: '4rem'}}>
+					<div class="card">
+						<h3 class="fade-up">01</h3>						
+						<h4 class="">Discovery</h4>
+						<p>Understand your project, goals, and where things are breaking down. One direct conversation — no forms, no intake decks.</p>
+					</div>
+					<div class="card">
+						<h3 class="fade-up">02</h3>
+						<h4 class="">Scope</h4>
+						<p>A clear plan, timeline, and fixed price before any project starts or any code is written. You know exactly what you're getting and what it costs.</p>
+					</div>
+					<div class="card">
+						<h3 class="fade-up">03</h3>
+						<h4 class="">Build</h4>
+						<p>Iterative project development with regular updates and your feedback built in. You won't wait weeks to see progress.</p>
+					</div>
+					<div class="card">
+						<h3 class="fade-up">04</h3>
+						<h4 class="">Launch</h4>
+						<p>Deploy, document, and hand off clean. We make sure your team can own what we built, and we're available if anything comes up.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</section>
+
+<section class="howweddoit animate">
+    <div class="row has-divider">
+        <div class="column col_title">
+            <div class="title">
+                <h2>What we do it with</h2>
+				
+                <p>We match the process, team and platform to the job. The aim is simple: fewer moving parts, clearer decisions and work that is easier to manage after launch.</p>
+            </div>
+        </div>
+        <div class="column col_content top-space">
+            <div class="">
 				
 				<h4 class=" fade-up" style={{}}>Platform Experience</h4>
 
@@ -94,6 +135,10 @@ const platformGroups = [
 					We support projects after launch through retainers, maintenance plans and ad hoc technical help. Some clients need a long-term partner in the background; others need a reliable team available when the work changes. Either way, the focus is stability, performance and useful improvement over time.
 				</p>
 					
+
+<!-- AI -->
+<!--    -->
+
 			</div>
         </div>
     </div>
@@ -143,6 +188,10 @@ const platformGroups = [
         /* max-width: 40ch; */
     }
 
+	.howweddoit .card p {
+		max-width: 50ch;
+	}
+
     /*  */
 
 	.platform-group {
@@ -173,3 +222,5 @@ const platformGroups = [
 		filter: grayscale(0) opacity(1);
 		transition: var(--transition);
 	}
+
+</style>

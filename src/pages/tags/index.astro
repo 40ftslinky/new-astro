@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { toSlug } from "../../utils/toSlug";
 // import ProjectPost from '../../components/ProjectPost.astro';
 
 // import Form from '../../components/Form.astro';
@@ -12,7 +13,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const allProjects = await getCollection("projects");
 // const tags = ['astro', 'blogging', 'learning in public', 'successes', 'setbacks', 'community']
 // const tags = [...new Set(allProjects.map((project) => project.frontmatter.tags).flat())];
-const tags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
+const tags = [
+	...new Set(
+		allProjects
+			.map((project) => project.data.tags)
+			.flat()
+			.filter((tag): tag is string => typeof tag === "string" && tag.length > 0)
+	),
+];
 
 const uniqueID = "tag-index";
 const pageTitle = "Tag Index";
@@ -39,7 +47,7 @@ const pageContent = "Select a tag to view all projects with that tag.";
 
             <div class="tags">
                 {tags.map((tag) => (
-                    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+					<p class="tag"><a href={`/tags/${toSlug(tag)}`}>{tag}</a></p>
                 ))}
             </div>
 

@@ -1,0 +1,290 @@
+---
+const services = [
+	{
+		number: '01',
+		title: 'Consultancy',
+		items: ['Audit', 'Strategy', 'Workshops'],
+		groups: [
+			{
+				title: 'Brand consultancy',
+				items: ['Leadership, marketing and product team guidance', 'Brand direction', 'CX Audit', 'Digital systems and communications.'],
+			},
+		],
+	},
+	{
+		number: '02',
+		title: 'Identity',
+		items: ['Logo Design', 'Corporate Identity', 'Guidelines'],
+		groups: [
+			{ title: 'Brand strategy', items: ['Market analysis', 'Customer research', 'Brand positioning', 'Brand architecture', 'Purpose and proposition', 'Naming', 'Go-to-market strategy'] },
+			{ title: 'Brand identity', items: ['Visual identity', 'Verbal identity', 'Brand messaging', 'Graphic design', 'Art direction', 'Design systems', 'Brand guidelines'] },
+		],
+	},
+	{
+		number: '03',
+		title: 'Digital design',
+		items: ['UX/UI interface design', 'Advertising banners', 'Social media and content'],
+		groups: [
+			{ title: 'Digital experience', items: ['Experience strategy', 'Journey mapping', 'Content strategy and IA', 'UX and UI design', 'Interaction design', 'Website and app design', 'Prototyping and testing'] },
+		],
+	},
+	{
+		number: '04',
+		title: 'Digital advertising',
+		items: ['Performance Advertising', 'Branded Advertising', 'Media Advertising', 'Branded Content'],
+		groups: [
+			{ title: 'Campaigns & content', items: ['Creative direction', 'Campaign development', 'Adverting', 'Copywriting', 'Landing pages', 'Digital advertising', 'Email marketing'] },
+		],
+	},
+	{
+		number: '05',
+		title: 'Development',
+		items: ['Mini-app creation', 'Clean-code website development', 'Bot development'],
+		groups: [
+			{ title: 'Product development', items: ['Landing Pages', 'E-Commerce & Portals', 'Progressive Web Apps', 'Cross-Platform App Development'] },
+			{ title: 'Technology', items: ['Technical consultation', 'Solution architecture', 'Full-stack development', 'CMS implementation', 'Commerce implementation', 'Performance optimisation', 'Analytics and measurement', 'SEO / AEO'] },
+		],
+	},
+	{
+		number: '06',
+		title: 'Production',
+		items: ['Concept to post-production', 'Visual assets', 'Editorial'],
+		groups: [
+			{ title: 'Production', items: ['Illustration', 'Photography', 'Video production', 'Motion design', '3D and animation', 'Editing'] },
+		],
+	},
+	{
+		number: '07',
+		title: 'AI / Agentic Creative',
+		items: ['Enhance design', 'Augment strategy', 'Improve CX'],
+		groups: [
+			{ title: 'Agentic creative', items: ['Storytelling', 'Character Development', 'Image & Motion Production', 'App MVP & Prototype Development', 'Agent, Skills and Wrapper Management', 'Workflow development', 'Ongoing management and optimisation', 'AEO LLM Integration', 'Custom agent development', 'MCP integration'] },
+		],
+	},
+	{
+		number: '08',
+		title: 'Packaging and merch design',
+		items: ['Product Packaging', 'Corporate Merchandise', 'Retail Design'],
+		groups: [
+			{ title: 'Packaging and merchandise', items: ['Packaging design', 'Product labelling', 'Retail display systems', 'Corporate merchandise', 'Print production', 'Supplier coordination'] },
+		],
+	},
+];
+---
+
+<section class="services-section animate" aria-labelledby="services-section-title">
+	<div class="row has-divider">
+		<div class="column col_title">
+			<div class="title">
+				<h2 id="services-section-title">Services</h2>
+				<p>Strategy, identity, digital experience, content and technology for brands that need to perform.</p>
+				<p >We help organisations define what they stand for, express it clearly, and build the tools, campaigns and experiences that move audiences to act.</p>
+			</div>
+		</div>
+		<div class="column col_content top-space">
+			<div class="service-list">
+				{services.map((service, index) => {
+					const panelId = `service-panel-${index}`;
+					return (
+						<article class="service-row fade-up" data-service-row>
+							<button class="service-toggle" type="button" aria-expanded="false" aria-controls={panelId}>
+								<span class="service-number">{service.number}</span>
+								<h3 class="service-title">{service.title}</h3>
+									<div class="service-summary" aria-label={`${service.title} services`}>
+										{service.items.map((item, itemIndex) => (
+											<p>{item}{itemIndex < service.items.length - 1 && <span class="separator" aria-hidden="true">/</span>}</p>
+										))}
+									</div>
+								<span class="toggle-indicator" aria-hidden="true"></span>
+							</button>
+							<div class="accordion" id={panelId} aria-hidden="true">
+								<div class="accordion-inner">
+									<div class:list={['accordion-content', { 'has-columns': service.groups.length > 1 }]}>
+										{service.groups.map((group) => (
+											<div class="service-group">
+												<h5>{group.title}</h5>
+												<ul>{group.items.map((item) => <li>{item}</li>)}</ul>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+						</article>
+					);
+				})}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const serviceRows = document.querySelectorAll<HTMLElement>('[data-service-row]');
+
+	serviceRows.forEach((row) => {
+		const toggle = row.querySelector<HTMLButtonElement>('.service-toggle');
+		const panel = row.querySelector<HTMLElement>('.accordion');
+
+		if (!toggle || !panel) return;
+
+		toggle.addEventListener('click', () => {
+			const isOpen = row.classList.toggle('is-open');
+			toggle.setAttribute('aria-expanded', String(isOpen));
+			panel.setAttribute('aria-hidden', String(!isOpen));
+		});
+	});
+</script>
+
+<style>
+	.services-section {
+		
+	}
+
+	.services-section h2 { max-width: 10ch; }
+
+	.service-list { border-top: 1px solid var(--gray-800); }
+
+	.service-row { border-bottom: 1px solid var(--gray-800); }
+
+	.service-toggle {
+		display: grid;
+		grid-template-columns: 7.5rem minmax(12rem, 1fr) minmax(16rem, 1.6fr) 1.5rem;
+		/* display: flex; */
+		align-items: baseline;
+		gap: 1.25rem;
+		width: 100%;
+		padding: 1.125rem 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		text-align: left;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+	.service-toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+	.service-toggle:hover { background: var(--gray-900); padding-left: 0.5rem; }
+	/* .service-toggle * { transition: transform 0.3s ease-in-out; }
+	.service-toggle:hover > * { transform: translateX(0.25rem); } */
+
+	.service-number {
+		padding-top: 0.25rem;
+		/* font-size: var(--font-size-small); */
+		font-family: var(--font-body);
+		font-weight: var(--font-weight-bold);
+		line-height: 1;
+		color: var(--gray-500);
+	}
+
+	.service-title {
+		font-family: var(--font-brand);
+		/* font-size: clamp(2rem, 2.15vw, 2.375rem); */
+		/* font-size: var(--font-size-body); */
+		font-weight: 500;
+		line-height: 1.1;
+        letter-spacing: 0.001rem;
+		color: var(--primary);
+	}
+
+	.service-summary {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		gap: 0 0.5rem;
+		/* font-size: clamp(1.25rem, 1.25vw, 1.5rem); */
+		line-height: 1.4;
+		padding-bottom: 2.5rem;
+	}
+	.service-summary p { 
+		font-size: clamp(1.25rem, 1.5vw, 2rem);
+		margin: 0; 
+	}
+
+	.separator { margin-left: 0.5rem; color: var(--gray-500); }
+
+	.toggle-indicator {
+		position: relative;
+		width: 1rem;
+		height: 1rem;
+		margin-top: 0.3rem;
+	}
+
+	.toggle-indicator::before,
+	.toggle-indicator::after {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: currentColor;
+		content: '';
+		transition: transform 360ms ease-in-out;
+	}
+
+	.toggle-indicator::after { transform: rotate(90deg); }
+	.is-open .toggle-indicator::after { transform: rotate(0); }
+
+	.accordion {
+		display: grid;
+		grid-template-columns: 7.5rem minmax(12rem, 1fr) minmax(16rem, 1.6fr) 1.5rem;
+		column-gap: 1.25rem;
+		grid-template-rows: 0fr;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 420ms ease-in-out;
+	}
+	.service-toggle:hover + .accordion { 
+		background: var(--gray-900);
+		padding-left: 0.5rem;
+	}
+
+	.accordion-inner { grid-column: 3; min-width: 0; overflow: hidden; }
+	.is-open .accordion { grid-template-rows: 1fr; visibility: visible; pointer-events: auto; }
+
+	.accordion-content {
+		display: grid;
+		gap: 1.25rem;
+		padding: 0 0 1.25rem;
+		opacity: 0;
+		transform: translateY(-0.5rem);
+		transition: opacity 280ms ease-in-out, transform 420ms ease-in-out;
+	}
+
+	.is-open .accordion-content { opacity: 1; transform: translateY(0); }
+	.accordion-content.has-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+
+	.service-group { margin-bottom: 2rem; }
+
+
+	.service-group h5 {
+		margin: 0 0 0.75rem;
+		/* font-size: 1.75rem; */
+		font-size: clamp(1.25rem, 1.5vw, 2rem);
+		letter-spacing: 0.05rem;
+		/* font-weight: var(--font-weight-bold); */
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	.service-group ul { margin: 0; padding: 0; list-style: none; }
+	.service-group li { margin: 0; 
+		/* font-size: clamp(1rem, 1.05vw, 1.125rem); */
+		/* font-size: var(--font-size-body); */
+		/* font-size: 1.75rem; */
+		/* font-size: clamp(1.25rem, 1.5vw, 2rem); */
+		line-height: 1.5; }
+
+	.service-toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+	@media (max-width: 50em) {
+		.service-toggle { grid-template-columns: 2.75rem minmax(0, 1fr) 1rem; gap: 0.75rem 1rem; }
+		.service-title { font-size: 2rem; }
+		.service-summary { grid-column: 2; }
+		.toggle-indicator { grid-column: 3; grid-row: 1; }
+		.accordion { grid-template-columns: 2.75rem minmax(0, 1fr) 1rem; column-gap: 1rem; }
+		.accordion-inner { grid-column: 2; }
+	}
+
+	@media (max-width: 34em) {
+		.accordion-content.has-columns { grid-template-columns: 1fr; }
+	}
+</style>

@@ -4,42 +4,12 @@
     backface-visibility: inherit;
 }
 
-/* btn */
-
-
-.btn, .button, 
-input[type="submit"],
- input[type="button"] {
-    /* position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    border: 1px solid transparent;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-    cursor: pointer;
-    user-select: none;
-    touch-action: manipulation;
-    padding: 1.5rem 2.5rem;
-    font-size: 2rem;
-    border-radius: var(--radius-xsm);
-    outline: none;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    &:focus,
-    :hover {
-        color: #fff;
-        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    } */
-}
-
-
   
   /* submit button */
   /* ------------------------------------ */
   
 button,
-.btn, .button, 
+.btn, .button, .btn-primary,
 input[type="submit"],
 input[type="button"] {
     position: relative;
@@ -53,7 +23,7 @@ input[type="button"] {
     line-height: 1.1;
     border-radius: 999rem;
     overflow: hidden;
-    background: var(--primary);
+    background: var(--brand);
     /* background-image: var(--gradient-accent); */
     box-shadow: var(--shadow-md);
     white-space: nowrap;
@@ -71,7 +41,8 @@ input[type="button"] {
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
-        background: var(--gradient-accent);
+        /* background: var(--blue-01); */
+        /* background: linear-gradient( 45deg, var(--black),var(--accent-dark) 100%); */
         padding: 0;
         margin: 0;
         /* transition: all var(--theme-transition); */
@@ -79,14 +50,14 @@ input[type="button"] {
         opacity: 0;
     }
     &:hover {
-        /* transition: all 0.5; */
-        /* background-image: var(--gradient-accent-active); */
-        /* background-size: 150%; */
-        background: none;
+        transition: all 0.5;
+        background: var(--blue-01);
+        background-image: linear-gradient( 45deg, var(--blue-01) -10%, var(--accent-dark) 100%);
+        box-shadow: var(--shadow-dark);
     }
     &:hover::before {
         /* z-index: 0; */
-        opacity: 1;
+        /* opacity: 1; */
     }
 }
   
@@ -98,16 +69,16 @@ input[type="button"] {
     &:focus,
     .primary:hover {
         color: #fff;
-        background-color: #5500e6;
-        border-color: #5500e6;
+        background-color: rgb(var(--accent));
+        border-color: rgb(var(--accent));
         /* background-size: 200%; */
     }
 }
 
 .ghost {
-    color: #1890ff;
+    color: rgb(var(--accent));
     background-color: transparent;
-    border-color: #1890ff;
+    border-color: rgb(var(--accent));
     &:focus,
     :hover {
         color: #40a9ff;

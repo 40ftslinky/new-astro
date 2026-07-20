@@ -12,29 +12,9 @@
   --fixed-width: 620px;
   /*  */
 
-  /* Transitions */
-
-  --theme-transition: 0.2s ease-in-out;
-  --transition: all 0.3s linear;
-  --transition-fast: all 0.125s ease;
-  --transition-fast-delay: all 0.125s ease 0.1s;
-
-  --transition-ease: cubic-bezier(.85, .09, .15, .91);
-  --transition-duration: 0.7s;
-  /* --theme-transition: all var(--transition-duration) var(--transition-ease); */
-  
-  /* transition easing */
-  --ease-out: cubic-bezier(0.28,0.44,0.49,1);
-  --bounce: cubic-bezier(0.6,0,0.1,1.4);
-  --ease-out-soft: cubic-bezier(0.28,0,0.49,1);
-  /* var(--ease-out-soft) */
-  --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
-  --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
-  
-  
   /*  */
-  --link: #ff9776;
-  --link-hover: #ff9776;
+  --link: var(--accent-regular);
+  --link-hover: var(--accent-dark);
 
   /* breakpoint */
 
@@ -167,7 +147,7 @@ body {
 }
 
 :root {
-  --selection-color: rgba(var(--brand-purple-rgb), 0.3);
+  --selection-color: rgba(var(--brand-rgb), 0.3);
 }
 
 ::-moz-selection { /* Code for Firefox */
@@ -278,11 +258,6 @@ main {
     
 }
 
-.main-content {
-  
-}
-
-
 
 section {
     /* padding: 2rem; */
@@ -326,6 +301,9 @@ section.hero {
 .overlay, 
 .portfolio .flex.large .card {
   border-radius: var(--border-radius);
+}
+.info_wrap p {
+        letter-spacing: 0.001rem;
 }
 .video_wrap {
   margin-bottom: calc(var(--bodypadding));
@@ -415,7 +393,7 @@ video.controls::-webkit-media-controls {
 
 .gradient {
   background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background-image: linear-gradient(43deg, rgb(var(--accent-dark)) 0%, rgb(var(--accent-regular)) 46%, rgb(var(--accent-light)) 100%);
 }
 
 /* structure */
@@ -447,7 +425,7 @@ video.controls::-webkit-media-controls {
 
 .has-divider {
   position: relative;
-  padding-top: 0rem;
+  padding-top: 3rem;
 }
 
 .has-divider::before {
@@ -457,7 +435,7 @@ video.controls::-webkit-media-controls {
   width: 0;
   height: 1px;
   /* background-color: var(--gray-700); */
-  background: var(--divider-color);
+  background: var(--brand);
   /* padding-top: 1rem; */
   position: absolute;
   top:0;
@@ -573,10 +551,11 @@ a {
   transition: var(--theme-transition);
 }
 .industry-tag {
-  background-color: #dcc1ff;
+  /* background-color: #dcc1ff; */
+  background-color: hsla(var(--brand-hsl), 0.1);
 }
 .tag {
-  background-color: #F8FCFD;
+  background-color: hsla(var(--mono-hsl), 0.1);
 }
 
 .tag:hover, .industry-tag:hover {

@@ -5,11 +5,11 @@ import { fade } from "astro:transitions";
 
 const uniqueID = "contact";
 const pageTitle = "Contact";
-const metaTitle = "Contact us. meta Title tbc";
-const metaDescription = "Contact page meta description tbc";
-const pageHead = "Let’s stay in touch.";
+const metaTitle = "Contact us.";
+const metaDescription = "Let’s explore how we can help you achieve your goals.";
+const pageHead = "Let’s explore how we can help you achieve your goals.";
 const pageDesc = "We’ve worked with clients in government and businesses across Australia and around the world. We’d love to work with you. Let’s start something special.";
-const pageContent = "Fill in the form below. We're looking forward to starting our journey together.";
+const pageContent = "Let’s stay in touch. Fill in the form below and we'll get back to you shortly. We're looking forward to starting our journey together.";
 
 // component imports
 import Form from '../components/Form.astro';
@@ -25,6 +25,7 @@ import Form from '../components/Form.astro';
 	pageHead={pageHead}
 	pageDesc={pageDesc}
 	pageContent={pageContent}
+	showGlobalCTA={false}
 >
 	
 
@@ -43,12 +44,38 @@ import Form from '../components/Form.astro';
 				<h2>Touch base</h2>
 			</div>
 			
-			<div class="column col_content">
-				<div class="content">
-	
-					<p >{pageContent}</p>
-	
-					<Form ></Form>
+			<div class="column col_content top-space">
+				<div class="contact-layout">
+					<div class="content">
+						<p>{pageContent}</p>
+						<Form />
+					</div>
+
+					<div class="location-column">
+						<div class="map-wrap">
+							<div id="contact-map" aria-label="Map showing our Sydney and Melbourne offices"></div>
+							<noscript>
+								<a href="https://www.openstreetmap.org/search?query=82%20Warren%20Road%20Marrickville" target="_blank" rel="noreferrer">View our Sydney office on OpenStreetMap</a>
+							</noscript>
+						</div>
+
+						<div class="locations">
+							<div class="address">
+								<h6>Sydney</h6>
+								<p>82 Warren Road<br>Marrickville<br>NSW 2204</p>
+							</div>
+
+							<div class="address">
+								<h6>Melbourne</h6>
+								<p>Level 2, 10 Queens Road<br>Melbourne<br>VIC 3004</p>
+							</div>
+
+							<div class="address">
+								<h6>Contact</h6>
+								<p><a href="tel:+61280650000">+61 2 8065 0000</a><br><a href="mailto:hello@40ftslinky.com">hello@40ftslinky.com</a></p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -59,3 +86,128 @@ import Form from '../components/Form.astro';
 	
 
 </BaseLayout>
+
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.4.0/dist/maplibre-gl.css" />
+<script is:inline src="https://unpkg.com/maplibre-gl@5.4.0/dist/maplibre-gl.js" defer></script>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		if (!window.maplibregl) return;
+
+		const map = new window.maplibregl.Map({
+			container: 'contact-map',
+			style: 'https://tiles.openfreemap.org/styles/positron',
+			center: [147.1, -34.9],
+			zoom: 4.35,
+			attributionControl: true,
+		});
+
+		map.addControl(new window.maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+		const offices = [
+			{ name: 'Sydney', address: '82 Warren Road, Marrickville NSW 2204', coordinates: [151.1548, -33.9074] },
+			{ name: 'Melbourne', address: 'Level 2, 10 Queens Road, Melbourne VIC 3004', coordinates: [144.9715, -37.8407] },
+		];
+
+		offices.forEach(({ name, address, coordinates }) => {
+			const marker = document.createElement('button');
+			marker.className = 'office-marker';
+			marker.type = 'button';
+			marker.setAttribute('aria-label', `${name} office: ${address}`);
+
+			new window.maplibregl.Marker({ element: marker, anchor: 'center' })
+				.setLngLat(coordinates)
+				.setPopup(new window.maplibregl.Popup({ offset: 16 }).setHTML(`<strong>${name}</strong><br>${address}`))
+				.addTo(map);
+		});
+	});
+</script>
+
+<style>
+
+p {max-width: 45ch; }
+
+.contact-layout {
+	display: grid;
+	gap: 3rem;
+}
+
+.content {
+	margin-top: 0;
+}
+
+.location-column {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.map-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 609 / 434;
+	background: #e9e9e5;
+	overflow: hidden;
+}
+
+#contact-map {
+	width: 100%;
+	height: 100%;
+}
+
+.locations {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 1.5rem;
+}
+
+.address {
+	flex: 1 1 10rem;
+}
+
+.address h6 {
+	margin-top: 1rem;
+}
+
+.address p,
+.address a {
+	color: inherit;
+}
+
+:global(.office-marker) {
+	width: 1.25rem;
+	height: 1.25rem;
+	padding: 0;
+	border: 3px solid white;
+	border-radius: 50%;
+	background: #0d0dff;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+	cursor: pointer;
+}
+
+:global(.office-marker:focus-visible) {
+	outline: 3px solid #282828;
+	outline-offset: 3px;
+}
+
+:global(.maplibregl-popup-content) {
+	font-family: var(--font-body);
+	color: #282828;
+	line-height: 1.45;
+}
+
+@media screen and (min-width: 768px) {
+	.contact-layout {
+		grid-template-columns: minmax(18rem, 360px) minmax(0, 1fr);
+		gap: clamp(3rem, 6vw, 6rem);
+		align-items: start;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.location-column {
+		order: -1;
+	}
+}
+
+</style>

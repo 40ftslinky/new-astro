@@ -49,15 +49,23 @@ const metaImageUrl = new URL(metaImage, Astro.site ?? Astro.url).toString();
 		<title>{pageTitle}</title>
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="https://use.typekit.net/vds2fdi.css" />
 		
 
-		<Font cssVariable="--font-inter" preload/>
-		<Font cssVariable="--font-inter-tight" preload/>
+		<Font cssVariable="--font-bricolage-grotesque" preload/>
+		<Font cssVariable="--font-dm-sans" preload/>
+		<!-- <Font cssVariable="--font-inter-tight" preload/> -->
+		<!-- <Font cssVariable="--font-decoy" preload/> -->
+		<!-- <Font cssVariable="--font-ultra" preload/> -->
+		<!-- <Font cssVariable="--font-dunbar-tall" preload/> -->
+		<!-- <Font cssVariable="--font-aabak-swash" preload/> -->
+		<Font cssVariable="--font-champ" preload/>
+
 
 		<!-- client router required for astro transitions -->
 		<ClientRouter />
 
-		<PostHog>
+		<PostHog />
 
 
 	</head>

@@ -1,0 +1,168 @@
+---
+import Form from './Form.astro';
+
+interface Props {
+    id?: string;
+}
+
+const { id = 'contact-popup' } = Astro.props;
+---
+
+<dialog id={id} class="contact-popup" aria-labelledby={`${id}-title`} data-contact-popup>
+    <button class="contact-popup__close" type="button" aria-label="Close contact form" data-popup-close>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4L20 20M20 4L4 20" />
+        </svg>
+    </button>
+
+    <div class="contact-popup__panel">
+        <div class="contact-popup__content">
+            <p id={`${id}-title`}>Let’s stay in touch. Fill in the form below and we'll get back to you shortly. We're looking forward to starting our journey together.</p>
+            <Form id={`${id}-form`} />
+        </div>
+    </div>
+</dialog>
+
+<script>
+    const popup = document.querySelector('[data-contact-popup]');
+
+    if (popup instanceof HTMLDialogElement) {
+        const openButtons = document.querySelectorAll('[data-popup-open="contact-popup"]');
+        const closeButton = popup.querySelector('[data-popup-close]');
+
+        const openPopup = () => {
+            popup.showModal();
+            document.documentElement.classList.add('has-open-popup');
+        };
+
+        const closePopup = () => popup.close();
+
+        openButtons.forEach((button) => button.addEventListener('click', openPopup));
+        closeButton?.addEventListener('click', closePopup);
+
+        popup.addEventListener('click', (event) => {
+            if (event.target === popup) closePopup();
+        });
+
+        popup.addEventListener('close', () => {
+            document.documentElement.classList.remove('has-open-popup');
+        });
+    }
+</script>
+
+<style>
+    .contact-popup {
+        width: 100vw;
+        max-width: none;
+        height: 100dvh;
+        max-height: none;
+        margin: 0;
+        padding: clamp(4.5rem, 8vh, 6rem) 1.25rem 2rem;
+        border: 0;
+        background: #e3e3e3;
+        color: #282828;
+        overflow-y: auto;
+    }
+
+    .contact-popup[open] {
+        display: grid;
+        place-items: center;
+    }
+
+    .contact-popup::backdrop {
+        background: rgb(40 40 40 / 35%);
+    }
+
+    .contact-popup__panel {
+        display: flex;
+        justify-content: center;
+        width: min(100%, 55.7125rem);
+        padding: 2rem 1.25rem;
+        border-radius: 0.5rem;
+        background: rgb(255 255 255 / 40%);
+    }
+
+    .contact-popup__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: min(100%, 34.8125rem);
+    }
+
+    .contact-popup__content > p {
+        width: 100%;
+        margin-bottom: 0;
+        font-size: var(--font-size-body);
+        line-height: 1.66;
+        letter-spacing: 0.1px;
+    }
+
+    .contact-popup__content :global(form) {
+        width: min(100%, 34.5rem);
+        padding-top: 0.9375rem;
+    }
+
+    .contact-popup__close {
+        position: fixed;
+        z-index: 1;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 2.625rem;
+        height: 2.625rem;
+        padding: 0.75rem;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .contact-popup__close svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-popup__close path {
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        vector-effect: non-scaling-stroke;
+    }
+
+    .contact-popup__close:hover {
+        background: rgb(255 255 255 / 45%);
+        box-shadow: none;
+    }
+
+    .contact-popup__close:focus-visible {
+        outline: 2px solid #0d0dff;
+        outline-offset: 2px;
+    }
+
+    :global(html.has-open-popup) {
+        overflow: hidden;
+    }
+
+    @media (max-width: 40rem) {
+        .contact-popup {
+            place-items: start center;
+        }
+
+        .contact-popup__panel {
+            padding: 1.25rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .contact-popup[open] .contact-popup__panel {
+            animation: popup-in 180ms ease-out both;
+        }
+
+        @keyframes popup-in {
+            from {
+                opacity: 0;
+                transform: translateY(0.75rem);
+            }
+        }
+    }
+</style>

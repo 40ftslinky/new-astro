@@ -17,6 +17,7 @@ import { fade } from "astro:transitions";
 import Grid from '../components/Grid.astro';
 // import Image from '../components/ImageCard.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
+import { toSlug } from '../utils/toSlug';
 
 
 // import content
@@ -74,7 +75,7 @@ const industries = [...new Set(allProjects.map((project) => project.data.industr
 
 				<div class="tags">
 					{tags.map((tag) => (
-						<a class="tag" href={`/tags/${tag}`}>{tag}</a>
+						<a class="tag" href={`/tags/${toSlug(tag)}`}>{tag}</a>
 					))}
 				</div>
 

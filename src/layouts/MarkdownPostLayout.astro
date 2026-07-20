@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { fade } from "astro:transitions";
+import { toSlug } from '../utils/toSlug';
 // import VideoFeature from '../components/VideoFeature.astro';
 
 // import { Image } from "astro:assets";
@@ -45,7 +46,7 @@ const metaImage = frontmatter.cover?.src;
                 <div class="tags">
                     {
                         frontmatter.tags.map((tag: string) => (
-                            <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+                            <p class="tag"><a href={`/tags/${toSlug(tag)}`}>{tag}</a></p>
                         ))
                     }
                 </div>

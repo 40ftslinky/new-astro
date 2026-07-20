@@ -1,12 +1,17 @@
 ---
+interface Props {
+    id?: string;
+}
 
+const { id = 'form' } = Astro.props;
 ---
 
 <form method="POST"
     action="https://api.web3forms.com/submit"
     method="POST"
-    id="form"
+    id={id}
     class="needs-validation"
+    data-contact-form
     data-astro-reload
     novalidate
 >
@@ -54,26 +59,29 @@
         <textarea name="message" placeholder="Please describe your enquiry" required></textarea>
     </div>
 
-    <button type="submit">Submit Form</button>
+    <button type="submit">Let's Go</button>
 
-    <div id="result"></div>
+    <div id={`${id}-result`} data-form-result></div>
 
 </form>
 
 <script is:inline>
-const form = document.getElementById('form');
-const result = document.getElementById('result');
+document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    if (!(form instanceof HTMLFormElement) || form.dataset.initialized === 'true') return;
 
-form.addEventListener('submit', function(e) {
-const formData = new FormData(form);
-e.preventDefault();
+    form.dataset.initialized = 'true';
+    const result = form.querySelector('[data-form-result]');
 
-const object = Object.fromEntries(formData);
-const json = JSON.stringify(object);
+    form.addEventListener('submit', function(e) {
+        const formData = new FormData(form);
+        e.preventDefault();
 
-result.innerHTML = "Please wait..."
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
-fetch('https://api.web3forms.com/submit', {
+        if (result) result.innerHTML = "Please wait...";
+
+        fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -83,22 +91,21 @@ fetch('https://api.web3forms.com/submit', {
     })
     .then(async (response) => {
         let json = await response.json();
-        if (response.status == 200) {
-            result.innerHTML = json.message;
-        } else {
+        if (response.status !== 200) {
             console.log(response);
-            result.innerHTML = json.message;
         }
+        if (result) result.innerHTML = json.message;
     })
     .catch(error => {
         console.log(error);
-        result.innerHTML = "Something went wrong!";
+        if (result) result.innerHTML = "Something went wrong!";
     })
     .then(function() {
         form.reset();
         setTimeout(() => {
-            result.style.display = "none";
+            if (result) result.style.display = "none";
         }, 3000);
+    });
     });
 });
 </script>

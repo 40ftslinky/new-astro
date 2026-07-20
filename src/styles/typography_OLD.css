@@ -1,0 +1,632 @@
+/* typography.css */
+
+/* NEW */
+
+:root {
+
+    /* Fonts */
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* --font-brand: var(--font-bricolage-grotesque, 'Bricolage Grotesque'), sans-serif; */
+    --font-brand: var(--font-champ, 'Champ'), sans-serif;
+    /* --font-brand: var(--font-aabak-swash, 'Aabak Swash'), serif; */
+    /* --font-brand: var(--font-decoy, 'decoy'), serif; */
+    /* --font-brand: var(--font-dunbar-text, 'Dunbar Text'), sans-serif; */
+    /* --font-brand: var(--font-dunbar-tall, 'dunbar-tall'), sans-serif; */
+    /* --font-brand: dunbar-tall, sans-serif; */
+    /* --font-brand: var(--font-ultra, 'Ultra'), serif; */
+    /* --font-body: var(--font-inter-tight, 'Inter'), sans-serif; */
+    /*  */
+    --font-body: var(--font-dm-sans, 'DM Sans'), sans-serif;
+/*     
+    --font-grotesk: "Schibsted Grotesk", sans-serif;
+    --ff_primary: 'Roboto', sans-serif;
+    --ff_secondary: 'Open Sans', sans-serif;
+    --ff_tertiary: 'Lora', serif;
+    --ff_quaternary: 'Merriweather', serif;
+    --ff_code: 'Fira Code', monospace;
+    --ff_mono: 'Space Mono', monospace;
+     */
+}
+
+:root {
+  --rem-base: 62.5%;
+
+  --font-size-small: var(--font-size-body-sm-mobile);
+  --font-size-body: var(--font-size-body-base-mobile);
+  --font-size-label: 0.8em;
+  --font-size-large: var(--font-size-body-lg-mobile);
+  --font-size-footer: var(--font-size-body-sm-mobile);
+
+  --line-height-small: 1.14;
+  --line-height-regular: 1.2;
+  --line-height-body: 1.66;
+  --line-height-large: 1.45;
+  
+  --font-weight-thin: 100;
+  --font-weight-xlight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --font-weight-body: var(--font-weight-regular);
+  --font-weight-headings: var(--font-weight-black);
+  --font-weight-huge: var(--font-weight-black);
+
+  --letter-spacing-small: 0.02em;
+  --letter-spacing--3: 0.03rem;
+  --letter-spacing--2: 0.02rem;
+  --letter-spacing--1: 0.01rem;
+  --letter-spacing--0: 0;
+  --letter-spacing-regular: 0.01rem;
+  --letter-spacing-body: var(--letter-spacing--1);
+  --letter-spacing-sub: 0.01rem;
+  --letter-spacing-medium: -0.03em;
+  --letter-spacing-large: -0.04em;
+  --letter-spacing-headings: 0.02rem;
+
+  --font-size-h1: var(--font-size-heading-xxl-mobile);
+  --font-size-h2: var(--font-size-heading-xl-mobile);
+  --font-size-h3: var(--font-size-heading-lg-mobile);
+  --font-size-h4: var(--font-size-heading-md-mobile);
+  --font-size-h5: var(--font-size-heading-sm-mobile);
+  --font-size-h6: var(--font-size-heading-xs-mobile);
+
+  --leading-flat: 0.9;
+  --line-height-h1: var(--leading-flat);
+  --line-height-h2: 1.1;
+  --line-height-h3: 1.1;
+  --line-height-h4: 1.2;
+  --line-height-h5: 1.1;
+  --line-height-h6: 1.1;
+
+  --font-weight-h1: var(--font-weight-huge);
+  --font-weight-h2: var(--font-weight-headings);
+  --font-weight-h3: var(--font-weight-headings);
+  --font-weight-h4: var(--font-weight-headings);
+  --font-weight-h5: var(--font-weight-headings);
+  --font-weight-h6: var(--font-weight-headings);
+
+  --letter-spacing-h1: -0.55vw;
+  --letter-spacing-h1-sm: -0.065em;
+  /* --letter-spacing-h1: -0.055em; */
+  --letter-spacing-h2: -0.0025em;
+  --letter-spacing-h3: -0.035em;
+  --letter-spacing-h4: -0.02em;
+  --letter-spacing-h5: -0.01em;
+  --letter-spacing-h6: -0.005em;
+}
+
+@media only screen and (min-width: 480px) {
+  :root {
+      --font-size-h1: var(--font-size-heading-xxl-portrait);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+      --font-size-h1: var(--font-size-heading-xxl-desktop);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  :root {
+      --font-size-small: var(--font-size-body-sm-desktop);
+      --font-size-body: var(--font-size-body-base-desktop);
+      --font-size-large: var(--font-size-body-lg-desktop);
+  
+      --font-size-h2: var(--font-size-heading-base-desktop);
+      --font-size-h3: var(--font-size-heading-lg-desktop);
+      --font-size-h4: var(--font-size-heading-md-desktop);
+      --font-size-h5: var(--font-size-heading-sm-desktop);
+      --font-size-h6: var(--font-size-heading-xs-desktop);
+  }
+}
+
+/*  */
+
+
+/*  */
+@media only screen and (min-width: 1920px) {
+  :root {
+      /* --rem-base: 0.5vw; */
+      --rem-base: 62.5%;
+  }
+}
+
+:root {
+
+  --layout-grid-columns-small: 6;
+  --layout-grid-columns-large: 12;
+
+  --font-size-xxs: 1.1rem;
+  --font-size-xs: 1.4rem;
+  --font-size-sm: 1.6rem;
+  --font-size-md: 1.8rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.2rem;
+  --font-size-xxl: 2.4rem;
+  --font-size-3xl: 2.8rem;
+  --font-size-4xl: 3.4rem;
+  --font-size-5xl: 3.8rem;
+  --font-size-6xl: 4rem;
+  --font-size-7xl: 4.2rem;
+  --font-size-8xl: 4.6rem;
+  --font-size-9xl: 6.25vw;
+
+  --font-size-body-sm-mobile: 1.1rem;
+  --font-size-body-sm-desktop: 1.4rem;
+  --font-size-body-base-mobile: 1.4rem;
+  --font-size-body-base-desktop: 1.8rem;
+  --font-size-body-lg-mobile: 1.8rem;
+  --font-size-body-lg-desktop: 2.2rem;
+  --font-size-heading-xs-mobile: 1.2rem;
+  --font-size-heading-xs-desktop: 1.4rem;
+  --font-size-heading-sm-mobile: 1.8rem;
+  --font-size-heading-sm-desktop: 2.2rem;
+  --font-size-heading-md-mobile: 2rem;
+  --font-size-heading-md-desktop: 2.8rem;
+  --font-size-heading-lg-mobile: 2.2rem;
+  --font-size-heading-lg-desktop: 3.8rem;
+  --font-size-heading-xl-mobile: 2.4rem;
+  --font-size-heading-xl-desktop: 4.2rem;
+  --font-size-heading-xxl-mobile: 4rem;
+  --font-size-heading-xxl-portrait: 4.6rem;
+  --font-size-heading-xxl-desktop: 6.25vw;
+
+  --leading-flat: 0.9;
+  --size-line-height-base: 1.6rem;
+  
+  --size-grid-gutter-mobile: 1.6rem;
+  --size-grid-gutter-desktop: 2rem;
+  --size-grid-width: 100vw;
+  --size-grid-height: 100vh;
+  --size-grid-padding-mobile: 5.4vw;
+  --size-grid-padding-desktop: 8rem;
+  
+  /* scaling */
+  --global-font-size-sm: clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);
+  --global-font-size-md: clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);
+  --global-font-size-lg: clamp(1.75rem, 1.576rem + 0.543vw, 2rem);
+  --global-font-size-xl: clamp(2.25rem, 1.728rem + 1.63vw, 3rem);
+  --global-font-size-xxl: clamp(2.5rem, 1.456rem + 3.26vw, 4rem);
+  --global-font-size-xxxl: clamp(2.75rem, 0.489rem + 7.065vw, 6rem);
+
+  /* Text Sizes */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.125rem;
+  --text-3xl: 2.625rem;
+  --text-4xl: 3.5rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 7.5vw;
+
+  --text-huge: 12vw;
+  /* --text-huge: 4rem */
+
+}
+
+@media screen and (min-width: 880px) {
+    :root {
+        --text-huge: 8.3333333333vw;
+    }
+}
+
+
+:root {
+    --display-text-size: 12vw;
+    --h1-size: 9.6vw;
+    --h2-size: 7.5vw;
+    --h3-size: 6vw;
+    --h4-size: 4.5vw;
+    --h5-size: 4.5vw;
+    --h6-size: 1rem;
+    --display-text-line: 1.125;
+    --h1-line: 1;
+    --h2-line: 1;
+    --h3-line: 1.25;
+    --h4-line: 1.25;
+    --h5-line: 1.33333333;
+    --h6-line: 1.5;
+    --copy-jumbo-size: 2.375rem;
+    --copy-large-size: 1.125rem;
+    --copy-medium-size: 1rem;
+    --copy-regular-size: 1em;
+    --copy-small-size: 1rem;
+    --copy-info-size: 0.8125rem;
+    --copy-legal-size: 0.6875rem;
+    --copy-jumbo-line: 1;
+    --copy-large-line: 1.33333333;
+    --copy-medium-line: 1.5;
+    --copy-regular-line: 1.5;
+    --copy-small-line: 1.5;
+    --copy-info-line: 1.25;
+    --copy-legal-line: 1.45454545;
+}
+
+@media screen and (min-width: 36em) {
+    :root {
+        --display-text-size: 8vw;
+        --h1-size: 6vw;
+        --h2-size: 5vw;
+        --h3-size: 4vw;
+        --h4-size: 4vw;
+        --h5-size: 3vw;
+        --h6-size: 1.25rem;
+        --display-text-line: 1.5;
+        --h6-line: 1.2;
+        --copy-jumbo-size: 4.375rem;
+        --copy-large-size: 1.5rem;
+        --copy-medium-size: 1.25rem;
+        --copy-jumbo-line: 1;
+        --copy-large-line: 1.33333333;
+        --copy-medium-line: 1.4;
+        --copy-small-line: 1.75;
+    }
+}
+
+@media screen and (min-width: 62em) {
+    :root {
+        --display-text-size: 4.5vw;
+        --h1-size: 3.6vw;
+        --h2-size: 3vw;
+        --h3-size: 2.75vw;
+        --h4-size: 2.75vw;
+        --h5-size: 2.25vw;
+        --copy-jumbo-size: 5rem;
+    }
+}
+
+@media screen and (min-width: 75em) {
+    :root {
+        --h1-size: 3.3vw;
+        --h2-size: 2.75vw;
+        --h3-size: 2.25vw;
+        --h4-size: 2.25vw;
+        --h5-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 88.88888889em) {
+    :root {
+        --display-text-size: 4rem;
+        --h1-size: 3rem;
+        --h2-size: 2.5rem;
+        --h3-size: 2rem;
+        --h4-size: 2rem;
+        --h5-size: 1.5rem;
+    }
+}
+
+.copy-medium, .copy-medium p:not([class]) {
+    font-size: var(--copy-medium-size);
+    line-height: var(--copy-medium-line);
+}
+
+
+/* STYLES */
+
+
+html {
+  font-size: var(--rem-base);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: normal;
+  font-variant-ligatures: normal;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body)
+}
+
+.body-small, .small {
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-small);
+  line-height: var(--line-height-small)
+}
+
+.body-large, .large {
+  font-size: var(--font-size-large);
+  letter-spacing: var(--letter-spacing-large);
+  line-height: var(--line-height-large)
+}
+
+
+h1 {
+  font-family: var(--font-brand);
+  font-weight: var(--font-weight-huge);
+  letter-spacing: -0.1rem;
+}
+
+/* eg mobile only br */
+.hero {
+    & .hero__heading {
+        & h1 {
+            br.mobile {
+                display: none;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 700px) {
+    .hero {
+        & .hero__heading {
+            & h1 {
+                br.mobile {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+h2,
+h3,
+h4,
+[id*="heading"], 
+h5,
+h6 {
+    font-family: var(--font-brand);
+    font-weight: var(--font-weight-headings);
+    letter-spacing: var(--letter-spacing-headings);
+}  
+  
+.subtitle {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-regular);
+    letter-spacing: var(--letter-spacing-sub);
+    max-width: 40ch;
+} 
+
+
+#project .subtitle {
+  font-size: var(--font-size-lg);
+  letter-spacing: var(--letter-spacing-body);
+} 
+
+@media screen and (min-width: 1280px) {
+  .subtitle {
+    font-size: var(--font-size-3xl);
+    /* letter-spacing: var(--letter-spacing-body); */
+  }
+  
+}
+
+b,strong {
+  font-weight: var(--font-weight-bold)
+}
+
+i {
+  font-style: italic
+}
+
+sup {
+  margin-left: .1rem;
+  font-size: 50%;
+  vertical-align: super
+}
+
+.h1,h1 {
+  font-size: var(--text-huge);
+  /* font-weight: var(--font-weight-huge); */
+  /* letter-spacing: var(--letter-spacing-h1); */
+  line-height: var(--line-height-h1);
+  max-width: 14ch;
+  /* leading-trim:unset; */
+}
+
+
+body#projects h1, 
+body#about h1, 
+body#contact h1 {
+  font-size: var(--font-size-9xl);
+}
+
+.h2,h2 {
+  font-size: var(--font-size-h2);
+  /* font-weight: var(--font-weight-h2); */
+  letter-spacing: var(--letter-spacing-headings);
+  line-height: var(--line-height-h2);
+  /* max-width: 35ch; */
+}
+h2:not(.subtitle) {
+  text-transform: unset;
+}
+
+.h3,h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  letter-spacing: var(--letter-spacing-h3);
+  line-height: var(--line-height-h3)
+}
+
+.h4,h4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  letter-spacing: var(--letter-spacing-h4);
+  line-height: var(--line-height-h4)
+}
+
+.h5,h5 {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-h5);
+  letter-spacing: var(--letter-spacing-h5);
+  line-height: var(--line-height-h5)
+}
+
+.card .title h5 {
+  text-transform: uppercase;
+}
+
+.h6,h6 {
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-h6);
+  letter-spacing: var(--letter-spacing-h6);
+  line-height: var(--line-height-h6)
+}
+
+.footer,footer {
+  font-size: var(--font-size-footer);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  line-height: var(--line-height-regular)
+}
+
+
+
+
+.text-gradient,
+h1,
+h2:not(.subtitle),
+h3,
+h4 {
+  background-image: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+  padding-bottom: 2rem;
+  transition: background-size 0.75s var(--ease-out-soft), background-position 2.5s var(--ease-out-soft);
+  text-box-trim: trim-end;
+}
+.text-gradient:hover {
+  background-size: 200%;
+  /* background-position: 100%; */
+  /* background-image: var(--radial-gradient); */
+}
+
+.text-gradient_mono {
+    background-image: linear-gradient(0deg, rgb(97, 109, 120) 0%, rgb(15, 17, 18) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient::-moz-selection,
+.text-gradient::selection { 
+  /* Code for Firefox */
+  color: white !important;
+  background: var(--selection-color);
+  background-image: unset !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+
+/* category */
+.text-block_text-block__label {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+.case-study-overview_content p {
+  font-size: 2.2rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.45;
+}
+.case-study-overview_content h5+p, 
+.case-study-overview_content h5+ul {
+  margin-top: 2.5rem;
+}
+
+/* 
+// <uniquifier>: Use a unique and descriptive class name
+
+.schibsted-grotesk-<uniquifier> {
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} 
+*/
+
+/* links */
+
+a {
+    color: var(--link-color);
+}
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[id*="heading"] {
+    /* line-height: 1.1; */
+    /* font-weight: 900; */
+    /* color: var(--gray-100); */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* 
+h1 {
+    font-size: var(--text-5xl);
+    margin: 1rem 0;
+}
+
+h2 {
+    font-size: var(--text-4xl);
+}
+
+h3 {
+    font-size: var(--text-3xl);
+}
+
+h4 {
+    font-size: var(--text-2xl);
+}
+
+h5 {
+    font-size: var(--text-xl);
+}
+
+h6 {
+    font-size: var(--text-lg);
+} */
+ 
+  /* LINKS */
+
+  /* PARA */
+
+  p {
+    margin-bottom: 1.5rem;
+    max-width: 75ch;
+  }
+
+  .light {
+    font-weight: var(--font-weight-light);
+  }
+
+  /* OTHER */
+
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  pre {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  

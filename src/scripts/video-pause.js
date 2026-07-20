@@ -9,7 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeVideoHandling();
 });
 
+function isMobileDevice() {
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const hasSmallViewport = window.matchMedia('(max-width: 767px)').matches;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    return isIOS || (hasCoarsePointer && hasSmallViewport);
+}
+
 function initializeVideoHandling() {
+    if (isMobileDevice()) {
+        return;
+    }
+
     console.log("Initializing video handling...");
 
     const win = window;
@@ -21,14 +34,6 @@ function initializeVideoHandling() {
         viewportTop = win.scrollY + win.innerHeight / 3;
         viewportBottom = win.scrollY + (win.innerHeight * 2 / 3);
         resetScrollTimeout();
-    }
-
-    function isScrolledIntoView(elem) {
-        if (!elem) return false;
-        const rect = elem.getBoundingClientRect();
-        const elementTop = rect.top + win.scrollY;
-        const elementBottom = elementTop + rect.height;
-        return (elementBottom >= viewportTop && elementTop <= viewportBottom);
     }
 
     function resetScrollTimeout() {

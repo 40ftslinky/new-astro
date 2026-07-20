@@ -7,6 +7,7 @@ import Grid from '../components/Grid.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Clients from '../components/Clients.astro';
 import Services from '../components/Services.astro';
+import ServicesSection from '../components/Services_Section.astro';
 import Capabilities from '../components/Capabilities.astro';
 
 
@@ -22,9 +23,11 @@ const pageTitle = "40ftSlinky - Creative Agency";
 const metaTitle = "40ftSlinky - Creative Agency";
 const metaDescription = "40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.";
 const metaImage = "/preview/40ftslinky_preview.png";
-const pageHead = "Transforming your brand to reach the next level.";
+const pageHead = "Small footprint, big steps.";
 const pageDesc = "40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.";
 // a boutique agency that thrives at the intersection of design, data, and technology. Together, we’re focused on transforming brands and culture — across the world.
+// design and technology agency
+// bridge brand identity, digital product design and technology to create experiences
 const pageContent = "";
 
 import { Image } from "astro:assets";
@@ -87,9 +90,11 @@ const projects = (await getCollection('projects'))
 
 	<Clients></Clients>
 
-	<Services></Services>
+	<!-- <Services></Services> -->
 
-	<Capabilities></Capabilities>
+	<ServicesSection></ServicesSection>
+
+	<!-- <Capabilities></Capabilities> -->
 
 
 </BaseLayout>
@@ -98,6 +103,10 @@ const projects = (await getCollection('projects'))
 	/* Add your global styles here */
 	main {
 		/* padding-top: var(--sectionpadding); */
+	}
+
+	h1 {
+		max-width: 12ch;
 	}
 
 	.section.title {

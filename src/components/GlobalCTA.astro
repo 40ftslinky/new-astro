@@ -1,0 +1,83 @@
+---
+
+// global call-to-action section 
+import ContactPopup from './ContactPopup.astro';
+
+---
+
+<section class="globalcta animate">
+    <div class="row has-divider">
+        <div class="column col_title">
+            <div class="title">
+                <h2>Contact us</h2>
+                <p>We’re here to help you achieve your goals. Whether you have a question, need support, or want to discuss a project, our team is ready to assist you.</p>
+            </div>
+        </div>
+        <div class="column col_content top-space">
+            <div class="flex-wrap">                
+                
+                <div class="cta_column fade-up">
+                    <h3>Let’s create something extraordinary together</h3>
+                    <p class="small">Schedule a free consultation with our team and let’s make things happen!</p>
+                    <button class="btn btn-primary" type="button" data-popup-open="contact-popup">Touch Base</button>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<ContactPopup />
+
+<style>
+    .globalcta, .cta-section {
+		padding-bottom: calc(var(--sectionpadding) * 2);
+	}
+
+    .globalcta h2 {
+        max-width: 10ch;
+    }
+
+    .globalcta .card {
+        align-items: flex-start;
+        /* width: calc(30vw - var(--col-gap) - (var(--bodypadding)*2)); */
+        /* width: calc(50% - var(--col-gap)); */
+    }
+
+    .globalcta .card:hover {
+        /* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-0.5rem); */
+    }
+
+    .cta_column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .globalcta h3 {
+        /* font-size: 1.5rem; */
+        margin-top: 0;
+        margin-bottom: 1rem;
+        max-width: 20ch;
+        letter-spacing: 0.001rem;
+    }
+
+    .globalcta h6 {
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+    }
+
+    .globalcta p {
+        font-size: var(--font-size-body);
+        line-height: 1.5;
+        max-width: 40ch;
+    }
+
+</style>
+
+<style>
+    @import url(../styles/buttons.css);
+</style>

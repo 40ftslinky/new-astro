@@ -60,7 +60,7 @@ nav {
 }
 /* req js added class */
 .active nav { 
-  background: rgba(var(--light-rgb), 0.95);
+  background: rgba(var(--light-rgb), 1);
   /* padding: 1.5rem 5rem; */
   transition: var(--ease);
 }

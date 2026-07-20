@@ -5,10 +5,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Grid from '../../components/Grid.astro';
 import PortfolioPreview from '../../components/PortfolioPreview.astro';
+import { toSlug } from "../../utils/toSlug";
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("projects");
-  const uniqueTags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
+  const uniqueTags = [
+    ...new Set(
+      allProjects
+        .map((project) => project.data.tags)
+        .flat()
+        .filter((tag): tag is string => typeof tag === "string" && tag.length > 0)
+    ),
+  ];
 
   return uniqueTags.map((tag) => {
     const filteredProjects = allProjects.filter((project) =>
@@ -16,14 +24,15 @@ export async function getStaticPaths() {
       project.data.tags && typeof tag === 'string' && project.data.tags.includes(tag)
     );
     return {
-      params: { tag },
-      props: { projects: filteredProjects },
+      params: {
+        tag: toSlug(tag),
+      },
+      props: { projects: filteredProjects, currentTag: tag },
     };
   });
 }
 
-const { tag } = Astro.params;
-const { projects } = Astro.props;
+const { projects, currentTag } = Astro.props;
 
 
 const uniqueID = "tag-index";
@@ -46,7 +55,7 @@ const pageContent = "Select a tag to view all projects with that tag.";
 	pageContent={pageContent}
 >
 <section>
-    <p>Projects tagged with {tag}</p>
+  <p>Projects tagged with {currentTag}</p>
     <!-- <ul>
         { projects.map((project) => 
           <ProjectPost url={`/projects/${project.id}/`} title={project.data.title} />) 
