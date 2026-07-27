@@ -6,7 +6,7 @@ interface Props {
 const { id = 'form' } = Astro.props;
 ---
 
-<form method="POST"
+<form
     action="https://api.web3forms.com/submit"
     method="POST"
     id={id}
@@ -22,46 +22,59 @@ const { id = 'form' } = Astro.props;
     name="access_key" 
     value="6e231928-00ff-4e44-bbb2-e581183247c2" 
 />
+<input type="checkbox" name="botcheck" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-    <div class="input form-group">        
-        <label for="name"><span>Name</span>
-            <input type="text" name="name" required>
+    <div class="input form-group">
+        <label for={`${id}-name`}><span>Name</span>
+            <input id={`${id}-name`} type="text" name="name" autocomplete="name" minlength="2" required aria-describedby={`${id}-name-error`}>
         </label>
+        <span class="form-error" id={`${id}-name-error`} data-error-for="name"></span>
     </div>
 
-    <div class="input form-group">        
-        <label for="email"><span>Email</span>
-            <input type="email" name="email" required>
+    <div class="input form-group">
+        <label for={`${id}-email`}><span>Email</span>
+            <input id={`${id}-email`} type="email" name="email" autocomplete="email" required aria-describedby={`${id}-email-error`}>
         </label>
+        <span class="form-error" id={`${id}-email-error`} data-error-for="email"></span>
     </div>
 
-    <div class="input form-group">        
-        <label for="phone"><span>Phone</span>
-            <input type="tel" name="phone">
+    <div class="input form-group">
+        <label for={`${id}-phone`}><span>Phone <small>(optional)</small></span>
+            <input id={`${id}-phone`} type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+().\s-]{8,20}" aria-describedby={`${id}-phone-error`}>
         </label>
+        <span class="form-error" id={`${id}-phone-error`} data-error-for="phone"></span>
     </div>
 
     <div class="select-group form-group">
-        <label for="subject"><span>Subject</span></label>
+        <label for={`${id}-subject`}><span>Subject</span></label>
         <div class="select">
-        <select name="subject" required>
-            <option value="" disabled selected>Select </option>
+        <select id={`${id}-subject`} name="subject" required aria-describedby={`${id}-subject-error`} data-subject-select>
+            <option value="" disabled selected>Select</option>
             <option value="General Enquiry">General Enquiry</option>
             <option value="Support">Support</option>
             <option value="Feedback">Feedback</option>
             <option value="Other">Other</option>
         </select>
         </div>
+        <span class="form-error" id={`${id}-subject-error`} data-error-for="subject"></span>
+    </div>
+
+    <div class="input form-group conditional-field" data-other-subject hidden>
+        <label for={`${id}-other-subject`}><span>Please specify</span>
+            <input id={`${id}-other-subject`} type="text" name="other_subject" minlength="3" disabled aria-describedby={`${id}-other-subject-error`}>
+        </label>
+        <span class="form-error" id={`${id}-other-subject-error`} data-error-for="other_subject"></span>
     </div>
 
     <div class="textarea form-group">
-        <label for="message"><span>Message</span></label>
-        <textarea name="message" placeholder="Please describe your enquiry" required></textarea>
+        <label for={`${id}-message`}><span>Message</span></label>
+        <textarea id={`${id}-message`} name="message" placeholder="Please describe your enquiry" minlength="20" required aria-describedby={`${id}-message-error`}></textarea>
+        <span class="form-error" id={`${id}-message-error`} data-error-for="message"></span>
     </div>
 
-    <button type="submit">Let's Go</button>
+    <button type="submit" data-submit-button>Let's Go</button>
 
-    <div id={`${id}-result`} data-form-result></div>
+    <div id={`${id}-result`} class="form-result" data-form-result role="status" aria-live="polite"></div>
 
 </form>
 
@@ -70,42 +83,112 @@ const initializeContactForms = () => document.querySelectorAll('[data-contact-fo
     if (!(form instanceof HTMLFormElement) || form.dataset.initialized === 'true') return;
 
     form.dataset.initialized = 'true';
-    const result = form.querySelector('[data-form-result]');
+    const result = form.querySelector<HTMLElement>('[data-form-result]');
+    const submitButton = form.querySelector<HTMLButtonElement>('[data-submit-button]');
+    const subject = form.querySelector<HTMLSelectElement>('[data-subject-select]');
+    const otherSubjectGroup = form.querySelector<HTMLElement>('[data-other-subject]');
+    const otherSubject = otherSubjectGroup?.querySelector<HTMLInputElement>('input');
+    const fields = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+        'input:not([type="hidden"]):not([type="checkbox"]), select, textarea'
+    )];
 
-    form.addEventListener('submit', function(e) {
-        const formData = new FormData(form);
-        e.preventDefault();
+    const messages: Record<string, string> = {
+        name: 'Please enter at least two characters.',
+        email: 'Please enter a valid email address.',
+        phone: 'Please enter a valid phone number, or leave this field blank.',
+        subject: 'Please select a subject.',
+        other_subject: 'Please tell us what your enquiry is about.',
+        message: 'Please enter a message of at least 20 characters.',
+    };
 
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+    const validateField = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+        if (field.disabled) return true;
+        const value = field.value.trim();
+        field.setCustomValidity('');
 
-        if (result) result.innerHTML = "Please wait...";
+        if (field.required && !value) field.setCustomValidity(messages[field.name] ?? 'This field is required.');
+        else if (field.name === 'name' && value.length < 2) field.setCustomValidity(messages.name);
+        else if (field.name === 'other_subject' && value.length < 3) field.setCustomValidity(messages.other_subject);
+        else if (field.name === 'message' && value.length < 20) field.setCustomValidity(messages.message);
+        else if (!field.checkValidity()) field.setCustomValidity(messages[field.name] ?? 'Please check this field.');
 
-        fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: json
-    })
-    .then(async (response) => {
-        let json = await response.json();
-        if (response.status !== 200) {
-            console.log(response);
+        const error = form.querySelector<HTMLElement>(`[data-error-for="${field.name}"]`);
+        const isValid = field.validity.valid;
+        field.setAttribute('aria-invalid', String(!isValid));
+        if (error) error.textContent = isValid ? '' : field.validationMessage;
+        return isValid;
+    };
+
+    const updateConditionalFields = () => {
+        const showOther = subject?.value === 'Other';
+        if (otherSubjectGroup && otherSubject) {
+            otherSubjectGroup.hidden = !showOther;
+            otherSubject.disabled = !showOther;
+            otherSubject.required = showOther;
+            if (!showOther) {
+                otherSubject.value = '';
+                otherSubject.setCustomValidity('');
+                const error = form.querySelector<HTMLElement>('[data-error-for="other_subject"]');
+                if (error) error.textContent = '';
+            }
         }
-        if (result) result.innerHTML = json.message;
-    })
-    .catch(error => {
-        console.log(error);
-        if (result) result.innerHTML = "Something went wrong!";
-    })
-    .then(function() {
-        form.reset();
-        setTimeout(() => {
-            if (result) result.style.display = "none";
-        }, 3000);
+    };
+
+    subject?.addEventListener('change', updateConditionalFields);
+    fields.forEach((field) => {
+        field.addEventListener('blur', () => validateField(field));
+        field.addEventListener('input', () => {
+            if (field.getAttribute('aria-invalid') === 'true') validateField(field);
+        });
     });
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        updateConditionalFields();
+
+        const activeFields = fields.filter((field) => !field.disabled);
+        const isValid = activeFields.map(validateField).every(Boolean);
+        if (!isValid) {
+            activeFields.find((field) => !field.validity.valid)?.focus();
+            if (result) result.textContent = 'Please correct the highlighted fields.';
+            return;
+        }
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.setAttribute('aria-busy', 'true');
+        }
+        if (result) result.textContent = 'Sending…';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(form))),
+            });
+            const data = await response.json();
+            if (!response.ok || data.success === false) throw new Error(data.message || 'Submission failed');
+
+            if (result) result.textContent = data.message || 'Thanks—your message has been sent.';
+            form.reset();
+            fields.forEach((field) => {
+                field.removeAttribute('aria-invalid');
+                const error = form.querySelector<HTMLElement>(`[data-error-for="${field.name}"]`);
+                if (error) error.textContent = '';
+            });
+            updateConditionalFields();
+        } catch (error) {
+            console.error(error);
+            if (result) result.textContent = 'Something went wrong. Please try again.';
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.removeAttribute('aria-busy');
+            }
+        }
     });
 });
 

@@ -17,7 +17,7 @@ import { fade } from "astro:transitions";
 import Grid from '../components/Grid.astro';
 // import Image from '../components/ImageCard.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import { toSlug } from '../utils/toSlug';
+import ProjectFilters from '../components/ProjectFilters.astro';
 
 
 // import content
@@ -68,54 +68,28 @@ const industries = [...new Set(allProjects.map((project) => project.data.industr
 		</div>
 
 		<div class="row ">
-			<div class="column ">
-				<div class="column col_title">
-					<h3>Tags</h3>
-				</div>
-
-				<div class="tags">
-					{tags.map((tag) => (
-						<a class="tag" href={`/tags/${toSlug(tag)}`}>{tag}</a>
-					))}
-				</div>
-
-				<div class="column col_title">
-					<h2>Industries</h2>
-				</div>
-
-				<div class="industry-tags">
-					{industries.map((industry) => (
-						<a class="industry-tag"href={`/industries/${industry}`}>{industry}</a>
-					))}
-				</div>
-
-				<div class="gallery">
-					<Grid variant="offset">
+			<div class="column col_title">
+				<ProjectFilters {tags} {industries} targetId="project-gallery" />
+			</div>
+		
+			<div class="column col_content">
+				<div class="gallery" id="project-gallery">
+					<Grid variant="medium">
 						{
 							projects.map((project) => (
-								<li>
+								<li
+									data-project-card
+									data-tags={JSON.stringify(project.data.tags ?? [])}
+									data-industries={JSON.stringify(project.data.industries ?? [])}
+								>
 									<PortfolioPreview project={project} />
 								</li>
 							))
 						}
 					</Grid>
 				</div>
-
-				<!-- <Image
-					imagePath="/src/assets/dynamic/Editorial-Mockup_00.jpg"
-					altText="An image alt text"
-					name="Editorial-Mockup_00"
-					desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-				/> -->
-				
-				<!-- {
-						allProjects.map((project: any) => (
-							<li><a href={project.url}>{project.frontmatter.title}</a></li>
-						))
-					}  -->
-
 			</div>
-		</div>	
+		</div>
 
 		
 	</section>
@@ -123,40 +97,3 @@ const industries = [...new Set(allProjects.map((project) => project.data.industr
 	
 
 </BaseLayout>
-
-<script is:inline>
-	// 
-	document.addEventListener('DOMContentLoaded', () => {
-        // Select elements
-        const mainElement = document.querySelector("main");
-        const textAnimateSection = document.querySelector("section.text-animate");
-        const textGradientElement = document.querySelector("h1.text-gradient");
-
-        // Ensure elements exist before proceeding
-        if (!mainElement || !textAnimateSection || !textGradientElement) {
-            console.error("Required elements not found in the DOM.");
-            return;
-        }
-
-        // Add mousemove event listener to the main element
-        mainElement.addEventListener("mousemove", (event) => {
-            const rect = mainElement.getBoundingClientRect(); // Use the main element's bounding box
-            const mouseX = event.clientX - rect.left; // X-coordinate relative to the main element
-            const mouseY = event.clientY - rect.top; // Y-coordinate relative to the main element
-            const percentageX = (mouseX / rect.width) * 100; // Percentage X
-            const percentageY = (mouseY / rect.height) * 100; // Percentage Y
-
-            // Create the radial gradient
-            const gradient = `radial-gradient(circle at ${percentageX.toFixed(2)}% ${percentageY.toFixed(2)}%, ${textAnimateSection.dataset.colorPrimary}, ${textAnimateSection.dataset.colorSecondary})`;
-
-            // Apply the gradient to the h1 element
-            textGradientElement.style.backgroundImage = gradient;
-        });
-
-        // Add mouseleave event listener to reset the gradient
-        // mainElement.addEventListener("mouseleave", () => {
-        //     textGradientElement.style.backgroundImage = "none";
-        // });
-    });
-
-</script>

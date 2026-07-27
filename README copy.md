@@ -70,7 +70,6 @@ npx @astrojs/upgrade
 
 # Manual:
 npm install astro@latest
-pnpm upgrade astro --latest
 yarn upgrade astro --latest
 
 ### If it’s running, quit the dev server to have access to the terminal (keyboard shortcut: Ctrl + C)

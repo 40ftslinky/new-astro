@@ -1,0 +1,371 @@
+---
+interface Props {
+	tags: string[];
+	industries: string[];
+	label?: string;
+	targetId: string;
+}
+
+const { tags, industries, label = 'Filter', targetId } = Astro.props;
+const instanceId = `project-filters-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class="project-filters" data-project-filters data-filter-target={targetId}>
+	<div class="filter-tags-wrap">
+		<div class="filter-tags-header">
+			<div class="filter-tags-title">{label}</div>
+			<button class="filter-clear" type="button" data-filter-clear>Clear all</button>
+		</div>
+		<div class="filter-tags">
+			<div class="filter-select" data-filter-select="tags">
+				<button
+					class="filter-select__toggle"
+					type="button"
+					aria-expanded="false"
+					aria-controls={`${instanceId}-tag-options`}
+					data-filter-toggle
+				>
+					<span class="filter-select__heading">Tag</span>
+					<span class="filter-select__chevron" aria-hidden="true"></span>
+				</button>
+				<div class="filter-select__pills" aria-live="polite" data-filter-pills></div>
+				<div class="filter-select__panel" id={`${instanceId}-tag-options`}>
+					<div class="filter-select__panel-inner" role="listbox" aria-label="Filter projects by tag" aria-multiselectable="true">
+						{tags.map((tag) => (
+							<label class="filter-option" role="option" aria-selected="false">
+								<input type="checkbox" value={tag} />
+								<span>{tag}</span>
+							</label>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div class="filter-select" data-filter-select="industries">
+				<button
+					class="filter-select__toggle"
+					type="button"
+					aria-expanded="false"
+					aria-controls={`${instanceId}-industry-options`}
+					data-filter-toggle
+				>
+					<span class="filter-select__heading">Industry</span>
+					<span class="filter-select__chevron" aria-hidden="true"></span>
+				</button>
+				<div class="filter-select__pills" aria-live="polite" data-filter-pills></div>
+				<div class="filter-select__panel" id={`${instanceId}-industry-options`}>
+					<div class="filter-select__panel-inner" role="listbox" aria-label="Filter projects by industry" aria-multiselectable="true">
+						{industries.map((industry) => (
+							<label class="filter-option" role="option" aria-selected="false">
+								<input type="checkbox" value={industry} />
+								<span>{industry}</span>
+							</label>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+	const initializeProjectFilters = () => {
+		document.querySelectorAll<HTMLElement>('[data-project-filters]').forEach((root) => {
+			if (root.dataset.initialized === 'true') return;
+			root.dataset.initialized = 'true';
+
+			const selects = [...root.querySelectorAll<HTMLElement>('[data-filter-select]')];
+			const target = document.getElementById(root.dataset.filterTarget ?? '');
+			if (!target) return;
+			const cards = [...target.querySelectorAll<HTMLElement>('[data-project-card]')];
+			const clearButton = root.querySelector<HTMLButtonElement>('[data-filter-clear]');
+			const cardFilters = new Map(cards.map((card) => [
+				card,
+				{
+					tags: JSON.parse(card.dataset.tags ?? '[]') as string[],
+					industries: JSON.parse(card.dataset.industries ?? '[]') as string[],
+				},
+			]));
+
+			const closeSelect = (select: HTMLElement, returnFocus = false) => {
+				const toggle = select.querySelector<HTMLButtonElement>('[data-filter-toggle]');
+				select.classList.remove('is-open');
+				toggle?.setAttribute('aria-expanded', 'false');
+				if (returnFocus) toggle?.focus();
+			};
+
+			const applyFilters = () => {
+				const selected = new Map<string, string[]>();
+				selects.forEach((select) => {
+					const key = select.dataset.filterSelect ?? '';
+					selected.set(key, [...select.querySelectorAll<HTMLInputElement>('input:checked')].map((input) => input.value));
+				});
+
+				const selectedTags = selected.get('tags') ?? [];
+				const selectedIndustries = selected.get('industries') ?? [];
+				const matchingCards = cards.filter((card) => {
+					const { tags, industries } = cardFilters.get(card)!;
+					const matchesTags = !selectedTags.length || selectedTags.some((tag) => tags.includes(tag));
+					const matchesIndustries = !selectedIndustries.length || selectedIndustries.some((industry) => industries.includes(industry));
+					return matchesTags && matchesIndustries;
+				});
+
+				cards.forEach((card) => {
+					card.hidden = !matchingCards.includes(card);
+				});
+
+				const hasActiveFilters = selectedTags.length > 0 || selectedIndustries.length > 0;
+				selects.forEach((select) => {
+					const key = select.dataset.filterSelect as 'tags' | 'industries';
+					select.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
+						const option = input.closest<HTMLElement>('.filter-option');
+						const isRelevant = !hasActiveFilters || input.checked ||
+							matchingCards.some((card) => cardFilters.get(card)?.[key].includes(input.value));
+						input.disabled = !isRelevant;
+						option?.classList.toggle('is-unavailable', !isRelevant);
+						option?.setAttribute('aria-disabled', String(!isRelevant));
+					});
+				});
+			};
+
+			selects.forEach((select) => {
+				const toggle = select.querySelector<HTMLButtonElement>('[data-filter-toggle]');
+				const pills = select.querySelector<HTMLElement>('[data-filter-pills]');
+				const inputs = [...select.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+				const pillClass = select.dataset.filterSelect === 'industries' ? 'industry-tag' : 'tag';
+
+				toggle?.addEventListener('click', () => {
+					const willOpen = !select.classList.contains('is-open');
+					selects.forEach((item) => closeSelect(item));
+					select.classList.toggle('is-open', willOpen);
+					toggle.setAttribute('aria-expanded', String(willOpen));
+					if (willOpen) window.setTimeout(() => inputs[0]?.focus(), 280);
+				});
+
+				inputs.forEach((input, index) => {
+					input.addEventListener('change', () => {
+						input.closest('[role="option"]')?.setAttribute('aria-selected', String(input.checked));
+						[...pills?.children ?? []]
+							.find((pill) => (pill as HTMLElement).dataset.pillValue === input.value)
+							?.remove();
+
+						if (input.checked && pills) {
+							const pill = document.createElement('span');
+							pill.className = `filter-pill ${pillClass}`;
+							pill.dataset.pillValue = input.value;
+							pill.textContent = input.value;
+							pills.append(pill);
+						}
+						applyFilters();
+					});
+
+					input.addEventListener('keydown', (event) => {
+						if (!['ArrowDown', 'ArrowUp', 'Home', 'End', 'Escape'].includes(event.key)) return;
+						event.preventDefault();
+						if (event.key === 'Escape') return closeSelect(select, true);
+						const nextIndex =
+							event.key === 'Home' ? 0 :
+							event.key === 'End' ? inputs.length - 1 :
+							event.key === 'ArrowDown' ? (index + 1) % inputs.length :
+							(index - 1 + inputs.length) % inputs.length;
+						inputs[nextIndex]?.focus();
+					});
+				});
+			});
+
+			clearButton?.addEventListener('click', () => {
+				selects.forEach((select) => {
+					select.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((input) => {
+						input.checked = false;
+						input.disabled = false;
+						const option = input.closest<HTMLElement>('.filter-option');
+						option?.setAttribute('aria-selected', 'false');
+						option?.setAttribute('aria-disabled', 'false');
+						option?.classList.remove('is-unavailable');
+					});
+					select.querySelector<HTMLElement>('[data-filter-pills]')?.replaceChildren();
+				});
+				applyFilters();
+			});
+
+			document.addEventListener('click', (event) => {
+				if (!root.contains(event.target as Node)) selects.forEach((select) => closeSelect(select));
+			});
+		});
+	};
+
+	document.addEventListener('astro:page-load', initializeProjectFilters);
+	initializeProjectFilters();
+</script>
+
+<style>
+	.project-filters { width: 100%; }
+
+	.filter-tags-wrap {
+		display: inline;
+		margin-bottom: 1.5rem;
+	}
+
+	.filter-tags-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 0.75rem;
+	}
+	.filter-tags-title {
+		color: var(--gray-500);
+		font-size: var(--font-size-small);
+	}
+	.filter-clear {
+		width: auto;
+		max-width: none;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+		color: var(--gray-500);
+		font-size: var(--font-size-small);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		cursor: pointer;
+	}
+	.filter-clear:hover { color: var(--gray-100); }
+	.filter-tags {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--col-gap);
+		align-items: start;
+	}
+	.filter-select {
+		overflow: hidden;
+		border-radius: 0.75rem;
+		background: rgb(255 255 255 / 0%);
+		box-shadow: 0 0 0 rgb(0 0 0 / 0%);
+		color: var(--gray-100);
+		transition: box-shadow 300ms ease-in-out;
+	}
+	.filter-select:hover { 
+		background: rgb(255 255 255 / 50%);
+		box-shadow: 0 0.3rem 1.6rem rgb(0 0 0 / 12%); 
+	}
+	.filter-select:focus-within { 
+		background: #fff;
+		box-shadow: 0 0.3rem 1.6rem rgb(0 0 0 / 12%); 
+
+	}
+	.filter-select__toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: none;
+		padding: 1.25rem 1.5rem;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		color: var(--gray-100);
+		cursor: pointer;
+		text-align: left;
+	}
+	.filter-select__heading {
+		color: var(--gray-100);
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+	.filter-select__chevron {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-right: 1.5px solid #a8a8a8;
+		border-bottom: 1.5px solid #a8a8a8;
+		transform: rotate(45deg) translateY(-0.15rem);
+		transition: transform 300ms ease-in-out;
+	}
+	.filter-select.is-open .filter-select__chevron {
+		transform: rotate(225deg) translate(-0.1rem, -0.1rem);
+	}
+	.filter-select__pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		padding: 0 1.5rem;
+		transition: padding 300ms ease-in-out;
+	}
+	.filter-select__pills:not(:empty) { padding-bottom: 1.25rem; }
+	.filter-pill {
+		display: inline-flex;
+		margin: 0;
+		color: var(--gray-900);
+		animation: filter-pill-in 280ms ease-in-out both;
+	}
+	.filter-select__panel {
+		display: grid;
+		grid-template-rows: 0fr;
+		opacity: 0;
+		transition: grid-template-rows 300ms ease-in-out, opacity 250ms ease-in-out;
+	}
+	.filter-select.is-open .filter-select__panel {
+		grid-template-rows: 1fr;
+		opacity: 1;
+	}
+	.filter-select__panel-inner {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0.75rem;
+		min-height: 0;
+		overflow: hidden;
+		padding: 0 1.5rem;
+	}
+	.filter-select.is-open .filter-select__panel-inner { padding-bottom: 1.5rem; }
+	.filter-option {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.75rem;
+		margin: 0;
+		padding: 0.55rem 0;
+		color: var(--gray-900);
+		cursor: pointer;
+		transition: opacity 200ms ease-in-out;
+	}
+	.filter-option.is-unavailable {
+		opacity: 0.35;
+		cursor: default;
+	}
+	.filter-option span {
+		color: #000;
+		font-size: 1.2rem;
+	}
+	.filter-option input {
+		width: 1rem;
+		height: 1rem;
+		margin: 0;
+		accent-color: var(--primary);
+	}
+	.filter-select__toggle:focus-visible,
+	.filter-clear:focus-visible,
+	.filter-option input:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: -3px;
+	}
+	:global([data-project-card][hidden]) { display: none; }
+	@keyframes filter-pill-in {
+		from { opacity: 0; transform: scale(0.92); }
+		to { opacity: 1; transform: scale(1); }
+	}
+	@media (max-width: 42rem) {
+		.filter-tags { grid-template-columns: 1fr; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.filter-select,
+		.filter-select__chevron,
+		.filter-select__pills,
+		.filter-select__panel,
+		.filter-pill {
+			transition: none;
+			animation: none;
+		}
+	}
+</style>

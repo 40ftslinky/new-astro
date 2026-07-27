@@ -88,5 +88,11 @@ export default defineConfig({
       // responsiveImages: true,
   },
 
+  vite: {
+    optimizeDeps: {
+      exclude: ['maplibre-gl-worker.mjs'],
+    },
+  },
+
   integrations: [mdx()],
 });

@@ -42,6 +42,13 @@ import image02a from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_1.png';
 import image02b from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_2.png';
 import image02c from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_1_detail_3.png';
 import image03 from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_2.png';
+import image03a from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_2_detail_1.png';
+import image03b from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_2_detail_2.png';
+import image03c from '../../assets/imgs/sohi/SOHI_MAP_layout_A0_2_detail_3.png';
+import image04 from '../../assets/imgs/sohi/SoHi_cover.png';
+import image04a from '../../assets/imgs/sohi/SoHi_postcard.png';
+import image04b from '../../assets/imgs/sohi/SoHi_Stand-Up_banner.png';
+
 // import heroImage from '../../assets/imgs/sohi/sohi_hero.png';
 
 export const videoBase = '/video/sohi/';
@@ -52,11 +59,11 @@ export const videos = {
     height: '100%',
     poster: '/src/assets/imgs/sohi/SoHiAppDemo.png',
   },
-  webPages: {
-    // url: `${videoBase}studio-dumbar-demo-typography.mp4`,
+  mapFold: {
+    url: `${videoBase}SoHi_cover+map.mp4`,
     width: '100%',
     height: '100%',
-    // poster: '/src/assets/imgs/sohi/sohi_web_poster.jpg',
+    poster: '/src/assets/imgs/sohi/SoHi_cover+map.png',
     loop: true,
   },
 };
@@ -73,43 +80,55 @@ During the development of branding as well as the design of the historical and e
 
 The primary earthy colour palette references the natural environment of the Southern Highlands, with a hint to the historical  while the secondary palette adds a vibrant and playful touch that reflects the adventurous spirit of the region. The typography choices were made to complement the overall aesthetic and enhance readability across various applications.
 
-<p class="small">App design & development</p>
-
-<VideoFeature video={videos.main} />
-
 
 <p class="small">App design & development.</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.main} /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><VideoFeature video={videos.mapFold} /></div>
   </div>
   <button class="carousel-button prev">❮</button>
-  <button class="carousel-button next">❯</button>  
+  <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div> 
 </div>
 
-<p class="small">Map design & production.</p>
+<p class="small">Map design & production (Australia).</p>
 
 <div id="carousel-02" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02a} alt="Image 02a" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02b} alt="Image 02b" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02c} alt="Image 02c" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="SoHi Map - Australia" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02a} alt="Map detail - Orbit of Venus" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02b} alt="Map detail - Wollemi Pine" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image02c} alt="Map detail - Exploration Timeline" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div> 
+</div>
+
+
+<p class="small">Map design & production (Southern Highlands).</p>
+
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="SoHi Map - Southern Highlands" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03a} alt="Map detail - Greater Glider" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03b} alt="Map detail - Broad Headed Snake" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03c} alt="Map detail - Mittagong, Bowral, Berrima" layout="constrained"/></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
   <div class="carousel-indicators"></div> 
 </div>
 
+<p class="small">Point of sale material.</p>
 
-<p class="small">Post content</p>
-
-<div id="carousel-03" class="carousel_container">
+<div id="carousel-04" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div> */}
+      <div class="image_wrap carousel_slide"><Picture src={image04} alt="SoHi Map - front cover" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image04a} alt="SoHi Postcard" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04b} alt="SoHi Stand-Up Banner" layout="constrained"/></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  

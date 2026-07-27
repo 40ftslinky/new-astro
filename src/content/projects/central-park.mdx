@@ -3,7 +3,7 @@ uniqueID: 'project'
 title: 'Central Park'
 pubDate: 2026-04-03
 head: 'Central Park'
-description: 'Central Park project showcase.'
+description: 'Marketing and Sales material for Luxury Property Development in Box Hill.'
 metaTitle: 'meta title for Central Park project page.'
 metaDescription: 'meta description for Central Park project page.'
 author: ''
@@ -18,8 +18,8 @@ video:
   height: '100%'
   poster: '/src/assets/imgs/central-park/CentralPark_1920x1080_01.jpg'
 
-tags: ['Central Park']
-industries: ['General']
+tags: ['Central Park', 'Marketing', 'Sales', 'Luxury', 'Box Hill', 'OMG!Creative', 'Web Design', 'Web Development']
+industries: ['Property Development']
 ---
 
 import VideoFeature from '../../components/VideoFeature.astro';
@@ -27,7 +27,8 @@ import { Picture } from 'astro:assets';
 import image01 from '../../assets/imgs/central-park/CentralPark_1920x1080_01.jpg';
 import image02 from '../../assets/imgs/central-park/CentralPark_1920x1080_02.jpg';
 import image03 from '../../assets/imgs/central-park/CentralPark_1920x1080_03.jpg';
-import image04 from '../../assets/imgs/central-park/CentralPark_hero.jpg';
+import image04 from '../../assets/imgs/central-park/CentralPark_1920x1080_03.jpg';
+import image05 from '../../assets/imgs/central-park/CentralPark_hero.jpg';
 
 export const videoBase = '/video/central-park/';
 export const videos = {
@@ -40,10 +41,17 @@ export const videos = {
 };
 
 ## Overview
-<p>Central Park project content.</p>
 
-## VideoFeature
+<p>Up and coming development company, H+F Property, needed help with marketing and sales material for their a modern, 20-storey development in the heart of Box Hill.</p>
+
+<h2>Solution:</h2>
+<p>Integrated Marketing Landing pages, digital marketing and traditional print campaigns. POS signage and high-end sales brochure and collateral.</p>
+
+
+<p class="small">Central Park sales & marketing site</p>
+
 <VideoFeature video={videos.main} />
+
 
 ## Gallery
 <div id="carousel-01" class="carousel_container">
@@ -51,9 +59,11 @@ export const videos = {
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Central Park image 1" layout="constrained" /></div>
       <div class="image_wrap carousel_slide"><Picture src={image02} alt="Central Park image 2" layout="constrained" /></div>
       <div class="image_wrap carousel_slide"><Picture src={image03} alt="Central Park image 3" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Central Park image 4" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image04} alt="Central Park image 3" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image05} alt="Central Park image 4" layout="constrained" /></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
+

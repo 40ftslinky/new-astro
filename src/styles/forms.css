@@ -21,17 +21,20 @@
     flex-direction: column;
     align-items: left;
     justify-content: space-evenly;
-    margin: 8px 0 12px;
+    margin: 0 0 8px;
   }
   
   label:last-of-type {
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   
    label, label span {
     font-size: var(--font-size-label);
-    color: var(--light-grey);
-    margin-bottom: 0.33rem;
+    color: var(--gray-300);
+    /* margin-bottom: 0.33rem; */
+  }
+  .form-group:last-of-type {
+    margin-bottom: 2rem;
   }
 
   .textarea label {
@@ -67,12 +70,52 @@
     /* margin: 8px 0 12px; */
   }
 
+  .conditional-field[hidden],
+  .form-honeypot {
+    display: none !important;
+  }
+
+  .form-error {
+    display: block;
+    min-height: 1.25em;
+    margin-top: 0.25rem;
+    color: #b42318;
+    font-size: 1rem;
+    line-height: 1.25;
+    transform: translateY(-10px);
+  }
+  textarea#form-message {
+    margin-bottom: 16px;
+  }
+
+  textarea .form-error,
+  .select-group .form-error {
+    transform: translateY(0px);
+  }
+
+  .form-result {
+    min-height: 1.5em;
+    margin-top: 1rem;
+    font-size: var(--font-size-label);
+  }
+
+  [aria-invalid='true']:not(select):not(.select) {
+    border-bottom: 2px solid #b42318;
+  }
+
+  button[aria-busy='true'] {
+    cursor: wait;
+    opacity: 0.7;
+  }
+
   .form_group label {
     margin-bottom: 0.25rem;
   }
 
   select {
     /* A reset of styles, including removing the default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     /* Additional resets for further consistency */
     background-color: transparent;
@@ -119,6 +162,7 @@
     position: relative;
     display: grid;
     grid-template-areas: "select";
+    margin-bottom: 8px;
   }  
   
   .select::after {
@@ -127,6 +171,7 @@
     width: 0.8em;
     height: 0.5em;
     background-color: var(--select-arrow);
+    -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     justify-self: end;
   }
@@ -151,7 +196,8 @@
     /* color: var(--dark-grey); */
     width: 100%;
     max-width: 360px;
-    padding: 0.75rem 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 8px;
     text-decoration: none;
     border: 0;
     border-radius: 0;
@@ -162,6 +208,7 @@
     overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
     height: 3.5rem;
   }
+  .select,
   .select:has(select) {
     height: 3.5rem;
   }
@@ -215,6 +262,7 @@
   input[type='tel']:focus,
   input[type='date']:focus,
   textarea:focus,
+  .select:focus-within,
   .select:has(select:focus) {
     background: rgba(255, 255, 255, 0.9);
     /* border-bottom: 2px solid var(--dark-green); */
@@ -487,44 +535,7 @@
   /* FLOAT LABLES */
   /* ------------------------------------ */
   
-  label span {
- 
-  }
-
-  textarea label span {
-  }
   
-
-  input:valid span + label span,
-  input:focus + label span,
-  textarea:focus + label span,
-  input:focus-within + label span,
-  textarea:focus-within + label span {
-    /* transform: scale(0.8); */
-    /* top: -57px; */
-  }
-  textarea:focus + label span,
-  textarea:focus-within + label span {
-    /* top: -87px;
-    margin-top: 5px; */
-  }
-  
-  /* input:placeholder {display: none;} */
-  
-  input:valid ~ button,
-  input:valid ~ input[type='submit'],
-  textarea:valid ~ input[type='submit'] {
-    /* -webkit-animation: appear 1s forwards;
-    animation: appear 1s forwards; */
-  }
-  
-  /* button, */
-  input:invalid ~ button,
-  input[type='submit'],
-  input:invalid ~ input[type='submit'],
-  textarea:invalid ~ input[type='submit'] {
-    /* display: none; */
-  }
   
   form button {
     /* outline-color: var(--main-color-dark); */

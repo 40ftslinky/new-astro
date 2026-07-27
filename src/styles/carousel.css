@@ -162,6 +162,16 @@
   height: 50px;
 }
 
+@media screen and (max-width: 880px) {
+  [id*="carousel"] .carousel-button {
+    /* opacity: 0; */
+    display: none;
+  }
+  /* [id*="carousel"]:hover .carousel-button {
+    opacity: 1;
+  } */
+}
+
 .carousel-button:hover {
   background: rgba(255, 255, 255, 0.9);
 }
@@ -208,7 +218,7 @@
 
 .grabbing {
   /* cursor: grabbing; */
-  transition: none;
+  /* transition: none; */
 }
 
 
@@ -218,10 +228,8 @@
 .cursor {
   width: 7rem;
   height: 7rem;
-  /* background: #fff; */
   background: rgba(0, 0, 0, 0.125);
   backdrop-filter: blur(5px);
-  /* border: 0.5px solid #fff; */
   border-radius: 50%;
   position: absolute;
   color: #fff;
@@ -229,19 +237,16 @@
   top: 0;
   left: 0;
   transform:  scale(0);
-  /* transform: scale(0); */
   transform-origin: center center;
-  /* transition: var(--transition-fast-delay); */
   transition: all 0.2s ease; /* Add transition for smooth movement */
-  /* opacity: 0; */
-  mix-blend-mode: difference;
+  /* background-blend-mode: difference; */
+  /* mix-blend-mode: difference; */
   pointer-events: none; /* Allow mouse events to pass through the cursor */
   filter: drop-shadow(0 0 0.5rem rgba(255, 255, 255, 0.5));
 }
 
 .cursor.cursor-on {
   opacity: 1;
-  /* transform: scale(1); */
   transform: translateX(-50%) translateY(-50%) scale(1);
 }
 
@@ -258,32 +263,29 @@
   box-sizing: content-box;
   transition: var(--transition-fast-delay);
 }
-.cursor.cursor-on::after,
-.cursor-over .cursor::after  {
-  /* content: "DRAG"; */
+
+.cursor.cursor-on.active {
+  background: #ff000040;
 }
 
-.cursor.cursor-grabbing {
-  /* transform: translateX(-50%) translateY(-50%) scale(1); */
-  opacity: 1;
-}
 
-.cursor.cursor-grabbing.cursor-on,
-.cursor.cursor-grabbing.cursor-over {
-  /* transform: translateX(-50%) translateY(-50%) scale(0.9); */
+/* .cursor.cursor-grabbing.cursor-on,
+.cursor.cursor-grabbing.cursor-over, */
+.grabbing ~ .cursor {
   transform: scale(0.9);
   opacity: 1;
 }
 
-.cursor.grabbing {
+/* .cursor.grabbing, */
+.grabbing ~ .cursor {
   opacity: 1; 
   transform-origin: center center;
   /* Hide the cursor completely when carousel is active */
   transform: translateX(-50%) translateY(-50%) scale(0.9);
-  mix-blend-mode: normal;
+  /* mix-blend-mode: normal; */
   filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.25));
 }
-.cursor.grabbing::after {
+.grabbing ~ .cursor.cursor-on::after {
   content: "DRAG";
 }
 .cursor::before {
@@ -291,14 +293,10 @@
   position: absolute;
   top: 55%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(0.9);
+  transform: translateX(-50%) translateY(-50%) scale(1);
   transition: var(--transition-fast-delay);
   opacity: 0;
-  /* mix-blend-mode: difference; */
 }
-.cursor.grabbing::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-50%) scale(1);
-    mix-blend-mode: difference;
-
+.grabbing ~ .cursor.cursor-on::before {
+  opacity: 1;  
 }

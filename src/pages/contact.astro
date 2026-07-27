@@ -69,11 +69,14 @@ import Form from '../components/Form.astro';
 							<div class="address">
 								<h6>Melbourne</h6>
 								<p>Level 2, 10 Queens Road<br>Melbourne<br>VIC 3004</p>
+								<!-- <p>162-168 Collins Street<br>Melbourne<br>VIC 3004</p> -->
 							</div>
 
 							<div class="address">
 								<h6>Contact</h6>
-								<p><a href="tel:+61280650000">+61 2 8065 0000</a><br><a href="mailto:hello@40ftslinky.com">hello@40ftslinky.com</a></p>
+								<p>+61 418 385 511<br>
+									hello@40ftslinky.com
+								</p>
 							</div>
 						</div>
 					</div>
@@ -89,7 +92,11 @@ import Form from '../components/Form.astro';
 </BaseLayout>
 
 <script>
-	import maplibregl, { type Map as MapLibreMap } from 'maplibre-gl';
+	import * as maplibregl from 'maplibre-gl';
+	import type { Map as MapLibreMap } from 'maplibre-gl';
+	import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+
+	maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
 	let contactMap: MapLibreMap | undefined;
 
@@ -104,10 +111,11 @@ import Form from '../components/Form.astro';
 			style: 'https://tiles.openfreemap.org/styles/positron',
 			center: [147.1, -34.9],
 			zoom: 4.35,
-			attributionControl: true,
+			attributionControl: false,
 		});
 
 		contactMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+		contactMap.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
 
 		const offices: Array<{ name: string; address: string; coordinates: [number, number] }> = [
 			{ name: 'Sydney', address: '82 Warren Road, Marrickville NSW 2204', coordinates: [151.1548, -33.9074] },
@@ -135,6 +143,7 @@ import Form from '../components/Form.astro';
 </script>
 
 <style>
+
 
 p {max-width: 45ch; }
 
@@ -183,6 +192,8 @@ p {max-width: 45ch; }
 .address p,
 .address a {
 	color: inherit;
+	font-size: 1.25rem;
+	text-wrap-mode: nowrap;
 }
 
 :global(.office-marker) {
@@ -206,6 +217,24 @@ p {max-width: 45ch; }
 	color: #282828;
 	line-height: 1.45;
 }
+
+/* #contact-map  */
+:global(.maplibregl-ctrl-attrib.maplibregl-compact-show:open) {
+    padding: 2px 16px 2px 8px;
+}
+
+/* :global(.maplibregl-ctrl-attrib.maplibregl-compact:open .maplibregl-ctrl-attrib-button),  */
+/* #contact-map  */
+:global(.maplibregl-ctrl-attrib.maplibregl-compact-show:open .maplibregl-ctrl-attrib-inner) {
+    display: none;
+}
+:global(.maplibregl-ctrl-attrib.maplibregl-compact-show:open:hover .maplibregl-ctrl-attrib-inner) {
+    display: block;
+}
+:global(.maplibregl-ctrl-attrib.maplibregl-compact-show:open):hover {
+    padding: 2px 28px 2px 8px;
+}
+
 
 @media screen and (min-width: 768px) {
 	.contact-layout {
