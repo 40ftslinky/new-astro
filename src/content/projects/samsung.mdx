@@ -4,8 +4,8 @@ uniqueID: 'project'
 title: 'Samsung'
 pubDate: 2026-04-18
 head: 'Samsung'
-description: 'Web Design and Development'
-metaTitle: 'meta title for Samsung project page.'
+description: 'Motion Graphics, Web Design and Agentic Creative asset development.'
+metaTitle: 'Samsung Agentic Creative'
 metaDescription: 'meta description for Samsung project page.'
 author: ''
 cover: '../../assets/imgs/samsung/samsung_hero.jpeg'
@@ -19,9 +19,9 @@ video:
     height: '100%'
     poster: '/src/assets/imgs/samsung/samsung_switching.png'
     
-tags: ["Web", "UX", "Design", "Digital", "Conference"]
+tags: ["Web", "UX", "Design", "Digital", "Conference", Agentic Creative", "Web Design", "Motion Graphics", "Video Production"]
 
-industries: ["Technology"]
+industries: ["Technology", "Government", "Defence", "Emergency Services", "Public Safety"]
 
 
 contentImgs:
@@ -41,10 +41,6 @@ contentImgs:
 {/* import Component */}
 import VideoFeature from '../../components/VideoFeature.astro';
 
-## VideoFeature
-<VideoFeature video={videos.switching} />
-
-
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
@@ -52,10 +48,20 @@ import image01 from '../../assets/imgs/samsung/SAM0130_RFSA_firefighter.jpg';
 import image02 from '../../assets/imgs/samsung/samsung_rfsa_2025_01.png';
 import image03 from '../../assets/imgs/samsung/samsung_rfsa_2025_02.png';
 import heroImage from '../../assets/imgs/samsung/samsung_hero.jpeg';
+import imageAi01 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_01.jpg';
+import imageAi02 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_02.jpg';
+import imageAi03 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_03.jpg';
+import imageAi05 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_05.jpg';
+import imageAi06 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_06.jpg';
+import imageAi07 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_07.jpg';
+import imageAi09 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_09.jpg';
+import imageAi10 from '../../assets/imgs/samsung/gaz-n-tonic/Samsung_Image_10.jpg';
+
+
 
 export const videoBase = '/video/samsung/';
 export const videos = {
-  switching: {
+  switchingPage: {
     url: `${videoBase}Samsung_Switching.mp4`,
     width: '100%',
     height: '100%',
@@ -68,13 +74,59 @@ export const videos = {
     poster: '/src/assets/imgs/samsung/Samsung_OnePhone_new.jpg',
     loop: true,
   },
+  aiStatic: {
+    url: `${videoBase}231120_Samsung_AI_Version001.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/samsung/SAMSUNG_CASE_STUDY_ai_images.jpg',
+    loop: true,
+  },
+  defencePage: {
+    url: `${videoBase}Samsung_Defence.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/samsung/Samsung_Defence.jpg',
+    loop: true,
+  },
+  // Samsung_Billboard
+  billboard: {
+    url: `${videoBase}Samsung_Billboard.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/samsung/Samsung_Billboard.jpg',
+    loop: true,
+  },
 };
 
-## Content
-<p>Post content</p>
-Local image stored in src/assets/ (carousel)
+
+
+### Brief:
+
+Samsung is a leader in defence-ready mobile devices and wearables, with proven deployments around the globe. We were asked to help promote their purpose-built software solution for the Australian Defence Force and forward deployed emergency workers. The solution was designed to enhance situational awareness, improve decision-making, and increase operational efficiency in high-stress environments.
+
+### Solution:
+
+How do you authentically photograph and film the use of technology that is highly classified and operationally inaccessible?
+
+With no opportunity for live production, we built the entire creative system using approved source materials from NATO and Five Eyes partners. The result was a compelling, credible visual narrative that accurately represented real-world defence public safety and emergency services use cases.
+
+
+<p class="small">Samsung Switching Landing Page</p>
 
 <div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.switchingPage} /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><VideoFeature video={videos.defencePage} /></div>
+      
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div>
+</div>
+
+<p class="small">RFSA Conference Collateral & Exhibition Stand</p>
+
+<div id="carousel-02" class="carousel_container">
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
       <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
@@ -83,10 +135,38 @@ Local image stored in src/assets/ (carousel)
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
-  <div class="carousel-indicators"></div> {/* Add the indicators here */}
-  {/* <div class="cursor"></div> */}
+  <div class="carousel-indicators"></div>
 </div>
 
+<p class="small">Agentic Creative assets</p>
 
-## Video Embed - alternative method
-<VideoFeature video={videos.onePhone} />
+<div id="carousel-03" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.aiStatic} /></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi01} alt="Samsung Agentic Creative 01" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi02} alt="Samsung Agentic Creative 02" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi03} alt="Samsung Agentic Creative 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi05} alt="Samsung Agentic Creative 05" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi06} alt="Samsung Agentic Creative 06" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi07} alt="Samsung Agentic Creative 07" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={imageAi09} alt="Samsung Agentic Creative 09" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={imageAi10} alt="Samsung Agentic Creative 10" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div>
+</div>
+
+<p class="small">Digital Campaign Assets</p>
+
+<div id="carousel-04" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.onePhone} /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><VideoFeature video={videos.billboard} /></div>
+      
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div>
+</div>
+

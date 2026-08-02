@@ -1,19 +1,19 @@
 ---
 uniqueID: 'project'
-title: 'Uc'
+title: 'University of Canberra'
 pubDate: 2026-04-03
-head: 'Uc'
-description: 'Uc project showcase.'
-metaTitle: 'meta title for Uc project page.'
-metaDescription: 'meta description for Uc project page.'
+head: 'University of Canberra'
+description: 'Annual Reports, Student Recruitment, Promotional and Marketing Collateral.'
+metaTitle: 'University of Canberra project page.'
+metaDescription: 'University of Canberra project page.'
 author: ''
 cover: '../../assets/imgs/uc/OMG_UC_AR_bg.jpg'
 coverAlt: 'Uc cover image'
 coverWidth: '1920'
 coverHeight: '1080'
 
-tags: ['Uc']
-industries: ['General']
+tags: ['University of Canberra', 'Marketing', 'Design', 'Print', 'Annual Reports', 'Branding', 'Student Recruitment' ]
+industries: ['Education']
 ---
 
 import { Picture } from 'astro:assets';
@@ -21,17 +21,37 @@ import image01 from '../../assets/imgs/uc/OMG_UC_AR_bg.jpg';
 import image02 from '../../assets/imgs/uc/UC_AR_14_1.jpg';
 import image03 from '../../assets/imgs/uc/UC_AR_14_2.jpg';
 import image04 from '../../assets/imgs/uc/UC_AR_14_3.jpg';
+import image05 from '../../assets/imgs/uc/UC-Brand_1920x1080_01.jpg';
+import image06 from '../../assets/imgs/uc/UC-Brand_1920x1080_02.jpg';
+import image07 from '../../assets/imgs/uc/UC-Brand_1920x1080_03.jpg';
+import image08 from '../../assets/imgs/uc/UC-Brand_1920x1080_04.jpg';
 
 ## Overview
-<p>Uc project content.</p>
+<p>While embedded in the University of Canberra's marketing team, we were responsible for the design and production of the University's marketing and promotional material.</p>
 
-## Gallery
+
+<p class="small">Annual Reports</p>
+
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Uc image 1" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Uc image 2" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Uc image 3" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Uc image 4" layout="constrained" /></div>
+      {/* <div class="image_wrap carousel_slide"><Picture src={image01} alt="Uc image 1" layout="constrained" /></div> */}
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="UC Annual Report" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="UC Annual Report" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="UC Annual Report" layout="constrained" /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>
+  <div class="carousel-indicators"></div>
+</div>
+
+<p class="small">Brand Guidelines</p>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><Picture src={image05} alt="UC Brandguide" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image06} alt="UC Brandguide" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image07} alt="UC Brandguide" layout="constrained" /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image08} alt="UC Brandguide" layout="constrained" /></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>

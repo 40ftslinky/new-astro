@@ -3,8 +3,8 @@ uniqueID: 'project'
 title: 'Lug+Carrie'
 pubDate: 2026-04-05
 head: 'Lug+Carrie'
-description: 'Taking eBike subscription service Australia wide with a custom bike builder and Salesforce integration.'
-metaTitle: 'meta title for Lug+Carrie project page.'
+description: 'Taking eBike subscription service Australia wide with a custom bike builder, Salesforce integration and brand update.'
+metaTitle: 'Lug+Carrie bike builder, Salesforce integration and brand update.'
 metaDescription: 'meta description for Lug+Carrie project page.'
 author: ''
 cover: '../../assets/imgs/lug-carrie/HSD_loop_sup.gif'
@@ -47,6 +47,13 @@ export const videos = {
     height: '100%',
     poster: '/src/assets/imgs/lug-carrie/LC_casestudy_12.jpg',
   },
+  // Lug_tern-gsd-configurator.mp4
+  configurator: {
+    url: `${videoBase}Lug_tern-gsd-configurator.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/lug-carrie/LugCarrie_configurator.png',
+  },
 };
 
 <h2>Brief:</h2>
@@ -58,13 +65,16 @@ export const videos = {
 <p>We developed a custom Salesforce-integrated bike builder, allowing users to configure their eBikes according to their preferences. This solution streamlined the subscription process and enhanced the overall user experience.</p>
 
 
-## VideoFeature
+
+<p class="small">Lug+Carrie website</p>
+
 <VideoFeature video={videos.main} />
 
 <p class="small">Custom salesforce integrated bike builder</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
+      <div class="image_wrap carousel_slide"><VideoFeature video={videos.configurator} /></div>
       <div class="image_wrap carousel_slide"><Picture src={image01} alt="Lug Carrie image 1" layout="constrained" /></div>
       <div class="image_wrap carousel_slide" data-type="last"><Picture src={image02} alt="Lug Carrie image 2" layout="constrained" /></div>
   </div>
@@ -73,7 +83,7 @@ export const videos = {
   <div class="carousel-indicators"></div>
 </div>
 
-<p class="small">Custom salesforce integrated bike builder</p>
+<p class="small">Video assets and social execution</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
@@ -85,4 +95,3 @@ export const videos = {
   <div class="carousel-indicators"></div>
 </div>
 
-<p class="small">Video assets and social execution</p>

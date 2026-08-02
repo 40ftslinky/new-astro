@@ -10,6 +10,13 @@
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
+  --aspect_1_1: 1 / 1;
+  --aspect_16_9: 16 / 9;
+  --aspect_4_3: 4 / 3;
+  --aspect_3_2: 3 / 2;
+  --aspect_2_3: 2 / 3;
+  --aspect_9_16: 9 / 16;
+
   /*  */
 
   /*  */
@@ -79,7 +86,9 @@
     /* spacing */
     --xs-padding:1rem;
     --sm-padding:2rem;
-    --bodypadding: 5vw;
+    /* --bodypadding: 5vw;
+    --sectionpadding:6.5vw; */
+    --bodypadding: 2.5vw;
     --sectionpadding:6.5vw;
     --col-gap: 2rem;
   }
@@ -300,12 +309,50 @@ section.hero {
   object-fit: cover;
   aspect-ratio: 16/9;
 }
+.image_wrap, .image_wrap img, 
+.video_wrap, .video_wrap video {
+  color:inherit;
+}
+
+.aspect_16_9, .aspect_16_9 > * {
+  aspect-ratio: 16/9;
+}
+.aspect_4_3, .aspect_4_3 > * {
+  aspect-ratio: 4/3;
+}
+.aspect_6_5, .aspect_6_5 > * {
+  aspect-ratio: 6/5;
+}
+.aspect_3_2, .aspect_3_2 > * {
+  aspect-ratio: 3/2;
+} 
+.aspect_2_3, .aspect_2_3 > * {
+  aspect-ratio: 2/3;
+}
+.aspect_9_16, .aspect_9_16 > *  {
+  aspect-ratio: 9/16;
+}
+.aspect_1_1, .aspect_1_1 > * {
+  aspect-ratio: 1/1;
+}
+
+.aspect_2060_954 {
+  max-width: 90vw;
+}
+.aspect_2060_954 > * {
+  aspect-ratio: 2060/954;
+}
+
 .image_wrap, 
-.video_wrap, 
+.video_wrap {
+  border-radius: var(--border-radius);
+}
+
+
 .info_wrap, 
 .overlay, 
 .portfolio .flex.large .card {
-  border-radius: var(--border-radius);
+  border-radius: unset;
 }
 .info_wrap p {
         letter-spacing: 0.001rem;
@@ -327,6 +374,8 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-height: 80vh;
+  max-width: max-content;
 }
 
 video.paused {
@@ -537,7 +586,7 @@ video.controls::-webkit-media-controls {
 
 @media screen and (max-width: 880px) {
   .image_wrap picture img {
-    max-width: var(--max-col-width);
+    color:inherit;
   }
   
 }

@@ -43,7 +43,7 @@ import VideoFeature from '../../components/VideoFeature.astro';
 {/* import assets  */}
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+import image01 from '../../assets/imgs/sonnen/SON0003_fb_1200x628_grid.png';
 import image02 from '../../assets/imgs/other/color-orange.png';
 import image03 from '../../assets/imgs/other/color-green.jpg';
 
@@ -78,32 +78,70 @@ export const videos = {
     poster: '/src/assets/imgs/sonnen/SON0004_sb_1080x1080_poster.jpg',
     loop: true,
   },
+  digitalYellow: {
+    url: `${videoBase}SON0003_sonnenConnect_1080x900_15s.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0003_sonnenConnect_1080x900_poster.jpg',
+    loop: true,
+  },
+  digitalYellow02: {
+    url: `${videoBase}SON0003_sc_social_1080x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0003_sc_social_1080x1080_poster.png',
+    loop: true,
+  },
+  digitalYellow03: {
+    url: `${videoBase}SON0003_sc_social_1080x1920.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0003_sc_social_1080x1920_poster.png',
+    loop: true,
+  },
+  digitalYellow04: {
+    url: `${videoBase}SON0003_sc_social_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sonnen/SON0003_sc_social_1920x1080_poster.png',
+    loop: true,
+  },
 };
 
-## VideoFeature
+### Brief:
+Sonnen's entrance into the Australian market required a comprehensive suite of digital and video assets to introduce their innovative energy storage solutions. The project aimed to create engaging content that highlighted Sonnen's commitment to sustainability, clean energy, and smart home integration. 
+
+{/* is a leading provider of smart energy storage solutions, offering innovative products that enable homeowners and businesses to generate, store, and manage their own renewable energy. The company is committed to sustainability and reducing carbon emissions through the use of clean energy technologies. */}
+
+### Solution:
+Over several product launch campaigns, we developed a range of digital and video assets that effectively communicated Sonnen's brand values and product offerings. This included creating promotional videos, social media content, and web assets that showcased the benefits of Sonnen's energy storage solutions. The content was designed to resonate with environmentally conscious consumers and position Sonnen as a leader in the renewable energy sector in Australia.
+ 
+
+<p class="small">Promotional Brand Video</p>
 <VideoFeature video={videos.main} />
 
-## Content
-<p>Post content</p>
-Local image stored in src/assets/ (carousel)
+<p class="small">Digital Campaign</p>
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-  </div>
+      <div class="image_wrap carousel_slide aspect_6_5"><VideoFeature video={videos.digitalYellow} /></div>
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Sonnen FB images" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide aspect_1_1"><VideoFeature video={videos.digitalYellow02} /></div>
+      <div class="image_wrap carousel_slide aspect_9_16"><VideoFeature video={videos.digitalYellow03} /></div>
+       <div class="image_wrap carousel_slide aspect_16_9" data-type="last"><VideoFeature video={videos.digitalYellow04} /></div>
+ </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
   <div class="carousel-indicators"></div> 
 </div>
 
+<p class="small">Digital Campaign</p>
+
 <div id="carousel-02" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalLandscape} /></div>
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalPortrait} /></div>
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.digitalSquare} /></div>
+      <div class="image_wrap carousel_slide aspect_16_9"><VideoFeature video={videos.digitalLandscape} /></div>
+      <div class="image_wrap carousel_slide aspect_9_16"><VideoFeature video={videos.digitalPortrait} /></div>
+      <div class="image_wrap carousel_slide aspect_1_1" data-type="last"><VideoFeature video={videos.digitalSquare} /></div>
 
       {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
   </div>
@@ -111,7 +149,6 @@ Local image stored in src/assets/ (carousel)
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
-<p class="small">Flinders Street Station WOW Wall takeover</p>
 
 <style>{`
   video#loadvideo {

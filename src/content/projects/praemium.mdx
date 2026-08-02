@@ -4,22 +4,16 @@ uniqueID: 'project'
 title: 'Praemium'
 pubDate: 2025-02-18
 head: 'Post Title'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-metaTitle: 'meta title for Praemium project page.'
+description: 'Elevating the home grown fintech brand as a purpose-built investment platform.'
+metaTitle: 'Praemium fintech investment platform.'
 metaDescription: 'meta description for Praemium project page.'
 author: ''
-cover: '../../assets/imgs/other/color-gray.jpg'
+cover: '../../assets/imgs/praemium/praemium_hero.png'
 coverAlt: 'The full Astro logo.'
 coverWidth: '1920'
 coverHeight: '1080'
-
-video: 
-    url: '/video/test/Puppiness.mp4'
-    width: '100%'
-    height: '100%'
-    poster: '/src/assets/imgs/other/color-gray.jpg'
     
-tags: ["Test 01", "Tag", "Category"]
+tags: ["Praemium", "FinTech", "Marketing", "Design", "Print", "Motion Graphics", "Branding", "Web Design", "Web Development", "Digital Marketing"]
 
 industries: ["FinTech"]
 
@@ -40,36 +34,62 @@ contentImgs:
 import VideoFeature from '../../components/VideoFeature.astro';
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
-import image02 from '../../assets/imgs/other/color-orange.png';
-import image03 from '../../assets/imgs/other/color-green.jpg';
-import heroImage from '../../assets/imgs/bruce/bruce_hero.png';
+import image01 from '../../assets/imgs/praemium/praemium_oOH_01.jpg';
+import image02 from '../../assets/imgs/praemium/praemium_oOH_02.jpg';
+import image03 from '../../assets/imgs/praemium/praemium_oOH_03.jpg';
+import image04 from '../../assets/imgs/praemium/praemium_oOH_04.jpg';
 
+export const videoBase = '/video/praemium/';
 export const videos = {
+  // vimeo embed
   main: {
     url: 'https://player.vimeo.com/progressive_redirect/download/1153115348/rendition/source/praemium_website_new.mp4?loc=external&signature=344cce9549b6ff5abf738381135392223314646fd57f67256759267d78f6bfed',
     width: '100%',
     height: '100%',
-    poster: '/src/assets/imgs/other/color-gray.jpg',
+    poster: '/src/assets/imgs/praemium/praemium_landing.png',
     loop: true,
+  },
+  customSMA01: {
+    url: `${videoBase}PRA0205_Praemium_Custom_SMAs_TowerOoH_Concept_01_800x600_Version001.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
+  },
+  customSMA02: {
+    url: `${videoBase}PRA0205_Praemium_Custom_SMAs_TowerOoH_Concept_02_800x600_Version001.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
   },
 };
 
-## Video Embed - updated method
-<p>Video component.</p>
+## Challenge
+Elevating the home grown fintech brand as a purpose-built investment platform.
+
+## Outcome
+Web design, development, social and digital campaigns for the Praemium platform.
+
+<p class="small">Campaign Landing Page</p>
 <VideoFeature video={videos.main} />
 
-## Content
-<p>Post content</p>
-Local image stored in src/assets/ (carousel)
-
-
+<p class="small">Praemium OOH Campaign assets in-situ</p>
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Image 01" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Image 02" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Praemium Campaign assets in-situ" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Praemium Campaign assets in-situ" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Praemium Campaign assets in-situ" layout="constrained"/></div>
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image04} alt="Praemium Campaign assets" layout="constrained"/></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<p class="small">Digtial Campaign</p>
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="image_wrap carousel_slide aspect_4_3"><VideoFeature video={videos.customSMA01} /></div>
+      <div class="image_wrap carousel_slide aspect_4_3"  data-type="last"><VideoFeature video={videos.customSMA02} /></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  

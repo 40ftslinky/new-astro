@@ -19,7 +19,7 @@ video:
   poster: '/src/assets/imgs/didi/DiDi-Case-Study-1920x1080.jpg'
 
 tags: ['Didi', 'Motion Graphics', 'Video Production', 'Digital Advertising']
-industries: ['General']
+industries: ['Rideshare']
 ---
 
 import VideoFeature from '../../components/VideoFeature.astro';
@@ -65,10 +65,11 @@ export const videos = {
 <p>Digital and OOH advertising campaign for Didi Rideshare launch in Australia. As a result of the campaign, Didi doubled its market awareness to over 90% of all rideshare users in the first 2 months.</p>
 
 
+<p class="small">Flinders Street Station WOW Wall takeover</p>
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><VideoFeature video={videos.flindersSt} /></div>
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.flindersMock} /></div>
+      <div class="image_wrap carousel_slide aspect_2060_954" data-type="last"><VideoFeature video={videos.flindersMock} /></div>
 
       {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
   </div>
@@ -76,13 +77,14 @@ export const videos = {
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
-<p class="small">Flinders Street Station WOW Wall takeover</p>
 
+
+<p class="small">Social media assets.</p>
 <div id="carousel-02" class="carousel_container">
   <div class="carousel_stage">
       <div class="image_wrap carousel_slide"><VideoFeature video={videos.social} /></div>
       <div class="image_wrap carousel_slide"><VideoFeature video={videos.reels} /></div>
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.socialLandscape} /></div>
+      <div class="image_wrap carousel_slide" data-type="last"><VideoFeature video={videos.socialLandscape} /></div>
 
       {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image01} alt="Didi image 1" layout="constrained" /></div> */}
   </div>
@@ -90,4 +92,3 @@ export const videos = {
   <button class="carousel-button next">❯</button>
   <div class="carousel-indicators"></div>
 </div>
-<p class="small">Social media assets.</p>
