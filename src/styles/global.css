@@ -313,26 +313,55 @@ section.hero {
 .video_wrap, .video_wrap video {
   color:inherit;
 }
+/* 
+.aspect_16_9_pad,
+.aspect_4_3_pad, */
+[class*="_pad"] {
+  background-color: var(--gray-800);
+  max-width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.aspect_16_9, .aspect_16_9 > * {
+.aspect_16_9 {
   aspect-ratio: 16/9;
 }
-.aspect_4_3, .aspect_4_3 > * {
+.aspect_16_9 > *,
+.aspect_16_9_pad > * {
+  aspect-ratio: 16/9;
+}
+
+.aspect_16_9_pad > *,
+.aspect_4_3_pad > *,
+[class*="_pad"] > * {
+  max-width: calc( 90vw * 16/9);
+  margin: 8% 8%;
+}
+
+.aspect_4_3 > *,
+.aspect_4_3_pad > * {
   aspect-ratio: 4/3;
 }
-.aspect_6_5, .aspect_6_5 > * {
+
+.aspect_6_5, 
+.aspect_6_5 > * {
   aspect-ratio: 6/5;
 }
-.aspect_3_2, .aspect_3_2 > * {
+.aspect_3_2, 
+.aspect_3_2 > * {
   aspect-ratio: 3/2;
 } 
-.aspect_2_3, .aspect_2_3 > * {
+.aspect_2_3, 
+.aspect_2_3 > * {
   aspect-ratio: 2/3;
 }
-.aspect_9_16, .aspect_9_16 > *  {
+.aspect_9_16, 
+.aspect_9_16 > *  {
   aspect-ratio: 9/16;
 }
-.aspect_1_1, .aspect_1_1 > * {
+.aspect_1_1, 
+.aspect_1_1 > * {
   aspect-ratio: 1/1;
 }
 

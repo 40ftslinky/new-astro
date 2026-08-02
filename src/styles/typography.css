@@ -275,7 +275,11 @@ h1
   background-position: 0%;
   transition: background-image .75s var(--ease-out-soft);
   text-box-trim: trim-end;
-  padding-bottom: 2rem; 
+  padding-bottom: 2rem;
+}
+
+#home h1 {
+  max-width: 13ch;
 }
 .text-gradient:hover {
   /* user-select: none; */
