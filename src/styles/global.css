@@ -280,6 +280,11 @@ section {
 section.hero {
     min-height: 60vh;
 }
+@media only screen and (max-width: 700px) {
+    section.hero {
+        min-height: 40vh;
+    }
+}
 
 .gallery:has(.medium) {
     /* grid-area: gallery; */
@@ -307,21 +312,22 @@ section.hero {
   height: 100%;
   overflow: hidden;
   object-fit: cover;
-  aspect-ratio: 16/9;
+  /* aspect-ratio: 16/9; */
 }
 .image_wrap, .image_wrap img, 
 .video_wrap, .video_wrap video {
   color:inherit;
 }
-/* 
+
 .aspect_16_9_pad,
-.aspect_4_3_pad, */
+.aspect_4_3_pad,
 [class*="_pad"] {
   background-color: var(--gray-800);
   max-width: 90vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* aspect-ratio: unset !important; */
 }
 
 .aspect_16_9 {
@@ -338,7 +344,9 @@ section.hero {
   max-width: calc( 90vw * 16/9);
   margin: 8% 8%;
 }
-
+.aspect_4_3 {
+  aspect-ratio: 4/3;
+}
 .aspect_4_3 > *,
 .aspect_4_3_pad > * {
   aspect-ratio: 4/3;
@@ -387,12 +395,12 @@ section.hero {
         letter-spacing: 0.001rem;
 }
 .video_wrap {
-  margin-bottom: calc(var(--bodypadding));
-  margin-top: calc(var(--bodypadding) / 2) ;
+  /* margin-bottom: calc(var(--bodypadding));
+  margin-top: calc(var(--bodypadding) / 2) ; */
 }
 .carousel_slide .video_wrap {
-  margin-bottom: 0;
-  margin-top: 0;
+  /* margin-bottom: 0;
+  margin-top: 0; */
 }
 
 .image_wrap_vert {

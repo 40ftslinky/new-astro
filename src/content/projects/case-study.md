@@ -2,6 +2,7 @@
 
 uniqueID: 'project'
 title: 'EG: Case Study'
+state: 'Draft'
 pubDate: 
 head: 'Case Study Outline'
 description: 'A Case Study Outline lorem ispsum.'

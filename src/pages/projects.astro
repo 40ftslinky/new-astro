@@ -30,12 +30,14 @@ import { getCollection } from 'astro:content';
 // Get all entries from a collection.
 // Requires the name of the collection as an argument.
 // Content Fetching: List four most recent work projects
-const projects = (await getCollection('projects'))
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+	.filter((project) => project.data.state !== 'Draft')
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const allProjects = await getCollection("projects");
-const tags = [...new Set(allProjects.map((project) => project.data.tags).flat())];
-const industries = [...new Set(allProjects.map((project) => project.data.industries).flat())];
+const tags = [...new Set(projects.map((project) => project.data.tags).flat())];
+const industries = [...new Set(projects.map((project) => project.data.industries).flat())];
 
 
 ---

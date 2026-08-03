@@ -9,15 +9,6 @@ let activeObserver;
 let activeScrollHandler;
 let activeScrollTimeout;
 
-function isMobileDevice() {
-    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    const hasSmallViewport = window.matchMedia('(max-width: 767px)').matches;
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
-        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-    return isIOS || (hasCoarsePointer && hasSmallViewport);
-}
-
 function initializeVideoHandling() {
     const videos = document.querySelectorAll('video');
 
@@ -35,10 +26,6 @@ function initializeVideoHandling() {
         video.setAttribute('playsinline', '');
         video.muted = true;
     });
-
-    if (isMobileDevice()) {
-        return;
-    }
 
     console.log("Initializing video handling...");
 
