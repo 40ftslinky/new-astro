@@ -17,10 +17,6 @@ const videoUrl = resolveMediaPath(video?.url);
 		height={video?.height ?? '100%'} 
 		transition:persist
 		autoplay={false}
-		muted
-		playsinline
-		webkit-playsinline
-		preload="metadata"
 		loop={video?.loop ?? false}		
 		poster={videoPoster}
 	> 
@@ -41,7 +37,6 @@ const videoUrl = resolveMediaPath(video?.url);
 	.carousel_slide .video_wrap,
 	.carousel_slide .video_wrap .video {
 		max-width: 95vw;
-
 	}
 
 	.video {
