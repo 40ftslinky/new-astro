@@ -8,6 +8,7 @@ interface Props {
 
 const { tags, industries, label = 'Filter', targetId } = Astro.props;
 const instanceId = `project-filters-${Math.random().toString(36).slice(2, 9)}`;
+
 ---
 
 <div class="project-filters" data-project-filters data-filter-target={targetId}>
