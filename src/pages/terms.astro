@@ -1,0 +1,63 @@
+---
+// layout
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// components
+import { fade } from "astro:transitions";
+// import Bio from '../components/Bio.astro';
+
+// content
+const uniqueID = "Terms";
+const pageTitle = "Terms";
+const metaTitle = "Terms meta Title tbc";
+const metaDescription = "Terms page meta description tbc";
+const metaImage = "";
+const pageHead = "Terms";
+const pageDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+const pageContent = "Terms content tbc";
+
+---
+
+<BaseLayout
+	uniqueID={uniqueID} 
+	pageTitle={pageTitle} 
+	metaTitle={metaTitle} 
+	metaDescription={metaDescription}
+	metaImage={metaImage}
+	pageHead={pageHead}
+	pageDesc={pageDesc}
+	pageContent={pageContent}
+>
+	<section class="about">
+		<div class="row ">
+			<div class="column ">
+				<h1 class="text-gradient" transition:animate={fade({ duration: '1s' })} >{pageHead}</h1>
+				<h2 class="subtitle">{pageDesc}</h2>
+			</div>
+		</div>
+	</section>
+
+	<section class="animate fade-up">
+		<div class="row has-divider">
+			<div class="column col_title">
+
+				<h2>Lorem</h2>
+
+			</div>
+
+			<div class="column col_content  fade-up">
+
+				<div class="content">
+
+					<p>Lorem ipsum dolor sit amet consectetur. Lacus arcu nulla id maecenas adipiscing pellentesque. Quam quisque tellus lectus lacus urna quis mattis dolor sed. Pellentesque ipsum in nec sed est non lectus eu aliquet. Sem scelerisque nulla vulputate facilisi amet amet faucibus. Sit parturient tortor in eget. Volutpat aliquet viverra neque eu cursus ultricies. Arcu dignissim morbi commodo elementum eget in metus in. In duis viverra ultrices tempus. Lacus est consectetur consequat augue venenatis. Ullamcorper molestie risus id nec ac. </p>
+					<p>Nibh libero duis et dui a platea egestas nam magna. Cras ante magna elit in vitae aliquet proin nisl. Vestibulum at feugiat iaculis sed duis quis massa. Erat blandit vitae non nec dapibus sit risus. Lacus ipsum pulvinar pharetra quisque. Nisi facilisis arcu morbi turpis dignissim auctor augue a pretium. Enim nunc tempor etiam diam sed. Leo sem aliquet tortor consequat nisi.</p>
+
+				</div>				
+
+			</div>
+			<!-- / col -->
+		</div>
+		<!-- / row -->
+	</section>
+
+</BaseLayout>

@@ -8,35 +8,44 @@ description: 'Brand updates, event POS, and promotional materials project showca
 metaTitle: 'meta title for Royal Melbourne Show project page.'
 metaDescription: 'meta description for Royal Melbourne Show project page.'
 author: ''
-cover: '../../assets/imgs/other/color-grey.jpg'
-coverAlt: 'Rms cover image'
+cover: '../../assets/imgs/royal-melbourne-show/RMS_hero.jpg'
+coverAlt: 'Royal Melbourne Show cover image'
 coverWidth: '1920'
 coverHeight: '1080'
 
-video:
-  url: '/video/rms/RMS_SiteTakeOver_comp.mp4'
-  width: '100%'
-  height: '100%'
-  poster: '/src/assets/imgs/other/color-grey.jpg'
-
-tags: ['Rms']
-industries: ['General']
+tags: ['Royal Melbourne Show', 'Event Branding', 'Event Marketing', 'POS', 'Promotional Materials', 'Design', 'Print', 'Motion Graphics', 'Digital Marketing']
+industries: ['Events', 'Agriculture']
 ---
 
 import VideoFeature from '../../components/VideoFeature.astro';
 
 export const videoBase = '/video/rms/';
 export const videos = {
-  main: {
+  videoRMSsocial: {
+    url: `${videoBase}RMS_Social_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/royal-melbourne-show/RMS_Social_1920x1080.jpg',
+    loop: true,
+  },
+  videoRMSweb: {
     url: `${videoBase}RMS_SiteTakeOver_comp.mp4`,
     width: '100%',
     height: '100%',
-    poster: '/src/assets/imgs/other/color-grey.jpg',
+    poster: '/src/assets/imgs/royal-melbourne-show/RMS_sitetakeover.jpg',
+    loop: true,
   },
 };
 
 ## Overview
-<p>Rms project content.</p>
+<p>For 3 years prior to COVID the Royal Melbourne Show was a major annual event attracting thousands of visitors and showcasing the best of Victoria's agriculture, entertainment, and community spirit.</p>
 
-## VideoFeature
-<VideoFeature video={videos.main} />
+<div id="carousel-04" class="carousel_container">
+  <div class="carousel_stage">
+      <div class=" carousel_slide"><VideoFeature video={videos.videoRMSweb} /></div>
+          <div class=" carousel_slide" data-type="last"><VideoFeature video={videos.videoRMSsocial} /></div>    
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>

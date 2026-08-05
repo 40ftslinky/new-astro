@@ -226,7 +226,8 @@ h2:not(.subtitle) {
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-h3);
   letter-spacing: var(--letter-spacing-h3);
-  line-height: var(--line-height-h3)
+  line-height: var(--line-height-h3);
+  max-width: 25ch;
 }
 
 .h4,h4 {

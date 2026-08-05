@@ -28,12 +28,12 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="40"
-	height="40"
-	viewBox="0 0 256 256"
+	width="48"
+	height="48"
+	viewBox="0 0 48 48"
 	aria-hidden="true"
     class={className}
-	stroke={gradient ? `url(#${gradientId})` : color}
+	stroke="none"
 	fill={gradient ? `url(#${gradientId})` : color}
 	{...attrs}
 >

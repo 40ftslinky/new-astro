@@ -36,8 +36,12 @@ const projects = allProjects
 	.filter((project) => project.data.state !== 'Draft')
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const tags = [...new Set(projects.map((project) => project.data.tags).flat())];
-const industries = [...new Set(projects.map((project) => project.data.industries).flat())];
+const tags = [...new Set(projects.map((project) => project.data.tags).flat())]
+	.filter((tag): tag is string => typeof tag === 'string')
+	.sort((a, b) => a.localeCompare(b));
+const industries = [...new Set(projects.map((project) => project.data.industries).flat())]
+	.filter((industry): industry is string => typeof industry === 'string')
+	.sort((a, b) => a.localeCompare(b));
 
 
 ---

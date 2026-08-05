@@ -3,7 +3,7 @@
 uniqueID: 'project'
 title: 'Digital Projects'
 state: 'Published'
-pubDate: 2025-05-27
+pubDate: 2026-05-27
 head: 'Digital Projects'
 description: 'Various digital projects including HTML5 digital ads, Integrated Marketing funnels, landing pages, and more.'
 metaTitle: 'meta title for Digital Projects project page.'
@@ -13,13 +13,6 @@ cover: '../../assets/imgs/digital-projects/digital_hero_01.jpg'
 coverAlt: 'Digital Projects'
 coverWidth: '1920'
 coverHeight: '1080'
-
-video: 
-    url: '/video/digital-projects/digital__1920x1080_01.mp4'
-    width: '100%'
-    height: '100%'
-    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg'
-    # poster: '/images/digital-projects/temporary-image.jpg'
     
 tags: ["HTML5 Digital Ads", "Digital Automation", "Email Templates", "Landing Pages", "CRM integration", "Social Media Campaigns", "Digital Marketing Assets", "CX", "Production"]
 
@@ -35,40 +28,89 @@ import image02 from '../../assets/imgs/digital-projects/temporary-image.jpg';
 import image03 from '../../assets/imgs/digital-projects/temporary-image.jpg';
 import image04 from '../../assets/imgs/digital-projects/temporary-image.jpg';
 
-export const videoBase = '/video/digital-projects/';
+export const videoBase = '/video/';
 export const videos = {
-  main: {
-    url: `${videoBase}digital__1920x1080_01.mp4`,
+  lugSite: {
+    url: `${videoBase}lug-carrie/Lug_tern-gsd-configurator.mp4`,
     width: '100%',
     height: '100%',
-    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
+    poster: '/src/assets/imgs/lug-carrie/LugCarrie_configurator.png',
   },
-  campaignAutomation: {
-    url: `${videoBase}CampaignAutomation__1920x1080_test_01.mp4`,
+  apaiserSite: {
+    url: `${videoBase}digital-projects/apaiser_website.mp4`,
     width: '100%',
     height: '100%',
-    poster: '/src/assets/imgs/digital-projects/CampaignAutomation__1920x1080_01.jpg',
-    loop: true,
-  },
-  pageTakeover: {
-    url: `${videoBase}vanguard_comp 2_1.mp4`,
-    width: '100%',
-    height: '100%',
-    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
-    loop: true,
+    poster: '/src/assets/imgs/digital-projects/apaiser_webmock.jpg',
   },
   videoPTFG: {
-    url: `${videoBase}ptfg.mp4`,
+    url: `${videoBase}digital-projects/ptfg.mp4`,
     width: '100%',
     height: '100%',
-    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
+    poster: '/src/assets/imgs/digital-projects/prime_webmock.jpg',
     loop: true,
   },
   videoPraemium: {
-    url: `${videoBase}praemium_website_new.mp4`,
+    url: `${videoBase}praemium/praemium_website_new.mp4`,
     width: '100%',
     height: '100%',
     poster: '/src/assets/imgs/praemium/praemium_landing.png',
+    loop: true,
+  },
+  videoPraSocial: {
+    url: `${videoBase}praemium/Praemium_Social_base.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/praemium/praemium_landing.png',
+    loop: true,
+  },
+  videoDiDiSocial: {
+    url: `${videoBase}didi/DiDi_Social_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/didi/DiDi_social_1920x1080_poster.jpg',
+    loop: true,
+  },
+  videoSamsung: {
+    url: `${videoBase}samsung/Samsung_switching.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/samsung_switching.png',
+    loop: true,
+  },
+  videoRMSsocial: {
+    url: `${videoBase}rms/RMS_Social_1920x1080.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/royal-melbourne-show/RMS_Social_1920x1080.jpg',
+    loop: true,
+  },
+  videoRMSweb: {
+    url: `${videoBase}rms/RMS_SiteTakeOver_comp.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/royal-melbourne-show/RMS_sitetakeover.jpg',
+    loop: true,
+  },
+
+  // digital ads
+  digitalAds: {
+    url: `${videoBase}digital-projects/digital__1920x1080_01.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
+  },
+  pageTakeover: {
+    url: `${videoBase}digital-projects/vanguard_comp 2_1.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/temporary-image.jpg',
+    loop: true,
+  },
+  campaignAutomation: {
+    url: `${videoBase}digital-projects/CampaignAutomation__1920x1080_test_01.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/digital-projects/CampaignAutomation__1920x1080_01.jpg',
     loop: true,
   },
 };
@@ -78,9 +120,18 @@ export const videos = {
 
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.main} /></div>
-      <div class="image_wrap carousel_slide"><VideoFeature video={videos.campaignAutomation} /></div>
-      <div class="image_wrap carousel_slide" data-type="last"><VideoFeature video={videos.pageTakeover} /></div>
+      <div class="carousel_slide"><VideoFeature video={videos.lugSite} /></div>
+      <div class="carousel_slide"><VideoFeature video={videos.apaiserSite} /></div>
+      <div class=" carousel_slide" data-type="last"><VideoFeature video={videos.videoPTFG} /></div>
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<div id="carousel-02" class="carousel_container">
+  <div class="carousel_stage">      
+      <div class=" carousel_slide"><VideoFeature video={videos.videoPraemium} /></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
@@ -89,9 +140,24 @@ export const videos = {
 
 <p class="small">Social campaigns</p>
 
-<div id="carousel-01" class="carousel_container">
+<div id="carousel-03" class="carousel_container">
   <div class="carousel_stage">
+    <div class=" carousel_slide"><VideoFeature video={videos.videoDiDiSocial} /></div>
     <div class="image_wrap carousel_slide"><Picture src={image01} alt="Fed Uni Social carousel" layout="constrained"/></div>
+    <div class=" carousel_slide" data-type="last"><VideoFeature video={videos.videoPraSocial} /></div>
+    <div class=" carousel_slide" data-type="last"><VideoFeature video={videos.videoRMSsocial} /></div>    
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+<div id="carousel-04" class="carousel_container">
+  <div class="carousel_stage">
+      <div class=" carousel_slide"><VideoFeature video={videos.videoRMSweb} /></div>
+      <div class=" carousel_slide"><VideoFeature video={videos.digitalAds} /></div>
+      <div class=" carousel_slide"><VideoFeature video={videos.campaignAutomation} /></div>
+      <div class=" carousel_slide" data-type="last"><VideoFeature video={videos.pageTakeover} /></div>
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>  
@@ -103,18 +169,10 @@ export const videos = {
     <Image src="/src/assets/imgs/digital-projects/temporary-image.jpg" alt="Positive Good - Web" width="1920" height="1080"/>
 </div> 
 */}
-
+{/* 
 <p>BOUNCE</p>
-<p>Lug + Carrie</p>
-<p>Apaiser</p>
 <p>Bloods</p>
-<p>FedUni</p>
-<p>Monash</p>
-<p>Dandenong Club</p>
+*/}
 
-<VideoFeature video={videos.campaignAutomation} />
 
-## Page takeover
-<p>HTML5 AFR takeover</p>
 
-<VideoFeature video={videos.pageTakeover} />
