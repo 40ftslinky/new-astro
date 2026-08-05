@@ -85,6 +85,9 @@ const projects = (await getCollection('projects'))
 					))
 				}
 			</Grid>
+			<div class="view-all-projects" transition:animate={fade({ duration: '1s' })} >
+				<a href="/projects" class="btn btn-primary">View all projects</a>
+			</div>
 		</div>
 	</section>
 
@@ -145,6 +148,11 @@ const projects = (await getCollection('projects'))
 			width: var(--max-col-width);
 			max-width: 90vw;
 		}
+	}
+
+	.view-all-projects {
+		margin-top: var(--sectionpadding);
+		text-align: center;
 	}
 	
 </style>
