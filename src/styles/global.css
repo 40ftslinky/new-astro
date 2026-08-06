@@ -394,14 +394,6 @@ section.hero {
 .info_wrap p {
         letter-spacing: 0.001rem;
 }
-.video_wrap {
-  /* margin-bottom: calc(var(--bodypadding));
-  margin-top: calc(var(--bodypadding) / 2) ; */
-}
-.carousel_slide .video_wrap {
-  /* margin-bottom: 0;
-  margin-top: 0; */
-}
 
 .image_wrap_vert {
   aspect-ratio: unset;
@@ -435,6 +427,10 @@ video.controls::-webkit-media-controls {
 .carousel_slide .video_wrap {
     /* max-width: 95vw; */
     max-height: 80vh;
+}
+.carousel_slide .video_wrap,
+.carousel_slide .video_wrap .video {
+  max-width: 95vw;
 }
 
 
@@ -769,7 +765,8 @@ p .industry-tag,
   }
   @media screen and (max-width: 1280px) {
     .medium > * {
-      max-width: calc((100% - (var(--col-gap)*3))/4);
+      /* max-width: calc((100% - (var(--col-gap)*3))/4); */
+      max-width: unset
     }
   }
 

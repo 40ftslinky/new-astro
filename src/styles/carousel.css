@@ -48,8 +48,14 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: pan-y;
-    
 }
+
+@media screen and (max-width: 880px) {
+  .carousel_stage {
+    align-items: flex-end;
+  }
+}
+
 .carousel_container, .carousel_stage {
   scroll-behavior: smooth;
   height: var(--carousel-height)
@@ -212,14 +218,13 @@
   background-color: #333;
 }
 
-
-/* --------------------------------------- */
-/* additional carousel styling */
-
-.grabbing {
-  /* cursor: grabbing; */
-  /* transition: none; */
+@media screen and (max-width: 880px) {
+  [id*="carousel"] .carousel-indicators {
+    justify-content: flex-start;
+    position: relative;
+  }
 }
+
 
 
 /* --------------------------------------- */
