@@ -433,6 +433,11 @@ video.controls::-webkit-media-controls {
   max-width: 95vw;
 }
 
+.video_wrap + .video_wrap, .inline-wrap {
+  /* margin: calc(var(--bodypadding)); */
+  margin-top: calc(var(--bodypadding) / 2);
+  margin-bottom: var(--bodypadding);
+}
 
 /*  */
 

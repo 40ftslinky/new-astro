@@ -123,6 +123,9 @@
 
 /* Prevent dragging and user selection on images */
 /* .carousel_container, */
+
+/* Note: is Konqueror styling really necessary? */
+
 .carousel_stage > *,
 .carousel_stage .image_wrap img {
   -webkit-user-drag: none; /* For Safari */
