@@ -24,6 +24,9 @@ const {
 	metaTitle,
 	metaDescription,
 	metaImage,
+	canonicalUrl,
+	robots,
+	noindex,
 	showGlobalCTA = true,
 } = Astro.props;
 
@@ -42,7 +45,9 @@ const {
 		metaTitle={metaTitle} 
 		metaDescription={metaDescription} 
 		metaImage={metaImage}
-		
+		canonicalUrl={canonicalUrl}
+		robots={robots}
+		noindex={noindex}
 	/>
 
 	<body id={uniqueID} >
@@ -87,7 +92,8 @@ const {
 			import "../scripts/video-pause.js";
 			import "../scripts/carousel.js";
 			import "../scripts/scroll.js";
-            import "../scripts/image-swap.js";
+			import "../scripts/image-swap.js";
+			// import "../scripts/pixel-trail.js";
 
 		</script>  
 	
@@ -97,6 +103,14 @@ const {
 </html>
 
 <style>
+	:global(.pixel-trail) {
+		position: fixed;
+		inset: 0;
+		z-index: 1000;
+		pointer-events: none;
+		image-rendering: pixelated;
+	}
+
 	html,
 	body {
 		margin: 0;

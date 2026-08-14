@@ -11,6 +11,9 @@ interface Props {
 	metaTitle?: string | undefined;
 	metaDescription?: string | undefined;
 	metaImage?: string | undefined;
+	canonicalUrl?: string | undefined;
+	robots?: string | undefined;
+	noindex?: boolean | undefined;
 }
 
 const {
@@ -19,9 +22,14 @@ const {
 	metaTitle,
 	metaDescription,
 	metaImage = '/preview/40ftslinky_preview.png',
+	canonicalUrl: canonicalUrlProp,
+	robots,
+	noindex = false,
 } = Astro.props;
 
 const metaImageUrl = new URL(metaImage, Astro.site ?? Astro.url).toString();
+const canonicalUrl = new URL(canonicalUrlProp ?? Astro.url.pathname, Astro.site ?? Astro.url).toString();
+const robotsDirective = robots ?? (noindex ? 'noindex, follow' : 'index, follow');
 
 ---
 
@@ -32,12 +40,14 @@ const metaImageUrl = new URL(metaImage, Astro.site ?? Astro.url).toString();
 		<meta name="generator" content={Astro.generator} />
 		<meta name="title" content={metaTitle} /> 
 		<meta name="description" content={metaDescription} />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="robots" content={robotsDirective} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={metaTitle ?? pageTitle} />
 		<meta property="og:description" content={metaDescription} />
 		<meta property="og:image" content={metaImageUrl} />
 		<meta property="og:image:width" content="1920" />
-		<meta property="og:image:height" content="1079" />
+		<meta property="og:image:height" content="1080" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={metaTitle ?? pageTitle} />
 		<meta name="twitter:description" content={metaDescription} />
