@@ -4,7 +4,7 @@ title: 'Sunsolve'
 state: 'Published'
 pubDate: 2026-04-16
 head: 'Sunsolve'
-description: 'Sunsolve project showcase.'
+description: 'Brand and online development for an industry leading physics-driven software platform delivering solar energy modeling and analytical tools for global solar companies.'
 metaTitle: 'meta title for Sunsolve project page.'
 metaDescription: 'meta description for Sunsolve project page.'
 author: ''
@@ -20,17 +20,16 @@ video:
   poster: '/src/assets/imgs/sunsolve/sunsolve-motion-1920x1080-standard.png'
 
 
-tags: ['Sunsolve']
-industries: ['General']
+tags: ['Design', 'Branding', 'Digital Marketing', 'Web Design', 'Corporate Identity', 'Print Design', 'Marketing Collateral']
+industries: ['Solar Energy', 'Renewables', 'Software', 'Engineering', 'Technology']
+
 ---
 
-
-## Overview
-<p>Sunsolve project content.</p>
+{/* import assets */}
 
 import VideoFeature from '../../components/VideoFeature.astro';
 import { Picture } from 'astro:assets';
-// import image01 from '../../assets/imgs/sunsolve/Sunsolve_1920x1080_01.jpg';
+import image01 from '../../assets/imgs/sunsolve/A4-Mockup-Template_1920x1080_Sunsolve_01.jpg';
 // import image02 from '../../assets/imgs/sunsolve/Sunsolve_1920x1080_02.jpg';
 // import image03 from '../../assets/imgs/sunsolve/Sunsolve_1920x1080_03.jpg';
 // import image04 from '../../assets/imgs/sunsolve/Sunsolve_1920x1080_04.jpg';
@@ -51,15 +50,31 @@ export const videos = {
     poster: '/src/assets/imgs/sunsolve/sunsolve-motion-1920x1080-standard.png',
     loop: true,
   },
+  brandGuide: {
+    url: `${videoBase}sunsolve-brandguide.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sunsolve/A4-Mockup-Template_1920x1080_Sunsolve_01.jpg',
+    loop: true,
+  },
+  brandGuide02: {
+    url: `${videoBase}sunsolve-brandguide-promo_old.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/sunsolve/A4-Mockup-Template_1920x1080_Sunsolve_01.jpg',
+    loop: true,
+  },
 };
+
+{/* CONTENT */}
 
 ## Overview
 
-<p>Up and coming development company, H+F Property, needed help with marketing and sales material for their a modern, 20-storey development in the heart of Box Hill.</p>
+<p>PV Lighthouse needed a coherent brand and product architecture for the advanced, physics-driven software platform that creates digital twins of solar cells, modules, and full-scale photovoltaic systems they had developed . </p>
 
 ## Solution
 
-<p>Integrated Marketing Landing pages, digital marketing and traditional print campaigns. POS signage and high-end sales brochure and collateral.</p>
+<p>A modern, professional brand identity was developed around a distinctive illustrative brandmark, an energetic colour palette, and clear, consistent typography. Together, these elements reflect the company’s expertise in advanced solar software while presenting its services and values as bold, trustworthy, and accessible. The identity was applied across digital and print touchpoints, including a new website, marketing collateral, and brand guide, ensuring consistency across every communication.</p>
 
 
 <p class="small">SunSolve Brand animation</p>
@@ -77,11 +92,14 @@ export const videos = {
 ## Gallery
 <div id="carousel-01" class="carousel_container">
   <div class="carousel_stage">
-      {/* <div class="image_wrap carousel_slide"><Picture src={image01} alt="Sunsolve image 1" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide"><Picture src={image02} alt="Sunsolve image 2" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide"><Picture src={image03} alt="Sunsolve image 3" layout="constrained" /></div>
+      
+      <div class="image_wrap carousel_slide"><Picture src={image01} alt="Sunsolve Brandguide" layout="constrained" /></div>
+      <div class="carousel_slide aspect_16_9_pad"><VideoFeature video={videos.brandGuide} /></div>
+      {/* <div class="carousel_slide" data-type="last"><VideoFeature video={videos.brandGuide02} /></div> */}
+      {/* <div class="image_wrap carousel_slide"><Picture src={image03} alt="Sunsolve image 3" layout="constrained" /></div>
       <div class="image_wrap carousel_slide"><Picture src={image04} alt="Sunsolve image 4" layout="constrained" /></div>
-      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image05} alt="Sunsolve image 5" layout="constrained" /></div> */}
+      <div class="image_wrap carousel_slide" data-type="last"><Picture src={image05} alt="Sunsolve image 5" layout="constrained" /></div> 
+      */}
   </div>
   <button class="carousel-button prev">❮</button>
   <button class="carousel-button next">❯</button>
