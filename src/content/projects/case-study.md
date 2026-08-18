@@ -6,8 +6,8 @@ state: 'Draft'
 pubDate: 
 head: 'Case Study Outline'
 description: 'A Case Study Outline lorem ispsum.'
-metaTitle: 'meta title for X project page.'
-metaDescription: 'meta description for X project page.'
+metaTitle: 'Case Study Template | 40ftSlinky'
+metaDescription: 'Internal draft outlining the structure and content required for a 40ftSlinky project case study.'
 
 author: ''
 # cover: '' 
