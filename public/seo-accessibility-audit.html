@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>SEO & Accessibility Audit | 40ftSlinky</title>
+    <title>SEO &amp; Accessibility Audit | 40ftSlinky</title>
     <style>
       :root {
         color-scheme: dark;
@@ -71,8 +71,8 @@
   </head>
   <body>
     <header>
-      <p class="meta">40ftSlinky · internal handoff · 11 August 2026</p>
-      <h1>SEO & Accessibility Audit</h1>
+      <p class="meta">40ftSlinky · internal handoff · audited 11 August 2026 · updated 18 August 2026</p>
+      <h1>SEO &amp; Accessibility Audit</h1>
       <p>Metadata, route-indexing and image-alt recommendations for the Astro site, including all core pages and project case studies.</p>
     </header>
 
@@ -84,6 +84,7 @@
         <a href="#projects">Projects</a>
         <a href="#images">Image alt text</a>
         <a href="#content">Content quality</a>
+        <a href="#ux-tasks">Site &amp; project UX</a>
         <a href="#verify">Final verification</a>
       </nav>
 
@@ -91,16 +92,17 @@
         <section id="validation">
           <h2>Validation results</h2>
           <div class="summary">
-            <article class="metric"><strong>154</strong><span>static pages built successfully</span></article>
-            <article class="metric"><strong>119</strong><span>pages still containing <code>tbc</code> metadata</span></article>
+            <article class="metric"><strong>161</strong><span>static pages built successfully</span></article>
+            <article class="metric"><strong>3</strong><span><code>noindex</code> test pages still containing <code>tbc</code> metadata</span></article>
             <article class="metric"><strong>6</strong><span>draft projects emitted as public routes</span></article>
           </div>
           <ul class="checklist">
-            <li class="complete">Production build passes. <code>npm run build</code> completed successfully on 11 August 2026.</li>
-            <li>The build warns that <code>/tags/design</code> conflicts with another generated route. Merge or remove the duplicate tag value before deployment.</li>
+            <li class="complete">Production build passes. <code>npm run build</code> completed successfully on 18 August 2026 and generated 161 static pages.</li>
+            <li class="complete">The previous <code>/tags/design</code> route-collision warning is resolved.</li>
             <li>28 project URLs are generated: 22 published projects plus six drafts: <code>case-study</code>, <code>omg</code>, <code>project-1b</code>, <code>project-template</code>, <code>switchdin</code> and <code>zenn</code>.</li>
-            <li>111 taxonomy pages are emitted, including draft-derived <code>/tags/test-01</code>, <code>/tags/zenn</code>, <code>/industries/Test</code> and <code>/industries/Industry</code>.</li>
-            <li>No generated page currently has a canonical URL or robots directive.</li>
+            <li>118 taxonomy pages are emitted: 77 tag pages and 41 industry pages, including draft-derived <code>/tags/test-01</code>, <code>/tags/zenn</code>, <code>/industries/Test</code> and <code>/industries/Industry</code>.</li>
+            <li class="complete">Core pages, taxonomy pages and all 28 projects now have specific meta titles and descriptions. Only three <code>noindex</code> test pages retain <code>tbc</code> metadata.</li>
+            <li class="complete"><code>MainHead.astro</code> now emits canonical and robots directives and uses <code>metaTitle</code> for the browser title. Two legacy <code>/other/project-*</code> pages remain outside the shared layout.</li>
           </ul>
         </section>
 
@@ -109,25 +111,26 @@
           <div class="callout"><span class="status open">Action required</span><p>Draft content, test pages and draft-generated taxonomy pages are part of the production output. Filter every collection query to <code>state === 'Published'</code>, then rebuild.</p></div>
           <ul class="checklist">
             <li class="complete">The prior bounce-video filename issue is resolved. Videos now live in <code>public/video/bounce/</code> and the production build passes.</li>
-            <li>Make <code>&lt;title&gt;</code> use the curated <code>metaTitle</code>. It currently uses <code>pageTitle</code>, so proposed SEO titles are only used for social metadata.</li>
-            <li>Add canonical URL and robots/noindex support to <code>MainHead.astro</code>. 404, test and thin taxonomy pages should not be indexable by default.</li>
+            <li class="complete">The browser <code>&lt;title&gt;</code> now uses the curated <code>metaTitle</code>, with <code>pageTitle</code> as its fallback.</li>
+            <li class="complete">Canonical URL and robots/noindex support is implemented in <code>MainHead.astro</code>. The 404, test and taxonomy pages use <code>noindex</code>.</li>
           </ul>
         </section>
 
         <section id="pages">
           <h2>Site-page metadata</h2>
+          <p><span class="status done">Completed 18 August 2026</span> The values below are now rendered by the production build. Visible placeholder body copy remains tracked separately.</p>
           <div class="table-wrap"><table>
-            <thead><tr><th>Route</th><th>Suggested title</th><th>Suggested description</th><th>Action</th></tr></thead>
+            <thead><tr><th>Route</th><th>Current title</th><th>Current description</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td><code>/</code></td><td>Creative Agency for Brand, Digital &amp; Content | 40ftSlinky</td><td>40ftSlinky is an independent creative agency delivering brand strategy, digital experiences, print and motion for ambitious organisations.</td><td>Improve the generic title.</td></tr>
-              <tr><td><code>/about</code></td><td>About 40ftSlinky | Independent Creative Agency</td><td>Meet 40ftSlinky, a multidisciplinary creative agency combining strategy, brand, digital, print and content to help organisations communicate clearly.</td><td>Replace both <code>tbc</code> values.</td></tr>
-              <tr><td><code>/contact</code></td><td>Contact 40ftSlinky | Start a Project</td><td>Talk to 40ftSlinky about your next brand, digital, print or content project. We work with organisations across Australia and beyond.</td><td>Use a branded, specific title.</td></tr>
-              <tr><td><code>/projects</code></td><td>Creative Agency Projects | 40ftSlinky</td><td>Explore 40ftSlinky projects across branding, strategy, digital, print and motion for clients in culture, technology, sustainability and communications.</td><td>Keep the current description.</td></tr>
-              <tr><td><code>/privacy</code></td><td>Privacy Policy | 40ftSlinky</td><td>Read how 40ftSlinky collects, uses, stores and protects personal information submitted through this website.</td><td>Replace empty metadata.</td></tr>
-              <tr><td><code>/terms</code></td><td>Website Terms of Use | 40ftSlinky</td><td>Read the terms that govern use of the 40ftSlinky website and its content.</td><td>Replace <code>tbc</code> metadata and visible Lorem Ipsum.</td></tr>
-              <tr><td><code>/404</code></td><td>Page Not Found | 40ftSlinky</td><td>The page you requested could not be found. Return to the 40ftSlinky homepage or explore our projects.</td><td>Add <code>noindex</code>.</td></tr>
-              <tr><td><code>/tags</code>, <code>/industries</code></td><td>Project Tags | 40ftSlinky<br>Industries We Work In | 40ftSlinky</td><td>Browse 40ftSlinky projects by capability and topic.<br>Browse 40ftSlinky projects by industry.</td><td>Replace <code>tbc</code>, or noindex thin index pages.</td></tr>
-              <tr><td>Dynamic tag/industry pages</td><td><code>${currentTag} Projects | 40ftSlinky</code><br><code>${industry} Projects | 40ftSlinky</code></td><td>Generate a specific description from the current tag or industry.</td><td>Filter drafts; normally <code>noindex,follow</code>.</td></tr>
+              <tr><td><code>/</code></td><td>Creative Agency for Brand, Digital &amp; Content | 40ftSlinky</td><td>40ftSlinky is a boutique creative agency delivering imaginative brand strategy, digital experiences, print and motion solutions.</td><td><span class="status done">Complete</span></td></tr>
+              <tr><td><code>/about</code></td><td>About 40ftSlinky | Independent Creative Agency</td><td>Meet 40ftSlinky, a multidisciplinary creative agency creating clear strategies, distinctive identities and practical digital systems.</td><td><span class="status done">Complete</span></td></tr>
+              <tr><td><code>/contact</code></td><td>Contact 40ftSlinky | Start a Project</td><td>Talk to 40ftSlinky about your next project. We work with government and businesses across Australia and around the world.</td><td><span class="status done">Complete</span></td></tr>
+              <tr><td><code>/projects</code></td><td>Creative Agency Projects | 40ftSlinky</td><td>Explore 40ftSlinky projects across brand identity, strategy, digital, print and motion, created to solve real communication challenges.</td><td><span class="status done">Complete</span></td></tr>
+              <tr><td><code>/privacy</code></td><td>Privacy Policy | 40ftSlinky</td><td>Learn how 40ftSlinky handles the personal and sensitive information you share with us.</td><td>Metadata complete; visible policy content remains open.</td></tr>
+              <tr><td><code>/terms</code></td><td>Website Terms of Use | 40ftSlinky</td><td>Read the terms that govern your use of the 40ftSlinky website and its content.</td><td>Metadata complete; visible Lorem Ipsum remains open.</td></tr>
+              <tr><td><code>/404</code></td><td>Page Not Found | 40ftSlinky</td><td>The page you requested could not be found. Return to the 40ftSlinky homepage or explore our creative projects.</td><td><span class="status done">Complete</span></td></tr>
+              <tr><td><code>/tags</code>, <code>/industries</code></td><td>Project Tags | 40ftSlinky<br>Industries We Work In | 40ftSlinky</td><td>Browse 40ftSlinky creative projects by capability, service and topic.<br>Browse 40ftSlinky creative projects by client industry and sector.</td><td>Metadata complete; pages use <code>noindex,follow</code>.</td></tr>
+              <tr><td>Dynamic tag/industry pages</td><td><code>${currentTag} Projects | 40ftSlinky</code><br><code>${industry} Projects | 40ftSlinky</code></td><td>Specific descriptions are generated from the current tag or industry.</td><td>Metadata complete; draft filtering remains open.</td></tr>
               <tr><td>Blog and test pages</td><td>—</td><td>—</td><td>Remove from production or mark <code>noindex</code>.</td></tr>
             </tbody>
           </table></div>
@@ -135,34 +138,35 @@
 
         <section id="projects">
           <h2>Published project metadata</h2>
-          <p>Apply these frontmatter values. The cover alt is used on project cards, so it must describe the visual rather than say “cover image”, “The full Astro logo” or “placeholder”.</p>
+          <p><span class="status done">Metadata complete</span> Meta titles and descriptions were applied to all 22 published projects on 18 August 2026. Cover-alt recommendations remain open because the cover alt is used on project cards and must describe the visual rather than say “cover image”, “The full Astro logo” or “placeholder”.</p>
           <div class="table-wrap"><table>
-            <thead><tr><th>Project</th><th>Suggested title</th><th>Suggested description</th><th>Suggested cover alt</th></tr></thead>
+            <thead><tr><th>Project</th><th>Current title</th><th>Current description</th><th>Suggested cover alt</th></tr></thead>
             <tbody>
               <tr><td>Addi Road</td><td>Addi Road Brand and Print Design | 40ftSlinky</td><td>Brand update and printed materials for Addi Road, a vibrant Sydney hub for community engagement.</td><td>Addi Road community-hub brand materials</td></tr>
               <tr><td>Annual Reports</td><td>Annual Report Design &amp; Production | 40ftSlinky</td><td>Annual report design, typesetting and print production for government, education, finance and not-for-profit organisations.</td><td>Selection of annual reports designed by 40ftSlinky</td></tr>
               <tr><td>Bruce Energy</td><td>Bruce Energy Brand Identity &amp; Website | 40ftSlinky</td><td>A new brand identity and digital presence for Bruce Energy, created to support a new beginning.</td><td>Bruce Energy brand identity artwork</td></tr>
-              <tr><td>Cabcharge</td><td>Cabcharge Digital Experience &amp; Campaign | 40ftSlinky</td><td>Campaign landing page, UX and savings calculator designed to help Cabcharge customers understand the value of switching.</td><td>Cabcharge savings-calculator landing page</td></tr>
+              <tr><td>Cabcharge</td><td>Cabcharge Digital Experience &amp; Campaign | 40ftSlinky</td><td>Campaign landing page, user experience and savings calculator designed to help Cabcharge customers understand the value of switching.</td><td>Cabcharge savings-calculator landing page</td></tr>
               <tr><td>Central Park</td><td>Central Park Property Marketing &amp; Digital | 40ftSlinky</td><td>Sales materials, digital marketing and a campaign website for Central Park, a luxury property development in Box Hill.</td><td>Central Park Box Hill property marketing campaign</td></tr>
-              <tr><td>DiDi Rideshare</td><td>DiDi Rideshare Australia Launch Campaign | 40ftSlinky</td><td>Out-of-home, social and digital creative for DiDi Rideshare's Australian launch campaign.</td><td>DiDi Rideshare campaign at Flinders Street Station</td></tr>
+              <tr><td>DiDi Rideshare</td><td>DiDi Rideshare Australia Launch Campaign | 40ftSlinky</td><td>Out-of-home, social and digital creative for DiDi Rideshare’s successful Australian launch campaign.</td><td>DiDi Rideshare campaign at Flinders Street Station</td></tr>
               <tr><td>Digital Projects</td><td>Digital Campaigns, Websites &amp; Automation | 40ftSlinky</td><td>A selection of digital campaigns, landing pages, HTML5 ads, CRM automation and social creative developed by 40ftSlinky.</td><td>Digital campaign interfaces and social creative</td></tr>
-              <tr><td>Hidden Southern Highlands</td><td>Hidden Southern Highlands Interactive Map | 40ftSlinky</td><td>An interactive explorer's map, treasure hunt and audio app that brings the Hidden Southern Highlands to life.</td><td>Illustrated Hidden Southern Highlands explorer's map</td></tr>
-              <tr><td>Lug+Carrie</td><td>Lug+Carrie eBike Brand &amp; Digital Platform | 40ftSlinky</td><td>A refreshed brand, eBike configurator and Salesforce-integrated website for Lug+Carrie's national subscription service.</td><td>Lug+Carrie eBike subscription website and configurator</td></tr>
-              <tr><td>Matthew Reilly</td><td>Matthew Reilly Book Cover Design | 40ftSlinky</td><td>Twenty-five years of book-cover design for bestselling Australian author Matthew Reilly.</td><td>Collection of Matthew Reilly book covers</td></tr>
+              <tr><td>Hidden Southern Highlands</td><td>Hidden Southern Highlands Interactive Map | 40ftSlinky</td><td>An interactive explorer’s map, treasure hunt and immersive audio app that brings the Hidden Southern Highlands to life.</td><td>Illustrated Hidden Southern Highlands explorer's map</td></tr>
+              <tr><td>Lug+Carrie</td><td>Lug+Carrie eBike Brand &amp; Digital Platform | 40ftSlinky</td><td>A refreshed brand, custom eBike builder and Salesforce-integrated website for Lug+Carrie’s national subscription service.</td><td>Lug+Carrie eBike subscription website and configurator</td></tr>
+              <tr><td>Matthew Reilly</td><td>Matthew Reilly Book Cover Design | 40ftSlinky</td><td>Twenty-five years of book cover design for bestselling Australian author Matthew Reilly.</td><td>Collection of Matthew Reilly book covers</td></tr>
               <tr><td>National Film and Sound Archive</td><td>NFSA Annual Report &amp; Collateral Design | 40ftSlinky</td><td>Annual reports and in-house marketing collateral for the National Film and Sound Archive of Australia.</td><td>National Film and Sound Archive annual-report design</td></tr>
-              <tr><td>Police Bank</td><td>Police Bank Annual Report Design | 40ftSlinky</td><td>Annual-report design and production for Police Bank.</td><td>Police Bank annual report design</td></tr>
+              <tr><td>Police Bank</td><td>Police Bank Annual Report Design | 40ftSlinky</td><td>Annual report design and production for Police Bank.</td><td>Police Bank annual report design</td></tr>
               <tr><td>Positive Good</td><td>Positive Good Brand Identity &amp; Website | 40ftSlinky</td><td>A bold brand refresh, collateral and website for Positive Good, a purpose-driven cleantech marketing agency.</td><td>Positive Good brand identity artwork</td></tr>
               <tr><td>Praemium</td><td>Praemium Brand &amp; Investment Platform Design | 40ftSlinky</td><td>Brand, website and digital campaign work that positioned Praemium as a purpose-built investment platform.</td><td>Praemium investment platform campaign artwork</td></tr>
-              <tr><td>Protect Our Winters</td><td>Protect Our Winters Election Campaign | 40ftSlinky</td><td>Election-campaign digital assets and out-of-home creative for climate advocacy organisation Protect Our Winters.</td><td>Protect Our Winters election campaign poster</td></tr>
-              <tr><td>Trade Publishing</td><td>Trade Publishing Book Cover Design | 40ftSlinky</td><td>Award-winning book-cover design for trade publishers, spanning fiction, non-fiction and reference titles.</td><td>Trade publishing book cover collection</td></tr>
+              <tr><td>Protect Our Winters</td><td>Protect Our Winters Election Campaign | 40ftSlinky</td><td>Election campaign digital assets and out-of-home creative for climate advocacy organisation Protect Our Winters.</td><td>Protect Our Winters election campaign poster</td></tr>
+              <tr><td>Trade Publishing</td><td>Trade Publishing Book Cover Design | 40ftSlinky</td><td>Award-winning book cover design for trade publishers, spanning fiction, non-fiction and reference titles.</td><td>Trade publishing book cover collection</td></tr>
               <tr><td>Royal Melbourne Show</td><td>Royal Melbourne Show Brand &amp; Event Campaign | 40ftSlinky</td><td>Brand updates, event point-of-sale and promotional creative for the Royal Melbourne Show.</td><td>Royal Melbourne Show campaign artwork</td></tr>
-              <tr><td>Samsung</td><td>Samsung Defence &amp; Agentic Creative | 40ftSlinky</td><td>Digital experiences, conference collateral and agentic creative for Samsung's defence and public-safety technology.</td><td>Samsung defence and public-safety campaign creative</td></tr>
-              <tr><td>Sonnen</td><td>Sonnen Australian Brand Launch Campaign | 40ftSlinky</td><td>Digital, social and video creative that introduced Sonnen's home energy-storage solutions to the Australian market.</td><td>Sonnen home energy campaign creative</td></tr>
-              <tr><td>SunSolve</td><td>SunSolve Brand &amp; Digital Campaign | 40ftSlinky</td><td>Brand and digital campaign work for SunSolve.</td><td>SunSolve brand campaign artwork</td></tr>
-              <tr><td>University of Canberra</td><td>University of Canberra Marketing &amp; Design | 40ftSlinky</td><td>Annual reports, student recruitment and marketing collateral for the University of Canberra.</td><td>University of Canberra annual-report and marketing design</td></tr>
-              <tr><td>Victoria University</td><td>Victoria University Course Guide Design | 40ftSlinky</td><td>Student prospectus and promotional-material design for Victoria University.</td><td>Victoria University course-guide design</td></tr>
+              <tr><td>Samsung</td><td>Samsung Defence &amp; Agentic Creative | 40ftSlinky</td><td>Digital experiences, conference collateral and agentic creative for Samsung’s defence and public-safety technology.</td><td>Samsung defence and public-safety campaign creative</td></tr>
+              <tr><td>Sonnen</td><td>Sonnen Australian Brand Launch Campaign | 40ftSlinky</td><td>Digital, social and video creative that introduced Sonnen’s home energy-storage solutions to the Australian market.</td><td>Sonnen home energy campaign creative</td></tr>
+              <tr><td>SunSolve</td><td>SunSolve Brand &amp; Digital Campaign | 40ftSlinky</td><td>Brand and digital campaign work for SunSolve, a physics-driven solar energy modelling and analytics platform.</td><td>SunSolve brand campaign artwork</td></tr>
+              <tr><td>University of Canberra</td><td>University of Canberra Marketing &amp; Design | 40ftSlinky</td><td>Annual reports, student recruitment and marketing collateral designed and produced for the University of Canberra.</td><td>University of Canberra annual-report and marketing design</td></tr>
+              <tr><td>Victoria University</td><td>Victoria University Course Guide Design | 40ftSlinky</td><td>Student prospectus and promotional material design for Victoria University’s higher education and TAFE programs.</td><td>Victoria University course-guide design</td></tr>
             </tbody>
           </table></div>
+          <p>All six draft entries also now have restrained, content-supported metadata. They must still be excluded from production route and taxonomy generation.</p>
         </section>
 
         <section id="images">
@@ -174,7 +178,7 @@
           </div>
           <ul class="checklist">
             <li>In <code>Bio.astro</code>, replace the visible <code>placeholder</code> values with <code>Portrait of [name], [role]</code>. Update Jeremy from <code>40ftSlinky</code> to <code>Portrait of Jeremy Nicholson, Creative Founder</code>.</li>
-            <li>Replace every project <code>coverAlt</code> with the project-table value above. The current generic cover text appears 108 times in generated page cards; <code>The full Astro logo.</code> appears 44 times.</li>
+            <li>Replace every project <code>coverAlt</code> with the project-table value above. Generic <code>cover image</code> text currently appears 125 times in generated HTML; <code>The full Astro logo.</code> appears 44 times.</li>
             <li>Replace numbered gallery alts in Bruce Energy, Cabcharge, Central Park, Lug+Carrie, NFSA, Police Bank, Victoria University and Samsung with visual descriptions.</li>
             <li>Correct the <em>Ten Ordinary Men</em> assets in Addi Road and Annual Reports: their alts currently call them <em>The Hollow Tree</em>.</li>
             <li>Make repeated alts distinct where each visual differs: Positive Good business cards, Praemium OOH executions, University of Canberra spreads and the Sonnen Facebook grid.</li>
@@ -192,10 +196,18 @@
           </ul>
         </section>
 
+        <section id="ux-tasks">
+          <h2>Site &amp; project UX tasks</h2>
+          <ul class="checklist">
+            <li>Randomise the four projects shown in the homepage projects grid on each page load. Select four eligible published projects for every request/render, with no draft or test entries included.</li>
+            <li>Add a horizontal three-card <code>Other projects</code> grid to the bottom of every project page, immediately before the <code>GlobalCTA</code>. Exclude the current project, use published projects only, and provide meaningful links and image alts.</li>
+          </ul>
+        </section>
+
         <section id="verify">
           <h2>Final verification</h2>
           <ul class="checklist">
-            <li>Run <code>npm run build</code> successfully after implementation.</li>
+            <li class="complete">Run <code>npm run build</code> successfully after the metadata implementation. The 18 August build generated 161 pages.</li>
             <li>Confirm each indexable page has one meaningful document title, one non-empty description and a canonical URL.</li>
             <li>Use an accessibility inspector or screen reader to confirm image descriptions are accurate and non-repetitive; decorative images should use <code>alt=""</code>.</li>
             <li>Confirm generated project, tag and industry output contains no draft or test URLs.</li>
