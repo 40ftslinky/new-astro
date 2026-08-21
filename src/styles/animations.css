@@ -21,6 +21,8 @@
     /* var(--ease-out-soft) */
     --ease-in-out-soft: cubic-bezier(0.72,0,0.28,1);
     --ease-in-out-hard: cubic-bezier(0.77,0,0.175,1);
+
+    --when-in-doubt-ease-in-out: all 0.5s cubic-bezier(0.8, 0, 0.2, 1);
     
     /* Transitions */
 

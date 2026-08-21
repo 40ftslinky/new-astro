@@ -60,6 +60,17 @@
   scroll-behavior: smooth;
   height: var(--carousel-height)
 }
+@media screen and (max-width: 880px) {
+  .carousel_container, .carousel_stage {
+    height: auto;
+    align-items: stretch;
+    max-height: 80vh;
+  }
+}
+
+.carousel_container:has(.video_wrap), .carousel_stage:has(.video_wrap) {
+  height: auto;
+}
 
 .carousel_stage .image_wrap {
   /* flex: 0 0 var(--max-col-width); */
@@ -77,6 +88,9 @@
   transform: scale(0.98);
 }
 
+.carousel_slide[data-type="last"] {
+    margin-right: 2.5vw;
+}
 
 /* --------------------------------------- */
 /* carousel images */
@@ -86,7 +100,7 @@
 .carousel_container .image_wrap,
 .carousel_stage .image_wrap {
     height: var(--carousel-height);
-    height: auto;
+    /* height: auto; */
     object-fit: cover;
     width: auto;
     max-width: max-content;
@@ -97,6 +111,7 @@
   .carousel_container .image_wrap,
   .carousel_stage .image_wrap {
     /* height: calc(var(--carousel-height)*2/3); */
+        height: auto;
         max-height: fit-content;
   }
 }
@@ -119,6 +134,7 @@
     max-width: max-content;
     height: var(--carousel-height);
 }
+
 
 
 /* Prevent dragging and user selection on images */

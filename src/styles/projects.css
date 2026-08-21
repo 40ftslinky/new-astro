@@ -258,8 +258,6 @@
     .image-wrap { order: 1; }
 } */
 @media (max-width: 34em) {
-    /* .portfolio-preview { flex-direction: column; gap: 2rem; }
-    .image-wrap { width: 100%; max-width: 100%; } */
+    /* .portfolio-preview { flex-direction: column; gap: 2rem; }*/
+    .image-wrap { width: 100%; max-width: unset; } 
 }
-
-	
