@@ -1,0 +1,101 @@
+---
+
+#  frontmatter
+uniqueID: 'project'
+title: 'Bounce'
+state: 'Published'
+pubDate: 2026-08-18
+head: 'Bounce Rideshare'
+description: 'Muthafuks dont pay their bills. '
+metaTitle: 'Bounce Rideshare | 40ftSlinky'
+metaDescription: 'Bounce Rideshare is a rideshare service that connects passengers with drivers for convenient and affordable transportation.'
+author: ''
+cover: '../../assets/imgs/bounce/bounce_hero.png'
+# cover: '.imgs/color-gray.jpg'
+# cover: "./image.jpeg" # will resolve to "src/content/projects/image.jpeg"
+coverAlt: 'Bounce Rideshare campaign creative.'
+coverWidth: '1920'
+coverHeight: '1080'
+
+tags: ["Video", "Agentic", "Motion Graphics", "Web Design", "Digital Advertising", "Video Production", "Social Media Campaigns"]
+
+industries: ["Rideshare"]
+
+
+
+---
+
+
+{/* import Component */}
+import VideoFeature from '../../components/VideoFeature.astro';
+
+{/* import assets  */}
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+// import image01 from '../../assets/imgs/other/Editorial-Mockup_00.jpg';
+// import image02 from '../../assets/imgs/other/color-orange.png';
+// import image03 from '../../assets/imgs/other/color-green.jpg';
+import heroImage from '../../assets/imgs/bounce/bounce_hero.png';
+
+export const videoBase = '/video/bounce/';
+export const videos = {
+  main: {
+    url: `${videoBase}Bounce_FckMe_01_3.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+  },
+  video01: {
+    url: `${videoBase}Bouncy_Street.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+    loop: true,
+  },
+  video02: {
+    url: `${videoBase}Kanga_Bounce-is-different.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+    loop: true,
+  },
+  video03: {
+    url: `${videoBase}Kanga_Bounce-is-different.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+    loop: true,
+  },
+  video04: {
+    url: `${videoBase}Bounce_Phone_screen_mock_AllCaps.mp4`,
+    width: '100%',
+    height: '100%',
+    poster: '/src/assets/imgs/other/color-gray.jpg',
+    loop: true,
+  },
+};
+
+
+{/* ## Content
+<p>Post content</p>
+Local image stored in src/assets/ (carousel) */}
+
+<p class="small">Launch Campaign and Video assets</p>
+
+<div id="carousel-01" class="carousel_container">
+  <div class="carousel_stage">
+      <div class="carousel_slide"><VideoFeature video={videos.main} /></div>
+      <div class="carousel_slide"><VideoFeature video={videos.video01} /></div>
+      <div class="carousel_slide"><VideoFeature video={videos.video02} /></div>
+      <div class="carousel_slide"><VideoFeature video={videos.video03} /></div>
+      <div class="carousel_slide" data-type="last"><VideoFeature video={videos.video04} /></div>
+      {/* <div class="image_wrap carousel_slide" data-type="last"><Picture src={image03} alt="Image 03" layout="constrained"/></div> */}
+  </div>
+  <button class="carousel-button prev">❮</button>
+  <button class="carousel-button next">❯</button>  
+  <div class="carousel-indicators"></div> 
+</div>
+
+{/* 
+## Video Embed - alternative method
+<VideoFeature video={videos.webPages} /> */}
