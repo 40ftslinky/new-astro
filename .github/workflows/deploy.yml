@@ -24,7 +24,8 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 22
-
+          package-manager: npm
+          
   deploy:
     needs: build
     runs-on: ubuntu-latest
