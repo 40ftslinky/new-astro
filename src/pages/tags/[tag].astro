@@ -55,25 +55,47 @@ const pageContent = "Select a tag to view all projects with that tag.";
 	pageDesc={pageDesc}
 	pageContent={pageContent}
 >
-<section>
-  <p>Projects tagged with {currentTag}</p>
-    <!-- <ul>
-        { projects.map((project) => 
-          <ProjectPost url={`/projects/${project.id}/`} title={project.data.title} />) 
-        }
-    </ul> -->
 
-    <div class="gallery">
-      <Grid variant="offset">
-        {
-          projects.map((project) => (
-            <li>
-              <PortfolioPreview project={project} />
-            </li>
-          ))
-        }
-      </Grid>
+<section class="animate">
+
+  <p>Projects tagged with {currentTag}</p>    
+
+    <div class="row ">
+			
+      <div class="column col_content">
+				<div class="gallery" id="project-gallery">
+					<Grid variant="half">
+						{
+							projects.map((project) => (
+								<li
+									data-project-card
+									data-tags={JSON.stringify(project.data.tags ?? [])}
+									data-industries={JSON.stringify(project.data.industries ?? [])}
+								>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</div>
+
+    <!--       
+      <div class="gallery">
+        <Grid variant="half">
+          {
+            projects.map((project) => (
+              <li>
+                <PortfolioPreview project={project} />
+              </li>
+            ))
+          }
+        </Grid>
+      </div>
+    -->
+
     </div>
+    
 </section>
 
 </BaseLayout>
