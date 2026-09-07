@@ -7,7 +7,7 @@ import Grid from '../../components/Grid.astro';
 import PortfolioPreview from '../../components/PortfolioPreview.astro';
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection("projects", ({ data }) => data.state === "Published");
+  const allProjects = await getCollection("projects");
   const uniqueIndustries = [...new Set(allProjects.map((project) => project.data.industries).flat())];
 
   return uniqueIndustries.map((industry) => {
@@ -54,6 +54,27 @@ const pageContent = "Select a tag to view all projects with that tag.";
         }
     </ul> -->
 
+    <div class="row ">
+			
+      <div class="column col_content">
+				<div class="gallery" id="project-gallery">
+					<Grid variant="half">
+						{
+							projects.map((project) => (
+								<li
+									data-project-card
+									data-tags={JSON.stringify(project.data.tags ?? [])}
+									data-industries={JSON.stringify(project.data.industries ?? [])}
+								>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</div>
+
+    <!-- 
     <div class="gallery">
       <Grid variant="offset">
         {
@@ -64,7 +85,8 @@ const pageContent = "Select a tag to view all projects with that tag.";
           ))
         }
       </Grid>
-    </div>
+    </div> 
+    -->
 </section>
 
 </BaseLayout>
