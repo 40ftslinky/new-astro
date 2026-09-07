@@ -234,12 +234,14 @@ const instanceId = `project-filters-${Math.random().toString(36).slice(2, 9)}`;
 	}
 	.filter-clear:hover { color: var(--gray-100); }
 	.filter-tags {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		display: flex;
+		flex-wrap: wrap;
 		gap: var(--col-gap);
-		align-items: start;
+		align-items: flex-start;
 	}
 	.filter-select {
+		flex: 1 1 calc((100% - var(--col-gap)) / 2);
+		min-width: 0;
 		overflow: hidden;
 		border-radius: 0.75rem;
 		background: rgb(255 255 255 / 0%);
@@ -302,14 +304,15 @@ const instanceId = `project-filters-${Math.random().toString(36).slice(2, 9)}`;
 		animation: filter-pill-in 280ms ease-in-out both;
 	}
 	.filter-select__panel {
-		display: grid;
-		grid-template-rows: 0fr;
+		display: flex;
+		flex-direction: column;
+		max-height: 0;
+		overflow: hidden;
 		opacity: 0;
-		transition: grid-template-rows 300ms ease-in-out, opacity 250ms ease-in-out;
-		max-height: min(40rem, 30vh);
+		transition: max-height 300ms ease-in-out, opacity 250ms ease-in-out;
 	}
 	.filter-select.is-open .filter-select__panel {
-		grid-template-rows: 1fr;
+		max-height: min(40rem, 30vh);
 		opacity: 1;
 	}
 	.filter-select__panel-inner {
@@ -359,7 +362,7 @@ const instanceId = `project-filters-${Math.random().toString(36).slice(2, 9)}`;
 		to { opacity: 1; transform: scale(1); }
 	}
 	@media (max-width: 42rem) {
-		.filter-tags { grid-template-columns: 1fr; }
+		.filter-select { flex-basis: 100%; }
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.filter-select,

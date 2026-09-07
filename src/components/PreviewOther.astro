@@ -1,0 +1,50 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Grid from './Grid.astro';
+import PortfolioPreview from './PortfolioPreview.astro';
+
+interface Props {
+  currentProject: CollectionEntry<'projects'>;
+}
+
+const { currentProject } = Astro.props;
+const publishedProjects = await getCollection(
+  'projects',
+  ({ data }) => data.state === 'Published' && !data.isTest
+);
+const otherProjects = publishedProjects.filter((project) => project.id !== currentProject.id);
+const currentTags = new Set(currentProject.data.tags ?? []);
+const currentIndustries = new Set(currentProject.data.industries ?? []);
+
+function relevance(project: CollectionEntry<'projects'>) {
+  const matchingTags = (project.data.tags ?? []).filter((tag) => currentTags.has(tag)).length;
+  const matchingIndustries = (project.data.industries ?? []).filter((industry) => currentIndustries.has(industry)).length;
+  return matchingTags + matchingIndustries;
+}
+
+const mostRecent = [...otherProjects].sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const related = mostRecent.filter((project) => relevance(project) > 0).sort(
+  (a, b) => relevance(b) - relevance(a) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const selectedProjects = [
+  ...related,
+  ...mostRecent.filter((project) => !related.includes(project)),
+].slice(0, 3);
+---
+
+{selectedProjects.length > 0 && (
+  <section class="preview-other animate" aria-labelledby="preview-other-title">
+    <div class="row has-divider">
+      <div class="column col_title">
+        <h2 id="preview-other-title">More projects</h2>
+      </div>
+    </div>
+    <Grid variant="related">
+      {selectedProjects.map((project) => (
+        <li><PortfolioPreview project={project} /></li>
+      ))}
+    </Grid>
+  </section>
+)}

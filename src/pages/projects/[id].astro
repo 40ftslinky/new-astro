@@ -29,7 +29,7 @@ const { Content } = await render(entry);
 
 ---
 
-<MarkdownPostLayout frontmatter={entry.data}>    
+<MarkdownPostLayout frontmatter={entry.data} currentProject={entry}>
   <Content />
 </MarkdownPostLayout>
 
@@ -42,4 +42,3 @@ const { Content } = await render(entry);
 
   
 </style>
-

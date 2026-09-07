@@ -18,7 +18,9 @@ const projects = defineCollection({
     schema: ({ image }) => z.object({
         uniqueID: z.string(),
         title: z.string(),
-        state: z.enum(['Published', 'Draft']),
+        // Preview projects have a live URL but are excluded from portfolio listings.
+        state: z.enum(['Published', 'Preview', 'Draft']),
+        isTest: z.boolean().default(false),
         metaTitle: z.string().optional(),
         metaDescription: z.string().optional(),
         pubDate: z.coerce.date(),
@@ -36,6 +38,7 @@ const projects = defineCollection({
             height: z.string().optional(),
         }).optional(),
         video: z.object({
+            hasAudio: z.boolean().optional(),
             url: z.string().optional(),
             width: z.string(),
             height: z.string(),

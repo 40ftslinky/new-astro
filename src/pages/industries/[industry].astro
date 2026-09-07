@@ -7,7 +7,7 @@ import Grid from '../../components/Grid.astro';
 import PortfolioPreview from '../../components/PortfolioPreview.astro';
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection("projects");
+  const allProjects = await getCollection("projects", ({ data }) => data.state === "Published");
   const uniqueIndustries = [...new Set(allProjects.map((project) => project.data.industries).flat())];
 
   return uniqueIndustries.map((industry) => {

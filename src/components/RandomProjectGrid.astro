@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Grid from './Grid.astro';
+import PortfolioPreview from './PortfolioPreview.astro';
+import { sampleProjects } from '../utils/sampleProjects';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+const { projects } = Astro.props;
+const fallbackProjects = sampleProjects(projects);
+---
+
+<random-project-grid>
+  <Grid variant="large">
+    {fallbackProjects.map((project) => <li><PortfolioPreview {project} /></li>)}
+  </Grid>
+  <template>
+    {projects.map((project) => <li><PortfolioPreview {project} /></li>)}
+  </template>
+</random-project-grid>
+
+<script>
+  import { sampleProjects } from '../utils/sampleProjects';
+
+  class RandomProjectGrid extends HTMLElement {
+    connectedCallback() {
+      const grid = this.querySelector('ul');
+      const template = this.querySelector('template');
+      if (!grid || !template) return;
+
+      const cards = Array.from(template.content.children);
+      grid.replaceChildren(...sampleProjects(cards).map((card) => card.cloneNode(true)));
+    }
+  }
+
+  if (!customElements.get('random-project-grid')) {
+    customElements.define('random-project-grid', RandomProjectGrid);
+  }
+</script>
+
+<style>
+  random-project-grid {
+    display: block;
+  }
+</style>

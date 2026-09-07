@@ -2,9 +2,8 @@
 // components
 // import Welcome from '../components/Welcome.astro';
 // import Content from '../components/Content.astro';
-import Grid from '../components/Grid.astro';
 // import ClientListing from '../components/ClientListing.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import RandomProjectGrid from '../components/RandomProjectGrid.astro';
 import Clients from '../components/Clients.astro';
 import Services from '../components/Services.astro';
 import ServicesSection from '../components/Services_Section.astro';
@@ -36,10 +35,11 @@ import { Image } from "astro:assets";
 import { getCollection } from 'astro:content';
 
 
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('projects'))
-	.sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 4);
+// Only real, published projects are eligible for the homepage.
+const testProjectIds = new Set(['case-study', 'project-1b', 'project-template']);
+const projects = await getCollection('projects', ({ id, data }) =>
+	data.state === 'Published' && !data.isTest && !testProjectIds.has(id)
+);
 
 
 ---
@@ -76,15 +76,7 @@ const projects = (await getCollection('projects'))
 			
 		</div>
 		<div class="gallery">
-			<Grid variant="large">
-				{
-					projects.map((project: any) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+			<RandomProjectGrid {projects} />
 			<div class="view-all-projects" transition:animate={fade({ duration: '1s' })} >
 				<a href="/projects" class="btn btn-primary">View all projects</a>
 			</div>

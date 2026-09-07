@@ -11,10 +11,10 @@
 
 ## Additional Tasks
 
-[ ] change "Draft"/"Published" state to include "Preview" (post would be "live", but not listed in <code><PortfolioPreview></code> component)
-[ ] Randomise the four projects shown in the homepage projects grid on each page load. Select four eligible published projects for every request/render, with no draft or test entries included. 
-[ ] Add a horizontal three-card <code><PreviewOther></code> grid to the bottom of every project page, immediately before the <code><GlobalCTA></code>. Exclude the current project, use published projects only, and provide meaningful links and image alts. Component should be called "PreviewOther" and list Projects most relevant by Tag or Industry to the Project currently being viewed.
-[ ] add audio On/Off option for video
-[ ] add Video pause for videos horizontally off-screen
+[x] change "Draft"/"Published" state to include "Preview" (post would be "live", but not listed in <code><PortfolioPreview></code> component)
+[x] Randomise the four projects shown in the homepage projects grid on each page load. Select four eligible published projects for every request/render, with no preview, draft or test entries included. 
+[x] Add a horizontal three-card <code><PreviewOther></code> grid to the bottom of every project page, in a new section immediately before the <code><GlobalCTA></code>. Exclude the current project, use published projects only, and provide meaningful links and image alts. Component should be called "PreviewOther" and list Projects most relevant by Tag or Industry to the Project currently being viewed.
+[x] if audio exists add audio On/Off option for video
+[x] add Video pause for videos horizontally off-screen
 [ ] update "Tags" variants
-[ ] fix "Tags" & "Industry" template
+[x] fix "Tags" & "Industry" template

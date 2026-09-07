@@ -2,11 +2,12 @@
 import BaseLayout from './BaseLayout.astro';
 import { fade } from "astro:transitions";
 import { toSlug } from '../utils/toSlug';
+import PreviewOther from '../components/PreviewOther.astro';
 // import VideoFeature from '../components/VideoFeature.astro';
 
 // import { Image } from "astro:assets";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, currentProject } = Astro.props;
 const metaTitle = frontmatter.metaTitle ?? `${frontmatter.title} | 40ftSlinky Project`;
 const metaDescription = frontmatter.metaDescription ?? frontmatter.description;
 const metaImage = frontmatter.cover?.src;
@@ -75,6 +76,8 @@ const metaImage = frontmatter.cover?.src;
         </div>
 
     </section>
+
+    {currentProject && <PreviewOther {currentProject} />}
 
 </BaseLayout>
 

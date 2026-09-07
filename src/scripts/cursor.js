@@ -88,14 +88,16 @@ function initCarouselCursors() {
         cleanupCallbacks.push(() => window.removeEventListener('pointerup', release));
         cleanupCallbacks.push(() => window.removeEventListener('resize', refreshBounds));
 
-        // Delegation avoids adding two hover listeners for every carousel button.
+        // Hide the carousel cursor over controls that use the standard pointer.
         carousel.addEventListener('pointerover', (event) => {
-            if (event.target.closest('.carousel-button')) cursor.classList.add('cursor-hover');
+            if (event.target.closest('.carousel-button, .carousel-indicators, .video-audio-toggle')) {
+                cursor.classList.add('cursor-hover');
+            }
         }, { passive: true });
 
         carousel.addEventListener('pointerout', (event) => {
-            const button = event.target.closest('.carousel-button');
-            if (button && !button.contains(event.relatedTarget)) cursor.classList.remove('cursor-hover');
+            const control = event.target.closest('.carousel-button, .carousel-indicators, .video-audio-toggle');
+            if (control && !control.contains(event.relatedTarget)) cursor.classList.remove('cursor-hover');
         }, { passive: true });
     });
 

@@ -244,7 +244,7 @@ document.addEventListener('astro:page-load', () => {
 
         isInteractiveControl(target) {
             if (!(target instanceof Element)) return false;
-            return target.closest('button, a, input, textarea, select, label');
+            return target.closest('button, a, input, textarea, select, label, .carousel-indicator');
         }
 
         getSlideMarginRight(slideIndex) {
