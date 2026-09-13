@@ -1,12 +1,12 @@
 <!-- andmine -->
 
-AI Digital Agency
+## AI Digital Agency
 
 We are your Digital and Artificial Intelligence (AI) lifeline. We make you look great – to your team and your competitors. Over 30 years we’ve delivered over half a million hours for our clients. We’ve seen and solved everything online, often first in Australia. From the top of funnel marketing through to  transformational technology builds. We aren’t distracted by buzzwords or vanity metrics, just real world results. We listen first, and get to the point fast. You’ll vet, and get a better strategy from us on the first call. Go on, test us.
 
 * ------------------------------------- *
 
-If It's Digital, We Do It.
+## If It's Digital, We Do It.
 
 Over the past decade, the focus has been on getting platforms in place. The next decade will be defined by which of those platforms survive the rise of AI. Many off-the-shelf, licensed systems will fade as custom AI solutions outperform and outlast them. At AndMine, we help clients move beyond the limitations of generic SaaS products by building and owning their own AI tools.
 
