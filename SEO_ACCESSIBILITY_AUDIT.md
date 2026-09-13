@@ -88,18 +88,18 @@ All six draft entries also now have restrained, content-supported metadata: `cas
 
 ## Content placeholders that affect index quality
 
-- [ ] Replace or unpublish the thin case-study body copy in Cabcharge, Polbank, NFSA, Victoria University, SunSolve and the draft entries. For example, `Polbank project content.` and `SunSolve project content.` are indexed page descriptions even if metadata is fixed.
-- [ ] Replace `Post Title` in the `head` frontmatter for Annual Reports, Positive Good, Praemium and Trade Publishing Book Cover Design. It is not currently rendered as the HTML title, but it is a content-quality warning.
+- [ ] Replace or unpublish the thin case-study body copy in Cabcharge, Polbank, NFSA, Victoria University, SunSolve and the draft entries. For example, `Polbank project content.` and `SunSolve project content.` are indexed page descriptions even if metadata is fixed.<br>
+- [ ] Replace `Post Title` in the `head` frontmatter for Annual Reports, Positive Good, Praemium and Trade Publishing Book Cover Design. It is not currently rendered as the HTML title, but it is a content-quality warning.<br>
 - [ ] Ensure the homepage filters to `state === 'Published'`; it currently sorts and shows every project, including drafts.
 
 ## Site and project UX tasks
 
-- [ ] Randomise the four projects shown in the homepage projects grid on each page load. Select four eligible published projects for every request/render, with no draft or test entries included.
-- [ ] Add a horizontal three-card `Other projects` grid to the bottom of every project page, immediately before the `GlobalCTA`. Exclude the current project, use published projects only, and provide meaningful links and image alts.
+- [ ] Randomise the four projects shown in the homepage projects grid on each page load. Select four eligible published projects for every request/render, with no draft or test entries included.<br>
+- [ ] Add a horizontal three-card `Other projects` grid to the bottom of every project page, immediately before the `GlobalCTA`. Exclude the current project, use published projects only, and provide meaningful links and image alts.<br>
 
-## Verification after implementation
+## Verification after implementation<br>
 
-- [x] Run `npm run build` successfully after the metadata implementation (161 pages built on 18 August 2026).
-- [ ] Confirm each page has one meaningful `<title>`, one non-empty meta description, canonical URL, and intended index/noindex directive.
-- [ ] View the project cards and case-study galleries with a screen reader or accessibility inspector; confirm every informative image has an accurate, non-repetitive alt and decorative images use `alt=""`.
+- [x] Run `npm run build` successfully after the metadata implementation (161 pages built on 18 August 2026).<br>
+- [ ] Confirm each page has one meaningful `<title>`, one non-empty meta description, canonical URL, and intended index/noindex directive.<br>
+- [ ] View the project cards and case-study galleries with a screen reader or accessibility inspector; confirm every informative image has an accurate, non-repetitive alt and decorative images use `alt=""`.<br>
 - [ ] Inspect the generated `/projects/*`, `/tags/*` and `/industries/*` output to confirm no draft/test URLs are emitted.
