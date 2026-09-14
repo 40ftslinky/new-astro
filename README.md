@@ -6,7 +6,7 @@
 
 ## Resources
 
-[ ] see SEO aduit[./SEO_ACCESSIBILITY_AUDIT.md]
+[ ] see SEO aduit[./SEO_ACCESSIBILITY_AUDIT.md]<br>
 [ ] complete UX tasks:
 
 ## Additional Tasks
