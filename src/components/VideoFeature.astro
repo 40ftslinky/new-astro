@@ -53,6 +53,25 @@ const hasAudio = video?.hasAudio ?? await videoHasAudio(video?.url);
 		border-radius: var(--border-radius);
 	}
 
+	:root { 
+		--video-max-width: calc(95vw - 2rem);
+		--video-max-height: calc(var(--video-max-width) * 9 / 16);
+
+	}
+	@media (max-width: 880px) {
+		.video_wrap {
+			max-width: 100%;
+		}
+		.carousel_stage .video {
+			max-width: calc(95vw - 2rem);
+
+		}
+		.video {
+			max-height: var(--video-max-height);
+			max-width: 95vw;
+		}
+	}
+
 	.video_wrap :global(.video-audio-toggle) {
 		position: absolute;
 		bottom: 1rem;

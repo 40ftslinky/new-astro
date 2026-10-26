@@ -101,7 +101,6 @@ import Logo from './Logo.astro';
     font-weight: var(--font-weight-bold);
     margin-top: 0;
     text-transform: uppercase;
-
   }
 
   .footer_wrap, .footer_top, .footer_bottom {
@@ -113,7 +112,8 @@ import Logo from './Logo.astro';
   .footer_bottom {
     padding: var(--xs-padding) var(--bodypadding);
   }
-  @media (max-width: 40em) {
+  /* @media (max-width: 40em) { */
+  @media (max-width: 480px) {    
     .footer_wrap {
       flex-direction: column;
       gap: 1rem;
@@ -129,7 +129,8 @@ import Logo from './Logo.astro';
     align-items: flex-end;
     background-color: var(--gray-700);
   }
-  @media (max-width: 40em) {
+  /* @media (max-width: 40em) { */
+  @media (max-width: 480px) {
     .footer_top, .footer_bottom {
       align-items: flex-start;
     }
@@ -148,15 +149,19 @@ import Logo from './Logo.astro';
     align-items: center;
     gap: 2rem;
   }
-  @media (max-width: 40em) {
+  /* @media (max-width: 40em) { */
+  @media (max-width: 480px) {
     .footer_top .footer_right,
     .footer_bottom .footer_right {
-      flex-direction: column;
+      /* flex-direction: column; */
       gap: 1rem;
     }
     .footer_bottom,
     .footer_bottom .footer_right {
       flex-direction: column-reverse;
+    }
+    .footer_bottom .footer_right {
+      align-items: flex-start;
     }
   }
 
@@ -195,9 +200,10 @@ import Logo from './Logo.astro';
     flex-direction: row;
     margin-right: -1rem;
   }
-  @media (max-width: 40em) {
+  /* @media (max-width: 40em) { */
+  @media (max-width: 480px) {
     .social_wrap {
-      margin-left: -2rem;
+      margin-left: -1rem;
       margin-right: 0;
     }
   }
